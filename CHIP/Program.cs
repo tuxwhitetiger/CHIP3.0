@@ -12,7 +12,7 @@ namespace Speech.Recognition.Example
         {
             var matrix = new RGBLedMatrix(32, 2, 1);
             var canvas = matrix.CreateOffscreenCanvas();
-            String HOST = "127.0.0.1"; // The server's hostname or IP address
+            String HOST = "localhost"; // The server's hostname or IP address
             int PORT = 65432;  // The port used by the server
 
             for (var i = 0; i < 1000; ++i)
