@@ -1,5 +1,6 @@
 ﻿using System;
 using rpi_rgb_led_matrix_sharp;
+using System.Net;
 
 namespace Speech.Recognition.Example
 {
@@ -24,6 +25,18 @@ namespace Speech.Recognition.Example
                 canvas.DrawLine(canvas.Width / 2 - 3, canvas.Height / 2 + 3, canvas.Width / 2 + 3, canvas.Height / 2 - 3, new Color(0, 0, 255));
 
                 canvas = matrix.SwapOnVsync(canvas);
+                var uriBuilder = new UriBuilder();
+                uriBuilder.Scheme = "http";
+                uriBuilder.Host = "webcode.me";
+                uriBuilder.Path = "/";
+
+                Uri uri = uriBuilder.Uri;
+
+                WebRequest request = WebRequest.Create(uri);
+                using WebResponse response = request.GetResponse();
+
+                var headers = response.Headers;
+                Console.WriteLine(headers);
             }
         }
     }
