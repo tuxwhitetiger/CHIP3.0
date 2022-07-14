@@ -12,13 +12,14 @@ namespace CHIP
         public static void Main(string[] args)
         {
             print();
+            /*
             var matrix = new RGBLedMatrix(32, 2, 1);
             var canvas = matrix.CreateOffscreenCanvas();
 
             mynetwork net = new mynetwork();
             net.connect();
             Console.WriteLine(net.getFace());
-
+            */
 
             
 
