@@ -6,12 +6,12 @@ namespace CHIP
 {
     class MainClass
     {
-        [DllImport("libtest.so", EntryPoint = "println")]
-        static extern void println();
+        [DllImport("libtest.so", EntryPoint = "print")]
+        static extern void print();
 
         public static void Main(string[] args)
         {
-            println();
+            print();
             /*
             var matrix = new RGBLedMatrix(32, 2, 1);
             var canvas = matrix.CreateOffscreenCanvas();
