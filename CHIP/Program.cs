@@ -1,10 +1,8 @@
 ﻿using System;
 using rpi_rgb_led_matrix_sharp;
-using System.Net.Sockets;
-using System.Net;
-using System.Text;
 
-namespace Speech.Recognition.Example
+
+namespace CHIP
 {
     class MainClass
     {
@@ -12,8 +10,10 @@ namespace Speech.Recognition.Example
         {
             var matrix = new RGBLedMatrix(32, 2, 1);
             var canvas = matrix.CreateOffscreenCanvas();
-            String HOST = "localhost"; // The server's hostname or IP address
-            int PORT = 65432;  // The port used by the server
+
+            mynetwork net = new mynetwork();
+            net.connect();
+            Console.WriteLine(net.getFace());
 
             for (var i = 0; i < 1000; ++i)
             {
@@ -29,44 +29,9 @@ namespace Speech.Recognition.Example
                 canvas.DrawLine(canvas.Width / 2 - 3, canvas.Height / 2 + 3, canvas.Width / 2 + 3, canvas.Height / 2 - 3, new Color(0, 0, 255));
 
                 canvas = matrix.SwapOnVsync(canvas);
-
-
-
-
-                IPHostEntry hostEntry = Dns.GetHostEntry(HOST);
-
-                IPEndPoint ipe = new IPEndPoint(hostEntry.AddressList[1], PORT);
-                Socket socket = new Socket(AddressFamily.InterNetwork,
-                    SocketType.Stream, ProtocolType.Tcp);
-
-                socket.Connect(ipe);
-
-                if (socket.Connected)
-                {
-                    Console.WriteLine("Connection established");
-                }
-                else
-                {
-                    Console.WriteLine("Connection failed");
-                    return;
-                }
-
-                Byte[] requestBytes = Encoding.ASCII.GetBytes("Get Face");
-                Byte[] bytesReceived = new Byte[256];
-
-                socket.Send(requestBytes, requestBytes.Length, 0);
-
-                int bytes = 0;
-                StringBuilder sb = new StringBuilder();
-                bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
-                sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
-                
-
-                Console.WriteLine(sb.ToString());
-
-
-
             }
+
+
         }
     }
 }
