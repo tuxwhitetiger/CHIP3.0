@@ -1,13 +1,19 @@
 ﻿using System;
+using System.IO;
+using System.Runtime.InteropServices;
 using rpi_rgb_led_matrix_sharp;
-using System.Drawing;
+using SharpDX.*;
 
 namespace CHIP
 {
     class MainClass
     {
+        [DllImport("libtest.so", EntryPoint = "print")]
+        static extern void print(string message);
+
         public static void Main(string[] args)
         {
+            print("Hello World C# => C++");
             var matrix = new RGBLedMatrix(32, 2, 1);
             var canvas = matrix.CreateOffscreenCanvas();
 
@@ -16,8 +22,7 @@ namespace CHIP
             Console.WriteLine(net.getFace());
 
 
-            Bitmap animatedImage = new Bitmap("faces/test.gif");
-
+            
 
 
 
