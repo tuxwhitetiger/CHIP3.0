@@ -33,7 +33,7 @@ namespace Speech.Recognition.Example
                 Uri uri = uriBuilder.Uri;
 
                 WebRequest request = WebRequest.Create(uri);
-                using WebResponse response = request.GetResponse();
+                WebResponse response = request.GetResponse();
 
                 var headers = response.Headers;
                 Console.WriteLine(headers);
