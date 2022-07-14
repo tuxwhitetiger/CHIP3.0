@@ -1,8 +1,6 @@
 ﻿using System;
-using System.IO;
 using System.Runtime.InteropServices;
 using rpi_rgb_led_matrix_sharp;
-using SharpDX.*;
 
 namespace CHIP
 {
