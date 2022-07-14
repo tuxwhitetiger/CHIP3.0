@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "WC6deAEEkJxkaEqZj2uJ38XpI1CbdHzOdKc3Mgz7CuV0WjvRRs0UQMMCPgG1AiD/c54lYHgPb9mfsqdK7E+x0Q==",
+  "dgSpecHash": "jtMSy7laEJwU+p4c7MWqVQjB88P1Z5WEjcrTYUFDHsFn/pDgcon68rWALqCFUrpDm7cFVn4sWE3LkIZ4/Q35Ew==",
   "success": true,
   "projectFilePath": "C:\\Users\\Tux\\Desktop\\CHIP3.0\\CHIP\\CHIP.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Tux\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\Tux\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -1,8 +1,6 @@
 ﻿using System;
 using rpi_rgb_led_matrix_sharp;
-using System.Text;
-using System.Net.Sockets;
-using System.Net;
+using System.Drawing;
 
 namespace CHIP
 {
@@ -17,6 +15,14 @@ namespace CHIP
             net.connect();
             Console.WriteLine(net.getFace());
 
+
+            Bitmap animatedImage = new Bitmap("faces/test.gif");
+
+
+
+
+
+            /*
             for (var i = 0; i < 1000; ++i)
             {
                 for (var y = 0; y < canvas.Height; ++y)
@@ -32,7 +38,7 @@ namespace CHIP
 
                 canvas = matrix.SwapOnVsync(canvas);
             }
-
+            */
 
         }
     }
