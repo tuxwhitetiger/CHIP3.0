@@ -7,11 +7,11 @@ namespace CHIP
     class MainClass
     {
         [DllImport("libtest.so", EntryPoint = "print")]
-        static extern void print(string message);
+        static extern void print();
 
         public static void Main(string[] args)
         {
-            print("Hello World C# => C++");
+            print();
             var matrix = new RGBLedMatrix(32, 2, 1);
             var canvas = matrix.CreateOffscreenCanvas();
 
