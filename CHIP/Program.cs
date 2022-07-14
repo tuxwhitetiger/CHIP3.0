@@ -1,5 +1,8 @@
 ﻿using System;
 using rpi_rgb_led_matrix_sharp;
+using System.Text;
+using System.Net.Sockets;
+using System.Net;
 
 namespace CHIP
 {
