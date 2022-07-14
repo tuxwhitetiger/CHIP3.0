@@ -35,7 +35,7 @@ namespace Speech.Recognition.Example
 
                 IPHostEntry hostEntry = Dns.GetHostEntry(HOST);
 
-                IPEndPoint ipe = new IPEndPoint(hostEntry.AddressList[0], PORT);
+                IPEndPoint ipe = new IPEndPoint(hostEntry.AddressList[1], PORT);
                 Socket socket = new Socket(AddressFamily.InterNetwork,
                     SocketType.Stream, ProtocolType.Tcp);
 
