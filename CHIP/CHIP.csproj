@@ -6,16 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="librgbmatrix.so" />
+    <Reference Include="RGBLedMatrix">
+      <HintPath>RGBLedMatrix.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="librgbmatrix.so">
+    <None Update="librgbmatrix.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
+    </None>
     <None Update="RGBLedMatrix.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
