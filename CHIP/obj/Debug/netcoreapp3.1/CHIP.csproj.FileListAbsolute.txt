@@ -4,7 +4,6 @@ C:\Users\Tux\Desktop\CHIP3.0\CHIP\bin\Debug\netcoreapp3.1\CHIP.runtimeconfig.jso
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\bin\Debug\netcoreapp3.1\CHIP.runtimeconfig.dev.json
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\bin\Debug\netcoreapp3.1\CHIP.dll
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\bin\Debug\netcoreapp3.1\CHIP.pdb
-C:\Users\Tux\Desktop\CHIP3.0\CHIP\bin\Debug\netcoreapp3.1\Syn.Speech.dll
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.csproj.AssemblyReference.cache
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.AssemblyInfoInputs.cache
@@ -14,3 +13,5 @@ C:\Users\Tux\Desktop\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.csproj.CopyComple
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.dll
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.pdb
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.genruntimeconfig.cache
+C:\Users\Tux\Desktop\CHIP3.0\CHIP\bin\Debug\netcoreapp3.1\RGBLedMatrix.dll
+C:\Users\Tux\Desktop\CHIP3.0\CHIP\bin\Debug\netcoreapp3.1\librgbmatrix.so

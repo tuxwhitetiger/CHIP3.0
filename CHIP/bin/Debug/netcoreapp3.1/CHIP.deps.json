@@ -8,17 +8,17 @@
     ".NETCoreApp,Version=v3.1": {
       "CHIP/1.0.0": {
         "dependencies": {
-          "Syn.Speech": "1.0.3"
+          "RGBLedMatrix": "0.0.0.0"
         },
         "runtime": {
           "CHIP.dll": {}
         }
       },
-      "Syn.Speech/1.0.3": {
+      "RGBLedMatrix/0.0.0.0": {
         "runtime": {
-          "lib/net45/Syn.Speech.dll": {
-            "assemblyVersion": "1.0.3.0",
-            "fileVersion": "1.0.3.0"
+          "RGBLedMatrix.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
           }
         }
       }
@@ -30,12 +30,10 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Syn.Speech/1.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-N6lc8D9cr39vOQ6Cvr1c61bUcDqIxN1nKYC69yEog+X3a7uZJA4ayY3Lusozzqtqcng84jrZoehltdsPOjgxpw==",
-      "path": "syn.speech/1.0.3",
-      "hashPath": "syn.speech.1.0.3.nupkg.sha512"
+    "RGBLedMatrix/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

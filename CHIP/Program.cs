@@ -25,8 +25,6 @@ namespace Speech.Recognition.Example
 
                 canvas = matrix.SwapOnVsync(canvas);
             }
-
-            return 0;
         }
     }
 }
