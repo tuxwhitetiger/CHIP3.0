@@ -58,12 +58,9 @@ namespace Speech.Recognition.Example
 
                 int bytes = 0;
                 StringBuilder sb = new StringBuilder();
-
-                do
-                {
-                    bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
-                    sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
-                } while (bytes > 0);
+                bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
+                sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
+                
 
                 Console.WriteLine(sb.ToString());
 
