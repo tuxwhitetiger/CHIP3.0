@@ -22,7 +22,7 @@ namespace CHIP
             //trim fat from the end of the message ,FRAMEDONE
             rawdata.Remove(rawdata.Length - 10);
             //split out the indevidual frames
-            string[] frames = rawdata.Split("FRAME");
+            string[] frames = rawdata.Split(",FRAME");
             //pull each frame and in turn
             int framecounter = 0;
             char[] charsToTrim = {'[',']'};
