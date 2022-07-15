@@ -15,7 +15,7 @@ namespace CHIP
             net.connect();
             Console.WriteLine(net.getFace());
 
-            Gif neomatrix = new Gif(64, 32, 100);
+            Gif neomatrix = new Gif(64, 32, 300);
             neomatrix.loadData(net.GetGifData("matrix-spin.gif"));
 
             var matrix = new RGBLedMatrix(32, 2, 1);

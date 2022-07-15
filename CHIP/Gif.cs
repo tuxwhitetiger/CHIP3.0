@@ -15,7 +15,7 @@ namespace CHIP
             this.x = x;
             this.y = y;
             this.framecount = framecount;
-            data = new int[x+1, y+1, framecount, 3];
+            data = new int[x, y, framecount, 3];
         }
 
         public void loadData(String rawdata) {
