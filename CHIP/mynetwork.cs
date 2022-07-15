@@ -35,7 +35,7 @@ namespace CHIP
 
         public String GetGifData(String fileName) {
             Byte[] requestBytes = Encoding.ASCII.GetBytes("Pull Gif:"+fileName);
-            Byte[] bytesReceived = new Byte[10000000];
+            Byte[] bytesReceived = new Byte[100000000];
             socket.Send(requestBytes, requestBytes.Length, 0);
             int bytes = 0;
             StringBuilder sb = new StringBuilder();
