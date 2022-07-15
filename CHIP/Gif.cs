@@ -22,15 +22,17 @@ namespace CHIP
             //trim fat from the end of the message ,FRAMEDONE
             rawdata.Remove(rawdata.Length - 10);
             //split out the indevidual frames
-            string[] frames = rawdata.Split("frames");
+            string[] frames = rawdata.Split("FRAME");
             //pull each frame and in turn
             int framecounter = 0;
             char[] charsToTrim = { '[', ']' };
             foreach (String frame in frames) {
+                Console.WriteLine("processing frame:" + framecounter);
                 int xcounter = 0;
                 int ycounter = 0;
                 //split to pixels
                 string[] pixels = frame.Split(',');
+                Console.WriteLine("pixel count:" + pixels.Length);
                 foreach (String Pixel in pixels) {
                     //split into color
                     string[] colors = Pixel.Split(' ', StringSplitOptions.RemoveEmptyEntries);
