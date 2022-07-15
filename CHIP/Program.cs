@@ -17,7 +17,7 @@ namespace CHIP
             mynetwork net = new mynetwork();
             net.connect();
             Console.WriteLine(net.getFace());
-            Console.WriteLine(net.GetGifData("test.gif"));
+            Console.WriteLine(net.GetGifData("matrix-spin.gif"));
 
 
 
