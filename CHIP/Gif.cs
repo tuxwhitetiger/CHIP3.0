@@ -39,9 +39,10 @@ namespace CHIP
                     }
                     //put the color data into the array
                     //this bit might change to make it easyer to push to display
-                    data[xcounter, ycounter, framecounter, 0] = Int16.Parse(colors[0]);
-                    data[xcounter, ycounter, framecounter, 1] = Int16.Parse(colors[1]);
-                    data[xcounter, ycounter, framecounter, 2] = Int16.Parse(colors[2]);
+                    Console.WriteLine(colors[0]);
+                    data[xcounter, ycounter, framecounter, 0] = Int32.Parse(colors[0]);
+                    data[xcounter, ycounter, framecounter, 1] = Int32.Parse(colors[1]);
+                    data[xcounter, ycounter, framecounter, 2] = Int32.Parse(colors[2]);
                     //increment x counter
                     xcounter++;
                     //if we are at the end of the row go to start of next one

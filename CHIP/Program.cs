@@ -10,9 +10,6 @@ namespace CHIP
         public static void Main(string[] args)
         {
             
-            
-            var matrix = new RGBLedMatrix(32, 2, 1);
-            var canvas = matrix.CreateOffscreenCanvas();
 
             mynetwork net = new mynetwork();
             net.connect();
@@ -21,6 +18,8 @@ namespace CHIP
             Gif neomatrix = new Gif(64, 32, 100);
             neomatrix.loadData(net.GetGifData("matrix-spin.gif"));
 
+            var matrix = new RGBLedMatrix(32, 2, 1);
+            var canvas = matrix.CreateOffscreenCanvas();
             neomatrix.printFrame(canvas,0);
             canvas = matrix.SwapOnVsync(canvas);
 
