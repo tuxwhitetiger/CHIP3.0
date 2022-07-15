@@ -42,9 +42,6 @@ namespace CHIP
                     if (colors.Length != 3) {
                         Console.WriteLine("we done fucked up with colors");
                     }
-                    Console.WriteLine(colors[0]);
-                    Console.WriteLine(colors[1]);
-                    Console.WriteLine(colors[2]);
                     //put the color data into the array
                     //this bit might change to make it easyer to push to display
                     data[xcounter, ycounter, framecounter, 0] = Int32.Parse(colors[0]);

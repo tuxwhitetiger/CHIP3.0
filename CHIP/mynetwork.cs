@@ -9,6 +9,7 @@ namespace CHIP
     {
         String HOST = "localhost"; // The server's hostname or IP address
         int PORT = 65432;  // The port used by the server
+        int addressNumber = 1;
         Socket socket;
 
         public mynetwork()
@@ -19,7 +20,7 @@ namespace CHIP
 
         public void connect() {
             IPHostEntry hostEntry = Dns.GetHostEntry(HOST);
-            IPEndPoint ipe = new IPEndPoint(hostEntry.AddressList[1], PORT);
+            IPEndPoint ipe = new IPEndPoint(hostEntry.AddressList[addressNumber], PORT);
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Connect(ipe);
             if (socket.Connected)
