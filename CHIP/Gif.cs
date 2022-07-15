@@ -25,6 +25,7 @@ namespace CHIP
             string[] frames = rawdata.Split("frames");
             //pull each frame and in turn
             int framecounter = 0;
+            char[] charsToTrim = { '[', ']' };
             foreach (String frame in frames) {
                 int xcounter = 0;
                 int ycounter = 0;
@@ -32,8 +33,7 @@ namespace CHIP
                 string[] pixels = frame.Split(',');
                 foreach (String Pixel in pixels) {
                     //split into color
-                    Pixel.Replace('[', ' ');
-                    Pixel.Replace(']', ' ');
+                    Pixel.Trim(charsToTrim);
                     string[] colors = Pixel.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                     //if there more then 3 colors in pixel let me know
                     if (colors.Length != 3) {
