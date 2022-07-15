@@ -33,7 +33,6 @@ namespace CHIP
                 string[] pixels = frame.Split(',');
                 foreach (String Pixel in pixels) {
                     //split into color
-                    Pixel.Trim(charsToTrim);
                     string[] colors = Pixel.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                     //if there more then 3 colors in pixel let me know
                     if (colors.Length != 3) {
@@ -44,9 +43,9 @@ namespace CHIP
                     Console.WriteLine(colors[2]);
                     //put the color data into the array
                     //this bit might change to make it easyer to push to display
-                    data[xcounter, ycounter, framecounter, 0] = Int32.Parse(colors[0]);
+                    data[xcounter, ycounter, framecounter, 0] = Int32.Parse(colors[0].Trim(charsToTrim));
                     data[xcounter, ycounter, framecounter, 1] = Int32.Parse(colors[1]);
-                    data[xcounter, ycounter, framecounter, 2] = Int32.Parse(colors[2]);
+                    data[xcounter, ycounter, framecounter, 2] = Int32.Parse(colors[2].Trim(charsToTrim));
                     //increment x counter
                     xcounter++;
                     //if we are at the end of the row go to start of next one
