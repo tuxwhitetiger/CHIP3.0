@@ -20,9 +20,9 @@ namespace CHIP
 
         public void loadData(String rawdata) {
             //trim fat from the end of the message ,FRAMEDONE
-            rawdata.Remove(rawdata.Length - 10);
+            string[] fixedData = rawdata.Split("DONE");
             //split out the indevidual frames
-            string[] frames = rawdata.Split(",FRAME");
+            string[] frames = fixedData[0].Split(",FRAME");
             //pull each frame and in turn
             int framecounter = 0;
             char[] charsToTrim = {'[',']'};
