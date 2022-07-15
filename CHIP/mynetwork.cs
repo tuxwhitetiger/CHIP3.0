@@ -40,7 +40,7 @@ namespace CHIP
             int bytes = 0;
             StringBuilder sb = new StringBuilder();
 
-            while (socket.Connected)
+            while (!sb.ToString().Contains("DONE"))
             {
                 bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
                 sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
