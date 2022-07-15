@@ -36,7 +36,7 @@ namespace CHIP
                 foreach (String Pixel in pixels) {
                     //split into color
                     String trimmed = Pixel.Trim(charsToTrim);
-                    Console.WriteLine(trimmed);
+                    //Console.WriteLine(trimmed);
                     string[] colors = trimmed.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                     //if there more then 3 colors in pixel let me know
                     if (colors.Length != 3) {
