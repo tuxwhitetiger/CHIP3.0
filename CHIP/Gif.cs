@@ -50,13 +50,13 @@ namespace CHIP
                     //increment x counter
                     xcounter++;
                     //if we are at the end of the row go to start of next one
-                    if (xcounter > x) {
+                    if (xcounter == x) {
                         xcounter = 0;
                         Console.WriteLine("next row");
                         ycounter++;
                     }
                     //if there are more rows then expected let me know
-                    if (ycounter > y) {
+                    if (ycounter == y) {
                         Console.WriteLine("we done fucked up with row counting");
                     }
                 }
