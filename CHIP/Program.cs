@@ -17,31 +17,19 @@ namespace CHIP
             mynetwork net = new mynetwork();
             net.connect();
             Console.WriteLine(net.getFace());
-            Console.WriteLine(net.GetGifData("matrix-spin.gif"));
 
+            Gif neomatrix = new Gif(64, 32, 100);
+            neomatrix.loadData(net.GetGifData("matrix-spin.gif"));
 
+            neomatrix.printFrame(canvas,0);
+            canvas = matrix.SwapOnVsync(canvas);
 
-
-
-
-
-            /*
-            for (var i = 0; i < 1000; ++i)
-            {
-                for (var y = 0; y < canvas.Height; ++y)
-                {
-                    for (var x = 0; x < canvas.Width; ++x)
-                    {
-                        canvas.SetPixel(x, y, new Color(i & 0xff, x, y));
-                    }
-                }
-                canvas.DrawCircle(canvas.Width / 2, canvas.Height / 2, 6, new Color(0, 0, 255));
-                canvas.DrawLine(canvas.Width / 2 - 3, canvas.Height / 2 - 3, canvas.Width / 2 + 3, canvas.Height / 2 + 3, new Color(0, 0, 255));
-                canvas.DrawLine(canvas.Width / 2 - 3, canvas.Height / 2 + 3, canvas.Width / 2 + 3, canvas.Height / 2 - 3, new Color(0, 0, 255));
-
+            while (true) {
+                neomatrix.printFrame(canvas, 0);
                 canvas = matrix.SwapOnVsync(canvas);
             }
-            */
+            
+            
 
         }
     }
