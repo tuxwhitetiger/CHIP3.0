@@ -6,20 +6,19 @@ namespace CHIP
 {
     public class MainClass
     {
-        [DllImport("libtest.so", EntryPoint = "print")]
-        static extern void print(string message);
-
+        
         public static void Main(string[] args)
         {
-            print("Hello World C# => C++");
-            /*
+            
+            
             var matrix = new RGBLedMatrix(32, 2, 1);
             var canvas = matrix.CreateOffscreenCanvas();
 
             mynetwork net = new mynetwork();
             net.connect();
             Console.WriteLine(net.getFace());
-            */
+            Console.WriteLine(net.GetGifData("test.gif"));
+
 
 
 
