@@ -29,7 +29,7 @@ namespace CHIP
             string[] fixedData = rawdata.Split("DONE");
             //split out the indevidual frames
             string[] frames = fixedData[0].Split("FRAME");
-            char[] charsToTrim = {'[',']',','};
+            char[] charsToTrim = {'[',']'};
             
             foreach (String frame in frames) {
                 newgif.newframe();
@@ -40,13 +40,16 @@ namespace CHIP
                     newgif.newrow();
                     string[] pixels = frame.Split(',');
                     if (pixels.Length <= 1)
-                    {//pritty sure that we at the end of the file here
+                    {//pritty sure that we at the end of the row here
                         break;
                     }
                     foreach (String Pixel in pixels)
                     {
                         String trimmed = Pixel.Trim(charsToTrim);
                         string[] colors = trimmed.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                        Console.WriteLine("r:" + colors[0]);
+                        Console.WriteLine("g:" + colors[1]);
+                        Console.WriteLine("b:" + colors[2]);
                         newgif.pumpData(Int32.Parse(colors[0]), Int32.Parse(colors[1]), Int32.Parse(colors[2]));
                     }
                 }
