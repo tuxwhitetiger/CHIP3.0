@@ -33,7 +33,7 @@ namespace CHIP
             
             foreach (String frame in frames) {
                 newgif.newframe();
-                Console.WriteLine("processing frame:" + newFrameCount);
+                Console.WriteLine("processing frame:" + newgif.frames.Count);
                 string[] rows = frame.Split("ROW");
                 foreach (String row in rows)
                 {
