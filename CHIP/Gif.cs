@@ -1,6 +1,7 @@
 ﻿using rpi_rgb_led_matrix_sharp;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading;
 
@@ -13,6 +14,7 @@ namespace CHIP
         int y;
         int framecount;
         public int newFrameCount;
+        Stopwatch timer = new Stopwatch();
         public Gif(int x, int y, int framecount) {
             this.x = x;
             this.y = y;
@@ -91,10 +93,19 @@ namespace CHIP
             canvas = matrix.SwapOnVsync(canvas);
         }
         internal void playGif(RGBLedMatrix matrix, RGBLedCanvas canvas, int mstick) {
+            int leftpos = Console.CursorLeft;
+            int toppos = Console.CursorTop;
+            timer.Reset();
+            timer.Start();
             for (int i = 0; i < newFrameCount; i++) {
                 printFrame(matrix,canvas, i);
                 Thread.Sleep(mstick);
             }
+            timer.Stop();
+            TimeSpan timeTaken = timer.Elapsed;
+            double fps = (1000 / timeTaken.TotalMilliseconds) * newFrameCount;
+            Console.SetCursorPosition(leftpos, toppos);
+            Console.Write("FPS:" + fps);
         }
     }
 }
