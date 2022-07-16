@@ -81,11 +81,11 @@ namespace CHIP
 
         internal void printFrame(RGBLedCanvas canvas,int myFrame)
         {
-            for (int myy = 0; myy < y; ++y)
+            for (int myy = 0; myy < y; myy++)
             {
-                for (int myx = 0; myx < x; ++x)
+                for (int myx = 0; myx < x; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
-                    canvas.SetPixel(x, y, new Color(data[x,y,myFrame,0], data[x, y, myFrame, 1], data[x, y, myFrame, 2]));
+                    canvas.SetPixel(myx, myy, new Color(data[myx, myy, myFrame,0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
                 }
             }
         }
