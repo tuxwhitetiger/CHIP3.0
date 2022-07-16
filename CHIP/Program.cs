@@ -26,14 +26,13 @@ namespace CHIP
             int toppos = Console.CursorTop;
 
             while (true) {
-                neomatrix.playGif(matrix,canvas, 40);
                 timer.Reset();
                 timer.Start();
-                neomatrix.printFrame(matrix,canvas, 0);
+                neomatrix.playGif(matrix,canvas, 40);
                 
                 timer.Stop();
                 TimeSpan timeTaken = timer.Elapsed;
-                double fps = 1000 / timeTaken.TotalMilliseconds;
+                double fps = (1000 / timeTaken.TotalMilliseconds)*neomatrix.newFrameCount;
                 Console.SetCursorPosition(leftpos, toppos);
                 Console.Write("FPS:"+ fps);
             }
