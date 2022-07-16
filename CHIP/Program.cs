@@ -16,11 +16,15 @@ namespace CHIP
             net.connect();
             Console.WriteLine(net.getFace());
 
+            var matrix = new RGBLedMatrix(32, 2, 1);
+            var canvas = matrix.CreateOffscreenCanvas();
+
+            RGBLedFont font = new RGBLedFont("./fonts/7x13.bdf");
+            canvas.DrawText(font, 7, 16, new Color(255, 255, 255), "Loading gifs");
+
             Gif neomatrix = new Gif(64, 32, 300);
             neomatrix.loadData(net.GetGifData("matrix-spin.gif"));
 
-            var matrix = new RGBLedMatrix(32, 2, 1);
-            var canvas = matrix.CreateOffscreenCanvas();
 
             int leftpos = Console.CursorLeft;
             int toppos = Console.CursorTop;
