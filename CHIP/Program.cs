@@ -20,7 +20,7 @@ namespace CHIP
             var canvas = matrix.CreateOffscreenCanvas();
 
             RGBLedFont font = new RGBLedFont("./fonts/7x13.bdf");
-            canvas.DrawText(font, 7, 16, new Color(255, 255, 255), "Loading gifs");
+            canvas.DrawText(font, 7, 16, new Color(255, 255, 255), "Loading /n gifs");
             canvas = matrix.SwapOnVsync(canvas);
 
             Gif neomatrix = new Gif(64, 32, 300);
