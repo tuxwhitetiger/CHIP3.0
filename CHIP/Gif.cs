@@ -33,7 +33,7 @@ namespace CHIP
                 //split to pixels
                 string[] pixels = frame.Split(',');
                 Console.WriteLine("pixel count:" + pixels.Length);
-                if (pixels.Length > 1)
+                if (pixels.Length <= 1)
                 {//pritty sure that we at the end of the file here
                     break;
                 }
