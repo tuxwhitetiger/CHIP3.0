@@ -21,18 +21,16 @@ namespace CHIP
 
             var matrix = new RGBLedMatrix(32, 2, 1);
             var canvas = matrix.CreateOffscreenCanvas();
-            neomatrix.printFrame(canvas,0);
-            canvas = matrix.SwapOnVsync(canvas);
 
             int leftpos = Console.CursorLeft;
             int toppos = Console.CursorTop;
 
             while (true) {
-                neomatrix.playGif(canvas, 40);
+                neomatrix.playGif(matrix,canvas, 40);
                 timer.Reset();
                 timer.Start();
-                neomatrix.printFrame(canvas, 0);
-                canvas = matrix.SwapOnVsync(canvas);
+                neomatrix.printFrame(matrix,canvas, 0);
+                
                 timer.Stop();
                 TimeSpan timeTaken = timer.Elapsed;
                 double fps = 1000 / timeTaken.TotalMilliseconds;

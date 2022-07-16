@@ -79,7 +79,7 @@ namespace CHIP
             }
         }
 
-        internal void printFrame(RGBLedCanvas canvas,int myFrame)
+        internal void printFrame(RGBLedMatrix matrix, RGBLedCanvas canvas,int myFrame)
         {
             for (int myy = 0; myy < y; myy++)
             {
@@ -88,10 +88,11 @@ namespace CHIP
                     canvas.SetPixel(myx, myy, new Color(data[myx, myy, myFrame,0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
                 }
             }
+            canvas = matrix.SwapOnVsync(canvas);
         }
-        internal void playGif(RGBLedCanvas canvas, int mstick) {
+        internal void playGif(RGBLedMatrix matrix, RGBLedCanvas canvas, int mstick) {
             for (int i = 0; i < newFrameCount; i++) {
-                printFrame(canvas, i);
+                printFrame(matrix,canvas, i);
                 Thread.Sleep(mstick);
             }
         }
