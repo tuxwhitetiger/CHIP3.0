@@ -28,6 +28,7 @@ namespace CHIP
             int toppos = Console.CursorTop;
 
             while (true) {
+                timer.Reset();
                 timer.Start();
                 neomatrix.printFrame(canvas, 0);
                 canvas = matrix.SwapOnVsync(canvas);
