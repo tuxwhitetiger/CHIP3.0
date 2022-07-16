@@ -15,8 +15,14 @@ namespace CHIP
             mynetwork net = new mynetwork();
             net.connect();
             Console.WriteLine(net.getFace());
-
-            var matrix = new RGBLedMatrix(32, 2, 1);
+            RGBLedMatrixOptions options = new RGBLedMatrixOptions();
+            options.Rows = 32;
+            options.Cols = 64;
+            options.ChainLength = 1;
+            options.Parallel = 1;
+            options.GpioSlowdown = 3;
+            options.HardwareMapping = "regular";
+            var matrix = new RGBLedMatrix(options);
             var canvas = matrix.CreateOffscreenCanvas();
 
             RGBLedFont font = new RGBLedFont("./fonts/7x13.bdf");
