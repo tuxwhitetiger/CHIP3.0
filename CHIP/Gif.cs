@@ -51,7 +51,7 @@ namespace CHIP
                     }
                 }
             }
-            framecount = newgif.frames.Count;
+            newFrameCount = newgif.frames.Count;
             data = newgif.toArray();
         }
 
