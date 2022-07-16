@@ -29,7 +29,7 @@ namespace CHIP
             string[] fixedData = rawdata.Split("DONE");
             //split out the indevidual frames
             string[] frames = fixedData[0].Split("FRAME");
-            char[] charsToTrim = {'[',']'};
+            char[] charsToTrim = {'[',']','R','O','W'};
             
             foreach (String frame in frames) {
                 newgif.newframe();
@@ -47,6 +47,7 @@ namespace CHIP
                     {
                         String trimmed = Pixel.Trim(charsToTrim);
                         string[] colors = trimmed.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                        Console.WriteLine("count:" + colors.Length);
                         Console.WriteLine("r:" + colors[0]);
                         Console.WriteLine("g:" + colors[1]);
                         Console.WriteLine("b:" + colors[2]);
