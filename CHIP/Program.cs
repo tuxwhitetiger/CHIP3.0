@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 using rpi_rgb_led_matrix_sharp;
 
@@ -9,7 +10,7 @@ namespace CHIP
         
         public static void Main(string[] args)
         {
-            
+            var timer = new Stopwatch();
 
             mynetwork net = new mynetwork();
             net.connect();
@@ -23,9 +24,18 @@ namespace CHIP
             neomatrix.printFrame(canvas,0);
             canvas = matrix.SwapOnVsync(canvas);
 
+            int leftpos = Console.CursorLeft;
+            int toppos = Console.CursorTop;
+
             while (true) {
+                timer.Start();
                 neomatrix.printFrame(canvas, 0);
                 canvas = matrix.SwapOnVsync(canvas);
+                timer.Stop();
+                TimeSpan timeTaken = timer.Elapsed;
+                double fps = 1000 / timeTaken.TotalMilliseconds;
+                Console.SetCursorPosition(leftpos, toppos);
+                Console.Write("FPS:"+ fps);
             }
             
             
