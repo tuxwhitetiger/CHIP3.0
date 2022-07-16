@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace CHIP
 {
@@ -86,6 +87,12 @@ namespace CHIP
                 {//data x, y, framecount, color(0=r,1=g,2=b)
                     canvas.SetPixel(myx, myy, new Color(data[myx, myy, myFrame,0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
                 }
+            }
+        }
+        internal void playGif(RGBLedCanvas canvas, int mstick) {
+            for (int i = 0; i < newFrameCount; i++) {
+                printFrame(canvas, i);
+                Thread.Sleep(mstick);
             }
         }
     }

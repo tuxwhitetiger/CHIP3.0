@@ -28,6 +28,7 @@ namespace CHIP
             int toppos = Console.CursorTop;
 
             while (true) {
+                neomatrix.playGif(canvas, 40);
                 timer.Reset();
                 timer.Start();
                 neomatrix.printFrame(canvas, 0);
