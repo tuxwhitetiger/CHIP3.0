@@ -28,13 +28,11 @@ namespace CHIP
             //trim fat from the end of the message ,FRAMEDONE
             string[] fixedData = rawdata.Split("DONE");
             //split out the indevidual frames
-            string[] frames = fixedData[0].Split('!', StringSplitOptions.RemoveEmptyEntries);
-            char[] charsToTrim = {'[',']'};
-            
+            string[] frames = fixedData[0].Split('F', StringSplitOptions.RemoveEmptyEntries);
             foreach (String frame in frames) {
                 newgif.newframe();
                 Console.WriteLine("processing frame:" + newgif.frames.Count);
-                string[] rows = frame.Split('#', StringSplitOptions.RemoveEmptyEntries);
+                string[] rows = frame.Split('R', StringSplitOptions.RemoveEmptyEntries);
                 foreach (String row in rows)
                 {
                     newgif.newrow();
@@ -45,8 +43,9 @@ namespace CHIP
                     }
                     foreach (String Pixel in pixels)
                     {
-                        String trimmed = Pixel.Trim(charsToTrim);
-                        string[] colors = trimmed.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                        String trimmed = Pixel.Trim('[');
+                        String trimmed2 = trimmed.Trim(']');
+                        string[] colors = trimmed2.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                         Console.WriteLine("count:" + colors.Length);
                         Console.WriteLine("r:" + colors[0]);
                         Console.WriteLine("g:" + colors[1]);
