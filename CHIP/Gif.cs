@@ -28,13 +28,13 @@ namespace CHIP
             //trim fat from the end of the message ,FRAMEDONE
             string[] fixedData = rawdata.Split("DONE");
             //split out the indevidual frames
-            string[] frames = fixedData[0].Split("FRAME");
-            char[] charsToTrim = {'[',']','R','O','W'};
+            string[] frames = fixedData[0].Split('!');
+            char[] charsToTrim = {'[',']'};
             
             foreach (String frame in frames) {
                 newgif.newframe();
                 Console.WriteLine("processing frame:" + newgif.frames.Count);
-                string[] rows = frame.Split("ROW");
+                string[] rows = frame.Split('#');
                 foreach (String row in rows)
                 {
                     newgif.newrow();
