@@ -65,7 +65,7 @@ namespace CHIP
                         ycounter++;
                     }
                     //if there are more rows then expected let me know
-                    if (ycounter == y)
+                    if (ycounter > y)
                     {
                         Console.WriteLine("we done fucked up with row counting");
                     }
