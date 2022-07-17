@@ -34,6 +34,7 @@ namespace CHIP
             byte[] dataRecived = new Byte[1024];
             socket.Receive(dataRecived);
             String toProcess = Encoding.ASCII.GetString(dataRecived);
+            Console.WriteLine(toProcess);
             string[] data = toProcess.Split(',');
             up = Int32.Parse(data[0]);
             down = Int32.Parse(data[1]);
