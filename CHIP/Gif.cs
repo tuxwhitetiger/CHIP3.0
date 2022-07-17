@@ -30,7 +30,6 @@ namespace CHIP
             string[] frames = fixedData[0].Split('F', StringSplitOptions.RemoveEmptyEntries);
             foreach (String frame in frames) {
                 newgif.newframe();
-                Console.WriteLine("processing frame:" + newgif.frames.Count);
                 string[] rows = frame.Split('R', StringSplitOptions.RemoveEmptyEntries);
                 foreach (String row in rows)
                 {
@@ -52,7 +51,6 @@ namespace CHIP
                 }
             }
             newFrameCount = newgif.frames.Count;
-            Console.WriteLine("shunt data");
             data = newgif.toArray();
         }
 
@@ -67,15 +65,10 @@ namespace CHIP
             if (canvas.Width < maxx) {
                 maxx = canvas.Width;
             }
-            Console.WriteLine("maxx:" + maxx + " maxy:" + maxy);
-            Console.WriteLine("x:" + x + " y:" + y);
-            Console.WriteLine("canvas.Height:" + canvas.Height + " canvas.Width:" + canvas.Width);
-
             for (int myy = 0; myy < maxy; myy++)
             {
                 for (int myx = 0; myx < maxx; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
-                    Console.WriteLine("x:" + myx + " y:" + myy + " r:" + data[myx, myy, myFrame, 0] + " g:" + data[myx, myy, myFrame, 1] + " b:" + data[myx, myy, myFrame, 2]);
                     canvas.SetPixel(myx, myy, new Color(data[myx, myy, myFrame,0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
                 }
             }
@@ -88,7 +81,6 @@ namespace CHIP
             timer.Reset();
             timer.Start();
             for (int i = 0; i < newFrameCount; i++) {
-                Console.WriteLine("frame:" + i);
                 printFrame(matrix,canvas, i);
                 Thread.Sleep(mstick);
             }

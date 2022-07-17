@@ -40,7 +40,6 @@ namespace CHIP
             //shove the data into it
             int x=0, y=0, z =0;
             foreach (frame f in frames) {
-                Console.WriteLine("shunt frame:" + z);
                 y = 0;
                 foreach (row r in f.rows) {
                     x = 0;
