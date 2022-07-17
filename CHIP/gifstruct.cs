@@ -40,8 +40,11 @@ namespace CHIP
             //shove the data into it
             int x=0, y=0, z =0;
             foreach (frame f in frames) {
+                Console.WriteLine("shunt frame:" + z);
                 foreach (row r in f.rows) {
+                    Console.WriteLine("shunt row:" + y);
                     foreach (pixel p in r.pixels) {
+                        Console.WriteLine("shunt col:" + x);
                         output[x, y, z, 0] = p.colors[0];
                         output[x, y, z, 1] = p.colors[1];
                         output[x, y, z, 2] = p.colors[2];
