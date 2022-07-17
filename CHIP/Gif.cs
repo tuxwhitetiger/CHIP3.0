@@ -70,6 +70,7 @@ namespace CHIP
             {
                 for (int myx = 0; myx < maxx; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
+                    Console.WriteLine("x:" + myx + " y:" + myy + " r:" + data[myx, myy, myFrame, 0] + " g:" + data[myx, myy, myFrame, 1] + " b:" + data[myx, myy, myFrame, 2]);
                     canvas.SetPixel(myx, myy, new Color(data[myx, myy, myFrame,0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
                 }
             }
