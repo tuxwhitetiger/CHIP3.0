@@ -31,41 +31,42 @@ namespace CHIP
             List<Gif> gifs = new List<Gif>();
 
             Gif happy = new Gif( "happy");
-            happy.loadData(net.GetGifData("happy.gif"));
+            happy.loadData(net.GetGifData("happy.gif"),40);
             Gif neomatrix = new Gif("matrix");
-            neomatrix.loadData(net.GetGifData("matrix-spin.gif"));
+            neomatrix.loadData(net.GetGifData("matrix-spin.gif"),40);
             Gif cwoods = new Gif("CWOODSDEAN");
-            cwoods.loadData(net.GetGifData("CWOODSDEAN-full.gif"));
+            cwoods.loadData(net.GetGifData("CWOODSDEAN-full.gif"),1000);
             Gif flag = new Gif("flag");
-            flag.loadData(net.GetGifData("flag.gif"));
+            flag.loadData(net.GetGifData("flag.gif"),40);
             Gif lowbatt = new Gif("lowbatt");
-            lowbatt.loadData(net.GetGifData("lowbatt.gif"));
+            lowbatt.loadData(net.GetGifData("lowbatt.gif"),40);
             Gif overheat = new Gif("overheat");
-            overheat.loadData(net.GetGifData("overheat.gif"));
+            overheat.loadData(net.GetGifData("overheat.gif"),40);
             Gif pacman = new Gif("pacman");
-            pacman.loadData(net.GetGifData("pacman.gif"));
+            pacman.loadData(net.GetGifData("pacman.gif"),40);
 
-            gifs.Add(pacman);
+            
             gifs.Add(cwoods);
             gifs.Add(neomatrix);
+            gifs.Add(pacman);
 
             
 
             while (true) {
                 switch (net.getFace()) {
                     case "Sad face": missingfile(matrix, canvas, font); break;
-                    case "Happy face": happy.playGif(matrix, canvas, 40); break;
+                    case "Happy face": happy.playGif(matrix, canvas); break;
                     case "Angry face": missingfile(matrix, canvas, font); break;
                     case "What face": missingfile(matrix, canvas, font); break;
-                    case "Flag face": flag.playGif(matrix, canvas, 40); break;
+                    case "Flag face": flag.playGif(matrix, canvas); break;
                     case "Oh face": missingfile(matrix, canvas, font); break;
                     case "Gif face": randomGiff(matrix, canvas, gifs);  break;
-                    case "lowbatt face": lowbatt.playGif(matrix, canvas, 40); break;
-                    case "overheat face": overheat.playGif(matrix, canvas, 40); break;
+                    case "lowbatt face": lowbatt.playGif(matrix, canvas); break;
+                    case "overheat face": overheat.playGif(matrix, canvas); break;
                     case "snake face": missingfile(matrix, canvas, font); break;
-                    case "matrix face": neomatrix.playGif(matrix, canvas, 40); break;
-                    case "pacman face": pacman.playGif(matrix, canvas, 40); break;
-                    case "cwoods face": cwoods.playGif(matrix, canvas, 1000); break;
+                    case "matrix face": neomatrix.playGif(matrix, canvas); break;
+                    case "pacman face": pacman.playGif(matrix, canvas); break;
+                    case "cwoods face": cwoods.playGif(matrix, canvas); break;
                 }
             }
         }
@@ -74,7 +75,7 @@ namespace CHIP
         {
             Random rand = new Random();
             int pick = rand.Next(0, gifs.Count-1);
-            gifs[pick].playGif(matrix, canvas, 40);
+            gifs[pick].playGif(matrix, canvas);
         }
 
         private static void missingfile(RGBLedMatrix matrix, RGBLedCanvas canvas, RGBLedFont font)

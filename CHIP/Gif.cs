@@ -17,12 +17,13 @@ namespace CHIP
         public int newFrameCount;
         Stopwatch timer = new Stopwatch();
         string name;
-
+        int mstick;
         public Gif(string name) {
             this.name = name;
         }
 
-        public void loadData(String rawdata) {
+        public void loadData(String rawdata, int tick) {
+            mstick = tick;
             gifstruct newgif = new gifstruct();
             //trim fat from the end of the message ,FRAMEDONE
             string[] fixedData = rawdata.Split("DONE");
@@ -74,7 +75,7 @@ namespace CHIP
             }
             canvas = matrix.SwapOnVsync(canvas);
         }
-        internal void playGif(RGBLedMatrix matrix, RGBLedCanvas canvas, int mstick) {
+        internal void playGif(RGBLedMatrix matrix, RGBLedCanvas canvas) {
             Console.WriteLine("gif name:"+name);
             int leftpos = Console.CursorLeft;
             int toppos = Console.CursorTop;
