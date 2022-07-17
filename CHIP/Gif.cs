@@ -36,7 +36,7 @@ namespace CHIP
                 foreach (String row in rows)
                 {
                     newgif.newrow();
-                    string[] pixels = row.Split(',');
+                    string[] pixels = row.Split(',', StringSplitOptions.RemoveEmptyEntries);
                     if (pixels.Length <= 1)
                     {//pritty sure that we at the end of the row here
                         break;
@@ -47,20 +47,10 @@ namespace CHIP
                         String trimmed2 = trimmed.Trim(']');
                         string[] colors = trimmed2.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                         Console.WriteLine("count:" + colors.Length);
-                        if (colors.Length > 3)
-                        {
-                            Console.WriteLine("r:" + colors[1]);
-                            Console.WriteLine("g:" + colors[2]);
-                            Console.WriteLine("b:" + colors[3]);
-                            newgif.pumpData(Int32.Parse(colors[1]), Int32.Parse(colors[2]), Int32.Parse(colors[3]));
-                        }
-                        else
-                        {
-                            Console.WriteLine("r:" + colors[0]);
-                            Console.WriteLine("g:" + colors[1]);
-                            Console.WriteLine("b:" + colors[2]);
-                            newgif.pumpData(Int32.Parse(colors[0]), Int32.Parse(colors[1]), Int32.Parse(colors[2]));
-                        }
+                        Console.WriteLine("r:" + colors[0]);
+                        Console.WriteLine("g:" + colors[1]);
+                        Console.WriteLine("b:" + colors[2]);
+                        newgif.pumpData(Int32.Parse(colors[0]), Int32.Parse(colors[1]), Int32.Parse(colors[2]));
                     }
                 }
             }
