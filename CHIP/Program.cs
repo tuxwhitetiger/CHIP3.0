@@ -61,12 +61,12 @@ namespace CHIP
                     case "Flag face": flag.playGif(matrix, canvas); break;
                     case "Gif face": randomGiff(matrix, canvas, gifs);  break;
                     case "Oh face": missingfile(matrix, canvas, font); break;
-                    case "snake face": missingfile(matrix, canvas, font); break;
-                    case "overheat face": overheat.playGif(matrix, canvas); break;
-                    case "cwood face": cwoods.playGif(matrix, canvas); break;
-                    case "lowbatt face": lowbatt.playGif(matrix, canvas); break;
-                    case "pacman face": pacman.playGif(matrix, canvas); break;
-                    case "matrix face": neomatrix.playGif(matrix, canvas); break;
+                    case "Snake face": missingfile(matrix, canvas, font); break;
+                    case "Overheat face": overheat.playGif(matrix, canvas); break;
+                    case "Cwood face": cwoods.playGif(matrix, canvas); break;
+                    case "Lowbatt face": lowbatt.playGif(matrix, canvas); break;
+                    case "Pacman face": pacman.playGif(matrix, canvas); break;
+                    case "Matrix face": neomatrix.playGif(matrix, canvas); break;
                     
                 }
             }
