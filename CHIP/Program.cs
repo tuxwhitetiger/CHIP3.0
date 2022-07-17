@@ -34,6 +34,7 @@ namespace CHIP
 
             Gif happy = new Gif( "happy");
             happy.loadData(net.GetGifData("happy.gif"),40);
+            /*
             Gif neomatrix = new Gif("matrix");
             neomatrix.loadData(net.GetGifData("matrix-spin.gif"),40);
             Gif cwoods = new Gif("CWOODSDEAN");
@@ -46,16 +47,17 @@ namespace CHIP
             overheat.loadData(net.GetGifData("overheat.gif"),40);
             Gif pacman = new Gif("pacman");
             pacman.loadData(net.GetGifData("pacman.gif"),40);
-
+            
             
             gifs.Add(cwoods);
             gifs.Add(neomatrix);
             gifs.Add(pacman);
 
-            
+            */
 
             while (true) {
                 if (playingsnake) {
+                    Console.WriteLine("fetch");
                     foreach (Controller c in cnet.controllers) {
                         c.getupdate();
                         Console.WriteLine(c.pullcurrentstate());
@@ -66,15 +68,15 @@ namespace CHIP
                     case "Happy face":  playingsnake = false; happy.playGif(matrix, canvas); break;
                     case "Angry face":  playingsnake = false; missingfile(matrix, canvas, font); break;
                     case "What face":   playingsnake = false; missingfile(matrix, canvas, font); break;
-                    case "Flag face":   playingsnake = false; flag.playGif(matrix, canvas); break;
+//                    case "Flag face":   playingsnake = false; flag.playGif(matrix, canvas); break;
                     case "Gif face":    playingsnake = false; randomGiff(matrix, canvas, gifs);  break;
                     case "Oh face":     playingsnake = false; missingfile(matrix, canvas, font); break;
                     case "Snake face":  playingsnake = true; missingfile(matrix, canvas, font); break;
-                    case "Overheat face": playingsnake = false; overheat.playGif(matrix, canvas); break;
-                    case "Cwood face":  playingsnake = false; cwoods.playGif(matrix, canvas); break;
-                    case "Lowbatt face": playingsnake = false; lowbatt.playGif(matrix, canvas); break;
-                    case "Pacman face": playingsnake = false; pacman.playGif(matrix, canvas); break;
-                    case "Matrix face": playingsnake = false; neomatrix.playGif(matrix, canvas); break;
+//                    case "Overheat face": playingsnake = false; overheat.playGif(matrix, canvas); break;
+//                    case "Cwood face":  playingsnake = false; cwoods.playGif(matrix, canvas); break;
+//                    case "Lowbatt face": playingsnake = false; lowbatt.playGif(matrix, canvas); break;
+//                    case "Pacman face": playingsnake = false; pacman.playGif(matrix, canvas); break;
+//                    case "Matrix face": playingsnake = false; neomatrix.playGif(matrix, canvas); break;
                     
                 }
             }
