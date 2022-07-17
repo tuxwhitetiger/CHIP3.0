@@ -40,6 +40,7 @@ namespace CHIP
                     {//pritty sure that we at the end of the row here
                         break;
                     }
+                    x = pixels.Length;
                     foreach (String Pixel in pixels)
                     {
                         String trimmed = Pixel.Trim('[');
@@ -47,6 +48,7 @@ namespace CHIP
                         string[] colors = trimmed2.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                         newgif.pumpData(Int32.Parse(colors[0]), Int32.Parse(colors[1]), Int32.Parse(colors[2]));
                     }
+                    y = rows.Length;
                 }
             }
             newFrameCount = newgif.frames.Count;
