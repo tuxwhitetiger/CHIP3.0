@@ -12,6 +12,8 @@ namespace CHIP
         public static void Main(string[] args)
         {
             mynetwork net = new mynetwork();
+            controller_network cnet = new controller_network();
+            bool playingsnake = false;
             net.connect();
             Console.WriteLine(net.getFace());
             RGBLedMatrixOptions options = new RGBLedMatrixOptions();
@@ -53,20 +55,26 @@ namespace CHIP
             
 
             while (true) {
+                if (playingsnake) {
+                    foreach (Controller c in cnet.controllers) {
+                        c.getupdate();
+                        Console.WriteLine(c.pullcurrentstate());
+                    }
+                }
                 switch (net.getFace()) {
-                    case "Sad face": missingfile(matrix, canvas, font); break;
-                    case "Happy face": happy.playGif(matrix, canvas); break;
-                    case "Angry face": missingfile(matrix, canvas, font); break;
-                    case "What face": missingfile(matrix, canvas, font); break;
-                    case "Flag face": flag.playGif(matrix, canvas); break;
-                    case "Gif face": randomGiff(matrix, canvas, gifs);  break;
-                    case "Oh face": missingfile(matrix, canvas, font); break;
-                    case "Snake face": missingfile(matrix, canvas, font); break;
-                    case "Overheat face": overheat.playGif(matrix, canvas); break;
-                    case "Cwood face": cwoods.playGif(matrix, canvas); break;
-                    case "Lowbatt face": lowbatt.playGif(matrix, canvas); break;
-                    case "Pacman face": pacman.playGif(matrix, canvas); break;
-                    case "Matrix face": neomatrix.playGif(matrix, canvas); break;
+                    case "Sad face":    playingsnake = false; missingfile(matrix, canvas, font); break;
+                    case "Happy face":  playingsnake = false; happy.playGif(matrix, canvas); break;
+                    case "Angry face":  playingsnake = false; missingfile(matrix, canvas, font); break;
+                    case "What face":   playingsnake = false; missingfile(matrix, canvas, font); break;
+                    case "Flag face":   playingsnake = false; flag.playGif(matrix, canvas); break;
+                    case "Gif face":    playingsnake = false; randomGiff(matrix, canvas, gifs);  break;
+                    case "Oh face":     playingsnake = false; missingfile(matrix, canvas, font); break;
+                    case "Snake face":  playingsnake = true; missingfile(matrix, canvas, font); break;
+                    case "Overheat face": playingsnake = false; overheat.playGif(matrix, canvas); break;
+                    case "Cwood face":  playingsnake = false; cwoods.playGif(matrix, canvas); break;
+                    case "Lowbatt face": playingsnake = false; lowbatt.playGif(matrix, canvas); break;
+                    case "Pacman face": playingsnake = false; pacman.playGif(matrix, canvas); break;
+                    case "Matrix face": playingsnake = false; neomatrix.playGif(matrix, canvas); break;
                     
                 }
             }
