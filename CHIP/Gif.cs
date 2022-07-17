@@ -17,7 +17,7 @@ namespace CHIP
         public int newFrameCount;
         Stopwatch timer = new Stopwatch();
         string name;
-        int mstick;
+        public int mstick;
         public Gif(string name) {
             this.name = name;
         }
