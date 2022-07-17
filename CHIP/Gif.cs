@@ -11,19 +11,15 @@ namespace CHIP
     class Gif
     {
         int[,,,] data; //x, y, framecount, color(0=r,1=g,2=b)
-        int x;
-        int y;
-        int framecount;
+        int x=0;
+        int y=0;
+        int framecount=0;
         public int newFrameCount;
         Stopwatch timer = new Stopwatch();
         string name;
 
-        public Gif(int x, int y, int framecount,string name) {
-            this.x = x;
-            this.y = y;
-            this.framecount = framecount;
+        public Gif(string name) {
             this.name = name;
-            data = new int[x, y, framecount, 3];
         }
 
         public void loadData(String rawdata) {
