@@ -51,7 +51,7 @@ namespace CHIP
                 }
             }
             newFrameCount = newgif.frames.Count;
-            Console.WriteLine("shut data");
+            Console.WriteLine("shunt data");
             data = newgif.toArray();
         }
 
