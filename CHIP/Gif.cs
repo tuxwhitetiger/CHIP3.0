@@ -65,6 +65,9 @@ namespace CHIP
             if (canvas.Width < maxx) {
                 maxx = canvas.Width;
             }
+            Console.WriteLine("maxx:" + maxx + " maxy:" + maxy);
+            Console.WriteLine("x:" + x + " y:" + y);
+            Console.WriteLine("canvas.Height:" + canvas.Height + " canvas.Width:" + canvas.Width);
 
             for (int myy = 0; myy < maxy; myy++)
             {
