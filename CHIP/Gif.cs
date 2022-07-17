@@ -36,7 +36,7 @@ namespace CHIP
                 foreach (String row in rows)
                 {
                     newgif.newrow();
-                    string[] pixels = frame.Split(',');
+                    string[] pixels = row.Split(',');
                     if (pixels.Length <= 1)
                     {//pritty sure that we at the end of the row here
                         break;
