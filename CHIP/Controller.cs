@@ -41,7 +41,7 @@ namespace CHIP
 
             string[] data = toProcess.Split(',');
             Console.WriteLine("data count:" + data.Length);
-            if (data.Length < 8)
+            if (data.Length < 10)
             {
                 Console.WriteLine("not enough data");
             }
