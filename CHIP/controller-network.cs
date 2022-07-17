@@ -34,6 +34,7 @@ namespace CHIP
         public void checkForNewController() {
             while (true)
             {
+                socket.Listen(100);
                 Socket client = socket.Accept();
                 Controller c = new Controller(controllercount);
                 c.socket = client;
