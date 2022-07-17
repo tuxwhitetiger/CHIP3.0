@@ -74,7 +74,7 @@ namespace CHIP
         private static void randomGiff(RGBLedMatrix matrix, RGBLedCanvas canvas, List<Gif> gifs)
         {
             Random rand = new Random();
-            int pick = rand.Next(0, gifs.Count-1);
+            int pick = rand.Next(0, gifs.Count);
             gifs[pick].playGif(matrix, canvas);
         }
 
