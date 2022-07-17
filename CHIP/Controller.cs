@@ -40,16 +40,24 @@ namespace CHIP
             Console.WriteLine(toProcess);
 
             string[] data = toProcess.Split(',');
-            up = Int32.Parse(data[0]);
-            down = Int32.Parse(data[1]);
-            left = Int32.Parse(data[2]);
-            right = Int32.Parse(data[3]);
-            select = Int32.Parse(data[4]);
-            start = Int32.Parse(data[5]);
-            a = Int32.Parse(data[6]);
-            b = Int32.Parse(data[7]);
-            x = Int32.Parse(data[8]);
-            y = Int32.Parse(data[9]);
+            Console.WriteLine("data count:" + data.Length);
+            if (data.Length < 8)
+            {
+                Console.WriteLine("not enough data");
+            }
+            else
+            {
+                up = Int32.Parse(data[0]);
+                down = Int32.Parse(data[1]);
+                left = Int32.Parse(data[2]);
+                right = Int32.Parse(data[3]);
+                select = Int32.Parse(data[4]);
+                start = Int32.Parse(data[5]);
+                a = Int32.Parse(data[6]);
+                b = Int32.Parse(data[7]);
+                x = Int32.Parse(data[8]);
+                y = Int32.Parse(data[9]);
+            }
         }
 
         internal String pullcurrentstate()
