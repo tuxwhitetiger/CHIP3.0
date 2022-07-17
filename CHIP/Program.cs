@@ -65,7 +65,7 @@ namespace CHIP
                     case "snake face": missingfile(matrix, canvas, font); break;
                     case "matrix face": neomatrix.playGif(matrix, canvas, 40); break;
                     case "pacman face": pacman.playGif(matrix, canvas, 40); break;
-                    case "cwoods face": cwoods.playGif(matrix, canvas, 40); break;
+                    case "cwoods face": cwoods.playGif(matrix, canvas, 1000); break;
                 }
             }
         }
