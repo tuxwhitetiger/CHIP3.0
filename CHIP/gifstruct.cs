@@ -36,7 +36,7 @@ namespace CHIP
             int rows = frames[frames.Count - 1].rows.Count;
             int cols = frames[frames.Count - 1].rows[rows - 1].pixels.Count;
             int framecount = frames.Count;
-            int[,,,] output = new int[cols,rows,framecount,3];
+            int[,,,] output = new int[cols+1,rows + 1, framecount + 1, 3];
             //shove the data into it
             int x=0, y=0, z =0;
             foreach (frame f in frames) {
