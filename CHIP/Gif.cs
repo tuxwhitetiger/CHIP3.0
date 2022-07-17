@@ -82,6 +82,7 @@ namespace CHIP
             timer.Reset();
             timer.Start();
             for (int i = 0; i < newFrameCount; i++) {
+                Console.WriteLine("frame:" + i);
                 printFrame(matrix,canvas, i);
                 Thread.Sleep(mstick);
             }
