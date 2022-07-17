@@ -30,19 +30,19 @@ namespace CHIP
             canvas = matrix.SwapOnVsync(canvas);
             List<Gif> gifs = new List<Gif>();
 
-            Gif happy = new Gif(64, 32, 300, "happy");
+            Gif happy = new Gif( "happy");
             happy.loadData(net.GetGifData("happy.gif"));
-            Gif neomatrix = new Gif(64, 32, 300, "matrix");
+            Gif neomatrix = new Gif("matrix");
             neomatrix.loadData(net.GetGifData("matrix-spin.gif"));
-            Gif cwoods = new Gif(64, 32, 300, "CWOODSDEAN");
+            Gif cwoods = new Gif("CWOODSDEAN");
             cwoods.loadData(net.GetGifData("CWOODSDEAN-full.gif"));
-            Gif flag = new Gif(64, 32, 300, "flag");
+            Gif flag = new Gif("flag");
             flag.loadData(net.GetGifData("flag.gif"));
-            Gif lowbatt = new Gif(64, 32, 300, "lowbatt");
+            Gif lowbatt = new Gif("lowbatt");
             lowbatt.loadData(net.GetGifData("lowbatt.gif"));
-            Gif overheat = new Gif(64, 32, 300, "overheat");
+            Gif overheat = new Gif("overheat");
             overheat.loadData(net.GetGifData("overheat.gif"));
-            Gif pacman = new Gif(64, 32, 300, "pacman");
+            Gif pacman = new Gif("pacman");
             pacman.loadData(net.GetGifData("pacman.gif"));
 
             gifs.Add(pacman);
