@@ -46,15 +46,12 @@ namespace CHIP
                         String trimmed = Pixel.Trim('[');
                         String trimmed2 = trimmed.Trim(']');
                         string[] colors = trimmed2.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                        Console.WriteLine("count:" + colors.Length);
-                        Console.WriteLine("r:" + colors[0]);
-                        Console.WriteLine("g:" + colors[1]);
-                        Console.WriteLine("b:" + colors[2]);
                         newgif.pumpData(Int32.Parse(colors[0]), Int32.Parse(colors[1]), Int32.Parse(colors[2]));
                     }
                 }
             }
             newFrameCount = newgif.frames.Count;
+            Console.WriteLine("shut data");
             data = newgif.toArray();
         }
 
