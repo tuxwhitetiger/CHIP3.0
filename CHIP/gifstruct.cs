@@ -43,10 +43,8 @@ namespace CHIP
                 Console.WriteLine("shunt frame:" + z);
                 y = 0;
                 foreach (row r in f.rows) {
-                    Console.WriteLine("shunt row:" + y);
                     x = 0;
                     foreach (pixel p in r.pixels) {
-                        Console.WriteLine("shunt col:" + x);
                         output[x, y, z, 0] = p.colors[0];
                         output[x, y, z, 1] = p.colors[1];
                         output[x, y, z, 2] = p.colors[2];

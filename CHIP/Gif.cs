@@ -57,9 +57,19 @@ namespace CHIP
 
         internal void printFrame(RGBLedMatrix matrix, RGBLedCanvas canvas,int myFrame)
         {
-            for (int myy = 0; myy < y; myy++)
+            int maxy = y;
+            if (canvas.Height < maxy) {
+                maxy = canvas.Height;
+            }
+
+            int maxx = x;
+            if (canvas.Width < maxx) {
+                maxx = canvas.Width;
+            }
+
+            for (int myy = 0; myy < maxy; myy++)
             {
-                for (int myx = 0; myx < x; myx++)
+                for (int myx = 0; myx < maxx; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
                     canvas.SetPixel(myx, myy, new Color(data[myx, myy, myFrame,0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
                 }
