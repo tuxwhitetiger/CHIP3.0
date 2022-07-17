@@ -59,14 +59,15 @@ namespace CHIP
                     case "Angry face": missingfile(matrix, canvas, font); break;
                     case "What face": missingfile(matrix, canvas, font); break;
                     case "Flag face": flag.playGif(matrix, canvas); break;
-                    case "Oh face": missingfile(matrix, canvas, font); break;
                     case "Gif face": randomGiff(matrix, canvas, gifs);  break;
-                    case "lowbatt face": lowbatt.playGif(matrix, canvas); break;
-                    case "overheat face": overheat.playGif(matrix, canvas); break;
+                    case "Oh face": missingfile(matrix, canvas, font); break;
                     case "snake face": missingfile(matrix, canvas, font); break;
-                    case "matrix face": neomatrix.playGif(matrix, canvas); break;
+                    case "overheat face": overheat.playGif(matrix, canvas); break;
+                    case "cwood face": cwoods.playGif(matrix, canvas); break;
+                    case "lowbatt face": lowbatt.playGif(matrix, canvas); break;
                     case "pacman face": pacman.playGif(matrix, canvas); break;
-                    case "cwoods face": cwoods.playGif(matrix, canvas); break;
+                    case "matrix face": neomatrix.playGif(matrix, canvas); break;
+                    
                 }
             }
         }
@@ -80,6 +81,7 @@ namespace CHIP
 
         private static void missingfile(RGBLedMatrix matrix, RGBLedCanvas canvas, RGBLedFont font)
         {
+            canvas.Fill(new Color(0, 0, 0));
             canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "missing");
             canvas.DrawText(font, 7, 23, new Color(255, 255, 255), "Gif");
             canvas = matrix.SwapOnVsync(canvas);
