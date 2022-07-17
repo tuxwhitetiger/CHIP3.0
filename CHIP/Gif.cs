@@ -16,10 +16,13 @@ namespace CHIP
         int framecount;
         public int newFrameCount;
         Stopwatch timer = new Stopwatch();
-        public Gif(int x, int y, int framecount) {
+        string name;
+
+        public Gif(int x, int y, int framecount,string name) {
             this.x = x;
             this.y = y;
             this.framecount = framecount;
+            this.name = name;
             data = new int[x, y, framecount, 3];
         }
 
@@ -77,6 +80,7 @@ namespace CHIP
             canvas = matrix.SwapOnVsync(canvas);
         }
         internal void playGif(RGBLedMatrix matrix, RGBLedCanvas canvas, int mstick) {
+            Console.WriteLine("gif name:"+name);
             int leftpos = Console.CursorLeft;
             int toppos = Console.CursorTop;
             timer.Reset();
