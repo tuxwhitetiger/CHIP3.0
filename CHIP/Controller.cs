@@ -29,12 +29,16 @@ namespace CHIP
         }
 
         public void getupdate() {
-            byte[] dataToSend = Encoding.ASCII.GetBytes("update");
-            socket.Send(dataToSend);
-            byte[] dataRecived = new Byte[1024];
-            socket.Receive(dataRecived);
-            String toProcess = Encoding.ASCII.GetString(dataRecived);
+            Byte[] requestBytes = Encoding.ASCII.GetBytes("update");
+            Byte[] bytesReceived = new Byte[256];
+            socket.Send(requestBytes, requestBytes.Length, 0);
+            int bytes = 0;
+            StringBuilder sb = new StringBuilder();
+            bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
+            sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
+            string toProcess = sb.ToString();
             Console.WriteLine(toProcess);
+
             string[] data = toProcess.Split(',');
             up = Int32.Parse(data[0]);
             down = Int32.Parse(data[1]);
