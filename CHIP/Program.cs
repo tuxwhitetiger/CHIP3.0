@@ -59,6 +59,7 @@ namespace CHIP
                 if (playingsnake) {
                     Console.WriteLine("fetch:"+cnet.controllers.Count);
                     foreach (Controller c in cnet.controllers) {
+                        Console.WriteLine("player:" + c.player);
                         c.getupdate();
                         Console.WriteLine(c.pullcurrentstate());
                     }

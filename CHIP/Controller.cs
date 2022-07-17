@@ -10,7 +10,7 @@ namespace CHIP
 
         public Socket socket;
 
-        int player = 1;
+        public int player = 0;
 
         int up=0;
         int down = 0;
