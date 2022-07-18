@@ -39,12 +39,14 @@ namespace CHIP
             if (started)
             {
                 Console.WriteLine("snake segments:" + Snake.Count);
+                Snake.Reverse();
                 foreach (snakeSegment ss in Snake)
                 {
                     Console.WriteLine("update:" + Snake.IndexOf(ss));
                     ss.update();
                     //head colition with tail check
                 }
+                Snake.Reverse();
                 Console.WriteLine("checkColition");
                 checkColition();
             }
