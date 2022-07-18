@@ -54,7 +54,7 @@ namespace CHIP
                 Console.WriteLine("data count:" + data.Length);
                 if (data.Length < 10)
                 {
-                    Console.WriteLine("not enough data");
+                    //Console.WriteLine("not enough data");
                 }
                 else
                 {
@@ -72,7 +72,6 @@ namespace CHIP
                 }
             }
             else {
-                Console.WriteLine("controller "+player+" busy connection:"+ isalive());
                 failureCount++;
                 if (failureCount > 5) {
                     killme = true;

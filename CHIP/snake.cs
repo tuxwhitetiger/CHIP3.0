@@ -88,13 +88,14 @@ namespace CHIP
             canvas = matrix.SwapOnVsync(canvas);
             if (!started) {
                 //print press start on screen
-                canvas.DrawText(font, 7, 23, new Color(255, 255, 255), "Press Start");
+                canvas.DrawText(font, 7, 15, new Color(255, 255, 255), "Press \n Start");
             }
         }
 
         internal void update(Controller controller)
         {
-            Console.WriteLine("snake part count:"+ Snake.Count);
+            //Console.WriteLine("snake part count:"+ Snake.Count);
+            Console.WriteLine("snake controller start:" + controller.start);
             if (controller.up == 1)
             {
                 Snake[0].direction = direction.up;
@@ -123,7 +124,7 @@ namespace CHIP
             }
             else
             {
-                Console.WriteLine("move snake");
+                //Console.WriteLine("move snake");
                 movesnake();
                 checkForFood();
             }

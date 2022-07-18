@@ -78,7 +78,7 @@ namespace CHIP
                 }
                 if (playingsnake)
                 {
-                    Console.WriteLine("controllers:" + cnet.controllers.Count);
+                    //Console.WriteLine("controllers:" + cnet.controllers.Count);
                     foreach (Controller c in cnet.controllers)
                     {
                         if (c.killme)
@@ -90,12 +90,12 @@ namespace CHIP
                     }
                     if (cnet.controllers.Count == 0)
                     {
-                        canvas.DrawText(font, 7, 23, new Color(255, 255, 255), "connect controller");
+                        canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "connect \n controller");
                         canvas = matrix.SwapOnVsync(canvas);
                     }
                     else
                     {
-                        Console.WriteLine("update with controller:" + cnet.controllers[0].player);
+                        //Console.WriteLine("update with controller:" + cnet.controllers[0].player);
                         snakegame.update(cnet.controllers[0]);
                         snakegame.printframe(matrix, canvas);
                     }
