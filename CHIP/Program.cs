@@ -85,8 +85,9 @@ namespace CHIP
                         {
                             controllerstokill.Add(c);
                         }
-                        Console.WriteLine("player:" + c.player);
+                        Console.WriteLine("before:"+c.pullcurrentstate());
                         c.getupdate();
+                        Console.WriteLine("after:" + c.pullcurrentstate());
                     }
                     if (cnet.controllers.Count == 0)
                     {

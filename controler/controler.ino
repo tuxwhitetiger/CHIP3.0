@@ -84,7 +84,7 @@ void loop()
       Serial.println(output);
       client.print(output);
       client.flush();
-      delay(500);
+      delay(100);
   }
   
  
