@@ -75,7 +75,7 @@ namespace CHIP
             }
             else {
                 Console.WriteLine("controller "+player+" busy connection:"+ isalive());
-                if (stopwatch.ElapsedMilliseconds > 1000) {
+                if (stopwatch.ElapsedMilliseconds > 10000) {
                     killme = true;
                 }
             }
