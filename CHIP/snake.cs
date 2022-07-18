@@ -80,11 +80,11 @@ namespace CHIP
             foreach (snakeSegment ss in Snake) {
                 if (ss.head)
                 {
-                    canvas.SetPixel(ss.x, ss.x, new Color(255, 0, 0));
+                    canvas.SetPixel(ss.x, ss.y, new Color(255, 0, 0));
                 }
                 else
                 {
-                    canvas.SetPixel(ss.x, ss.x, new Color(255, 255, 255));
+                    canvas.SetPixel(ss.x, ss.y, new Color(255, 255, 255));
                 }
             }
             canvas = matrix.SwapOnVsync(canvas);
