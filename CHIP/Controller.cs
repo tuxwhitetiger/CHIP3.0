@@ -23,12 +23,11 @@ namespace CHIP
         public int b = 0;
         public int x = 0;
         public int y = 0;
-        Stopwatch stopwatch = new Stopwatch();
+        int failureCount = 0;
         public bool killme =false;
 
         public Controller(int playernumber) {
             player = playernumber;
-            stopwatch.Start();
         }
         public bool isalive() {
             return socket.Connected;
@@ -37,8 +36,7 @@ namespace CHIP
         {
             if (socket.Available>0)
             {
-                stopwatch.Reset();
-                stopwatch.Start();
+                failureCount = 0;
                 Byte[] requestBytes = Encoding.ASCII.GetBytes("update");
                 Byte[] bytesReceived = new Byte[256];
                 socket.Send(requestBytes, requestBytes.Length, 0);
@@ -75,7 +73,8 @@ namespace CHIP
             }
             else {
                 Console.WriteLine("controller "+player+" busy connection:"+ isalive());
-                if (stopwatch.ElapsedMilliseconds > 10000) {
+                failureCount++;
+                if (failureCount > 5) {
                     killme = true;
                 }
             }
