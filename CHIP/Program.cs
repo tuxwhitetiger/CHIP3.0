@@ -14,6 +14,7 @@ namespace CHIP
         {
             mynetwork net = new mynetwork();
             controller_network cnet = new controller_network();
+            List<Controller> controllerstokill = new List<Controller>();
             snake snakegame = new snake();
             bool playingsnake = false;
             net.connect();
@@ -80,6 +81,10 @@ namespace CHIP
                     Console.WriteLine("controllers:" + cnet.controllers.Count);
                     foreach (Controller c in cnet.controllers)
                     {
+                        if (c.killme)
+                        {
+                            controllerstokill.Add(c);
+                        }
                         Console.WriteLine("player:" + c.player);
                         c.getupdate();
                     }
@@ -93,6 +98,10 @@ namespace CHIP
                         Console.WriteLine("update with controller:" + cnet.controllers[0].player);
                         snakegame.update(cnet.controllers[0]);
                         snakegame.printframe(matrix, canvas);
+                    }
+                    foreach (Controller c in controllerstokill)
+                    {
+                        cnet.controllers.Remove(c);
                     }
                 }
             }

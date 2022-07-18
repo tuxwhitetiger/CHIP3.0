@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Sockets;
 using System.Text;
 
@@ -22,10 +23,12 @@ namespace CHIP
         public int b = 0;
         public int x = 0;
         public int y = 0;
-
+        Stopwatch stopwatch = new Stopwatch();
+        public bool killme =false;
 
         public Controller(int playernumber) {
             player = playernumber;
+            stopwatch.Start();
         }
         public bool isalive() {
             return socket.Connected;
@@ -34,6 +37,8 @@ namespace CHIP
         {
             if (socket.Available>0)
             {
+                stopwatch.Reset();
+                stopwatch.Start();
                 Byte[] requestBytes = Encoding.ASCII.GetBytes("update");
                 Byte[] bytesReceived = new Byte[256];
                 socket.Send(requestBytes, requestBytes.Length, 0);
@@ -70,7 +75,9 @@ namespace CHIP
             }
             else {
                 Console.WriteLine("controller "+player+" busy connection:"+ isalive());
-                
+                if (stopwatch.ElapsedMilliseconds > 1000) {
+                    killme = true;
+                }
             }
         }
 
