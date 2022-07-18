@@ -31,6 +31,7 @@ namespace CHIP
         public void movesnake() {
             if (started)
             {
+                Console.WriteLine("snake segments:" + Snake.Count);
                 foreach (snakeSegment ss in Snake)
                 {
                     Console.WriteLine("update:" + Snake.IndexOf(ss));
@@ -95,7 +96,7 @@ namespace CHIP
         internal void update(Controller controller)
         {
             //Console.WriteLine("snake part count:"+ Snake.Count);
-            Console.WriteLine("snake controller start:" + controller.start);
+            //Console.WriteLine("snake controller start:" + controller.start);
             if (controller.up == 1)
             {
                 Snake[0].direction = direction.up;
