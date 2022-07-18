@@ -12,16 +12,16 @@ namespace CHIP
 
         public int player = 0;
 
-        int up=0;
-        int down = 0;
-        int left = 0;
-        int right = 0;
-        int select = 0;
-        int start = 0;
-        int a = 0;
-        int b = 0;
-        int x = 0;
-        int y = 0;
+        public int up =0;
+        public int down = 0;
+        public int left = 0;
+        public int right = 0;
+        public int select = 0;
+        public int start = 0;
+        public int a = 0;
+        public int b = 0;
+        public int x = 0;
+        public int y = 0;
 
 
         public Controller(int playernumber) {

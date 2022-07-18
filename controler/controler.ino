@@ -47,6 +47,18 @@ void loop()
  
     Serial.println("Connected to server successful!");
   while(true){
+    up=0;
+    down=0;
+    left=0;
+    right=0;
+    star=0;
+    String s = Serial.readString();
+    if(s=="up"){up=1;}
+    if(s=="down"){down=1;}
+    if(s=="left"){left=1;}
+    if(s=="right"){right=1;}
+    if(s=="start"){star=1;}
+    
     String output = String(up);
       output.concat(",");
       output.concat(down);

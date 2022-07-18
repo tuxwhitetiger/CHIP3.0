@@ -14,6 +14,7 @@ namespace CHIP
         {
             mynetwork net = new mynetwork();
             controller_network cnet = new controller_network();
+            snake snakegame = new snake();
             bool playingsnake = false;
             net.connect();
             Console.WriteLine(net.getFace());
@@ -57,11 +58,7 @@ namespace CHIP
             */
 
             while (true) {
-                if (playingsnake) {
-                    foreach (Controller c in cnet.controllers) {
-                        c.getupdate();
-                    }
-                }
+                
                 switch (net.getFace()) {
                     case "Sad face":    playingsnake = false; missingfile(matrix, canvas, font); break;
                     case "Happy face":  playingsnake = false; happy.playGif(matrix, canvas); break;
@@ -70,13 +67,22 @@ namespace CHIP
 //                    case "Flag face":   playingsnake = false; flag.playGif(matrix, canvas); break;
                     case "Gif face":    playingsnake = false; randomGiff(matrix, canvas, gifs);  break;
                     case "Oh face":     playingsnake = false; missingfile(matrix, canvas, font); break;
-                    case "Snake face":  playingsnake = true; missingfile(matrix, canvas, font); break;
+                    case "Snake face":  playingsnake = true; break;
 //                    case "Overheat face": playingsnake = false; overheat.playGif(matrix, canvas); break;
 //                    case "Cwood face":  playingsnake = false; cwoods.playGif(matrix, canvas); break;
 //                    case "Lowbatt face": playingsnake = false; lowbatt.playGif(matrix, canvas); break;
 //                    case "Pacman face": playingsnake = false; pacman.playGif(matrix, canvas); break;
 //                    case "Matrix face": playingsnake = false; neomatrix.playGif(matrix, canvas); break;
                     
+                }
+                if (playingsnake)
+                {
+                    foreach (Controller c in cnet.controllers)
+                    {
+                        c.getupdate();
+                    }
+                    snakegame.update(cnet.controllers[0]);
+                    snakegame.printframe(matrix, canvas);
                 }
             }
         }
