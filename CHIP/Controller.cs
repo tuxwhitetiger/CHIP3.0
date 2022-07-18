@@ -48,11 +48,11 @@ namespace CHIP
                     sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
                 }
                 string toProcess = sb.ToString();
-                Console.WriteLine("incoming data:" + toProcess);
+                //Console.WriteLine("incoming data:" + toProcess);
                 string[] updates = toProcess.Split("DONE");
-                Console.WriteLine("updates count:" + updates.Length);
-                string[] data = updates[updates.Length-1].Split(',');//get most resent update
-                Console.WriteLine("data count:" + data.Length);
+                //Console.WriteLine("updates count:" + updates.Length);
+                string[] data = updates[updates.Length-2].Split(',');//get most resent update
+                //Console.WriteLine("data count:" + data.Length);
                 //Console.WriteLine(data.ToString());
                 if (data.Length < 10)
                 {
@@ -60,31 +60,6 @@ namespace CHIP
                 }
                 else
                 {
-                    sb = new StringBuilder();
-                    sb.Append("player:");
-                    sb.Append(player);
-                    sb.Append(", up:");
-                    sb.Append(data[0]);
-                    sb.Append(", down:");
-                    sb.Append(data[1]);
-                    sb.Append(", left:");
-                    sb.Append(data[2]);
-                    sb.Append(", right:");
-                    sb.Append(data[3]);
-                    sb.Append(", select:");
-                    sb.Append(data[4]);
-                    sb.Append(", start:");
-                    sb.Append(data[5]);
-                    sb.Append(", a:");
-                    sb.Append(data[6]);
-                    sb.Append(", b:");
-                    sb.Append(data[7]);
-                    sb.Append(", x:");
-                    sb.Append(data[8]);
-                    sb.Append(", y:");
-                    sb.Append(data[9]);
-                    Console.WriteLine(sb.ToString());
-
                     up = Int32.Parse(data[0]);
                     down = Int32.Parse(data[1]);
                     left = Int32.Parse(data[2]);
