@@ -81,9 +81,10 @@ void loop()
       output.concat(x);
       output.concat(",");
       output.concat(y);
+      output.concat(",");
       output.concat("DONE");
       Serial.println(output);
-      client.print(output);
+      client.println(output);
       client.flush();
       delay(100);
   }

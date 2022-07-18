@@ -48,11 +48,12 @@ namespace CHIP
                     sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
                 }
                 string toProcess = sb.ToString();
-                Console.WriteLine(toProcess);
+                Console.WriteLine("incoming data:" + toProcess);
                 string[] updates = toProcess.Split("DONE");
+                Console.WriteLine("updates count:" + updates.Length);
                 string[] data = updates[updates.Length-1].Split(',');//get most resent update
-                //Console.WriteLine("data count:" + data.Length);
-                Console.WriteLine(data.ToString());
+                Console.WriteLine("data count:" + data.Length);
+                //Console.WriteLine(data.ToString());
                 if (data.Length < 10)
                 {
                     Console.WriteLine("not enough data");
