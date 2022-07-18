@@ -56,13 +56,13 @@ namespace CHIP
             {
                 if (Snake[0] != ss)
                 {
-                    if ((Snake[0].x == ss.x || Snake[0].x == ss.x) && (Snake[0].y == ss.y || Snake[0].y == ss.y))
+                    if ((Snake[0].x == ss.x) && (Snake[0].y == ss.y))
                     {
                         dead = true;
                     }
                 }
             }
-            if ((Snake[0].x == 0 || Snake[0].x == 64) && (Snake[0].y == 0 || Snake[0].y == 32))
+            if (((Snake[0].x == 0) || (Snake[0].x == 64)) && ((Snake[0].y == 0) || (Snake[0].y == 32)))
             {
                 dead = true;
             }
@@ -98,11 +98,11 @@ namespace CHIP
                     canvas.SetPixel(ss.x, ss.y, new Color(255, 255, 255));
                 }
             }
-            canvas = matrix.SwapOnVsync(canvas);
             if (!started) {
                 //print press start on screen
                 canvas.DrawText(font, 7, 15, new Color(255, 255, 255), "Press \n Start");
             }
+            canvas = matrix.SwapOnVsync(canvas);
         }
 
         internal void update(Controller controller)
