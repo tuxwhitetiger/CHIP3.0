@@ -57,7 +57,7 @@ namespace CHIP
             gifs.Add(pacman);
 
             */
-
+            canvas.Clear();
             while (true) {
                 
                 switch (net.getFace()) {
@@ -90,7 +90,8 @@ namespace CHIP
                     }
                     if (cnet.controllers.Count == 0)
                     {
-                        canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "connect \n controller");
+                        canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "connect");
+                        canvas.DrawText(font, 7, 17, new Color(255, 255, 255), "controller");
                         canvas = matrix.SwapOnVsync(canvas);
                     }
                     else
