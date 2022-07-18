@@ -68,7 +68,7 @@ namespace CHIP
                 }
             }
             else {
-                Console.WriteLine("controller "+player+" disconected");
+                Console.WriteLine("controller "+player+" busy");
             }
         }
 

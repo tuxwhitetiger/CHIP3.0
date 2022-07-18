@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Threading;
 using rpi_rgb_led_matrix_sharp;
 
 namespace CHIP
@@ -57,11 +58,8 @@ namespace CHIP
 
             while (true) {
                 if (playingsnake) {
-                    Console.WriteLine("fetch:"+cnet.controllers.Count);
                     foreach (Controller c in cnet.controllers) {
-                        Console.WriteLine("player:" + c.player);
                         c.getupdate();
-                        Console.WriteLine(c.pullcurrentstate());
                     }
                 }
                 switch (net.getFace()) {
@@ -92,6 +90,7 @@ namespace CHIP
 
         private static void missingfile(RGBLedMatrix matrix, RGBLedCanvas canvas, RGBLedFont font)
         {
+            Thread.Sleep(40);
             canvas.Fill(new Color(0, 0, 0));
             canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "missing");
             canvas.DrawText(font, 7, 23, new Color(255, 255, 255), "Gif");
