@@ -33,8 +33,10 @@ namespace CHIP
             {
                 foreach (snakeSegment ss in Snake)
                 {
+                    Console.WriteLine("update:" + Snake.IndexOf(ss));
                     ss.update();
                     //head colition with tail check
+                    Console.WriteLine("colition check of" + Snake.IndexOf(ss));
                     if (Snake[0] != ss)
                     {
                         if ((Snake[0].x == ss.x || Snake[0].x == ss.x) && (Snake[0].y == ss.y || Snake[0].y == ss.y))
@@ -43,6 +45,7 @@ namespace CHIP
                         }
                     }
                 }
+                Console.WriteLine("colition check wall");
                 //head colition with wall check
                 if ((Snake[0].x == 0 || Snake[0].x == 64) && (Snake[0].y == 0 || Snake[0].y == 32))
                 {
@@ -90,6 +93,7 @@ namespace CHIP
 
         internal void update(Controller controller)
         {
+            Console.WriteLine("snake part count:"+ Snake.Count);
             if (controller.up == 1)
             {
                 Snake[0].direction = direction.up;
@@ -118,7 +122,9 @@ namespace CHIP
             }
             else
             {
+                Console.WriteLine("move snake");
                 movesnake();
+                checkForFood();
             }
         }
     }

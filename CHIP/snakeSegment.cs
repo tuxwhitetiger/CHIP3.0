@@ -26,7 +26,13 @@ namespace CHIP
             this.direction = direction;
             this.following = following;
         }
-
+        public snakeSegment(int x, int y, bool head, direction direction)
+        {
+            this.x = x;
+            this.y = y;
+            this.head = head;
+            this.direction = direction;
+        }
         internal void update()
         {
             if (moving)
@@ -49,13 +55,7 @@ namespace CHIP
 
         }
 
-        public snakeSegment(int x, int y, bool head, direction direction)
-        {
-            this.x = x;
-            this.y = y;
-            this.head = head;
-            this.direction = direction;
-        }
+        
 
 
 

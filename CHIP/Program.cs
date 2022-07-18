@@ -77,10 +77,13 @@ namespace CHIP
                 }
                 if (playingsnake)
                 {
+                    Console.WriteLine("controllers:" + cnet.controllers.Count);
                     foreach (Controller c in cnet.controllers)
                     {
+                        Console.WriteLine("player:" + c.player);
                         c.getupdate();
                     }
+                    Console.WriteLine("update with controller:" + cnet.controllers[0].player);
                     snakegame.update(cnet.controllers[0]);
                     snakegame.printframe(matrix, canvas);
                 }
