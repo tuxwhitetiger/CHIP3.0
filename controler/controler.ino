@@ -61,7 +61,8 @@ void loop()
     if(s.equals("right")){right=1;}
     if(s.equals("start")){star=1;}
     
-    String output = String(up);
+    String output = "";
+      output.concat(up);
       output.concat(",");
       output.concat(down);
       output.concat(",");
