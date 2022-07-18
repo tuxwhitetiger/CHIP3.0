@@ -69,7 +69,8 @@ namespace CHIP
                 }
             }
             else {
-                Console.WriteLine("controller "+player+" busy");
+                Console.WriteLine("controller "+player+" busy connection:"+ isalive());
+                
             }
         }
 

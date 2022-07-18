@@ -53,11 +53,13 @@ void loop()
     right=0;
     star=0;
     String s = Serial.readString();
-    if(s=="up"){up=1;}
-    if(s=="down"){down=1;}
-    if(s=="left"){left=1;}
-    if(s=="right"){right=1;}
-    if(s=="start"){star=1;}
+    s.trim();
+    Serial.println(s);
+    if(s.equals("up")){up=1;}
+    if(s.equals("down")){down=1;}
+    if(s.equals("left")){left=1;}
+    if(s.equals("right")){right=1;}
+    if(s.equals("start")){star=1;}
     
     String output = String(up);
       output.concat(",");
