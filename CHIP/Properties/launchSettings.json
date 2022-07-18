@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CHIP": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}
