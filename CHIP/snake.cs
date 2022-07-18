@@ -14,7 +14,7 @@ namespace CHIP
         RGBLedFont font;
         public snake() {
             startNewGame();
-            RGBLedFont font = new RGBLedFont("./fonts/7x13.bdf");
+            font = new RGBLedFont("./fonts/7x13.bdf");
         }
 
         public void startNewGame() {
@@ -58,6 +58,7 @@ namespace CHIP
             if ((Snake[0].x == food.x) && (Snake[0].y == food.y)) {
                 //nom nom
                 snakeSegment extraTail = new snakeSegment(food.x, food.y, false, Snake[0].direction, Snake[Snake.Count-1]);
+                Snake.Add(extraTail);
                 food = newfood();
             }
         }

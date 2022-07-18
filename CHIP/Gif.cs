@@ -13,7 +13,6 @@ namespace CHIP
         int[,,,] data; //x, y, framecount, color(0=r,1=g,2=b)
         int x=0;
         int y=0;
-        int framecount=0;
         public int newFrameCount;
         Stopwatch timer = new Stopwatch();
         string name;

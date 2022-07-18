@@ -83,9 +83,17 @@ namespace CHIP
                         Console.WriteLine("player:" + c.player);
                         c.getupdate();
                     }
-                    Console.WriteLine("update with controller:" + cnet.controllers[0].player);
-                    snakegame.update(cnet.controllers[0]);
-                    snakegame.printframe(matrix, canvas);
+                    if (cnet.controllers.Count == 0)
+                    {
+                        canvas.DrawText(font, 7, 23, new Color(255, 255, 255), "connect controller");
+                        canvas = matrix.SwapOnVsync(canvas);
+                    }
+                    else
+                    {
+                        Console.WriteLine("update with controller:" + cnet.controllers[0].player);
+                        snakegame.update(cnet.controllers[0]);
+                        snakegame.printframe(matrix, canvas);
+                    }
                 }
             }
         }
