@@ -52,14 +52,13 @@ namespace CHIP
                 string[] updates = toProcess.Split("DONE");
                 string[] data = updates[updates.Length-1].Split(',');//get most resent update
                 //Console.WriteLine("data count:" + data.Length);
-                
+                Console.WriteLine(data.ToString());
                 if (data.Length < 10)
                 {
-                    //Console.WriteLine("not enough data");
+                    Console.WriteLine("not enough data");
                 }
                 else
                 {
-                    
                     up = Int32.Parse(data[0]);
                     down = Int32.Parse(data[1]);
                     left = Int32.Parse(data[2]);
