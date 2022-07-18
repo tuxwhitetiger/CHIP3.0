@@ -81,13 +81,8 @@ namespace CHIP
                     //Console.WriteLine("controllers:" + cnet.controllers.Count);
                     foreach (Controller c in cnet.controllers)
                     {
-                        if (c.killme)
-                        {
-                            controllerstokill.Add(c);
-                        }
-                        //Console.WriteLine("before:"+c.pullcurrentstate());
-                        c.getupdate();
-                        //Console.WriteLine("after:" + c.pullcurrentstate());
+                        if (c.killme){controllerstokill.Add(c);}
+                        c.getupdate(); // need to make a thread safe async
                     }
                     if (cnet.controllers.Count == 0)
                     {
@@ -97,7 +92,6 @@ namespace CHIP
                     }
                     else
                     {
-                        //Console.WriteLine("update with controller:" + cnet.controllers[0].player);
                         snakegame.update(cnet.controllers[0]);
                         snakegame.printframe(matrix, canvas);
                     }

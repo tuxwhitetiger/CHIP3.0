@@ -18,6 +18,7 @@ namespace CHIP
         public int x;
         public int y;
         public bool moving = false;
+        bool startmoving = false;
         public snakeSegment(int x, int y, bool head, direction direction, snakeSegment following)
         {
             this.x = x;
@@ -39,17 +40,19 @@ namespace CHIP
             {
                 switch (direction)
                 {
-                    case direction.up: y++; break;
-                    case direction.down: y--; break;
+                    case direction.up: y--; break;
+                    case direction.down: y++; break;
                     case direction.left: x--; break;
                     case direction.right: x++; break;
                 }
             }
             if (!head) {
                 direction = following.direction;
-                if ((x == following.x) && (y == following.y))
-                {
+                if (startmoving) {
                     moving = true;
+                }else if ((x == following.x) && (y == following.y))
+                {
+                    startmoving = true;
                 }
             }
         }

@@ -38,24 +38,27 @@ namespace CHIP
                     Console.WriteLine("update:" + Snake.IndexOf(ss));
                     ss.update();
                     //head colition with tail check
-                    Console.WriteLine("colition check of" + Snake.IndexOf(ss));
-                    if (Snake[0] != ss)
-                    {
-                        if ((Snake[0].x == ss.x || Snake[0].x == ss.x) && (Snake[0].y == ss.y || Snake[0].y == ss.y))
-                        {
-                            dead = true;
-                        }
-                    }
                 }
-                Console.WriteLine("colition check wall");
-                //head colition with wall check
-                if ((Snake[0].x == 0 || Snake[0].x == 64) && (Snake[0].y == 0 || Snake[0].y == 32))
-                {
-                    dead = true;
-                }
+                Console.WriteLine("checkColition");
+                checkColition();
             }
         }
-
+        public void checkColition() {
+            foreach (snakeSegment ss in Snake)
+            {
+                if (Snake[0] != ss)
+                {
+                    if ((Snake[0].x == ss.x || Snake[0].x == ss.x) && (Snake[0].y == ss.y || Snake[0].y == ss.y))
+                    {
+                        dead = true;
+                    }
+                }
+            }
+            if ((Snake[0].x == 0 || Snake[0].x == 64) && (Snake[0].y == 0 || Snake[0].y == 32))
+            {
+                dead = true;
+            }
+        }
         public void checkForFood() {
             if ((Snake[0].x == food.x) && (Snake[0].y == food.y)) {
                 //nom nom
