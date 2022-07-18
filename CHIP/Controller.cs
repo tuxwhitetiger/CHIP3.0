@@ -46,8 +46,8 @@ namespace CHIP
                 }
                 string toProcess = sb.ToString();
                 Console.WriteLine(toProcess);
-
-                string[] data = toProcess.Split(',');
+                string[] updates = toProcess.Split("DONE");
+                string[] data = updates[updates.Length-1].Split(',');//get most resent update
                 Console.WriteLine("data count:" + data.Length);
                 if (data.Length < 10)
                 {
@@ -55,6 +55,7 @@ namespace CHIP
                 }
                 else
                 {
+
                     up = Int32.Parse(data[0]);
                     down = Int32.Parse(data[1]);
                     left = Int32.Parse(data[2]);

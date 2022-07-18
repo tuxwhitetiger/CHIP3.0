@@ -10,9 +10,6 @@ const char* ssid     = "CHIP";
 const char* password = "Samsung2233";
 const char* host     = "10.1.1.1";
 const int Port = 65433;
-IPAddress local_IP(10, 1, 1, 100);
-IPAddress gateway(10, 1, 1, 1);
-IPAddress subnet(255, 255, 255, 0);
 WiFiClient client;
 int up = 0;
 int down = 0;
@@ -28,25 +25,21 @@ int y = 0;
 void setup()
 {
   Serial.begin(115200);
-
-  if (!WiFi.config(local_IP, gateway, subnet)) {
-    Serial.println("STA Failed to configure");
-  }
-
   Serial.print("Connecting to ");
   Serial.println(ssid);
-
+  WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
-
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.print(".");
+    Serial.println(WiFi.status());
+    if(WiFi.status() ==0){
+        WiFi.begin(ssid, password);
+      }
   }
+  Serial.println(WiFi.localIP());
   Serial.print("connecting to ");
   Serial.println(host);
   client.connect(host, Port);
-  
-  
 }
 
 void loop()
