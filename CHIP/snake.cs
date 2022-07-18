@@ -25,6 +25,7 @@ namespace CHIP
             head.moving = true;
             Snake.Add(head);
             snakeSegment tail = new snakeSegment(7, 16, false, direction.right, head);
+            tail.moving = true;
             Snake.Add(tail);
         }
 

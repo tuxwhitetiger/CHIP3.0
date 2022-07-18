@@ -47,12 +47,11 @@ namespace CHIP
             }
             if (!head) {
                 direction = following.direction;
+                if ((x == following.x) && (y == following.y))
+                {
+                    moving = true;
+                }
             }
-            if ((x == following.x) && (y == following.y))
-            {
-                moving = true;
-            }
-
         }
 
         
