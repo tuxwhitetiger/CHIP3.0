@@ -74,11 +74,9 @@ namespace CHIP
 //                    case "Lowbatt face": playingsnake = false; lowbatt.playGif(matrix, canvas); break;
 //                    case "Pacman face": playingsnake = false; pacman.playGif(matrix, canvas); break;
 //                    case "Matrix face": playingsnake = false; neomatrix.playGif(matrix, canvas); break;
-                    
                 }
                 if (playingsnake)
                 {
-                    //Console.WriteLine("controllers:" + cnet.controllers.Count);
                     foreach (Controller c in cnet.controllers)
                     {
                         if (c.killme){controllerstokill.Add(c);}
@@ -102,6 +100,7 @@ namespace CHIP
                 }
             }
         }
+
 
         private static void randomGiff(RGBLedMatrix matrix, RGBLedCanvas canvas, List<Gif> gifs)
         {

@@ -100,7 +100,8 @@ namespace CHIP
             }
             if (!started) {
                 //print press start on screen
-                canvas.DrawText(font, 7, 15, new Color(255, 255, 255), "Press \n Start");
+                canvas.DrawText(font, 7, 15, new Color(255, 255, 255), "Press");
+                canvas.DrawText(font, 7, 20, new Color(255, 255, 255), "Start");
             }
             canvas = matrix.SwapOnVsync(canvas);
         }
