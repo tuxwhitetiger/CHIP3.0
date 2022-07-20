@@ -51,6 +51,7 @@ namespace CHIP
                 checkColition();
             }
         }
+
         public void checkColition() {
             foreach (snakeSegment ss in Snake)
             {
@@ -67,6 +68,7 @@ namespace CHIP
                 dead = true;
             }
         }
+
         public void checkForFood() {
             if ((Snake[0].x == food.x) && (Snake[0].y == food.y)) {
                 //nom nom

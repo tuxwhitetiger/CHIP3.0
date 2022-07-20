@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Threading;
 using rpi_rgb_led_matrix_sharp;
 
@@ -9,7 +7,6 @@ namespace CHIP
 {
     public class MainClass
     {
-        
         public static void Main(string[] args)
         {
             mynetwork net = new mynetwork();
@@ -35,7 +32,7 @@ namespace CHIP
             canvas = matrix.SwapOnVsync(canvas);
             List<Gif> gifs = new List<Gif>();
 
-            Gif happy = new Gif( "happy");
+            Gif happy = new Gif("happy");
             happy.loadData(net.GetGifData("happy.gif"),40);
             /*
             Gif neomatrix = new Gif("matrix");
@@ -51,15 +48,13 @@ namespace CHIP
             Gif pacman = new Gif("pacman");
             pacman.loadData(net.GetGifData("pacman.gif"),40);
             
-            
             gifs.Add(cwoods);
             gifs.Add(neomatrix);
             gifs.Add(pacman);
-
             */
+
             canvas.Clear();
             while (true) {
-                
                 switch (net.getFace()) {
                     case "Sad face":    playingsnake = false; missingfile(matrix, canvas, font); break;
                     case "Happy face":  playingsnake = false; happy.playGif(matrix, canvas); break;
@@ -68,7 +63,7 @@ namespace CHIP
 //                    case "Flag face":   playingsnake = false; flag.playGif(matrix, canvas); break;
                     case "Gif face":    playingsnake = false; randomGiff(matrix, canvas, gifs);  break;
                     case "Oh face":     playingsnake = false; missingfile(matrix, canvas, font); break;
-                    case "Snake face":  playingsnake = true; break;
+                    case "Snake face":  playingsnake = true; canvas.Clear(); break;
 //                    case "Overheat face": playingsnake = false; overheat.playGif(matrix, canvas); break;
 //                    case "Cwood face":  playingsnake = false; cwoods.playGif(matrix, canvas); break;
 //                    case "Lowbatt face": playingsnake = false; lowbatt.playGif(matrix, canvas); break;
@@ -101,7 +96,6 @@ namespace CHIP
             }
         }
 
-
         private static void randomGiff(RGBLedMatrix matrix, RGBLedCanvas canvas, List<Gif> gifs)
         {
             Random rand = new Random();
@@ -118,5 +112,4 @@ namespace CHIP
             canvas = matrix.SwapOnVsync(canvas);
         }
     }
-
 }
