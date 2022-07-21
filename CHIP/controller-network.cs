@@ -33,9 +33,12 @@ namespace CHIP
                 Socket client = socket.Accept();
                 Console.WriteLine("something sonnected");
                 Controller c = new Controller(controllercount);
+                Console.WriteLine("controller created");
                 c.socket = client;
+                Console.WriteLine("socket set");
                 controllers.Add(c);
                 controllercount++;
+                Console.WriteLine("added to list");
             }
         }
     }
