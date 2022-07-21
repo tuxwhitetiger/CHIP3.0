@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace CHIP
@@ -14,6 +12,7 @@ namespace CHIP
         /// accsepts a controller assigns a port and waits for another to reconnect
         /// </summary>
         /// 
+
         Socket socket;
         public List<Controller> controllers = new List<Controller>();
         int controllercount = 1;
@@ -25,11 +24,14 @@ namespace CHIP
             socket.Bind(localEndPoint);
             Task.Factory.StartNew(checkForNewController, TaskCreationOptions.LongRunning);
         }
+
         public void checkForNewController() {
             while (true)
             {
+                Console.WriteLine("started listning");
                 socket.Listen(100);
                 Socket client = socket.Accept();
+                Console.WriteLine("something sonnected");
                 Controller c = new Controller(controllercount);
                 c.socket = client;
                 controllers.Add(c);

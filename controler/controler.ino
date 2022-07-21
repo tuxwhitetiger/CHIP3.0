@@ -1,12 +1,9 @@
 #include <WiFi.h>
-#include <SPI.h>
 
 const char* ssid = "CHIP";
 const char* password = "Samsung2233";
 
 const uint16_t port = 65433;
-//const char * host = "10.1.1.1";
-
 IPAddress host(10,1,1,1);
 
 int uppin = 12;
@@ -44,14 +41,12 @@ void setup()
     delay(500);
     Serial.println("...");
   }
-
   Serial.print("WiFi connected with IP: ");
   Serial.println(WiFi.localIP());
   Serial.print("Connectiong to ");
   Serial.print(host);
   Serial.print(" on ");
   Serial.println(port);
-  client.connect(host, port);
 }
 
 void loop()
@@ -66,6 +61,9 @@ void loop()
     while(!client.connect(host, port)){
       Serial.println("reconnecting.");
       delay(500);
+      if (WiFi.status() != WL_CONNECTED){
+          Serial.println("WiFi lost");
+      }
     }
   }
 
@@ -96,6 +94,7 @@ void loop()
   output.concat(",");
   output.concat(y);
   output.concat("DONE");
+  
   Serial.println(output);
   client.print(output);
   client.flush();
