@@ -47,24 +47,21 @@ void setup()
   Serial.print(host);
   Serial.print(" on ");
   Serial.println(port);
-}
-
-void loop()
-{
-  if (!client.connected()){
-    Serial.println();
-    Serial.println("disconnected.");
-    Serial.print("Connecting to ");
-    Serial.print(host);
-    Serial.print(" on ");
-    Serial.println(port);
-    while(!client.connect(host, port)){
+  while(!client.connect(host, port)){
       Serial.println("reconnecting.");
       delay(500);
       if (WiFi.status() != WL_CONNECTED){
           Serial.println("WiFi lost");
       }
     }
+}
+void(* resetFunc) (void) = 0;
+void loop()
+{
+  if (!client.connected()){
+    Serial.println();
+    Serial.println("disconnected.");
+    resetFunc();
   }
 
   up= digitalRead(uppin);
@@ -97,6 +94,5 @@ void loop()
   
   Serial.println(output);
   client.print(output);
-  client.flush();
-  delay(50);
+  delay(100);
 }

@@ -26,20 +26,18 @@ namespace CHIP
         }
 
         public void checkForNewController() {
-            while (true)
-            {
-                Console.WriteLine("started listning");
-                socket.Listen(10);
-                Socket client = socket.Accept();
-                Console.WriteLine("something sonnected");
-                Controller c = new Controller(controllercount);
-                Console.WriteLine("controller created");
-                c.socket = client;
-                Console.WriteLine("socket set");
-                controllers.Add(c);
-                controllercount++;
-                Console.WriteLine("added to list");
-            }
+            Console.WriteLine("started listning");
+            socket.Listen(10);
+            Socket client = socket.Accept();
+            Console.WriteLine("something sonnected");
+            Controller c = new Controller(controllercount);
+            Console.WriteLine("controller created");
+            c.socket = client;
+            Console.WriteLine("socket set");
+            controllers.Add(c);
+            controllercount++;
+            Console.WriteLine("added to list");
+            Task.Factory.StartNew(checkForNewController, TaskCreationOptions.LongRunning);
         }
     }
 }
