@@ -98,5 +98,5 @@ void loop()
   Serial.println(output);
   client.print(output);
   client.flush();
-  delay(30);
+  delay(50);
 }

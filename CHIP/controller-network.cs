@@ -29,7 +29,7 @@ namespace CHIP
             while (true)
             {
                 Console.WriteLine("started listning");
-                socket.Listen(100);
+                socket.Listen(10);
                 Socket client = socket.Accept();
                 Console.WriteLine("something sonnected");
                 Controller c = new Controller(controllercount);
