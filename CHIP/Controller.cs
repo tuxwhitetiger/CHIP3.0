@@ -71,7 +71,7 @@ namespace CHIP
             }
             else {
                 failureCount++;
-                if (failureCount > 5) {
+                if (failureCount > 10) {
                     killme = true;
                 }
             }

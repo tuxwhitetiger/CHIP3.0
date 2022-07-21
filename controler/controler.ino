@@ -25,8 +25,36 @@ int y = 0;
 
 
 WiFiClient client;
+
+void WiFiStationConnected(WiFiEvent_t event, WiFiEventInfo_t info){
+  Serial.println("Connected to AP successfully!");
+}
+
+void WiFiGotIP(WiFiEvent_t event, WiFiEventInfo_t info){
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+  client.connect(host,port);
+}
+
+void WiFiStationDisconnected(WiFiEvent_t event, WiFiEventInfo_t info){
+  Serial.println("Disconnected from WiFi access point");
+  Serial.print("WiFi lost connection. Reason: ");
+  Serial.println(info.disconnected.reason);
+  Serial.println("Trying to Reconnect");
+  WiFi.begin(ssid, password);
+}
+
 void setup()
 {
+  WiFi.disconnect(true);
+
+  delay(1000);
+
+  WiFi.onEvent(WiFiStationConnected, SYSTEM_EVENT_STA_CONNECTED);
+  WiFi.onEvent(WiFiGotIP, SYSTEM_EVENT_STA_GOT_IP);
+  WiFi.onEvent(WiFiStationDisconnected, SYSTEM_EVENT_STA_DISCONNECTED);
+
   WiFi.mode(WIFI_STA);
   pinMode(uppin, INPUT);
   pinMode(downpin, INPUT);
@@ -41,29 +69,10 @@ void setup()
     delay(500);
     Serial.println("...");
   }
-  Serial.print("WiFi connected with IP: ");
-  Serial.println(WiFi.localIP());
-  Serial.print("Connectiong to ");
-  Serial.print(host);
-  Serial.print(" on ");
-  Serial.println(port);
-  while(!client.connect(host, port)){
-      Serial.println("reconnecting.");
-      delay(500);
-      if (WiFi.status() != WL_CONNECTED){
-          Serial.println("WiFi lost");
-      }
-    }
+  client.connect(host,port);
 }
-void(* resetFunc) (void) = 0;
 void loop()
 {
-  if (!client.connected()){
-    Serial.println();
-    Serial.println("disconnected.");
-    resetFunc();
-  }
-
   up= digitalRead(uppin);
   down=digitalRead(downpin);
   left=digitalRead(leftpin);
@@ -92,7 +101,7 @@ void loop()
   output.concat(y);
   output.concat("DONE");
   
-  Serial.println(output);
+  //Serial.println(output);
   client.print(output);
   delay(100);
 }
