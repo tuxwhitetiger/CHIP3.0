@@ -10,11 +10,11 @@ namespace CHIP
         public static void Main(string[] args)
         {
             mynetwork net = new mynetwork();
+            net.connect();
             controller_network cnet = new controller_network();
             List<Controller> controllerstokill = new List<Controller>();
             snake snakegame = new snake();
             bool playingsnake = false;
-            net.connect();
             Console.WriteLine(net.getFace());
             RGBLedMatrixOptions options = new RGBLedMatrixOptions();
             options.Rows = 32;

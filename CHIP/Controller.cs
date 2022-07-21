@@ -8,11 +8,8 @@ namespace CHIP
 {
     class Controller
     {
-
         public Socket socket;
-
         public int player = 0;
-
         public int up =0;
         public int down = 0;
         public int left = 0;
