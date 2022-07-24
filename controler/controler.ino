@@ -88,7 +88,6 @@ void setup()
   }
   internaldisplayprint(0,0,"connected");
   client.connect(host,port,10000);
-  client.print("ready");
 }
 
 void loop()
@@ -98,7 +97,8 @@ void loop()
       char c = client.read();
       Serial.print(c);
     }
-    Serial.println("");
+    Serial.println("out the while loop");
+    Serial.println(" ");
     String test = String(client.connected());
     internaldisplayprint(0,7,test);
     up= digitalRead(uppin);

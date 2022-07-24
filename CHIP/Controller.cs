@@ -39,6 +39,7 @@ namespace CHIP
                     Byte[] requestBytes = Encoding.ASCII.GetBytes("update");
                     socket.Send(requestBytes, requestBytes.Length, 0);
                     waitingupdate = true;
+                    failureCount = 0;
                 }
                 if (socket.Available > 0)
                 {
@@ -81,9 +82,10 @@ namespace CHIP
                     }
                 }
                 else {
+                    //need to make this a time gate 
                     failureCount++;
-                    if (failureCount > 60) {
-                        Console.WriteLine("failureCount :"+ failureCount);
+                    if (failureCount > 6000) {
+                        //Console.WriteLine("failureCount :"+ failureCount);
                         //killme = true;
                         waitingupdate = false;
                     }
