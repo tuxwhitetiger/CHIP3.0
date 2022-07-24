@@ -69,6 +69,7 @@ namespace CHIP
                     }
                     else
                     {
+                        Console.WriteLine("updated");
                         up = Int32.Parse(data[0]);
                         down = Int32.Parse(data[1]);
                         left = Int32.Parse(data[2]);
