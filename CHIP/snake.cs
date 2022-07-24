@@ -81,8 +81,8 @@ namespace CHIP
 
         public food newfood() {
             Random rand = new Random();
-            int x = rand.Next(0, 64);
-            int y = rand.Next(0, 32);
+            int x = rand.Next(1, 62);
+            int y = rand.Next(1, 30);
             food f = new food(x,y);
             return f;
         }
@@ -109,7 +109,7 @@ namespace CHIP
             }
             if (!started) {
                 //print press start on screen
-                canvas.DrawText(font, 7, 15, new Color(255, 255, 255), "Press");
+                canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "Press");
                 canvas.DrawText(font, 7, 20, new Color(255, 255, 255), "Start");
             }
             canvas = matrix.SwapOnVsync(canvas);

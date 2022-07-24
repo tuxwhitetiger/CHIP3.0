@@ -59,8 +59,5 @@ namespace CHIP
             sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
             return sb.ToString();
         }
-
-        
-
     }
 }
