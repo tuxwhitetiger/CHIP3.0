@@ -32,12 +32,13 @@ namespace CHIP
         public void getupdate()
         {
             while (true){
+                Byte[] requestBytes = Encoding.ASCII.GetBytes("update");
+                socket.Send(requestBytes, requestBytes.Length, 0);
                 if (socket.Available > 0)
                 {
                     failureCount = 0;
-                    Byte[] requestBytes = Encoding.ASCII.GetBytes("update");
+                    
                     Byte[] bytesReceived = new Byte[256];
-                    socket.Send(requestBytes, requestBytes.Length, 0);
                     int bytes = 0;
                     StringBuilder sb = new StringBuilder();
                     while (!sb.ToString().Contains("DONE"))
@@ -45,6 +46,7 @@ namespace CHIP
                         bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
                         sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
                     }
+
                     string toProcess = sb.ToString();
                     Console.WriteLine("incoming data:" + toProcess);
                     string[] updates = toProcess.Split("DONE");

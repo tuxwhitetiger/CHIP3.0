@@ -88,44 +88,48 @@ void setup()
   }
   internaldisplayprint(0,0,"connected");
   client.connect(host,port,10000);
+  client.print("ready");
 }
 
 void loop()
 {
-  String test = String(client.connected());
-  internaldisplayprint(0,0,"playing");
-  internaldisplayprint(0,7,test);
-  up= digitalRead(uppin);
-  down=digitalRead(downpin);
-  left=digitalRead(leftpin);
-  right=digitalRead(rightpin);
-  star=digitalRead(starpin);
-
-  String output = "";
-  output.concat(up);
-  output.concat(",");
-  output.concat(down);
-  output.concat(",");
-  output.concat(left);
-  output.concat(",");
-  output.concat(right);
-  output.concat(",");
-  output.concat(sel);
-  output.concat(",");
-  output.concat(star);
-  output.concat(",");
-  output.concat(a);
-  output.concat(",");
-  output.concat(b);
-  output.concat(",");
-  output.concat(x);
-  output.concat(",");
-  output.concat(y);
-  output.concat("DONE");
+  if(client.available()){
+    while(client.available()) {
+      char c = client.read();
+      Serial.println(c);
+    }
+    String test = String(client.connected());
+    internaldisplayprint(0,7,test);
+    up= digitalRead(uppin);
+    down=digitalRead(downpin);
+    left=digitalRead(leftpin);
+    right=digitalRead(rightpin);
+    star=digitalRead(starpin);
   
-  //Serial.println(output);
-  client.print(output);
-  
-  delay(100);
-  
+    String output = "";
+    output.concat(up);
+    output.concat(",");
+    output.concat(down);
+    output.concat(",");
+    output.concat(left);
+    output.concat(",");
+    output.concat(right);
+    output.concat(",");
+    output.concat(sel);
+    output.concat(",");
+    output.concat(star);
+    output.concat(",");
+    output.concat(a);
+    output.concat(",");
+    output.concat(b);
+    output.concat(",");
+    output.concat(x);
+    output.concat(",");
+    output.concat(y);
+    output.concat("DONE");
+    
+    
+    client.print(output);
+    
+  }
 }
