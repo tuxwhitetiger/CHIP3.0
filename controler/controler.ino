@@ -95,10 +95,10 @@ void loop()
   if(client.available()){
     while(client.available()) {
       char c = client.read();
-      Serial.print(c);
+      //Serial.print(c);
     }
-    Serial.println("out the while loop");
-    Serial.println(" ");
+    //Serial.println("out the while loop");
+    //Serial.println(" ");
     String test = String(client.connected());
     internaldisplayprint(0,7,test);
     up= digitalRead(uppin);
@@ -130,6 +130,6 @@ void loop()
     output.concat("DONE");
     client.print(output);
   }else{
-    Serial.println("waiting to be sent something");
+    //Serial.println("waiting to be sent something");
   }
 }

@@ -53,11 +53,11 @@ namespace CHIP
                     {
                         bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
                         sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
-                        Console.WriteLine("reading data: "+sb.ToString());
+                        //Console.WriteLine("reading data: "+sb.ToString());
                     }
 
                     string toProcess = sb.ToString();
-                    Console.WriteLine("incoming data:" + toProcess);
+                    //Console.WriteLine("incoming data:" + toProcess);
                     string[] updates = toProcess.Split("DONE");
                     //Console.WriteLine("updates count:" + updates.Length);
                     string[] data = updates[updates.Length - 2].Split(',');//get most resent update
@@ -85,7 +85,7 @@ namespace CHIP
                     //need to make this a time gate 
                     failureCount++;
                     if (failureCount > 6000) {
-                        //Console.WriteLine("failureCount :"+ failureCount);
+                        Console.WriteLine("failureCount :"+ failureCount);
                         //killme = true;
                         waitingupdate = false;
                     }
