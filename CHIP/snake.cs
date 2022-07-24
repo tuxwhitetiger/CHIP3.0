@@ -12,6 +12,7 @@ namespace CHIP
         bool started = false;
         bool dead = false;
         RGBLedFont font;
+        public bool running = false;
         public snake() {
             startNewGame();
             font = new RGBLedFont("./fonts/7x13.bdf");

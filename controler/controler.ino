@@ -129,6 +129,7 @@ void loop()
     output.concat(y);
     output.concat("DONE");
     client.print(output);
+    internaldisplayprint(0,7,output);
   }else{
     //Serial.println("waiting to be sent something");
   }

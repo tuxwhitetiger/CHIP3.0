@@ -83,7 +83,7 @@ namespace CHIP
                     }
                 }
                 else {
-                    //need to make this a time gate 
+                    //need to make this a time gate for self distruct
                     failureCount++;
                     if (failureCount > 6000) {
                         Console.WriteLine("failureCount :"+ failureCount);

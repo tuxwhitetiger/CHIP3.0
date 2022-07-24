@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using rpi_rgb_led_matrix_sharp;
 
@@ -56,22 +57,28 @@ namespace CHIP
             canvas.Clear();
             while (true) {
                 switch (net.getFace()) {
-                    case "Sad face":    playingsnake = false; missingfile(matrix, canvas, font); break;
-                    case "Happy face":  playingsnake = false; happy.playGif(matrix, canvas); break;
-                    case "Angry face":  playingsnake = false; missingfile(matrix, canvas, font); break;
-                    case "What face":   playingsnake = false; missingfile(matrix, canvas, font); break;
-//                    case "Flag face":   playingsnake = false; flag.playGif(matrix, canvas); break;
-                    case "Gif face":    playingsnake = false; randomGiff(matrix, canvas, gifs);  break;
-                    case "Oh face":     playingsnake = false; missingfile(matrix, canvas, font); break;
-                    case "Snake face":  playingsnake = true; canvas.Clear(); break;
-//                    case "Overheat face": playingsnake = false; overheat.playGif(matrix, canvas); break;
-//                    case "Cwood face":  playingsnake = false; cwoods.playGif(matrix, canvas); break;
-//                    case "Lowbatt face": playingsnake = false; lowbatt.playGif(matrix, canvas); break;
-//                    case "Pacman face": playingsnake = false; pacman.playGif(matrix, canvas); break;
-//                    case "Matrix face": playingsnake = false; neomatrix.playGif(matrix, canvas); break;
+                    case "Sad face":    playingsnake = false; snakegame.running = false; missingfile(matrix, canvas, font); break;
+                    case "Happy face":  playingsnake = false; snakegame.running = false; happy.playGif(matrix, canvas); break;
+                    case "Angry face":  playingsnake = false; snakegame.running = false; missingfile(matrix, canvas, font); break;
+                    case "What face":   playingsnake = false; snakegame.running = false; missingfile(matrix, canvas, font); break;
+                    //case "Flag face":   playingsnake = false; snakegame.running = false;flag.playGif(matrix, canvas); break;
+                    case "Gif face":    playingsnake = false; snakegame.running = false; randomGiff(matrix, canvas, gifs);  break;
+                    case "Oh face":     playingsnake = false; snakegame.running = false; missingfile(matrix, canvas, font); break;
+                    case "Snake face":  playingsnake = true; break;
+                        //case "Overheat face": playingsnake = false; snakegame.running = false; overheat.playGif(matrix, canvas); break;
+                        //case "Cwood face":  playingsnake = false; snakegame.running = false; cwoods.playGif(matrix, canvas); break;
+                        //case "Lowbatt face": playingsnake = false; snakegame.running = false; lowbatt.playGif(matrix, canvas); break;
+                        //case "Pacman face": playingsnake = false; snakegame.running = false; pacman.playGif(matrix, canvas); break;
+                        //case "Matrix face": playingsnake = false; snakegame.running = false; neomatrix.playGif(matrix, canvas); break;
                 }
                 if (playingsnake)
                 {
+                    if (!snakegame.running) {
+                        cnet.controllers = new List<Controller>();
+                        snakegame.startNewGame();
+                        snakegame.running = true;
+                    }
+                    canvas.Clear();
                     foreach (Controller c in cnet.controllers)
                     {
                         if (c.killme){controllerstokill.Add(c);}
@@ -84,7 +91,7 @@ namespace CHIP
                     }
                     else
                     {
-                        snakegame.update(cnet.controllers[0]);
+                        snakegame.update(cnet.controllers.Last());
                         snakegame.printframe(matrix, canvas);
                     }
                     foreach (Controller c in controllerstokill)
