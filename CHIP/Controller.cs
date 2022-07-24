@@ -82,9 +82,10 @@ namespace CHIP
                 }
                 else {
                     failureCount++;
-                    if (failureCount > 10) {
-                        //Console.WriteLine("failureCount :"+ failureCount);
+                    if (failureCount > 60) {
+                        Console.WriteLine("failureCount :"+ failureCount);
                         //killme = true;
+                        waitingupdate = false;
                     }
                 }
             }
