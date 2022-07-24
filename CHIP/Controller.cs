@@ -46,7 +46,7 @@ namespace CHIP
                         sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
                     }
                     string toProcess = sb.ToString();
-                    //Console.WriteLine("incoming data:" + toProcess);
+                    Console.WriteLine("incoming data:" + toProcess);
                     string[] updates = toProcess.Split("DONE");
                     //Console.WriteLine("updates count:" + updates.Length);
                     string[] data = updates[updates.Length - 2].Split(',');//get most resent update
@@ -73,7 +73,7 @@ namespace CHIP
                 else {
                     failureCount++;
                     if (failureCount > 10) {
-                        Console.WriteLine("failureCount :"+ failureCount);
+                        //Console.WriteLine("failureCount :"+ failureCount);
                         //killme = true;
                     }
                 }
