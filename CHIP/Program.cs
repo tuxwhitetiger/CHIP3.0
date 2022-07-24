@@ -75,12 +75,11 @@ namespace CHIP
                     foreach (Controller c in cnet.controllers)
                     {
                         if (c.killme){controllerstokill.Add(c);}
-                        c.getupdate(); // need to make a thread safe async
                     }
                     if (cnet.controllers.Count == 0)
                     {
                         canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "connect");
-                        canvas.DrawText(font, 7, 17, new Color(255, 255, 255), "controller");
+                        canvas.DrawText(font, 0, 20, new Color(255, 255, 255), "controller");
                         canvas = matrix.SwapOnVsync(canvas);
                     }
                     else

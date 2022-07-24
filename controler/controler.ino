@@ -1,4 +1,5 @@
 #include <WiFi.h>
+#include <heltec.h>
 
 const char* ssid = "CHIP";
 const char* password = "Samsung2233";
@@ -23,14 +24,23 @@ int b = 0;
 int x = 0;
 int y = 0;
 
+void internaldisplayprint(int x, int y, String msg){
+  Heltec.display->clear();
+  Heltec.display->setTextAlignment(TEXT_ALIGN_LEFT);
+  Heltec.display->setFont(ArialMT_Plain_16);
+  Heltec.display->drawString(x, y, msg);
+  Heltec.display->display();
+}
 
 WiFiClient client;
 
 void WiFiStationConnected(WiFiEvent_t event, WiFiEventInfo_t info){
+  internaldisplayprint(0,0,"Connected");
   Serial.println("Connected to AP successfully!");
 }
 
 void WiFiGotIP(WiFiEvent_t event, WiFiEventInfo_t info){
+  internaldisplayprint(0,0,"got ip");
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
   Serial.println(WiFi.localIP());
@@ -38,6 +48,7 @@ void WiFiGotIP(WiFiEvent_t event, WiFiEventInfo_t info){
 }
 
 void WiFiStationDisconnected(WiFiEvent_t event, WiFiEventInfo_t info){
+  internaldisplayprint(0,0,"Disconnected");
   Serial.println("Disconnected from WiFi access point");
   Serial.print("WiFi lost connection. Reason: ");
   Serial.println(info.disconnected.reason);
@@ -47,6 +58,12 @@ void WiFiStationDisconnected(WiFiEvent_t event, WiFiEventInfo_t info){
 
 void setup()
 {
+  Heltec.begin(true /*DisplayEnable Enable*/, false /*LoRa Disable*/, true /*Serial Enable*/);
+  //Heltec.display->flipScreenVertically();
+  Heltec.display->setFont(ArialMT_Plain_10);
+  Heltec.display->display();
+  Heltec.display->clear();
+  internaldisplayprint(0,0,"booting");
   WiFi.disconnect(true);
 
   delay(1000);
@@ -69,10 +86,15 @@ void setup()
     delay(500);
     Serial.println("...");
   }
-  client.connect(host,port);
+  internaldisplayprint(0,0,"connected");
+  client.connect(host,port,10000);
 }
+
 void loop()
 {
+  String test = String(client.connected());
+  internaldisplayprint(0,0,"playing");
+  internaldisplayprint(0,7,test);
   up= digitalRead(uppin);
   down=digitalRead(downpin);
   left=digitalRead(leftpin);
@@ -103,5 +125,7 @@ void loop()
   
   //Serial.println(output);
   client.print(output);
+  
   delay(100);
+  
 }
