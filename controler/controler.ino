@@ -96,8 +96,9 @@ void loop()
   if(client.available()){
     while(client.available()) {
       char c = client.read();
-      Serial.println(c);
+      Serial.print(c);
     }
+    Serial.println("");
     String test = String(client.connected());
     internaldisplayprint(0,7,test);
     up= digitalRead(uppin);
