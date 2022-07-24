@@ -74,7 +74,7 @@ namespace CHIP
                     failureCount++;
                     if (failureCount > 10) {
                         Console.WriteLine("failureCount :"+ failureCount);
-                        killme = true;
+                        //killme = true;
                     }
                 }
             }
