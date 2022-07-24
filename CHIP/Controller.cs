@@ -23,6 +23,8 @@ namespace CHIP
         int failureCount = 0;
         public bool killme =false;
 
+        bool waitingupdate = false;
+
         public Controller(int playernumber) {
             player = playernumber;
         }
@@ -32,10 +34,15 @@ namespace CHIP
         public void getupdate()
         {
             while (true){
-                Byte[] requestBytes = Encoding.ASCII.GetBytes("update");
-                socket.Send(requestBytes, requestBytes.Length, 0);
+                if (!waitingupdate)
+                {
+                    Byte[] requestBytes = Encoding.ASCII.GetBytes("update");
+                    socket.Send(requestBytes, requestBytes.Length, 0);
+                    waitingupdate = true;
+                }
                 if (socket.Available > 0)
                 {
+                    waitingupdate = false;
                     failureCount = 0;
                     
                     Byte[] bytesReceived = new Byte[256];
