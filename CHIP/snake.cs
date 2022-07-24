@@ -63,7 +63,7 @@ namespace CHIP
                     }
                 }
             }
-            if (((Snake[0].x == 0) || (Snake[0].x == 64)) && ((Snake[0].y == 0) || (Snake[0].y == 32)))
+            if ((Snake[0].x == 0) || (Snake[0].x == 64) || (Snake[0].y == 0) || (Snake[0].y == 32))
             {
                 dead = true;
             }
@@ -88,6 +88,12 @@ namespace CHIP
 
         public void printframe(RGBLedMatrix matrix, RGBLedCanvas canvas) {
             canvas.Clear();
+            //print border
+            canvas.DrawLine(0, 0, 0, 32, new Color(255, 255, 255));
+            canvas.DrawLine(0, 0, 64, 0, new Color(255, 255, 255));
+            canvas.DrawLine(64, 32, 0, 32, new Color(255, 255, 255));
+            canvas.DrawLine(64, 32, 64, 0, new Color(255, 255, 255));
+
             //print food
             canvas.SetPixel(food.x, food.y, new Color(0, 255, 0));
             foreach (snakeSegment ss in Snake) {
