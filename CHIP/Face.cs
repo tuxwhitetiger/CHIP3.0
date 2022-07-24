@@ -30,7 +30,6 @@ namespace CHIP
         controller_network cnet;
         List<Controller> controllerstokill;
         snake snakegame;
-        bool playingsnake = false;
         RGBLedFont font;
 
         RGBLedMatrixOptions options = new RGBLedMatrixOptions();
@@ -104,19 +103,19 @@ namespace CHIP
                     timer.Restart();
                     switch (net.getFace()) // need to make this async
                     {
-                        case "Sad face": playingsnake = false; runningface = faces.sad; break;
-                        case "Happy face": playingsnake = false; runningface = faces.happy; break;
-                        case "Angry face": playingsnake = false; runningface = faces.Angry;  break;
-                        case "What face": playingsnake = false; runningface = faces.What;  break;
-                        case "Flag face":   playingsnake = false; runningface = faces.Flag;  break;
-                        case "Gif face": playingsnake = false; runningface = faces.Gif; break;
-                        case "Oh face": playingsnake = false; runningface = faces.Oh; break;
-                        case "Snake face": playingsnake = true; runningface = faces.snake; break;
-                        case "Overheat face": playingsnake = false; runningface = faces.Overheat;  break;
-                        case "Cwood face":  playingsnake = false; runningface = faces.cwood;  break;
-                        case "Lowbatt face": playingsnake = false; runningface = faces.lowbatt;  break;
-                        case "Pacman face": playingsnake = false; runningface = faces.pacman;  break;
-                        case "Matrix face": playingsnake = false; runningface = faces.matrix;  break;
+                        case "Sad face": snakegame.running = false; runningface = faces.sad; break;
+                        case "Happy face": snakegame.running = false; runningface = faces.happy; break;
+                        case "Angry face": snakegame.running = false; runningface = faces.Angry;  break;
+                        case "What face": snakegame.running = false; runningface = faces.What;  break;
+                        case "Flag face": snakegame.running = false; runningface = faces.Flag;  break;
+                        case "Gif face": snakegame.running = false; runningface = faces.Gif; break;
+                        case "Oh face": snakegame.running = false; runningface = faces.Oh; break;
+                        case "Snake face": runningface = faces.snake; break;
+                        case "Overheat face": snakegame.running = false; runningface = faces.Overheat;  break;
+                        case "Cwood face": snakegame.running = false; runningface = faces.cwood;  break;
+                        case "Lowbatt face": snakegame.running = false; runningface = faces.lowbatt;  break;
+                        case "Pacman face": snakegame.running = false; runningface = faces.pacman;  break;
+                        case "Matrix face": snakegame.running = false; runningface = faces.matrix;  break;
                     }
                 }
                 switch (runningface) {
