@@ -89,10 +89,10 @@ namespace CHIP
         public void printframe(RGBLedMatrix matrix, RGBLedCanvas canvas) {
             canvas.Clear();
             //print border
-            canvas.DrawLine(0, 0, 0, 32, new Color(255, 255, 255));
-            canvas.DrawLine(0, 0, 64, 0, new Color(255, 255, 255));
-            canvas.DrawLine(64, 32, 0, 32, new Color(255, 255, 255));
-            canvas.DrawLine(64, 32, 64, 0, new Color(255, 255, 255));
+            canvas.DrawLine(0, 0, 0, 31, new Color(255, 255, 255));
+            canvas.DrawLine(0, 0, 63, 0, new Color(255, 255, 255));
+            canvas.DrawLine(63, 31, 0, 31, new Color(255, 255, 255));
+            canvas.DrawLine(63, 31, 63, 0, new Color(255, 255, 255));
 
             //print food
             canvas.SetPixel(food.x, food.y, new Color(0, 255, 0));
