@@ -128,9 +128,8 @@ void loop()
     output.concat(",");
     output.concat(y);
     output.concat("DONE");
-    
-    
     client.print(output);
-    
+  }else{
+    Serial.println("waiting to be sent something");
   }
 }
