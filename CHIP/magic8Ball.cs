@@ -15,7 +15,7 @@ namespace CHIP
         RGBLedFont font = new RGBLedFont("./fonts/5x8.bdf");
 
         public magic8Ball() {
-            predictions.Add(-1, "boop to shake");
+            predictions.Add(-1, "boop to shake");//show 8 ball
             predictions.Add(0, "It is certain.");
             predictions.Add(1, "It is decidedly so.");
             predictions.Add(2, "Without a doubt.");
@@ -52,11 +52,43 @@ namespace CHIP
         }
 
         public void drawFace(RGBLedMatrix matrix, RGBLedCanvas canvas) {
-            //calculate and position on face or design and preset?
+            string[]  text = WordWrap(predictions[currentPrediction]);
             canvas.Clear();
-            canvas.DrawText(font, 7, 23, new Color(255, 255, 255), predictions[currentPrediction]);
+            int y = 0;
+            foreach (String s in text) {
+                canvas.DrawText(font, 7, y, new Color(255, 255, 255), s);
+                y += 8;
+            }
             canvas = matrix.SwapOnVsync(canvas);
         }
+
+        private string[] WordWrap(string str)
+        {
+            int width = 12;
+            string[] words = str.Split(" ");
+            List<String> lines = new List<string>();
+            int currentLineLength = 0;
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < words.Length; i += 1)
+            {
+                string word = words[i];
+                if (currentLineLength + word.Length > width)
+                {
+                    sb.Append(word);
+                }
+                else {
+                    if (currentLineLength == 0) {
+                        sb.Append(word);
+                    }
+                    String line = sb.ToString();
+                    lines.Add(line);
+                    currentLineLength = 0;
+                    sb = new StringBuilder();
+                }
+            }
+            return lines.ToArray();
+        }
+
 
     }
 }
