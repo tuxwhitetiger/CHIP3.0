@@ -53,6 +53,7 @@ namespace CHIP
 
         public void drawFace(RGBLedMatrix matrix, RGBLedCanvas canvas) {
             //calculate and position on face or design and preset?
+            canvas.Clear();
             canvas.DrawText(font, 7, 23, new Color(255, 255, 255), predictions[currentPrediction]);
             canvas = matrix.SwapOnVsync(canvas);
         }
