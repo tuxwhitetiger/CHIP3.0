@@ -54,7 +54,7 @@ namespace CHIP
         public void drawFace(RGBLedMatrix matrix, RGBLedCanvas canvas) {
             string[]  text = WordWrap(predictions[currentPrediction]);
             canvas.Clear();
-            int y = 0;
+            int y = 8;
             foreach (String s in text) {
                 canvas.DrawText(font, 7, y, new Color(255, 255, 255), s);
                 y += 8;
