@@ -21,7 +21,8 @@ namespace CHIP
         Flag,
         Overheat,
         Gif,
-        Oh
+        Oh,
+        eightball
     }
 
     class Face
@@ -29,7 +30,11 @@ namespace CHIP
         mynetwork net;
         controller_network cnet;
         List<Controller> controllerstokill;
+
+
         snake snakegame;
+        magic8Ball eightball = new magic8Ball();
+
         RGBLedFont font;
 
         RGBLedMatrixOptions options = new RGBLedMatrixOptions();
@@ -115,7 +120,9 @@ namespace CHIP
                         case "Cwood face": snakegame.running = false; runningface = faces.cwood;  break;
                         case "Lowbatt face": snakegame.running = false; runningface = faces.lowbatt;  break;
                         case "Pacman face": snakegame.running = false; runningface = faces.pacman;  break;
-                        case "Matrix face": snakegame.running = false; runningface = faces.matrix;  break;
+                        case "Matrix face": snakegame.running = false; runningface = faces.matrix; break;
+                        case "8 Ball Face": snakegame.running = false; runningface = faces.eightball; break;
+                        case "SHAKE BALL": snakegame.running = false; runningface = faces.eightball; eightball.shake = true; break;
                     }
                 }
                 switch (runningface) {
@@ -132,6 +139,7 @@ namespace CHIP
                     case faces.sad: missingfile(); break;
                     case faces.snake: snakeTick(); break;
                     case faces.What: missingfile(); break;
+                    case faces.eightball: eightballTick(); break;
                 }
             }
         }
@@ -192,7 +200,10 @@ namespace CHIP
         private void pacmanTick() {
             pacman.playGif(matrix, canvas);
         }
-
+        private void eightballTick() {
+            eightball.updateTick();
+            eightball.drawFace(matrix, canvas);
+        }
         private void missingfile()
         {
             Thread.Sleep(40);
