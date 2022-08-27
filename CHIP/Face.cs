@@ -74,22 +74,24 @@ namespace CHIP
             font = new RGBLedFont("./fonts/7x13.bdf");
             canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "Loading");
             canvas.DrawText(font, 7, 23, new Color(255, 255, 255), "Gifs");
+            canvas.DrawText(font, 64+7, 10, new Color(255, 255, 255), "Loading");
+            canvas.DrawText(font, 64+7, 23, new Color(255, 255, 255), "Gifs");
             canvas = matrix.SwapOnVsync(canvas);
 
 
-            happy = new Gif("happy");
+            happy = new Gif("happy",true);
             happy.loadData(net.GetGifData("happy.gif"), 40);
-            neomatrix = new Gif("matrix");
+            neomatrix = new Gif("matrix",false);
             neomatrix.loadData(net.GetGifData("matrix-spin.gif"),40);
-            cwoods = new Gif("CWOODSDEAN");
+            cwoods = new Gif("CWOODSDEAN", false);
             cwoods.loadData(net.GetGifData("CWOODSDEAN-full.gif"),1000);
-            flag = new Gif("flag");
+            flag = new Gif("flag", false);
             flag.loadData(net.GetGifData("flag.gif"),40);
-            lowbatt = new Gif("lowbatt");
+            lowbatt = new Gif("lowbatt", false);
             lowbatt.loadData(net.GetGifData("lowbatt.gif"),40);
-            overheat = new Gif("overheat");
+            overheat = new Gif("overheat", false);
             overheat.loadData(net.GetGifData("overheat.gif"),40);
-            pacman = new Gif("pacman");
+            pacman = new Gif("pacman", false);
             pacman.loadData(net.GetGifData("pacman.gif"),40);
             
             gifs.Add(cwoods);
@@ -158,6 +160,7 @@ namespace CHIP
         public void WhatTick() { 
         
         }
+
         private void happyTick() {
             happy.playGif(matrix, canvas);
         }

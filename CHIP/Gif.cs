@@ -8,6 +8,7 @@ using System.Threading;
 
 namespace CHIP
 {
+    
     class Gif
     {
         int[,,,] data; //x, y, framecount, color(0=r,1=g,2=b)
@@ -17,7 +18,10 @@ namespace CHIP
         Stopwatch timer = new Stopwatch();
         string name;
         public int mstick;
-        public Gif(string name) {
+        bool mirror=false;
+        public Gif(string name,bool mirror)
+        {
+            this.mirror = mirror;
             this.name = name;
         }
 
@@ -54,23 +58,47 @@ namespace CHIP
             data = newgif.toArray();
         }
 
-        internal void printFrame(RGBLedMatrix matrix, RGBLedCanvas canvas,int myFrame)
+        internal void printFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame)
         {
             int maxy = y;
-            if (canvas.Height < maxy) {
+            if (canvas.Height < maxy)
+            {
                 maxy = canvas.Height;
             }
 
             int maxx = x;
-            if (canvas.Width < maxx) {
+            if (canvas.Width < maxx)
+            {
                 maxx = canvas.Width;
             }
             for (int myy = 0; myy < maxy; myy++)
             {
                 for (int myx = 0; myx < maxx; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
-                    canvas.SetPixel(64-myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
-                    canvas.SetPixel(64+myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
+                    canvas.SetPixel(64 - myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
+                }
+            }
+            canvas = matrix.SwapOnVsync(canvas);
+        }
+        internal void printmirroredFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame)
+        {
+            int maxy = y;
+            if (canvas.Height < maxy)
+            {
+                maxy = canvas.Height;
+            }
+
+            int maxx = x;
+            if (canvas.Width < maxx)
+            {
+                maxx = canvas.Width;
+            }
+            for (int myy = 0; myy < maxy; myy++)
+            {
+                for (int myx = 0; myx < maxx; myx++)
+                {//data x, y, framecount, color(0=r,1=g,2=b)
+                    canvas.SetPixel(64 - myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
+                    canvas.SetPixel(64 + myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
                 }
             }
             canvas = matrix.SwapOnVsync(canvas);
@@ -82,7 +110,14 @@ namespace CHIP
             timer.Reset();
             timer.Start();
             for (int i = 0; i < newFrameCount; i++) {
-                printFrame(matrix,canvas, i);
+                if (mirror) {
+                    printmirroredFrame(matrix, canvas, i);
+                }
+                else
+                {
+                    printFrame(matrix,canvas, i);
+                }
+                
                 Thread.Sleep(mstick);
             }
             timer.Stop();
