@@ -62,7 +62,7 @@ namespace CHIP
             controllerstokill = new List<Controller>();
             net.connect();
             options.Rows = 32;
-            options.Cols = 64;
+            options.Cols = 128;
             options.ChainLength = 1;
             options.Parallel = 1;
             options.GpioSlowdown = 3;
@@ -144,6 +144,20 @@ namespace CHIP
             }
         }
 
+        public void amungusImposterFace()
+        {
+
+        }
+        public void amungussusFace() { 
+        
+        }
+        public void amunguscrewmateFace()
+        {
+
+        }
+        public void WhatTick() { 
+        
+        }
         private void happyTick() {
             happy.playGif(matrix, canvas);
         }
@@ -210,6 +224,8 @@ namespace CHIP
             canvas.Fill(new Color(0, 0, 0));
             canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "missing");
             canvas.DrawText(font, 7, 23, new Color(255, 255, 255), "Gif");
+            canvas.DrawText(font, 64+7, 10, new Color(255, 255, 255), "missing");
+            canvas.DrawText(font, 64+7, 23, new Color(255, 255, 255), "Gif");
             canvas = matrix.SwapOnVsync(canvas);
         }
 
