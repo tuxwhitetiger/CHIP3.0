@@ -69,8 +69,8 @@ namespace CHIP
             {
                 for (int myx = 0; myx < maxx; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
-                    canvas.SetPixel(myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
-                    canvas.SetPixel(128-myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
+                    canvas.SetPixel(64-myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
+                    canvas.SetPixel(64+myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
                 }
             }
             canvas = matrix.SwapOnVsync(canvas);
