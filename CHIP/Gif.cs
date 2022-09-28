@@ -16,12 +16,18 @@ namespace CHIP
         int y=0;
         public int newFrameCount;
         Stopwatch timer = new Stopwatch();
-        string name;
+        public string name;
         public int mstick;
         bool mirror=false;
         public Gif(string name,bool mirror)
         {
             this.mirror = mirror;
+            this.name = name;
+        }
+
+        public Gif(string name)
+        {
+            mirror = true;
             this.name = name;
         }
 
@@ -57,6 +63,8 @@ namespace CHIP
             newFrameCount = newgif.frames.Count;
             data = newgif.toArray();
         }
+
+
 
         internal void printFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame)
         {
@@ -126,5 +134,7 @@ namespace CHIP
             Console.SetCursorPosition(leftpos, toppos);
             Console.Write("FPS:" + fps);
         }
+    
+
     }
 }

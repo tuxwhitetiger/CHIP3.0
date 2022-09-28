@@ -45,7 +45,7 @@ namespace CHIP
                 shake = false;
                 stopwatch.Restart();
             }
-            if (stopwatch.ElapsedMilliseconds > 3000) {
+            if (stopwatch.ElapsedMilliseconds > 8000) {
                 currentPrediction = -1;
                 stopwatch.Stop();
             }

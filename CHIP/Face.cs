@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading;
 using rpi_rgb_led_matrix_sharp;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CHIP
 {
@@ -35,6 +37,8 @@ namespace CHIP
         snake snakegame;
         magic8Ball eightball = new magic8Ball();
 
+        textSpam Tspam = new textSpam();
+
         RGBLedFont font;
 
         RGBLedMatrixOptions options = new RGBLedMatrixOptions();
@@ -45,14 +49,7 @@ namespace CHIP
         faces runningface = faces.happy;
 
         //setup gif faces
-        List<Gif> gifs = new List<Gif>();
-        Gif happy;
-        Gif neomatrix;
-        Gif cwoods;
-        Gif flag;
-        Gif lowbatt;
-        Gif overheat;
-        Gif pacman;
+        IDictionary<string, Gif> allGifs = new Dictionary<string, Gif>();
 
 
         public void load()
@@ -72,33 +69,54 @@ namespace CHIP
             Console.WriteLine(net.getFace());
             snakegame = new snake();
             font = new RGBLedFont("./fonts/7x13.bdf");
-            canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "Loading");
-            canvas.DrawText(font, 7, 23, new Color(255, 255, 255), "Gifs");
-            canvas.DrawText(font, 64+7, 10, new Color(255, 255, 255), "Loading");
-            canvas.DrawText(font, 64+7, 23, new Color(255, 255, 255), "Gifs");
+
+            canvas.Clear();
+            Tspam.PrintTextBothSides("Loading", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
+            Tspam.PrintTextBothSides("Gifs", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
             canvas = matrix.SwapOnVsync(canvas);
 
+            // check if i have serialized data if not ask python to do it
+            DirectoryInfo facesFolder = new DirectoryInfo("/faces");
+            FileInfo[] faces = facesFolder.GetFiles("*.gif");
+            DirectoryInfo serialDataFolder = new DirectoryInfo("/serial");
+            FileInfo[] serialfaces = serialDataFolder.GetFiles("*.serial");
+            List<FileInfo> toserialize = null;
+            foreach (FileInfo fi in serialfaces.ToList()) {
+                toserialize = (List<FileInfo>) faces.ToList().Where(n => n.Name.Split('.')[0].Equals(fi.Name.Split('.')[0]));
+            }
+            //load from serial serialfaces
+            if (serialfaces != null)
+            {
+                foreach (FileInfo fi in serialfaces)
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    String source = "/serial/";
+                    source += fi.Name;
+                    Stream reader = new FileStream(source, FileMode.Open, FileAccess.Read);
+                    Gif g = (Gif)formatter.Deserialize(reader);
+                    allGifs.Add(g.name, g);
+                }
+            }
 
-            happy = new Gif("happy",true);
-            happy.loadData(net.GetGifData("happy.gif"), 40);
-            neomatrix = new Gif("matrix",false);
-            neomatrix.loadData(net.GetGifData("matrix-spin.gif"),40);
-            cwoods = new Gif("CWOODSDEAN", false);
-            cwoods.loadData(net.GetGifData("CWOODSDEAN-full.gif"),1000);
-            flag = new Gif("flag", false);
-            flag.loadData(net.GetGifData("flag.gif"),40);
-            lowbatt = new Gif("lowbatt", false);
-            lowbatt.loadData(net.GetGifData("lowbatt.gif"),40);
-            overheat = new Gif("overheat", false);
-            overheat.loadData(net.GetGifData("overheat.gif"),40);
-            pacman = new Gif("pacman", false);
-            pacman.loadData(net.GetGifData("pacman.gif"),40);
-            
-            gifs.Add(cwoods);
-            gifs.Add(neomatrix);
-            gifs.Add(pacman);
+            //load from python
+            if (toserialize != null)
+            {
+                foreach (FileInfo fi in toserialize)
+                {
+                    Gif g = new Gif(fi.Name.Split('.')[0]);
+                    g.loadData(net.GetGifData(fi.Name), 40);
+                    //now its loaded need to serialize and save for next time
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    String destination = "/serial/";
+                    destination += fi.Name;
+                    Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
+                    formatter.Serialize(writer, g);
+                    writer.Close();
+                    allGifs.Add(g.name, g);
+                }
+            }
+
             timer = new Stopwatch();
-            
         }
         public void update() {
             timer.Start();
@@ -113,7 +131,7 @@ namespace CHIP
                         case "Sad face": snakegame.running = false; runningface = faces.sad; break;
                         case "Happy face": snakegame.running = false; runningface = faces.happy; break;
                         case "Angry face": snakegame.running = false; runningface = faces.Angry;  break;
-                        case "What face": snakegame.running = false; runningface = faces.What;  break;
+                        case "What face": snakegame.running = false; runningface = faces.What; Tspam.start(canvas, matrix); break;
                         case "Flag face": snakegame.running = false; runningface = faces.Flag;  break;
                         case "Gif face": snakegame.running = false; runningface = faces.Gif; break;
                         case "Oh face": snakegame.running = false; runningface = faces.Oh; break;
@@ -140,29 +158,38 @@ namespace CHIP
                     case faces.pacman: pacmanTick(); break;
                     case faces.sad: missingfile(); break;
                     case faces.snake: snakeTick(); break;
-                    case faces.What: missingfile(); break;
+                    case faces.What: WhatTick(); break;
                     case faces.eightball: eightballTick(); break;
                 }
             }
         }
-
-        public void amungusImposterFace()
+        private void sadTick() { 
+            
+        }
+        private void OhTick() { 
+            
+        }
+        private void Angry() { 
+            
+        }
+        public void amungusImposterFace() //you are the imposter
         {
 
         }
-        public void amungussusFace() { 
-        
+        public void amungussusKillFace() //imposter killing 
+        { 
+
         }
-        public void amunguscrewmateFace()
+        public void amunguscrewmateFace() // you are the crewmate
         {
 
         }
-        public void WhatTick() { 
-        
+        public void WhatTick() {
+            Tspam.Tick("?",50,10,canvas, matrix,font);
         }
 
         private void happyTick() {
-            happy.playGif(matrix, canvas);
+            allGifs["happy"].playGif(matrix, canvas);
         }
         private void snakeTick()
         {
@@ -179,8 +206,9 @@ namespace CHIP
             }
             if (cnet.controllers.Count == 0)
             {
-                canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "connect");
-                canvas.DrawText(font, 0, 20, new Color(255, 255, 255), "controller");
+                canvas.Clear();
+                Tspam.PrintTextBothSides("connect", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
+                Tspam.PrintTextBothSides("controller", 0, 20, new Color(255, 255, 255), canvas, matrix, font);
                 canvas = matrix.SwapOnVsync(canvas);
             }
             else
@@ -196,26 +224,26 @@ namespace CHIP
         private void randomGiff()
         {
             Random rand = new Random();
-            int pick = rand.Next(0, gifs.Count);
-            gifs[pick].playGif(matrix, canvas);
+            int pick = rand.Next(0, allGifs.Values.Count);
+            allGifs.Values.ElementAt(pick).playGif(matrix, canvas);
         }
         private void FlagTick() {
-            flag.playGif(matrix, canvas);
+            allGifs["flag"].playGif(matrix, canvas);
         }
         private void overheatTick() {
-            overheat.playGif(matrix, canvas);
+            allGifs["overheat"].playGif(matrix, canvas);
         }
         private void cwoodTick() {
-            cwoods.playGif(matrix, canvas);
+            allGifs["cwoods"].playGif(matrix, canvas);
         }
         private void lowbattTick() {
-            lowbatt.playGif(matrix, canvas);
+            allGifs["lowbatt"].playGif(matrix, canvas);
         }
         private void matrixTick() {
-            neomatrix.playGif(matrix, canvas);
+            allGifs["neomatrix"].playGif(matrix, canvas);
         }
         private void pacmanTick() {
-            pacman.playGif(matrix, canvas);
+            allGifs["pacman"].playGif(matrix, canvas);
         }
         private void eightballTick() {
             eightball.updateTick();
@@ -224,11 +252,9 @@ namespace CHIP
         private void missingfile()
         {
             Thread.Sleep(40);
-            canvas.Fill(new Color(0, 0, 0));
-            canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "missing");
-            canvas.DrawText(font, 7, 23, new Color(255, 255, 255), "Gif");
-            canvas.DrawText(font, 64+7, 10, new Color(255, 255, 255), "missing");
-            canvas.DrawText(font, 64+7, 23, new Color(255, 255, 255), "Gif");
+            canvas.Clear();
+            Tspam.PrintTextBothSides("missing", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
+            Tspam.PrintTextBothSides("Gif", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
             canvas = matrix.SwapOnVsync(canvas);
         }
 
