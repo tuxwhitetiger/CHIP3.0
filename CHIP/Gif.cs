@@ -8,31 +8,30 @@ using System.Threading;
 
 namespace CHIP
 {
-    [Serializable()]
+    
     class Gif 
     {
-        int[,,,] data; //x, y, framecount, color(0=r,1=g,2=b)
-        int x=0;
-        int y=0;
-        public int newFrameCount;
+
+        public GifData data = new GifData();
         Stopwatch timer = new Stopwatch();
-        public string name;
-        public int mstick;
-        bool mirror=false;
+        
         public Gif(string name,bool mirror)
         {
-            this.mirror = mirror;
-            this.name = name;
+            data.mirror = mirror;
+            data.name = name;
         }
 
         public Gif(string name)
         {
-            mirror = true;
-            this.name = name;
+            data.mirror = true;
+            data.name = name;
+        }
+        public Gif() { 
+            //only to be used by deserialiser
         }
 
         public void loadData(String rawdata, int tick) {
-            mstick = tick;
+            data.mstick = tick;
             gifstruct newgif = new gifstruct();
             //trim fat from the end of the message ,FRAMEDONE
             string[] fixedData = rawdata.Split("DONE");
@@ -50,7 +49,7 @@ namespace CHIP
                     {//pritty sure that we at the end of the row here
                         break;
                     }
-                    x = pixels.Length;
+                    data.x = pixels.Length;
                     foreach (String Pixel in pixels)
                     {
                         String trimmed = Pixel.Trim('[');
@@ -58,27 +57,27 @@ namespace CHIP
                         string[] colors = trimmed2.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                         newgif.pumpData(Int32.Parse(colors[0]), Int32.Parse(colors[1]), Int32.Parse(colors[2]));
                     }
-                    y = rows.Length;
+                    data.y = rows.Length;
                 }
                 newgif.frames[newgif.frames.Count - 1].fixrows();
 
 
             }
-            newFrameCount = newgif.frames.Count;
-            data = newgif.toArray();
+            data.newFrameCount = newgif.frames.Count;
+            data.data = newgif.toArray();
         }
 
 
 
         internal void printFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame)
         {
-            int maxy = y;
+            int maxy = data.y;
             if (canvas.Height < maxy)
             {
                 maxy = canvas.Height;
             }
 
-            int maxx = x;
+            int maxx = data.x;
             if (canvas.Width < maxx)
             {
                 maxx = canvas.Width;
@@ -87,20 +86,20 @@ namespace CHIP
             {
                 for (int myx = 0; myx < maxx; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
-                    canvas.SetPixel(64 - myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
+                    canvas.SetPixel(64 - myx, myy, new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]));
                 }
             }
             canvas = matrix.SwapOnVsync(canvas);
         }
         internal void printmirroredFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame)
         {
-            int maxy = y;
+            int maxy = data.y;
             if (canvas.Height < maxy)
             {
                 maxy = canvas.Height;
             }
 
-            int maxx = x;
+            int maxx = data.x;
             if (canvas.Width < maxx)
             {
                 maxx = canvas.Width;
@@ -109,20 +108,20 @@ namespace CHIP
             {
                 for (int myx = 0; myx < maxx; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
-                    canvas.SetPixel(64 - myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
-                    canvas.SetPixel(64 + myx, myy, new Color(data[myx, myy, myFrame, 0], data[myx, myy, myFrame, 1], data[myx, myy, myFrame, 2]));
+                    canvas.SetPixel(64 - myx, myy, new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]));
+                    canvas.SetPixel(64 + myx, myy, new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]));
                 }
             }
             canvas = matrix.SwapOnVsync(canvas);
         }
         internal void playGif(RGBLedMatrix matrix, RGBLedCanvas canvas) {
-            Console.WriteLine("gif name:"+name);
+            Console.WriteLine("gif name:"+ data.name);
             int leftpos = Console.CursorLeft;
             int toppos = Console.CursorTop;
             timer.Reset();
             timer.Start();
-            for (int i = 0; i < newFrameCount; i++) {
-                if (mirror) {
+            for (int i = 0; i < data.newFrameCount; i++) {
+                if (data.mirror) {
                     printmirroredFrame(matrix, canvas, i);
                 }
                 else
@@ -130,11 +129,11 @@ namespace CHIP
                     printFrame(matrix,canvas, i);
                 }
                 
-                Thread.Sleep(mstick);
+                Thread.Sleep(data.mstick);
             }
             timer.Stop();
             TimeSpan timeTaken = timer.Elapsed;
-            double fps = (1000 / timeTaken.TotalMilliseconds) * newFrameCount;
+            double fps = (1000 / timeTaken.TotalMilliseconds) * data.newFrameCount;
             Console.SetCursorPosition(leftpos, toppos);
             Console.Write("FPS:" + fps);
         }

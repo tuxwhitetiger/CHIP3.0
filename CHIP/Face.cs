@@ -89,8 +89,10 @@ namespace CHIP
                 String source = "./serial/";
                 source += fi.Name;
                 Stream reader = new FileStream(source, FileMode.Open, FileAccess.Read);
-                Gif g = (Gif)formatter.Deserialize(reader);
-                allGifs.Add(g.name, g);
+                Gif g = new Gif();
+                g.data = (GifData)formatter.Deserialize(reader);
+
+                allGifs.Add(g.data.name, g);
             }
 
             //load from python
@@ -104,9 +106,9 @@ namespace CHIP
                 destination += fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4);
                 destination += ".serial";
                 Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
-                formatter.Serialize(writer, g);
+                formatter.Serialize(writer, g.data);
                 writer.Close();
-                allGifs.Add(g.name, g);
+                allGifs.Add(g.data.name, g);
             }
             
 
