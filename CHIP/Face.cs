@@ -67,13 +67,14 @@ namespace CHIP
 
             //remove from faces list if in serialized list
             foreach (FileInfo fi in faces) {
+                Console.WriteLine(fi.Name);
                 foreach (FileInfo fi2 in serialfaces) {
+                    Console.WriteLine(fi2.Name);
                     if (fi.Name.Contains(fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4))){
                         //do nothing its a match
                     }
                     else {
                         //add it need to be fetched
-                        Console.WriteLine(fi.Name);
                         toserialize.Add(fi);
                     }
                 }
