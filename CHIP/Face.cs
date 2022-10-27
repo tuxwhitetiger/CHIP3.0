@@ -9,24 +9,6 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CHIP
 {
-    enum faces
-    {
-        happy,
-        sad,
-        cwood,
-        pacman,
-        snake,
-        matrix,
-        lowbatt,
-        Angry,
-        What,
-        Flag,
-        Overheat,
-        Gif,
-        Oh,
-        eightball
-    }
-
     class Face
     {
         mynetwork net;
