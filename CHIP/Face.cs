@@ -65,41 +65,46 @@ namespace CHIP
             FileInfo[] serialfaces = serialDataFolder.GetFiles("*.serial");
             List<FileInfo> toserialize = null;
 
-            foreach (FileInfo fi in faces.ToList()) {
-                toserialize.AddRange((List<FileInfo>) faces.ToList().Where(n => n.Name.Split('.')[0].Equals(fi.Name.Split('.')[0])));
+            //remove from faces list if in serialized list
+            foreach (FileInfo fi in faces) {
+                foreach (FileInfo fi2 in serialfaces) {
+                    if (fi.Name.Contains(fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4)){
+                        //do nothing its a match
+                    }
+                    else {
+                        //add it need to be fetched
+                        toserialize.Add(fi);
+                    }
+                }
             }
 
+
             //load from serial serialfaces
-            if (serialfaces != null)
+            foreach (FileInfo fi in serialfaces)
             {
-                foreach (FileInfo fi in serialfaces)
-                {
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    String source = "/serial/";
-                    source += fi.Name;
-                    Stream reader = new FileStream(source, FileMode.Open, FileAccess.Read);
-                    Gif g = (Gif)formatter.Deserialize(reader);
-                    allGifs.Add(g.name, g);
-                }
+                BinaryFormatter formatter = new BinaryFormatter();
+                String source = "/serial/";
+                source += fi.Name;
+                Stream reader = new FileStream(source, FileMode.Open, FileAccess.Read);
+                Gif g = (Gif)formatter.Deserialize(reader);
+                allGifs.Add(g.name, g);
             }
 
             //load from python
-            if (toserialize != null)
+            foreach (FileInfo fi in toserialize)
             {
-                foreach (FileInfo fi in toserialize)
-                {
-                    Gif g = new Gif(fi.Name.Split('.')[0]);
-                    g.loadData(net.GetGifData(fi.Name), 40);
-                    //now its loaded need to serialize and save for next time
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    String destination = "/serial/";
-                    destination += fi.Name;
-                    Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
-                    formatter.Serialize(writer, g);
-                    writer.Close();
-                    allGifs.Add(g.name, g);
-                }
+                Gif g = new Gif(fi.Name.Split('.')[0]);
+                g.loadData(net.GetGifData(fi.Name), 40);
+                //now its loaded need to serialize and save for next time
+                BinaryFormatter formatter = new BinaryFormatter();
+                String destination = "/serial/";
+                destination += fi.Name;
+                Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
+                formatter.Serialize(writer, g);
+                writer.Close();
+                allGifs.Add(g.name, g);
             }
+            
 
             timer = new Stopwatch();
         }
