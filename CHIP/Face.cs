@@ -63,7 +63,7 @@ namespace CHIP
             FileInfo[] faces = facesFolder.GetFiles("*.gif");
             DirectoryInfo serialDataFolder = new DirectoryInfo("./serial");
             FileInfo[] serialfaces = serialDataFolder.GetFiles("*.serial");
-            List<FileInfo> toserialize = null;
+            List<FileInfo> toserialize = new List<FileInfo>();
 
             //remove from faces list if in serialized list
             foreach (FileInfo fi in faces) {
