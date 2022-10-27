@@ -86,7 +86,7 @@ namespace CHIP
             foreach (FileInfo fi in serialfaces)
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                String source = "/serial/";
+                String source = "./serial/";
                 source += fi.Name;
                 Stream reader = new FileStream(source, FileMode.Open, FileAccess.Read);
                 Gif g = (Gif)formatter.Deserialize(reader);
@@ -100,7 +100,7 @@ namespace CHIP
                 g.loadData(net.GetGifData(fi.Name), 40);
                 //now its loaded need to serialize and save for next time
                 BinaryFormatter formatter = new BinaryFormatter();
-                String destination = "/serial/";
+                String destination = "./serial/";
                 destination += fi.Name;
                 Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
                 formatter.Serialize(writer, g);
