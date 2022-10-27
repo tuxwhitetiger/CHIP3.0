@@ -77,9 +77,9 @@ namespace CHIP
             canvas = matrix.SwapOnVsync(canvas);
 
             // check if i have serialized data if not ask python to do it
-            DirectoryInfo facesFolder = new DirectoryInfo("/faces");
+            DirectoryInfo facesFolder = new DirectoryInfo("./faces");
             FileInfo[] faces = facesFolder.GetFiles("*.gif");
-            DirectoryInfo serialDataFolder = new DirectoryInfo("/serial");
+            DirectoryInfo serialDataFolder = new DirectoryInfo("./serial");
             FileInfo[] serialfaces = serialDataFolder.GetFiles("*.serial");
             List<FileInfo> toserialize = null;
             foreach (FileInfo fi in serialfaces.ToList()) {
