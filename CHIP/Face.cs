@@ -73,6 +73,7 @@ namespace CHIP
                     }
                     else {
                         //add it need to be fetched
+                        Console.WriteLine(fi.Name);
                         toserialize.Add(fi);
                     }
                 }
