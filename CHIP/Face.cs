@@ -82,7 +82,8 @@ namespace CHIP
             DirectoryInfo serialDataFolder = new DirectoryInfo("./serial");
             FileInfo[] serialfaces = serialDataFolder.GetFiles("*.serial");
             List<FileInfo> toserialize = null;
-            foreach (FileInfo fi in serialfaces.ToList()) {
+
+            foreach (FileInfo fi in faces.ToList()) {
                 toserialize.AddRange((List<FileInfo>) faces.ToList().Where(n => n.Name.Split('.')[0].Equals(fi.Name.Split('.')[0])));
             }
 
