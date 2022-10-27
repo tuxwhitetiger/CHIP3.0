@@ -101,7 +101,8 @@ namespace CHIP
                 //now its loaded need to serialize and save for next time
                 BinaryFormatter formatter = new BinaryFormatter();
                 String destination = "./serial/";
-                destination += fi.Name;
+                destination += fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4);
+                destination += ".serial";
                 Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
                 formatter.Serialize(writer, g);
                 writer.Close();
