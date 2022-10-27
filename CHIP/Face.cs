@@ -68,7 +68,7 @@ namespace CHIP
             //remove from faces list if in serialized list
             foreach (FileInfo fi in faces) {
                 foreach (FileInfo fi2 in serialfaces) {
-                    if (fi.Name.Contains(fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4)){
+                    if (fi.Name.Contains(fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4))){
                         //do nothing its a match
                     }
                     else {
