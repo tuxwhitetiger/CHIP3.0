@@ -55,3 +55,10 @@ C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\System.Drawing.Common.dll
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
+C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Angy-Face-Eye-Twitch.gif
+C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Angy-Face.gif
+C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Chip-Face.gif
+C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Halloween-Face-Blink.gif
+C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Halloween-Face.gif
+C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Sad-Face.gif
+C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Shocked-Face.gif
