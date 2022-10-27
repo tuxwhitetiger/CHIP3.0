@@ -8,8 +8,8 @@ using System.Threading;
 
 namespace CHIP
 {
-    
-    class Gif
+    [Serializable()]
+    class Gif 
     {
         int[,,,] data; //x, y, framecount, color(0=r,1=g,2=b)
         int x=0;
