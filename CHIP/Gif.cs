@@ -37,6 +37,7 @@ namespace CHIP
             //trim fat from the end of the message ,FRAMEDONE
             string[] fixedData = rawdata.Split("DONE");
             //split out the indevidual frames
+
             string[] frames = fixedData[0].Split('F', StringSplitOptions.RemoveEmptyEntries);
             foreach (String frame in frames) {
                 newgif.newframe();
@@ -59,6 +60,9 @@ namespace CHIP
                     }
                     y = rows.Length;
                 }
+                newgif.frames[newgif.frames.Count - 1].fixrows();
+
+
             }
             newFrameCount = newgif.frames.Count;
             data = newgif.toArray();

@@ -42,6 +42,7 @@ namespace CHIP
         RGBLedFont font;
 
         RGBLedMatrixOptions options = new RGBLedMatrixOptions();
+        
         RGBLedMatrix matrix;
         RGBLedCanvas canvas;
         Stopwatch timer;
@@ -82,8 +83,9 @@ namespace CHIP
             FileInfo[] serialfaces = serialDataFolder.GetFiles("*.serial");
             List<FileInfo> toserialize = null;
             foreach (FileInfo fi in serialfaces.ToList()) {
-                toserialize = (List<FileInfo>) faces.ToList().Where(n => n.Name.Split('.')[0].Equals(fi.Name.Split('.')[0]));
+                toserialize.AddRange((List<FileInfo>) faces.ToList().Where(n => n.Name.Split('.')[0].Equals(fi.Name.Split('.')[0])));
             }
+
             //load from serial serialfaces
             if (serialfaces != null)
             {

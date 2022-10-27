@@ -63,6 +63,20 @@ namespace CHIP
         public void newrow() {
             rows.Add(new row());
         }
+
+        public void fixrows() {
+            List<row> newrows = new List<row>();
+            newrows.AddRange(rows.GetRange(0, 4));
+            newrows.AddRange(rows.GetRange(8, 4));
+            newrows.AddRange(rows.GetRange(4, 4));
+            newrows.AddRange(rows.GetRange(12, 4));
+            newrows.AddRange(rows.GetRange(16, 4));
+            newrows.AddRange(rows.GetRange(24, 4));
+            newrows.AddRange(rows.GetRange(20, 4));
+            newrows.AddRange(rows.GetRange(28, 4));
+            rows = newrows;
+        }
+
     }
     public class row
     {
