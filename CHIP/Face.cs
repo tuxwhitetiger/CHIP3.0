@@ -181,6 +181,7 @@ namespace CHIP
         private void happyTick() {
             allGifs["happy"].playGif(matrix, canvas);
         }
+
         private void snakeTick()
         {
             if (!snakegame.running)
