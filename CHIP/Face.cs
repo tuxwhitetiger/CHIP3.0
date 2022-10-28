@@ -71,7 +71,7 @@ namespace CHIP
                 bool removed = false;
                 foreach (FileInfo fi2 in serialfaces) {
                     Console.WriteLine(fi2.Name);
-                    if (fi.Name.Contains(fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4))){
+                    if (fi.Name.Contains(fi2.Name.Trim().Substring(0, fi.Name.Trim().Length - 4))){
                         //do nothing its a match
                         removed = true;
                     }
@@ -85,6 +85,7 @@ namespace CHIP
             //load from serial serialfaces
             foreach (FileInfo fi in serialfaces)
             {
+                Console.WriteLine("deserialising :" + fi.Name);
                 BinaryFormatter formatter = new BinaryFormatter();
                 String source = "./serial/";
                 source += fi.Name;
@@ -98,6 +99,7 @@ namespace CHIP
             //load from python
             foreach (FileInfo fi in toserialize)
             {
+                Console.WriteLine("loading :" + fi.Name);
                 Gif g = new Gif(fi.Name.Split('.')[0]);
                 g.loadData(net.GetGifData(fi.Name), 40);
                 //now its loaded need to serialize and save for next time
@@ -106,6 +108,7 @@ namespace CHIP
                 destination += fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4);
                 destination += ".serial";
                 Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
+                Console.WriteLine("writing :" + fi.Name);
                 formatter.Serialize(writer, g.data);
                 writer.Close();
                 allGifs.Add(g.data.name, g);
@@ -125,13 +128,6 @@ namespace CHIP
             canvas.Clear();
             while (true)
             {
-                Console.WriteLine("tick");
-                Console.WriteLine("dictonery count:" + allGifs.Count.ToString());
-                Console.WriteLine("dictionary:");
-                foreach (String s in allGifs.Keys)
-                {
-                    Console.WriteLine(s);
-                }
                 if (timer.ElapsedMilliseconds > 1000)
                 {
                     timer.Restart();
