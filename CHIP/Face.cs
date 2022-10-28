@@ -115,17 +115,25 @@ namespace CHIP
             timer = new Stopwatch();
         }
         public void update() {
+            Console.WriteLine("dictonery count:" + allGifs.Count.ToString());
+            Console.WriteLine("dictionary:");
+            foreach (String s in allGifs.Keys)
+            {
+                Console.WriteLine(s);
+            }
             timer.Start();
             canvas.Clear();
             while (true)
             {
+                Console.WriteLine("tick");
+                Console.WriteLine("dictonery count:" + allGifs.Count.ToString());
+                Console.WriteLine("dictionary:");
+                foreach (String s in allGifs.Keys)
+                {
+                    Console.WriteLine(s);
+                }
                 if (timer.ElapsedMilliseconds > 1000)
                 {
-                    Console.WriteLine("dictonery count:" + allGifs.Count.ToString());
-                    Console.WriteLine("dictionary:");
-                    foreach (String s in allGifs.Keys) {
-                        Console.WriteLine(s);
-                    }
                     timer.Restart();
                     switch (net.getFace()) // need to make this async
                     {
