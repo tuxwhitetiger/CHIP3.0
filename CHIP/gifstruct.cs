@@ -73,7 +73,9 @@ namespace CHIP
             newrows.AddRange(rows.GetRange(16, 4));
             newrows.AddRange(rows.GetRange(24, 4));
             newrows.AddRange(rows.GetRange(20, 4));
-            newrows.AddRange(rows.GetRange(28, 4));
+            newrows.AddRange(rows.GetRange(28, rows.Count - 28));
+
+            //32-28
             rows = newrows;
         }
 
