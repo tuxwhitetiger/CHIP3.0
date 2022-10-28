@@ -71,7 +71,7 @@ namespace CHIP
                 bool removed = false;
                 foreach (FileInfo fi2 in serialfaces) {
                     Console.WriteLine(fi2.Name);
-                    if (fi.Name.Contains(fi2.Name.Trim().Substring(0, fi.Name.Trim().Length - 4))){
+                    if (fi.Name.Contains(fi2.Name.Trim().Substring(0, fi2.Name.Trim().Length - 7))){
                         //do nothing its a match
                         removed = true;
                     }
