@@ -148,6 +148,7 @@ namespace CHIP
                         case "Matrix face": snakegame.running = false; runningface = faces.matrix; break;
                         case "8 Ball Face": snakegame.running = false; runningface = faces.eightball; break;
                         case "SHAKE BALL": snakegame.running = false; runningface = faces.eightball; eightball.shake = true; break;
+                        case "HALLOWEEN FACE": snakegame.running = false; runningface = faces.Halloween; break;
                     }
                 }
                 switch (runningface) {
@@ -177,7 +178,7 @@ namespace CHIP
         }
         private void AngryTick()
         {
-            allGifs["Angry-Face"].playGif(matrix, canvas);
+            allGifs["Angy-Face"].playGif(matrix, canvas);
         }
         private void HalloweenTick()
         {
