@@ -151,31 +151,37 @@ namespace CHIP
                     }
                 }
                 switch (runningface) {
-                    case faces.Angry: missingfile(); break;
+                    case faces.Angry: AngryTick(); break;
                     case faces.cwood: cwoodTick(); break;
                     case faces.Flag: FlagTick(); break;
                     case faces.Gif: randomGiff(); break;
                     case faces.happy: happyTick(); break;
                     case faces.lowbatt: lowbattTick(); break;
                     case faces.matrix: matrixTick(); break;
-                    case faces.Oh: missingfile(); break;
+                    case faces.Oh: OhTick(); break;
                     case faces.Overheat: overheatTick(); break;
                     case faces.pacman: pacmanTick(); break;
-                    case faces.sad: missingfile(); break;
+                    case faces.sad: sadTick(); break;
                     case faces.snake: snakeTick(); break;
                     case faces.What: WhatTick(); break;
                     case faces.eightball: eightballTick(); break;
+                    case faces.Halloween: HalloweenTick(); break;
                 }
             }
         }
-        private void sadTick() { 
-            
+        private void sadTick() {
+            allGifs["Sad-Face"].playGif(matrix, canvas);
         }
-        private void OhTick() { 
-            
+        private void OhTick() {
+            allGifs["Shocked-Face"].playGif(matrix, canvas);
         }
-        private void Angry() { 
-            
+        private void AngryTick()
+        {
+            allGifs["Angry-Face"].playGif(matrix, canvas);
+        }
+        private void HalloweenTick()
+        {
+            allGifs["Halloween-Face"].playGif(matrix, canvas);
         }
         public void amungusImposterFace() //you are the imposter
         {
@@ -240,13 +246,13 @@ namespace CHIP
             allGifs["overheat"].playGif(matrix, canvas);
         }
         private void cwoodTick() {
-            allGifs["cwoods"].playGif(matrix, canvas);
+            allGifs["CWOODSDEAN-full"].playGif(matrix, canvas);
         }
         private void lowbattTick() {
             allGifs["lowbatt"].playGif(matrix, canvas);
         }
         private void matrixTick() {
-            allGifs["neomatrix"].playGif(matrix, canvas);
+            allGifs["matrix-spin"].playGif(matrix, canvas);
         }
         private void pacmanTick() {
             allGifs["pacman"].playGif(matrix, canvas);

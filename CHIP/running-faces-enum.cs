@@ -19,6 +19,7 @@ namespace CHIP
         Overheat,
         Gif,
         Oh,
-        eightball
+        eightball,
+        Halloween
     }
 }
