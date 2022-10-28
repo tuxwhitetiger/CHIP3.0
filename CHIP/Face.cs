@@ -121,6 +121,11 @@ namespace CHIP
             {
                 if (timer.ElapsedMilliseconds > 1000)
                 {
+                    Console.WriteLine("dictonery count:" + allGifs.Count.ToString());
+                    Console.WriteLine("dictionary:");
+                    foreach (String s in allGifs.Keys) {
+                        Console.WriteLine(s);
+                    }
                     timer.Restart();
                     switch (net.getFace()) // need to make this async
                     {
