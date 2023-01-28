@@ -3,65 +3,133 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Timers;
-using DateTime;
 
 namespace CHIP
 {
     internal class CalanderClock
     {
-        List<DateTime> Clocks = new List<DateTime>();
+        List<alarm> Clocks = new List<alarm>();
         public CalanderClock() { }
 
-        public string getTime() {
+        public string getTime()
+        {
 
             return DateTime.Now.ToString();
         }
 
         public void setTimer(string time)
         {
-            DateTime timer = DateTime.Now + convertTimerString(time);
+            alarm timer = convertTimerString(time);
             Clocks.Add(timer);
         }
 
-        public void checkTimers() {
-            foreach( DateTime dt in Clocks) {
-                if (dt < DateTime.Now) { 
+        public void checkTimers()
+        {
+            foreach (alarm a in Clocks)
+            {
+                if (a.GetDateTime() < DateTime.Now)
+                {
                     //trigger alarm
 
-                    Clocks.Remove(dt);
+                    Clocks.Remove(a);
                 }
             }
         }
 
-        //incomming "set timer for one hour and 30 minutes"
+        //incoming "set alarm for three thirty"
+        //incoming "set alarm for three thirty called something something something"
+        //incomming "set timer for one hour and thirty minutes"
+        //incomming "set timer for one hour and thirty minutes called something something something"
         //set timer will be trimmed
-        private TimeSpan convertTimerString(string time) {
+        private alarm convertTimerString(string time)
+        {
 
             List<string> words = time.Split(' ').ToList<String>();
-            int hoursIndex = -1;
-            hoursIndex = words.IndexOf("hour");
-            hoursIndex = words.IndexOf("hours");
 
-            int minuteIndex = -1;
-            minuteIndex = words.IndexOf("minute");
-            minuteIndex = words.IndexOf("minutes");
+            if (words.Contains("alarm"))
+            {
+                DateTime dt = Convert.ToDateTime(NumberToInt(words[3]).ToString() + ":" + NumberToInt(words[4]).ToString() + ":00");
+                //assume alarm is for the future
+                while (dt < DateTime.Now)
+                {
+                    dt = dt.AddHours(12);
+                }
+                int calledIndex = words.IndexOf("called");
+                string message = "unknow alarm";
+                if (calledIndex != -1)
+                {
+                    //need magic to put spaces back in here
+                    List<string> args = words.GetRange(calledIndex + 1, words.Count - 1 - calledIndex);
+                    //need magic to put spaces back in here
+                    int argsStartCount = args.Count;
+                    for (int i = 0; i < argsStartCount - 1; i++)
+                    {
+                        args.Insert((i * 2) + 1, " ");
+                    }
 
-            int hour = 0;
-            int minute = 0;
-
-            if (hoursIndex != -1) { 
-                hour = NumberToInt(words[hoursIndex-1]);
+                    message = String.Concat(args);
+                }
+                alarm newA = new alarm(dt, message);
+                return newA;
             }
-            if (minuteIndex != -1) {
-                minute = NumberToInt(words[minuteIndex-1]); 
+            else if (words.Contains("timer"))
+            {
+                int hoursIndex = -1;
+                hoursIndex = words.IndexOf("hour");
+                if (hoursIndex == -1)
+                {
+                    hoursIndex = words.IndexOf("hours");
+                }
+
+                int minuteIndex = -1;
+                minuteIndex = words.IndexOf("minute");
+                if (minuteIndex == -1)
+                {
+                    minuteIndex = words.IndexOf("minutes");
+                }
+
+                int hour = 0;
+                int minute = 0;
+
+                if (hoursIndex != -1)
+                {
+                    hour = NumberToInt(words[hoursIndex - 1]);
+                }
+                if (minuteIndex != -1)
+                {
+                    minute = NumberToInt(words[minuteIndex - 1]);
+                }
+                TimeSpan ts = new TimeSpan(hour, minute, 0);
+                DateTime dt = DateTime.Now + ts;
+                string message = "unknow timmer";
+                int calledIndex = words.IndexOf("called");
+                if (calledIndex != -1)
+                {
+                    //need magic to put spaces back in here
+                    List<string> args = words.GetRange(calledIndex + 1, words.Count - 1 - calledIndex);
+                    //need magic to put spaces back in here
+                    int argsStartCount = args.Count;
+                    for (int i = 0; i < argsStartCount - 1; i++)
+                    {
+                        args.Insert((i * 2) + 1, " ");
+                    }
+
+                    message = String.Concat(args);
+                }
+                alarm newA = new alarm(dt, message);
+                return newA;
             }
-            TimeSpan ts = new TimeSpan(hour,minute,0);
-            return ts;
+            else
+            {
+                //report back needs to be formatted correctly
+                return new alarm();
+            }
+
         }
 
         private int NumberToInt(string str)
         {
-            switch(str)
+            switch (str)
             {
                 case "one": return 1;
                 case "two": return 2;
