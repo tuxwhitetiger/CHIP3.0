@@ -15,6 +15,7 @@ namespace CHIP
         controller_network cnet;
         List<Controller> controllerstokill;
 
+        CalanderClock clock;
 
         snake snakegame;
         magic8Ball eightball = new magic8Ball();
@@ -40,6 +41,7 @@ namespace CHIP
             net = new mynetwork();
             cnet = new controller_network();
             controllerstokill = new List<Controller>();
+            clock = new CalanderClock();
             net.connect();
             options.Rows = 32;
             options.Cols = 128;
@@ -131,6 +133,11 @@ namespace CHIP
                 if (timer.ElapsedMilliseconds > 1000)
                 {
                     timer.Restart();
+                    String getAlarm = net.getAlarm();
+                    if (getAlarm != null)
+                    {
+                        clock.setTimer(getAlarm);
+                    }
                     switch (net.getFace()) // need to make this async
                     {
                         case "Sad face": snakegame.running = false; runningface = faces.sad; break;
@@ -151,6 +158,7 @@ namespace CHIP
                         case "HALLOWEEN FACE": snakegame.running = false; runningface = faces.Halloween; break;
                     }
                 }
+
                 switch (runningface) {
                     case faces.Angry: AngryTick(); break;
                     case faces.cwood: cwoodTick(); break;
