@@ -9,8 +9,11 @@ namespace CHIP
     internal class CalanderClock
     {
         List<alarm> Clocks = new List<alarm>();
-        public CalanderClock() { }
-
+        mynetwork mynet;
+        public CalanderClock(mynetwork net) { 
+            mynet= net;
+        }
+            
         public string getTime()
         {
 
@@ -25,17 +28,21 @@ namespace CHIP
 
         public void checkTimers()
         {
+            List<alarm> clocksToRemove = new List<alarm>();
             foreach (alarm a in Clocks)
             {
                 if (a.GetDateTime() < DateTime.Now)
                 {
                     //trigger alarm
-
-                    Clocks.Remove(a);
+                    mynet.speak(a.GetAlarmMessage());
+                    clocksToRemove.Add(a);
                 }
             }
+            foreach (alarm a in clocksToRemove)
+            {
+                Clocks.Remove(a);
+            }
         }
-
         //incoming "set alarm for three thirty"
         //incoming "set alarm for three thirty called something something something"
         //incomming "set timer for one hour and thirty minutes"

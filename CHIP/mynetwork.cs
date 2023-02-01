@@ -72,7 +72,13 @@ namespace CHIP
             sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
             return sb.ToString();
         }
-
+        public void speak(String message) {
+            Byte[] requestBytes = Encoding.ASCII.GetBytes("Say:"+message);
+            Byte[] bytesReceived = new Byte[256];
+            socket.Send(requestBytes, requestBytes.Length, 0);
+            int bytes = 0;
+            bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
+        }
 
     }
 }

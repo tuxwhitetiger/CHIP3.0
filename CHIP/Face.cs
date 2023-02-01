@@ -41,7 +41,7 @@ namespace CHIP
             net = new mynetwork();
             cnet = new controller_network();
             controllerstokill = new List<Controller>();
-            clock = new CalanderClock();
+            clock = new CalanderClock(net);
             net.connect();
             options.Rows = 32;
             options.Cols = 128;
