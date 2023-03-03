@@ -109,8 +109,9 @@ namespace CHIP
             {
                 for (int myx = 0; myx < maxx; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
-                    canvas.SetPixel(64 - myx, myy, new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]));
-                    canvas.SetPixel(64 + myx, myy, new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]));
+                    Color c = new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]);
+                    canvas.SetPixel(64 - myx, myy, c);
+                    canvas.SetPixel(64 + myx, myy, c);
                 }
             }
             canvas = matrix.SwapOnVsync(canvas);
@@ -132,8 +133,9 @@ namespace CHIP
             {
                 for (int myx = 0; myx < maxx; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
-                    canvas.SetPixel(64 - myx, myy, new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]));
-                    canvas.SetPixel(128 - myx, myy, new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]));
+                    Color c = new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]);
+                    canvas.SetPixel(64 - myx, myy, c);
+                    canvas.SetPixel(128 - myx, myy, c);
                 }
             }
             canvas = matrix.SwapOnVsync(canvas);
