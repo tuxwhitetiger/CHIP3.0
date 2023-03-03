@@ -124,6 +124,7 @@ namespace CHIP
 
             //force inject mistake corrections
             allGifs["overheat"].data.piviot = true;
+            allGifs["overheat"].data.mirror = false;
 
             timer = new Stopwatch();
         }
