@@ -35,8 +35,8 @@ namespace CHIP
         Random rand = new Random();
 
         faces runningface = faces.happy;
-        string nextFace;
-        string lastFace;
+        string nextFace = "Happy face";
+        string lastFace = "Happy face";
 
         //setup gif faces
         IDictionary<string, Gif> allGifs = new Dictionary<string, Gif>();
