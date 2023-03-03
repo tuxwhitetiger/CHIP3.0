@@ -72,6 +72,26 @@ namespace CHIP
             sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
             return sb.ToString();
         }
+        public String getRequest() {
+            Byte[] requestBytes = Encoding.ASCII.GetBytes("Get Request");
+            Byte[] bytesReceived = new Byte[256];
+            socket.Send(requestBytes, requestBytes.Length, 0);
+            int bytes = 0;
+            StringBuilder sb = new StringBuilder();
+            bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
+            sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
+            return sb.ToString();
+        }
+        public String getTSM() {
+            Byte[] requestBytes = Encoding.ASCII.GetBytes("Get Telegram Send Message");
+            Byte[] bytesReceived = new Byte[256];
+            socket.Send(requestBytes, requestBytes.Length, 0);
+            int bytes = 0;
+            StringBuilder sb = new StringBuilder();
+            bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
+            sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
+            return sb.ToString();
+        }
         public void speak(String message) {
             Byte[] requestBytes = Encoding.ASCII.GetBytes("Say:"+message);
             Byte[] bytesReceived = new Byte[256];

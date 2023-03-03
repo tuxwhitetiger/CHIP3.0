@@ -42,7 +42,12 @@ namespace CHIP
             {
                 Clocks.Remove(a);
             }
+            //check if time been requested
+            if (mynet.getRequest() != "null") {
+                mynet.speak(getTime());
+            }
         }
+
         //incoming "set alarm for three thirty"
         //incoming "set alarm for three thirty called something something something"
         //incomming "set timer for one hour and thirty minutes"

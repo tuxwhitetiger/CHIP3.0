@@ -6,6 +6,7 @@ using rpi_rgb_led_matrix_sharp;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Reflection;
 
 namespace CHIP
 {
@@ -29,8 +30,13 @@ namespace CHIP
         RGBLedMatrix matrix;
         RGBLedCanvas canvas;
         Stopwatch timer;
+        Stopwatch faceAnimationTimer = new Stopwatch();
+        int faceAnimationDelay = 0;
+        Random rand = new Random();
 
         faces runningface = faces.happy;
+        string nextFace;
+        string lastFace;
 
         //setup gif faces
         IDictionary<string, Gif> allGifs = new Dictionary<string, Gif>();
@@ -115,7 +121,9 @@ namespace CHIP
                 writer.Close();
                 allGifs.Add(g.data.name, g);
             }
-            
+
+            //force inject mistake corrections
+            allGifs["overheat"].data.mirror= true;
 
             timer = new Stopwatch();
         }
@@ -138,24 +146,28 @@ namespace CHIP
                     {
                         clock.setTimer(getAlarm);
                     }
-                    switch (net.getFace()) // need to make this async
-                    {
-                        case "Sad face": snakegame.running = false; runningface = faces.sad; break;
-                        case "Happy face": snakegame.running = false; runningface = faces.happy; break;
-                        case "Angry face": snakegame.running = false; runningface = faces.Angry;  break;
-                        case "What face": snakegame.running = false; runningface = faces.What; Tspam.start(canvas, matrix); break;
-                        case "Flag face": snakegame.running = false; runningface = faces.Flag;  break;
-                        case "Gif face": snakegame.running = false; runningface = faces.Gif; break;
-                        case "Oh face": snakegame.running = false; runningface = faces.Oh; break;
-                        case "Snake face": runningface = faces.snake; break;
-                        case "Overheat face": snakegame.running = false; runningface = faces.Overheat;  break;
-                        case "Cwood face": snakegame.running = false; runningface = faces.cwood;  break;
-                        case "Lowbatt face": snakegame.running = false; runningface = faces.lowbatt;  break;
-                        case "Pacman face": snakegame.running = false; runningface = faces.pacman;  break;
-                        case "Matrix face": snakegame.running = false; runningface = faces.matrix; break;
-                        case "8 Ball Face": snakegame.running = false; runningface = faces.eightball; break;
-                        case "SHAKE BALL": snakegame.running = false; runningface = faces.eightball; eightball.shake = true; break;
-                        case "HALLOWEEN FACE": snakegame.running = false; runningface = faces.Halloween; break;
+                    lastFace = nextFace;
+                    nextFace = net.getFace();
+                    if(lastFace.Equals(nextFace)) {
+                        switch (net.getFace()) // need to make this async
+                        {
+                            case "Sad face": snakegame.running = false; runningface = faces.sad; break;
+                            case "Happy face": snakegame.running = false; runningface = faces.happy; faceAnimationTimer.Restart(); faceAnimationDelay = rand.Next(0, 5); break;
+                            case "Angry face": snakegame.running = false; runningface = faces.Angry; break;
+                            case "What face": snakegame.running = false; runningface = faces.What; Tspam.start(canvas, matrix); break;
+                            case "Flag face": snakegame.running = false; runningface = faces.Flag; break;
+                            case "Gif face": snakegame.running = false; runningface = faces.Gif; break;
+                            case "Oh face": snakegame.running = false; runningface = faces.Oh; break;
+                            case "Snake face": runningface = faces.snake; break;
+                            case "Overheat face": snakegame.running = false; runningface = faces.Overheat; break;
+                            case "Cwood face": snakegame.running = false; runningface = faces.cwood; break;
+                            case "Lowbatt face": snakegame.running = false; runningface = faces.lowbatt; break;
+                            case "Pacman face": snakegame.running = false; runningface = faces.pacman; break;
+                            case "Matrix face": snakegame.running = false; runningface = faces.matrix; break;
+                            case "8 Ball Face": snakegame.running = false; runningface = faces.eightball; break;
+                            case "SHAKE BALL": snakegame.running = false; runningface = faces.eightball; eightball.shake = true; break;
+                            case "HALLOWEEN FACE": snakegame.running = false; runningface = faces.Halloween; break;
+                        }
                     }
                 }
 
@@ -209,7 +221,12 @@ namespace CHIP
         }
 
         private void happyTick() {
-            allGifs["happy"].playGif(matrix, canvas);
+            if (faceAnimationTimer.Elapsed.TotalSeconds >= faceAnimationDelay)
+            {
+                allGifs["happy"].playGif(matrix, canvas);
+                faceAnimationTimer.Restart();
+                faceAnimationDelay = rand.Next(0, 5);
+            }
         }
 
         private void snakeTick()
