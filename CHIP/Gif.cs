@@ -150,13 +150,16 @@ namespace CHIP
             for (int i = 0; i < data.newFrameCount; i++) {
                 if (data.mirror)
                 {
+                    Console.WriteLine("data.mirror:true");
                     printmirroredFrame(matrix, canvas, i);
                 }
                 else if (data.piviot) {
+                    Console.WriteLine("data.piviot:true");
                     printPiviotFrame(matrix, canvas, i);
                 }
                 else
                 {
+                    Console.WriteLine("standard:true");
                     printFrame(matrix, canvas, i);
                 }
                 
