@@ -134,8 +134,8 @@ namespace CHIP
                 for (int myx = 0; myx < maxx; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
                     Color c = new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]);
-                    canvas.SetPixel(64 - myx, myy, c);
-                    canvas.SetPixel(128 - myx, myy, new Color(0,0,0));
+                    canvas.SetPixel(myx, myy, c);
+                    canvas.SetPixel(64 + myx, myy, c);
                 }
             }
             canvas = matrix.SwapOnVsync(canvas);
@@ -150,16 +150,16 @@ namespace CHIP
             for (int i = 0; i < data.newFrameCount; i++) {
                 if (data.mirror)
                 {
-                    Console.WriteLine("data.mirror:true");
+                    //Console.WriteLine("data.mirror:true");
                     printmirroredFrame(matrix, canvas, i);
                 }
                 else if (data.piviot) {
-                    Console.WriteLine("data.piviot:true");
+                    //Console.WriteLine("data.piviot:true");
                     printPiviotFrame(matrix, canvas, i);
                 }
                 else
                 {
-                    Console.WriteLine("standard:true");
+                    //Console.WriteLine("standard:true");
                     printFrame(matrix, canvas, i);
                 }
                 
