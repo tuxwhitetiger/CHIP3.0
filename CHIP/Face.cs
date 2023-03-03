@@ -227,6 +227,9 @@ namespace CHIP
                 faceAnimationTimer.Restart();
                 faceAnimationDelay = rand.Next(0, 5);
             }
+            else {
+                allGifs["happy"].printFrame(matrix, canvas,1);
+            }
         }
 
         private void snakeTick()
