@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Text;
 using System.Threading;
@@ -114,6 +115,30 @@ namespace CHIP
             }
             canvas = matrix.SwapOnVsync(canvas);
         }
+        internal void printPiviotFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame)
+        {
+            int maxy = data.y;
+            if (canvas.Height < maxy)
+            {
+                maxy = canvas.Height;
+            }
+
+            int maxx = data.x;
+            if (canvas.Width < maxx)
+            {
+                maxx = canvas.Width;
+            }
+            for (int myy = 0; myy < maxy; myy++)
+            {
+                for (int myx = 0; myx < maxx; myx++)
+                {//data x, y, framecount, color(0=r,1=g,2=b)
+                    canvas.SetPixel(64 - myx, myy, new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]));
+                    canvas.SetPixel(128 - myx, myy, new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]));
+                }
+            }
+            canvas = matrix.SwapOnVsync(canvas);
+        }
+
         internal void playGif(RGBLedMatrix matrix, RGBLedCanvas canvas) {
             Console.WriteLine("gif name:"+ data.name);
             int leftpos = Console.CursorLeft;
@@ -121,12 +146,16 @@ namespace CHIP
             timer.Reset();
             timer.Start();
             for (int i = 0; i < data.newFrameCount; i++) {
-                if (data.mirror) {
+                if (data.mirror)
+                {
                     printmirroredFrame(matrix, canvas, i);
+                }
+                else if (data.piviot) {
+                    printPiviotFrame(matrix, canvas, i);
                 }
                 else
                 {
-                    printFrame(matrix,canvas, i);
+                    printFrame(matrix, canvas, i);
                 }
                 
                 Thread.Sleep(data.mstick);

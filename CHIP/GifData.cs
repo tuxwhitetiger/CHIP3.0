@@ -14,5 +14,6 @@ namespace CHIP
         public string name;
         public int mstick;
         public bool mirror = false;
+        public bool piviot = false;
     }
 }
