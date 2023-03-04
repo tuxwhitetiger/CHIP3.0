@@ -50,8 +50,8 @@ namespace CHIP
             clock = new CalanderClock(net);
             net.connect();
             options.Rows = 32;
-            options.Cols = 128;
-            options.ChainLength = 1;
+            options.Cols = 64;
+            options.ChainLength = 2;
             options.Parallel = 1;
             options.GpioSlowdown = 3;
             options.HardwareMapping = "regular";
