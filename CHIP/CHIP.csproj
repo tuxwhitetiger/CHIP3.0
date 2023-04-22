@@ -47,6 +47,9 @@
     <None Update="faces\happy.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="faces\Love-Face.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="faces\lowbatt.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
