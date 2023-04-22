@@ -68,8 +68,6 @@ namespace CHIP
             data.data = newgif.toArray();
         }
 
-
-
         internal void printFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame)
         {
             int maxy = data.y;
@@ -116,6 +114,7 @@ namespace CHIP
             }
             canvas = matrix.SwapOnVsync(canvas);
         }
+
         internal void printPiviotFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame)
         {
             int maxy = data.y;
@@ -172,6 +171,5 @@ namespace CHIP
             Console.Write("FPS:" + fps);
         }
     
-
     }
 }

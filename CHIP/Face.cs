@@ -147,6 +147,11 @@ namespace CHIP
                     {
                         clock.setTimer(getAlarm);
                     }
+                    String getRequest = net.getRequest();
+                    if (getRequest != null) {
+                        RequestHandeler(getRequest);
+                    }
+
                     lastFace = nextFace;
                     nextFace = net.getFace();
                     if(lastFace.Equals(nextFace)) {
@@ -158,7 +163,7 @@ namespace CHIP
                             case "What face": snakegame.running = false; runningface = faces.What; Tspam.start(canvas, matrix); break;
                             case "Flag face": snakegame.running = false; runningface = faces.Flag; break;
                             case "Gif face": snakegame.running = false; runningface = faces.Gif; break;
-                            case "Oh face": snakegame.running = false; runningface = faces.Oh; break;
+                            case "Shock face": snakegame.running = false; runningface = faces.Oh; break;
                             case "Snake face": runningface = faces.snake; break;
                             case "Overheat face": snakegame.running = false; runningface = faces.Overheat; break;
                             case "Cwood face": snakegame.running = false; runningface = faces.cwood; break;
@@ -168,6 +173,7 @@ namespace CHIP
                             case "8 Ball Face": snakegame.running = false; runningface = faces.eightball; break;
                             case "SHAKE BALL": snakegame.running = false; runningface = faces.eightball; eightball.shake = true; break;
                             case "HALLOWEEN FACE": snakegame.running = false; runningface = faces.Halloween; break;
+                            case "LOVE FACE": snakegame.running = false; runningface = faces.Love; break;
                         }
                     }
                 }
@@ -188,9 +194,16 @@ namespace CHIP
                     case faces.What: WhatTick(); break;
                     case faces.eightball: eightballTick(); break;
                     case faces.Halloween: HalloweenTick(); break;
+                    case faces.Love: loveTick();break;
                 }
             }
         }
+
+        private void loveTick()
+        {
+            allGifs["Love-Face"].playGif(matrix, canvas);
+        }
+
         private void sadTick() {
             allGifs["Sad-Face"].playGif(matrix, canvas);
         }
@@ -299,6 +312,13 @@ namespace CHIP
             Tspam.PrintTextBothSides("Gif", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
             canvas = matrix.SwapOnVsync(canvas);
         }
+        private void RequestHandeler(string getRequest)
+        {
+            switch (getRequest)
+            {
+                case "GET TIME": net.speak("time is " + DateTime.Now.Hour.ToString() + " " + DateTime.Now.Minute.ToString()); break;
 
+            }
+        }
     }
 }

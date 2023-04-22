@@ -20,6 +20,7 @@ namespace CHIP
         Gif,
         Oh,
         eightball,
-        Halloween
+        Halloween,
+        Love
     }
 }
