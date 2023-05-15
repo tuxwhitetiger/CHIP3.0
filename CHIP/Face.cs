@@ -12,6 +12,7 @@ namespace CHIP
 {
     class Face
     {
+        Logger mylogger;
         mynetwork net;
         controller_network cnet;
         List<Controller> controllerstokill;
@@ -42,12 +43,18 @@ namespace CHIP
         IDictionary<string, Gif> allGifs = new Dictionary<string, Gif>();
 
 
-        public void load()
+        public void load(Logger mynewlogger)
         {
-            net = new mynetwork();
-            cnet = new controller_network();
+            mylogger = mynewlogger;
+            mylogger.Log("starting loader");
+            mylogger.Log("starting mynetwork");
+            net = new mynetwork(mylogger);
+            mylogger.Log("starting controller_network");
+            cnet = new controller_network(mylogger);
             controllerstokill = new List<Controller>();
+            mylogger.Log("starting CalanderClock");
             clock = new CalanderClock(net);
+            mylogger.Log("net.connect");
             net.connect();
             options.Rows = 32;
             options.Cols = 64;
@@ -55,17 +62,25 @@ namespace CHIP
             options.Parallel = 1;
             options.GpioSlowdown = 3;
             options.HardwareMapping = "regular";
+            mylogger.Log("matrix pop");
             matrix = new RGBLedMatrix(options);
+            mylogger.Log("canvas pop");
             canvas = matrix.CreateOffscreenCanvas();
+            mylogger.Log("net test");
             Console.WriteLine(net.getFace());
+            mylogger.Log("net test result" + net.getFace());
+            mylogger.Log("load snake");
             snakegame = new snake();
+            mylogger.Log("load font");
             font = new RGBLedFont("./fonts/7x13.bdf");
 
             canvas.Clear();
+            mylogger.Log("push text");
             Tspam.PrintTextBothSides("Loading", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
             Tspam.PrintTextBothSides("Gifs", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
             canvas = matrix.SwapOnVsync(canvas);
 
+            mylogger.Log("check serialized data if not ask python to do it");
             // check if i have serialized data if not ask python to do it
             DirectoryInfo facesFolder = new DirectoryInfo("./faces");
             FileInfo[] faces = facesFolder.GetFiles("*.gif");
@@ -73,11 +88,14 @@ namespace CHIP
             FileInfo[] serialfaces = serialDataFolder.GetFiles("*.serial");
             List<FileInfo> toserialize = new List<FileInfo>();
 
+            mylogger.Log("remove from faces list if in serialized list");
             //remove from faces list if in serialized list
             foreach (FileInfo fi in faces) {
+                mylogger.Log("file name : " + fi.Name);
                 Console.WriteLine(fi.Name);
                 bool removed = false;
                 foreach (FileInfo fi2 in serialfaces) {
+                    mylogger.Log("file2 name : " + fi2.Name);
                     Console.WriteLine(fi2.Name);
                     if (fi.Name.Contains(fi2.Name.Trim().Substring(0, fi2.Name.Trim().Length - 7))){
                         //do nothing its a match
@@ -89,10 +107,11 @@ namespace CHIP
                 }
             }
 
-
+            mylogger.Log("load from serial serialfaces");
             //load from serial serialfaces
             foreach (FileInfo fi in serialfaces)
             {
+                mylogger.Log("deserialising :" + fi.Name);
                 Console.WriteLine("deserialising :" + fi.Name);
                 BinaryFormatter formatter = new BinaryFormatter();
                 String source = "./serial/";
@@ -104,9 +123,11 @@ namespace CHIP
                 allGifs.Add(g.data.name, g);
             }
 
+            mylogger.Log("//load from python");
             //load from python
             foreach (FileInfo fi in toserialize)
             {
+                mylogger.Log("loading :" + fi.Name);
                 Console.WriteLine("loading :" + fi.Name);
                 Gif g = new Gif(fi.Name.Split('.')[0]);
                 g.loadData(net.GetGifData(fi.Name), 40);
@@ -116,23 +137,33 @@ namespace CHIP
                 destination += fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4);
                 destination += ".serial";
                 Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
+                mylogger.Log("writing :" + fi.Name);
                 Console.WriteLine("writing :" + fi.Name);
                 formatter.Serialize(writer, g.data);
                 writer.Close();
                 allGifs.Add(g.data.name, g);
             }
-
+            mylogger.Log("manual fixes to gif data");
             //force inject mistake corrections
             allGifs["overheat"].data.piviot = true;
             allGifs["overheat"].data.mirror = false;
+            mylogger.Log("setting logger to each gif");
+            foreach (Gif g in allGifs.Values)
+            {
+                g.SetLogger(mylogger);
+            }
 
             timer = new Stopwatch();
+            mylogger.Log("completed loader");
         }
         public void update() {
+            mylogger.Log("dictonery count:" + allGifs.Count.ToString());
             Console.WriteLine("dictonery count:" + allGifs.Count.ToString());
+            mylogger.Log("dictionary:");
             Console.WriteLine("dictionary:");
             foreach (String s in allGifs.Keys)
             {
+                mylogger.Log(s);
                 Console.WriteLine(s);
             }
             timer.Start();

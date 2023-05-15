@@ -7,14 +7,15 @@ namespace CHIP
 {
     class mynetwork
     {
+        Logger mylogger;
         String HOST = "localhost"; // The server's hostname or IP address
         int PORT = 65432;  // The port used by the server
         int addressNumber = 1;
         Socket socket;
 
-        public mynetwork()
+        public mynetwork(Logger mylogger)
         {
-
+            this.mylogger = mylogger;
 
         }
 
@@ -25,10 +26,12 @@ namespace CHIP
             socket.Connect(ipe);
             if (socket.Connected)
             {
+                mylogger.Log("Connection established");
                 Console.WriteLine("Connection established");
             }
             else
             {
+                mylogger.Log("Connection failed");
                 Console.WriteLine("Connection failed");
                 return;
             }

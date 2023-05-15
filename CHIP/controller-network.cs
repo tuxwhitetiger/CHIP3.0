@@ -12,12 +12,13 @@ namespace CHIP
         /// accsepts a controller assigns a port and waits for another to reconnect
         /// </summary>
         /// 
-
+        Logger mylogger;
         Socket socket;
         public List<Controller> controllers = new List<Controller>();
         int controllercount = 1;
 
-        public controller_network() {
+        public controller_network(Logger mylogger) {
+            this.mylogger = mylogger;
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             IPAddress ipAddress = IPAddress.Parse("10.1.1.1");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 65433);
@@ -26,12 +27,15 @@ namespace CHIP
         }
 
         public void checkForNewController() {
+            mylogger.Log("started listning");
             Console.WriteLine("started listning");
             socket.Listen(10);
             Socket client = socket.Accept();
             Controller c = new Controller(controllercount);
+            mylogger.Log("controller created");
             Console.WriteLine("controller created");
             c.socket = client;
+            mylogger.Log("socket set");
             Console.WriteLine("socket set");
             controllers.Add(c);
             controllercount++;

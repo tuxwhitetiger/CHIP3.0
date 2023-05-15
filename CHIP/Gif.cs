@@ -12,7 +12,7 @@ namespace CHIP
     
     class Gif 
     {
-
+        Logger mylogger;
         public GifData data = new GifData();
         Stopwatch timer = new Stopwatch();
         
@@ -31,6 +31,9 @@ namespace CHIP
             //only to be used by deserialiser
         }
 
+        public void SetLogger(Logger mylogger) { 
+            this.mylogger = mylogger;
+        }
         public void loadData(String rawdata, int tick) {
             data.mstick = tick;
             gifstruct newgif = new gifstruct();
@@ -141,6 +144,7 @@ namespace CHIP
         }
 
         internal void playGif(RGBLedMatrix matrix, RGBLedCanvas canvas) {
+            mylogger.Log("gif name:" + data.name);
             Console.WriteLine("gif name:"+ data.name);
             int leftpos = Console.CursorLeft;
             int toppos = Console.CursorTop;
@@ -169,6 +173,7 @@ namespace CHIP
             double fps = (1000 / timeTaken.TotalMilliseconds) * data.newFrameCount;
             Console.SetCursorPosition(leftpos, toppos);
             Console.Write("FPS:" + fps);
+            mylogger.Log("FPS:" + fps);
         }
     
     }

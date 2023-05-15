@@ -12,8 +12,10 @@ namespace CHIP
         
         public static void Main(string[] args)
         {
+            Logger mylogger = new Logger();
             Face face = new Face();
-            face.load();
+            face.load(mylogger);
+            mylogger.Log("start update loop");
             while (true) {
                 face.update();
             }
