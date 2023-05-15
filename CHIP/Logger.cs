@@ -9,7 +9,8 @@ namespace CHIP
     {
         string folder = "./";
         string fileName = "log.log";
-        static StreamWriter openLog =null;
+        static StreamWriter openLog = null;
+        FileStream logfile = null;
         public Logger() {
 
             string text = "logger started";
@@ -17,10 +18,12 @@ namespace CHIP
             fileName += ".log";
             string fullPath = folder + fileName;
 
-            FileStream logfile = File.OpenWrite(fullPath);
-            StreamWriter openLog = new StreamWriter(logfile);
+            logfile = File.OpenWrite(fullPath);
+            openLog = new StreamWriter(logfile);
             openLog.AutoFlush = true;
             Log(text);
+            openLog.Flush();
+            logfile.Flush();
         }
 
         public void Log(string message)
@@ -49,6 +52,8 @@ namespace CHIP
                 sb.Append(message);
 
                 openLog.WriteLine(sb.ToString());
+                openLog.Flush();
+                logfile.Flush();
             }
         }
 
