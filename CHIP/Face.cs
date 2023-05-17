@@ -14,7 +14,7 @@ namespace CHIP
     {
         Logger mylogger;
         mynetwork net;
-        controller_network cnet;
+        //controller_network cnet;
         List<Controller> controllerstokill;
 
         CalanderClock clock;
@@ -49,8 +49,8 @@ namespace CHIP
             mylogger.Log("starting loader");
             mylogger.Log("starting mynetwork");
             net = new mynetwork(mylogger);
-            mylogger.Log("starting controller_network");
-            cnet = new controller_network(mylogger);
+            //mylogger.Log("starting controller_network");
+            //cnet = new controller_network(mylogger);
             controllerstokill = new List<Controller>();
             mylogger.Log("starting CalanderClock");
             clock = new CalanderClock(net);
@@ -279,6 +279,7 @@ namespace CHIP
 
         private void snakeTick()
         {
+            /*
             if (!snakegame.running)
             {
                 cnet.controllers = new List<Controller>();
@@ -306,6 +307,7 @@ namespace CHIP
             {
                 cnet.controllers.Remove(c);
             }
+            */
         }
         private void randomGiff()
         {
