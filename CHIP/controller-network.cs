@@ -19,12 +19,19 @@ namespace CHIP
 
         public controller_network(Logger mylogger) {
             this.mylogger = mylogger;
+            mylogger.Log("started socket");
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            mylogger.Log("Parse IPAddress");
             IPAddress ipAddress = IPAddress.Parse("10.1.1.1");
+            mylogger.Log("localEndPoint created");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 65433);
+            mylogger.Log("socket bound");
             socket.Bind(localEndPoint);
+            mylogger.Log("start factory");
             Task.Factory.StartNew(checkForNewController, TaskCreationOptions.LongRunning);
+            mylogger.Log("controller_network setup complete");
         }
+        
 
         public void checkForNewController() {
             mylogger.Log("started listning");
