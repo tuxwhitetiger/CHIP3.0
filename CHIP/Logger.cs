@@ -11,6 +11,7 @@ namespace CHIP
         string fileName = "log.log";
         static StreamWriter openLog = null;
         FileStream logfile = null;
+        StringBuilder sb = new StringBuilder();
         public Logger() {
 
             string text = "logger started";
@@ -33,24 +34,11 @@ namespace CHIP
                 //panic
             }
             else
-            {
-                DateTime now = DateTime.Now;
-                StringBuilder sb = new StringBuilder();
-                sb.Append(now.Day);
-                sb.Append("/");
-                sb.Append(now.Month);
-                sb.Append("/");
-                sb.Append(now.Year);
-                sb.Append(" ");
-                sb.Append(now.Hour);
-                sb.Append(":");
-                sb.Append(now.Minute);
-                sb.Append(":");
-                sb.Append(now.Second);
+            {                
+                sb.Append(DateTime.Now.ToString("dd-MM-yyy-HH:mm:ss"));
                 sb.Append(" ");
                 sb.Append("Message: ");
                 sb.Append(message);
-
                 openLog.WriteLine(sb.ToString());
                 openLog.Flush();
                 logfile.Flush();
