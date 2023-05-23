@@ -173,6 +173,7 @@ namespace CHIP
                 if (timer.ElapsedMilliseconds > 1000)
                 {
                     timer.Restart();
+                    /*
                     String getAlarm = net.getAlarm();
                     if (getAlarm != null)
                     {
@@ -182,11 +183,11 @@ namespace CHIP
                     if (getRequest != null) {
                         RequestHandeler(getRequest);
                     }
-
+                    */
                     lastFace = nextFace;
                     nextFace = net.getFace();
                     if(lastFace.Equals(nextFace)) {
-                        switch (net.getFace()) // need to make this async
+                        switch (nextFace) // need to make this async
                         {
                             case "Sad face": snakegame.running = false; runningface = faces.sad; break;
                             case "Happy face": snakegame.running = false; runningface = faces.happy; faceAnimationTimer.Restart(); faceAnimationDelay = rand.Next(0, 5); break;
