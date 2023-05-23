@@ -187,7 +187,6 @@ namespace CHIP
                     lastFace = nextFace;
                     nextFace = net.getFace();
                     if(lastFace.Equals(nextFace)) {
-                        canvas.Clear();
                         switch (nextFace) // need to make this async
                         {
                             case "Sad face": snakegame.running = false; runningface = faces.sad; break;
@@ -209,6 +208,7 @@ namespace CHIP
                             case "LOVE FACE": snakegame.running = false; runningface = faces.Love; break;
                         }
                     }
+                    //canvas.Clear();
                 }
 
                 switch (runningface) {
@@ -275,7 +275,7 @@ namespace CHIP
                 faceAnimationDelay = rand.Next(0, 5);
             }
             else {
-                allGifs["happy"].printFrame(matrix, canvas,1);
+                allGifs["happy"].printmirroredFrame(matrix, canvas,1);
             }
         }
 
