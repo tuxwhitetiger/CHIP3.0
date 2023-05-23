@@ -144,12 +144,12 @@ namespace CHIP
         }
 
         internal void playGif(RGBLedMatrix matrix, RGBLedCanvas canvas) {
-            mylogger.Log("gif name:" + data.name);
-            Console.WriteLine("gif name:"+ data.name);
+            //mylogger.Log("gif name:" + data.name);
+           // Console.WriteLine("gif name:"+ data.name);
             int leftpos = Console.CursorLeft;
             int toppos = Console.CursorTop;
-            timer.Reset();
-            timer.Start();
+            //timer.Reset();
+            //timer.Start();
             for (int i = 0; i < data.newFrameCount; i++) {
                 if (data.mirror)
                 {
@@ -168,12 +168,12 @@ namespace CHIP
                 
                 Thread.Sleep(data.mstick);
             }
-            timer.Stop();
-            TimeSpan timeTaken = timer.Elapsed;
-            double fps = (1000 / timeTaken.TotalMilliseconds) * data.newFrameCount;
-            Console.SetCursorPosition(leftpos, toppos);
-            Console.Write("FPS:" + fps);
-            mylogger.Log("FPS:" + fps);
+            //timer.Stop();
+            //TimeSpan timeTaken = timer.Elapsed;
+            //double fps = (1000 / timeTaken.TotalMilliseconds) * data.newFrameCount;
+            //Console.SetCursorPosition(leftpos, toppos);
+            //Console.Write("FPS:" + fps);
+            //mylogger.Log("FPS:" + fps);
         }
     
     }
