@@ -187,6 +187,7 @@ namespace CHIP
                     lastFace = nextFace;
                     nextFace = net.getFace();
                     if(lastFace.Equals(nextFace)) {
+                        canvas.Clear();
                         switch (nextFace) // need to make this async
                         {
                             case "Sad face": snakegame.running = false; runningface = faces.sad; break;
