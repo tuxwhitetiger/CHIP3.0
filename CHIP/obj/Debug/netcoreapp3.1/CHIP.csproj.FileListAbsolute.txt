@@ -106,3 +106,5 @@ C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\serial\
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Love-Face.gif
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\scrips\git-pull.sh
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\scrips\VERTION.TXT
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\fonts\7x13.bdf
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\fonts\7x14.bdf

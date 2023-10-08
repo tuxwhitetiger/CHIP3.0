@@ -71,6 +71,12 @@
     <None Update="faces\test.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="fonts\7x13.bdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="fonts\7x14.bdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="librgbmatrix.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
