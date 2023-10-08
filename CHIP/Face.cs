@@ -173,20 +173,11 @@ namespace CHIP
             canvas.Clear();
             while (true)
             {
+               /*
                 if (timer.ElapsedMilliseconds > 1000)
                 {
                     timer.Restart();
-                    /*
-                    String getAlarm = net.getAlarm();
-                    if (getAlarm != null)
-                    {
-                        clock.setTimer(getAlarm);
-                    }
-                    String getRequest = net.getRequest();
-                    if (getRequest != null) {
-                        RequestHandeler(getRequest);
-                    }
-                    */
+                    
                     lastFace = nextFace;
                     nextFace = net.getFace();
                     if(lastFace.Equals(nextFace)) {
@@ -235,6 +226,9 @@ namespace CHIP
                     case faces.textTest: textTest();break;
                 }
 
+
+                */
+                
                 canvas.Clear();
                 canvas.DrawText(font, rand.Next(0, 128), rand.Next(0, 32), new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255)), "TEST");
                 canvas = matrix.SwapOnVsync(canvas);
