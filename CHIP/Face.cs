@@ -62,7 +62,8 @@ namespace CHIP
             options.Parallel = 1;
             options.GpioSlowdown = 3;
             options.HardwareMapping = "regular";
-            options.Multiplexing= 1;//TEST LINE!!!
+            options.ScanMode = 1;
+            //options.Multiplexing= 1;//TEST LINE!!!
             mylogger.Log("matrix pop");
             matrix = new RGBLedMatrix(options);
             mylogger.Log("canvas pop");
@@ -207,6 +208,7 @@ namespace CHIP
                             case "SHAKE BALL": snakegame.running = false; runningface = faces.eightball; eightball.shake = true; break;
                             case "HALLOWEEN FACE": snakegame.running = false; runningface = faces.Halloween; break;
                             case "LOVE FACE": snakegame.running = false; runningface = faces.Love; break;
+                            case "textTest face": snakegame.running = false; runningface = faces.textTest; break;
                         }
                     }
                     //canvas.Clear();
