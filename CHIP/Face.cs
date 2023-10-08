@@ -36,8 +36,8 @@ namespace CHIP
         Random rand = new Random();
 
         faces runningface = faces.textTest;
-        string nextFace = "Happy face";
-        string lastFace = "Happy face";
+        string nextFace = "textTest face";
+        string lastFace = "textTest face";
 
         //setup gif faces
         IDictionary<string, Gif> allGifs = new Dictionary<string, Gif>();
