@@ -12,14 +12,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="scrips\VERTION.TXT" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include="scrips\VERTION.TXT" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="SharpDX.Direct2D1" Version="4.2.0" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
   </ItemGroup>
@@ -87,6 +79,9 @@
     </None>
     <None Update="scrips\git-pull.sh">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="scrips\VERTION.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="serial\to force folder creation.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
