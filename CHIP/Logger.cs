@@ -11,7 +11,7 @@ namespace CHIP
        // string folder = "./logs/";
         string fileName = "log.log";
         static StreamWriter openLog = null;
-        FileStream logfile = null;
+        //FileStream logfile = null;
         StringBuilder sb = new StringBuilder();
         public Logger() {
 
@@ -30,7 +30,7 @@ namespace CHIP
             openLog.AutoFlush = true;
             Log(text);
             openLog.Flush();
-            logfile.Flush();
+            
         }
 
         public void Log(string message)
@@ -47,7 +47,6 @@ namespace CHIP
                 sb.Append(message);
                 openLog.WriteLine(sb.ToString());
                 openLog.Flush();
-                logfile.Flush();
             }
         }
     }
