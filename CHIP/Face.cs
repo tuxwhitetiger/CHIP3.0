@@ -64,7 +64,7 @@ namespace CHIP
             options.GpioSlowdown = 3;
             options.HardwareMapping = "regular";
             options.ScanMode = 1;
-            //options.Multiplexing= 1;//TEST LINE!!!
+            options.Multiplexing= 1;//TEST LINE!!!
             mylogger.Log("matrix pop");
             matrix = new RGBLedMatrix(options);
             mylogger.Log("canvas pop");
@@ -231,10 +231,10 @@ namespace CHIP
                 */
                 
                 canvas.Clear();
-                canvas.DrawText(font, 10, 10, new Color(255,255,255), "TEST"+ DateTime.Now.ToShortTimeString());
+                canvas.DrawText(font, 10, 10, new Color(255,255,255), "TEST "+ DateTime.Now.ToShortTimeString());
 
                 canvas.DrawLine(0, 0, 50, 50, new Color(255, 255, 255));
-                Console.WriteLine("Print:" + DateTime.Now.ToShortTimeString());
+                Console.WriteLine("TEST " + DateTime.Now.ToShortTimeString());
                 canvas.SetPixel(64, 1, new Color(255, 0, 0));
                 canvas.SetPixel(64, 2, new Color(0, 255, 0));
                 canvas.SetPixel(64, 3, new Color(0, 0, 255));
