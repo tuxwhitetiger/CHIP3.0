@@ -4,3 +4,9 @@ then
   git -C /home/tux/CHIP3 pull https://github.com/tuxwhitetiger/CHIP3.0.git
 else
   echo "no internet"
+
+
+cd /home/tux/CHIP3/CHIP
+sudo mcs -out:bob.exe *.cs /r:RGBLedMatrix.dll
+
+

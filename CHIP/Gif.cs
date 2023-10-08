@@ -1,10 +1,6 @@
 ﻿using rpi_rgb_led_matrix_sharp;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
 using System.Diagnostics;
-using System.Text;
 using System.Threading;
 
 namespace CHIP

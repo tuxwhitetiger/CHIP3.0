@@ -18,7 +18,8 @@ namespace CHIP
             fileName = DateTime.Now.ToString("dd-MM-yyy-HH:mm:ss");
             fileName += ".log";
             string fullPath = folder + fileName;
-
+            File.CreateText(folder);
+            File.CreateText(fullPath);
             logfile = File.OpenWrite(fullPath);
             openLog = new StreamWriter(logfile);
             openLog.AutoFlush = true;
