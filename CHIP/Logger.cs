@@ -7,7 +7,8 @@ namespace CHIP
 {
     public class Logger
     {
-        string folder = "/home/tux/logs/";
+       // string folder = "/home/tux/logs/";
+        string folder = "./logs/";
         string fileName = "log.log";
         static StreamWriter openLog = null;
         FileStream logfile = null;
@@ -18,9 +19,14 @@ namespace CHIP
             fileName = DateTime.Now.ToString("dd-MM-yyy-HH:mm:ss");
             fileName += ".log";
             string fullPath = folder + fileName;
-            File.CreateText(fullPath);
+            
+            /*
             logfile = File.OpenWrite(fullPath);
             openLog = new StreamWriter(logfile);
+            */
+
+            openLog = File.CreateText(fullPath);
+
             openLog.AutoFlush = true;
             Log(text);
             openLog.Flush();
