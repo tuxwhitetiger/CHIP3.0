@@ -35,7 +35,7 @@ namespace CHIP
         int faceAnimationDelay = 0;
         Random rand = new Random();
 
-        faces runningface = faces.happy;
+        faces runningface = faces.textTest;
         string nextFace = "Happy face";
         string lastFace = "Happy face";
 
@@ -229,10 +229,16 @@ namespace CHIP
                     case faces.eightball: eightballTick(); break;
                     case faces.Halloween: HalloweenTick(); break;
                     case faces.Love: loveTick();break;
+                    case faces.textTest: textTest();break;
                 }
             }
         }
-
+        private void textTest()
+        {
+            canvas.Clear();
+            Tspam.PrintTextBothSides("TEST", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
+            Tspam.PrintTextBothSides("TEXT", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
+        }
         private void loveTick()
         {
             allGifs["Love-Face"].playGif(matrix, canvas);

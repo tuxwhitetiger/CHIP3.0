@@ -21,6 +21,7 @@ namespace CHIP
         Oh,
         eightball,
         Halloween,
-        Love
+        Love,
+        textTest
     }
 }

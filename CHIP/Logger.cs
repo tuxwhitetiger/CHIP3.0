@@ -7,7 +7,7 @@ namespace CHIP
 {
     public class Logger
     {
-        string folder = "./";
+        string folder = "/home/tux/logs/";
         string fileName = "log.log";
         static StreamWriter openLog = null;
         FileStream logfile = null;
@@ -44,6 +44,5 @@ namespace CHIP
                 logfile.Flush();
             }
         }
-
     }
 }

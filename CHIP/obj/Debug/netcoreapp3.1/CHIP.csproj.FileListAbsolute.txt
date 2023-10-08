@@ -104,3 +104,4 @@ C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHI
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.genruntimeconfig.cache
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\serial\to force folder creation.txt
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Love-Face.gif
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\scrips\git-pull.sh
