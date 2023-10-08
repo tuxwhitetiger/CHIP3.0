@@ -232,6 +232,7 @@ namespace CHIP
                 canvas.Clear();
                 canvas.DrawText(font, rand.Next(0, 128), rand.Next(0, 32), new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255)), "TEST");
                 canvas = matrix.SwapOnVsync(canvas);
+                Console.WriteLine("Print:" + DateTime.Now.ToShortTimeString());
             }
         }
         private void textTest()
