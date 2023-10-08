@@ -75,14 +75,14 @@ namespace CHIP
             mylogger.Log("load snake");
             snakegame = new snake();
             mylogger.Log("load font");
-            font = new RGBLedFont("./fonts/7x13.bdf");
+            font = new RGBLedFont("./fonts/7x14.bdf");
 
             canvas.Clear();
             mylogger.Log("push text");
             Tspam.PrintTextBothSides("Loading", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
             Tspam.PrintTextBothSides("Gifs", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
+            canvas = matrix.SwapOnVsync(canvas);
 
-            
 
             mylogger.Log("check serialized data if not ask python to do it");
             // check if i have serialized data if not ask python to do it
@@ -231,7 +231,8 @@ namespace CHIP
                 */
                 
                 canvas.Clear();
-                canvas.DrawText(font, rand.Next(0, 128), rand.Next(0, 32), new Color(255,255,255), "TEST"+ DateTime.Now.ToShortTimeString());
+                canvas.DrawText(font, 10, 10, new Color(255,255,255), "TEST"+ DateTime.Now.ToShortTimeString());
+
                 canvas.DrawLine(0, 0, 50, 50, new Color(255, 255, 255));
                 Console.WriteLine("Print:" + DateTime.Now.ToShortTimeString());
                 canvas.SetPixel(64, 1, new Color(255, 0, 0));
