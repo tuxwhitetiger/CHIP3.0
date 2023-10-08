@@ -68,7 +68,7 @@ namespace CHIP
             mylogger.Log("canvas pop");
             canvas = matrix.CreateOffscreenCanvas();
             mylogger.Log("net test");
-            Console.WriteLine(net.getFace());
+           // Console.WriteLine(net.getFace());
             mylogger.Log("net test result" + net.getFace());
             mylogger.Log("load snake");
             snakegame = new snake();
