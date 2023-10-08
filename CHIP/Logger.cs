@@ -7,8 +7,8 @@ namespace CHIP
 {
     public class Logger
     {
-       // string folder = "/home/tux/logs/";
-        string folder = "./logs/";
+        string folder = "/home/tux/logs/";
+       // string folder = "./logs/";
         string fileName = "log.log";
         static StreamWriter openLog = null;
         FileStream logfile = null;
