@@ -77,6 +77,9 @@
     <None Update="RGBLedMatrix.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="scrips\git-pull.sh">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="serial\to force folder creation.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
