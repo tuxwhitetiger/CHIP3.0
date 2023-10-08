@@ -82,10 +82,7 @@ namespace CHIP
             Tspam.PrintTextBothSides("Loading", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
             Tspam.PrintTextBothSides("Gifs", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
 
-            canvas.SetPixel(64, 1, new Color(255, 0, 0));
-            canvas.SetPixel(64, 2, new Color(0, 255, 0));
-            canvas.SetPixel(64, 3, new Color(0, 0, 255));
-            canvas = matrix.SwapOnVsync(canvas);
+            
 
             mylogger.Log("check serialized data if not ask python to do it");
             // check if i have serialized data if not ask python to do it
@@ -235,8 +232,12 @@ namespace CHIP
                 
                 canvas.Clear();
                 canvas.DrawText(font, rand.Next(0, 128), rand.Next(0, 32), new Color(255,255,255), "TEST"+ DateTime.Now.ToShortTimeString());
-                canvas = matrix.SwapOnVsync(canvas);
+                
                 Console.WriteLine("Print:" + DateTime.Now.ToShortTimeString());
+                canvas.SetPixel(64, 1, new Color(255, 0, 0));
+                canvas.SetPixel(64, 2, new Color(0, 255, 0));
+                canvas.SetPixel(64, 3, new Color(0, 0, 255));
+                canvas = matrix.SwapOnVsync(canvas);
             }
         }
 
