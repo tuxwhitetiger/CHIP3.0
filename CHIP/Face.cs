@@ -214,8 +214,7 @@ namespace CHIP
                     }
                     //canvas.Clear();
                 }
-                canvas.DrawText(font, rand.Next(0, 128), rand.Next(0, 32), new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255)), "TEST");
-
+                
                 switch (runningface) {
                     case faces.Angry: AngryTick(); break;
                     case faces.cwood: cwoodTick(); break;
@@ -235,8 +234,10 @@ namespace CHIP
                     case faces.Love: loveTick();break;
                     case faces.textTest: textTest();break;
                 }
-                canvas.DrawText(font, rand.Next(0, 128), rand.Next(0, 32), new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255)), "TEST");
 
+                canvas.Clear();
+                canvas.DrawText(font, rand.Next(0, 128), rand.Next(0, 32), new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255)), "TEST");
+                canvas = matrix.SwapOnVsync(canvas);
             }
         }
         private void textTest()
