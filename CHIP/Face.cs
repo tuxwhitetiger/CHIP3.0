@@ -64,7 +64,7 @@ namespace CHIP
             options.GpioSlowdown = 3;
             options.HardwareMapping = "regular";
             options.ScanMode = 0;
-            options.Multiplexing= 6;//TEST LINE!!!
+            options.Multiplexing= 7;//TEST LINE!!!
             mylogger.Log("matrix pop");
             matrix = new RGBLedMatrix(options);
             mylogger.Log("canvas pop");
