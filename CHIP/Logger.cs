@@ -45,6 +45,7 @@ namespace CHIP
                 sb.Append(" ");
                 sb.Append("Message: ");
                 sb.Append(message);
+                sb.Append("\n");
                 openLog.WriteLine(sb.ToString());
                 openLog.Flush();
             }

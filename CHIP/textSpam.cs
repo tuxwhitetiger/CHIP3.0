@@ -28,8 +28,8 @@ namespace CHIP
                 }
                 if (counter < count) {
                     canvas.DrawText(font, rand.Next(0,128), rand.Next(0,32), new Color(rand.Next(0,255), rand.Next(0, 255), rand.Next(0, 255)), text);
-                    canvas = matrix.SwapOnVsync(canvas);
                 }
+                canvas = matrix.SwapOnVsync(canvas);
                 timer.Restart();
             }
         }

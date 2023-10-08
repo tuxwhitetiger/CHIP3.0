@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Reflection;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CHIP
 {
@@ -213,6 +214,7 @@ namespace CHIP
                     }
                     //canvas.Clear();
                 }
+                canvas.DrawText(font, rand.Next(0, 128), rand.Next(0, 32), new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255)), "TEST");
 
                 switch (runningface) {
                     case faces.Angry: AngryTick(); break;
@@ -233,6 +235,8 @@ namespace CHIP
                     case faces.Love: loveTick();break;
                     case faces.textTest: textTest();break;
                 }
+                canvas.DrawText(font, rand.Next(0, 128), rand.Next(0, 32), new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255)), "TEST");
+
             }
         }
         private void textTest()
