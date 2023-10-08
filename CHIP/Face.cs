@@ -81,6 +81,10 @@ namespace CHIP
             mylogger.Log("push text");
             Tspam.PrintTextBothSides("Loading", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
             Tspam.PrintTextBothSides("Gifs", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
+
+            canvas.SetPixel(64, 1, new Color(255, 0, 0));
+            canvas.SetPixel(64, 2, new Color(0, 255, 0));
+            canvas.SetPixel(64, 3, new Color(0, 0, 255));
             canvas = matrix.SwapOnVsync(canvas);
 
             mylogger.Log("check serialized data if not ask python to do it");
@@ -235,12 +239,14 @@ namespace CHIP
                 Console.WriteLine("Print:" + DateTime.Now.ToShortTimeString());
             }
         }
+
         private void textTest()
         {
             canvas.Clear();
             Tspam.PrintTextBothSides("TEST", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
             Tspam.PrintTextBothSides("TEXT", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
         }
+
         private void loveTick()
         {
             allGifs["Love-Face"].playGif(matrix, canvas);
