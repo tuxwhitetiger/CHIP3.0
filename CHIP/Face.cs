@@ -232,7 +232,7 @@ namespace CHIP
                 
                 canvas.Clear();
                 canvas.DrawText(font, rand.Next(0, 128), rand.Next(0, 32), new Color(255,255,255), "TEST"+ DateTime.Now.ToShortTimeString());
-                
+                canvas.DrawLine(0, 0, 50, 50, new Color(255, 255, 255));
                 Console.WriteLine("Print:" + DateTime.Now.ToShortTimeString());
                 canvas.SetPixel(64, 1, new Color(255, 0, 0));
                 canvas.SetPixel(64, 2, new Color(0, 255, 0));
