@@ -60,10 +60,10 @@ namespace CHIP
 
             options.Rows = 32;
             options.Cols = 64;
-            options.ChainLength = 0;
+            options.ChainLength = 2;
             options.Parallel = 1;
             options.GpioSlowdown = 4;
-            options.HardwareMapping = "regular"; //regular	adafruit-hat	adafruit-hat-pwm	regular-pi1	classic	classic-pi1	compute-module
+            options.HardwareMapping = "regular-AB-Flip"; //regular	adafruit-hat	adafruit-hat-pwm	regular-pi1	classic	classic-pi1	compute-module
             options.ScanMode = 1;//can be 0 or 1
             options.RowAddressType= 0;//can be 0-4
             options.Multiplexing= 0;//TEST LINE!!!
