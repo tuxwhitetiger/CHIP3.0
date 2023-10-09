@@ -57,15 +57,17 @@ namespace CHIP
             clock = new CalanderClock(net);
             mylogger.Log("net.connect");
             net.connect();
+
             options.Rows = 32;
             options.Cols = 64;
             options.ChainLength = 2;
-            options.Parallel = 0;
+            options.Parallel = 1;
             options.GpioSlowdown = 3;
             options.HardwareMapping = "regular";
-            options.ScanMode = 0;
+            options.ScanMode = 0;//can be 0 or 1
             options.Multiplexing= 0;//TEST LINE!!!
             // Multiplexing can only be one of 0=normal; 1=Stripe; 2=Checkered; 3=Spiral; 4=ZStripe; 5=ZnMirrorZStripe; 6=coreman; 7=Kaler2Scan; 8=ZStripeUneven; 9=P10-128x4-Z; 10=QiangLiQ8; 11=InversedZStripe; 12=P10Outdoor1R1G1-1; 13=P10Outdoor1R1G1-2; 14=P10Outdoor1R1G1-3; 15=P10CoremanMapper; 16=P8Outdoor1R1G1; 17=FlippedStripe; 18=P10Outdoor32x16HalfScan
+            options.PanelType = "FM6126A";
 
             mylogger.Log("matrix pop");
             matrix = new RGBLedMatrix(options);
