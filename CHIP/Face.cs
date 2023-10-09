@@ -239,9 +239,19 @@ namespace CHIP
 
                 canvas.DrawLine(0, 0, 50, 50, new Color(255, 255, 255));
                 Console.WriteLine("TEST " + DateTime.Now.ToShortTimeString());
+                canvas.SetPixel(64, 0, new Color(0, 0, 255));
                 canvas.SetPixel(64, 1, new Color(255, 0, 0));
                 canvas.SetPixel(64, 2, new Color(0, 255, 0));
                 canvas.SetPixel(64, 3, new Color(0, 0, 255));
+                canvas.SetPixel(64, 4, new Color(255, 0, 0));
+                canvas.SetPixel(64, 5, new Color(0, 255, 0));
+                canvas.SetPixel(64, 6, new Color(0, 0, 255));
+                canvas.SetPixel(64, 7, new Color(255, 0, 0));
+                canvas.SetPixel(64, 8, new Color(0, 255, 0));
+                canvas.SetPixel(64, 9, new Color(0, 0, 255));
+                canvas.SetPixel(64, 10, new Color(255, 0, 0));
+                canvas.SetPixel(64, 11, new Color(0, 255, 0));
+                canvas.SetPixel(64, 12, new Color(0, 0, 255));
                 canvas = matrix.SwapOnVsync(canvas);
             }
         }
