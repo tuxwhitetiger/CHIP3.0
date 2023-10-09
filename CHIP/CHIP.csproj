@@ -80,7 +80,7 @@
     <None Update="librgbmatrix.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="RGBLedMatrix.dll">
+    <None Update="old files\3.1 i think\RGBLedMatrix.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="scrips\git-pull.sh">
