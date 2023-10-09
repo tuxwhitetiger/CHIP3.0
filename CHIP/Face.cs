@@ -60,7 +60,7 @@ namespace CHIP
 
             options.Rows = 32;
             options.Cols = 64;
-            options.ChainLength = 2;
+            options.ChainLength = 1;
             options.Parallel = 1;
             options.GpioSlowdown = 4;
             options.HardwareMapping = "regular"; //regular	adafruit-hat	adafruit-hat-pwm	regular-pi1	classic	classic-pi1	compute-module
