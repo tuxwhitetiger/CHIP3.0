@@ -242,16 +242,16 @@ namespace CHIP
                 
                 canvas.SetPixel(64, 0, new Color(255, 0, 0));
                 canvas.SetPixel(64, 1, new Color(0, 255, 0));
-                canvas.SetPixel(65, 2, new Color(0, 0, 255));
+                canvas.SetPixel(64, 2, new Color(0, 0, 255));
                 canvas.SetPixel(65, 3, new Color(255, 0, 0));
                 canvas.SetPixel(65, 4, new Color(0, 255, 0));
-                canvas.SetPixel(66, 5, new Color(0, 0, 255));
+                canvas.SetPixel(65, 5, new Color(0, 0, 255));
                 canvas.SetPixel(66, 6, new Color(255, 0, 0));
                 canvas.SetPixel(66, 7, new Color(0, 255, 0));
-                canvas.SetPixel(67, 8, new Color(0, 0, 255));
+                canvas.SetPixel(66, 8, new Color(0, 0, 255));
                 canvas.SetPixel(67, 9, new Color(255, 0, 0));
                 canvas.SetPixel(67, 10, new Color(0, 255, 0));
-                canvas.SetPixel(64, 11, new Color(0, 0, 255));
+                canvas.SetPixel(67, 11, new Color(0, 0, 255));
                 canvas = matrix.SwapOnVsync(canvas);
             }
         }
