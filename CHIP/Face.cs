@@ -61,7 +61,7 @@ namespace CHIP
             options.ChainLength = 2;
             options.Parallel = 1;
             options.GpioSlowdown = 4;
-            options.HardwareMapping = "regular-AB-Flip"; //regular	adafruit-hat	adafruit-hat-pwm	regular-pi1	classic	classic-pi1	compute-module
+            options.HardwareMapping = "regular-CD-Flip"; //regular	adafruit-hat	adafruit-hat-pwm	regular-pi1	classic	classic-pi1	compute-module
             options.ScanMode = ScanModes.Progressive; //can be 0 or 1
             options.RowAddressType= 0;//can be 0-4
             options.Multiplexing= 0;//TEST LINE!!!
@@ -239,18 +239,18 @@ namespace CHIP
                 canvas.DrawLine(0, 0, 50, 50, new Color(255, 255, 255));
                 Console.WriteLine("TEST " + DateTime.Now.ToShortTimeString());
                 
-                canvas.SetPixel(64, 0, new Color(255, 0, 0));
-                canvas.SetPixel(64, 1, new Color(0, 255, 0));
-                canvas.SetPixel(64, 2, new Color(0, 0, 255));
-                canvas.SetPixel(65, 3, new Color(255, 0, 0));
-                canvas.SetPixel(65, 4, new Color(0, 255, 0));
-                canvas.SetPixel(65, 5, new Color(0, 0, 255));
-                canvas.SetPixel(66, 6, new Color(255, 0, 0));
-                canvas.SetPixel(66, 7, new Color(0, 255, 0));
-                canvas.SetPixel(66, 8, new Color(0, 0, 255));
-                canvas.SetPixel(67, 9, new Color(255, 0, 0));
-                canvas.SetPixel(67, 10, new Color(0, 255, 0));
-                canvas.SetPixel(67, 11, new Color(0, 0, 255));
+                canvas.SetPixel(4, 0, new Color(255, 0, 0));
+                canvas.SetPixel(4, 1, new Color(0, 255, 0));
+                canvas.SetPixel(4, 2, new Color(0, 0, 255));
+                canvas.SetPixel(5, 3, new Color(255, 0, 0));
+                canvas.SetPixel(5, 4, new Color(0, 255, 0));
+                canvas.SetPixel(5, 5, new Color(0, 0, 255));
+                canvas.SetPixel(6, 6, new Color(255, 0, 0));
+                canvas.SetPixel(6, 7, new Color(0, 255, 0));
+                canvas.SetPixel(6, 8, new Color(0, 0, 255));
+                canvas.SetPixel(7, 9, new Color(255, 0, 0));
+                canvas.SetPixel(7, 10, new Color(0, 255, 0));
+                canvas.SetPixel(7, 11, new Color(0, 0, 255));
                 matrix.SwapOnVsync(canvas);
             }
         }
