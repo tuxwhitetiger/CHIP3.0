@@ -62,7 +62,6 @@ C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Halloween-Face-Blink
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Halloween-Face.gif
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Sad-Face.gif
 C:\Users\Tux\Desktop\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Shocked-Face.gif
-C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\RGBLedMatrix.dll
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\librgbmatrix.so
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\CHIP.exe
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\Angy-Face-Eye-Twitch.gif
@@ -108,3 +107,4 @@ C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\scrips\
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\scrips\VERTION.TXT
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\fonts\7x13.bdf
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\fonts\7x14.bdf
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\RPiRgbLEDMatrix.dll

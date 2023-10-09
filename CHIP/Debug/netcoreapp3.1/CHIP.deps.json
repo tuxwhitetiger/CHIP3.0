@@ -10,7 +10,7 @@
         "dependencies": {
           "SharpDX.Direct2D1": "4.2.0",
           "System.Drawing.Common": "6.0.0",
-          "RGBLedMatrix": "0.0.0.0"
+          "RPiRgbLEDMatrix": "1.0.0.0"
         },
         "runtime": {
           "CHIP.dll": {}
@@ -759,11 +759,11 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "RGBLedMatrix/0.0.0.0": {
+      "RPiRgbLEDMatrix/1.0.0.0": {
         "runtime": {
-          "RGBLedMatrix.dll": {
-            "assemblyVersion": "0.0.0.0",
-            "fileVersion": "0.0.0.0"
+          "RPiRgbLEDMatrix.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       }
@@ -1321,7 +1321,7 @@
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
     },
-    "RGBLedMatrix/0.0.0.0": {
+    "RPiRgbLEDMatrix/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
