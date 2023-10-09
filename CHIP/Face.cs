@@ -177,7 +177,7 @@ namespace CHIP
             canvas.Clear();
             while (true)
             {
-               /*
+               
                 if (timer.ElapsedMilliseconds > 1000)
                 {
                     timer.Restart();
@@ -231,8 +231,8 @@ namespace CHIP
                 }
 
 
-                */
                 
+                /*
                 canvas.Clear();
                 canvas.DrawText(font, 10, 10, new Color(255,255,255), "TEST "+ DateTime.Now.ToShortTimeString());
 
@@ -252,6 +252,7 @@ namespace CHIP
                 canvas.SetPixel(7, 10, new Color(0, 255, 0));
                 canvas.SetPixel(7, 11, new Color(0, 0, 255));
                 matrix.SwapOnVsync(canvas);
+                */
             }
         }
 
