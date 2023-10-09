@@ -65,6 +65,7 @@ namespace CHIP
             options.GpioSlowdown = 4;
             options.HardwareMapping = "regular"; //regular	adafruit-hat	adafruit-hat-pwm	regular-pi1	classic	classic-pi1	compute-module
             options.ScanMode = 0;//can be 0 or 1
+            options.RowAddressType= 1;//can be 0-4
             options.Multiplexing= 0;//TEST LINE!!!
             // Multiplexing can only be one of 0=normal; 1=Stripe; 2=Checkered; 3=Spiral; 4=ZStripe; 5=ZnMirrorZStripe; 6=coreman; 7=Kaler2Scan; 8=ZStripeUneven; 9=P10-128x4-Z; 10=QiangLiQ8; 11=InversedZStripe; 12=P10Outdoor1R1G1-1; 13=P10Outdoor1R1G1-2; 14=P10Outdoor1R1G1-3; 15=P10CoremanMapper; 16=P8Outdoor1R1G1; 17=FlippedStripe; 18=P10Outdoor32x16HalfScan
             options.PanelType = "FM6126A";
