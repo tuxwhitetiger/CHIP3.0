@@ -1,4 +1,4 @@
-﻿using rpi_rgb_led_matrix_sharp;
+﻿using RPiRgbLEDMatrix;
 using System;
 using System.Diagnostics;
 using System.Threading;
@@ -87,7 +87,7 @@ namespace CHIP
                     canvas.SetPixel(64 - myx, myy, new Color(data.data[myx, myy, myFrame, 0], data.data[myx, myy, myFrame, 1], data.data[myx, myy, myFrame, 2]));
                 }
             }
-            canvas = matrix.SwapOnVsync(canvas);
+            matrix.SwapOnVsync(canvas);
         }
         internal void printmirroredFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame)
         {
@@ -111,7 +111,7 @@ namespace CHIP
                     canvas.SetPixel(64 + myx, myy, c);
                 }
             }
-            canvas = matrix.SwapOnVsync(canvas);
+            matrix.SwapOnVsync(canvas);
         }
 
         internal void printPiviotFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame)
@@ -136,7 +136,7 @@ namespace CHIP
                     canvas.SetPixel(64 + myx, myy, c);
                 }
             }
-            canvas = matrix.SwapOnVsync(canvas);
+            matrix.SwapOnVsync(canvas);
         }
 
         internal void playGif(RGBLedMatrix matrix, RGBLedCanvas canvas) {

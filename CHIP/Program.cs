@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using rpi_rgb_led_matrix_sharp;
+using RPiRgbLEDMatrix;
 using System.Diagnostics;
 
 namespace CHIP

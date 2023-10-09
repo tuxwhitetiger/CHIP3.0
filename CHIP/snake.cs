@@ -1,4 +1,4 @@
-﻿using rpi_rgb_led_matrix_sharp;
+﻿using RPiRgbLEDMatrix;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -112,7 +112,7 @@ namespace CHIP
                 canvas.DrawText(font, 7, 10, new Color(255, 255, 255), "Press");
                 canvas.DrawText(font, 7, 20, new Color(255, 255, 255), "Start");
             }
-            canvas = matrix.SwapOnVsync(canvas);
+            matrix.SwapOnVsync(canvas);
         }
 
         internal void update(Controller controller)

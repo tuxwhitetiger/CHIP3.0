@@ -1,4 +1,4 @@
-﻿using rpi_rgb_led_matrix_sharp;
+﻿using RPiRgbLEDMatrix;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -59,7 +59,7 @@ namespace CHIP
                 canvas.DrawText(font, 7, y, new Color(255, 255, 255), s);
                 y += 8;
             }
-            canvas = matrix.SwapOnVsync(canvas);
+            matrix.SwapOnVsync(canvas);
         }
 
         private string[] WordWrap(string str)

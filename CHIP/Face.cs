@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
-using rpi_rgb_led_matrix_sharp;
+using RPiRgbLEDMatrix;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Reflection;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace CHIP
 {
@@ -64,7 +62,7 @@ namespace CHIP
             options.Parallel = 1;
             options.GpioSlowdown = 4;
             options.HardwareMapping = "regular-AB-Flip"; //regular	adafruit-hat	adafruit-hat-pwm	regular-pi1	classic	classic-pi1	compute-module
-            options.ScanMode = 1;//can be 0 or 1
+            options.ScanMode = ScanModes.Progressive; //can be 0 or 1
             options.RowAddressType= 0;//can be 0-4
             options.Multiplexing= 0;//TEST LINE!!!
             // Multiplexing can only be one of 0=normal; 1=Stripe; 2=Checkered; 3=Spiral; 4=ZStripe; 5=ZnMirrorZStripe; 6=coreman; 7=Kaler2Scan; 8=ZStripeUneven; 9=P10-128x4-Z; 10=QiangLiQ8; 11=InversedZStripe; 12=P10Outdoor1R1G1-1; 13=P10Outdoor1R1G1-2; 14=P10Outdoor1R1G1-3; 15=P10CoremanMapper; 16=P8Outdoor1R1G1; 17=FlippedStripe; 18=P10Outdoor32x16HalfScan
@@ -86,7 +84,7 @@ namespace CHIP
             mylogger.Log("push text");
             Tspam.PrintTextBothSides("Loading", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
             Tspam.PrintTextBothSides("Gifs", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
-            canvas = matrix.SwapOnVsync(canvas);
+            matrix.SwapOnVsync(canvas);
 
 
             mylogger.Log("check serialized data if not ask python to do it");
@@ -253,7 +251,7 @@ namespace CHIP
                 canvas.SetPixel(67, 9, new Color(255, 0, 0));
                 canvas.SetPixel(67, 10, new Color(0, 255, 0));
                 canvas.SetPixel(67, 11, new Color(0, 0, 255));
-                canvas = matrix.SwapOnVsync(canvas);
+                matrix.SwapOnVsync(canvas);
             }
         }
 
@@ -330,7 +328,7 @@ namespace CHIP
                 canvas.Clear();
                 Tspam.PrintTextBothSides("connect", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
                 Tspam.PrintTextBothSides("controller", 0, 20, new Color(255, 255, 255), canvas, matrix, font);
-                canvas = matrix.SwapOnVsync(canvas);
+                matrix.SwapOnVsync(canvas);
             }
             else
             {
@@ -377,7 +375,7 @@ namespace CHIP
             canvas.Clear();
             Tspam.PrintTextBothSides("missing", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
             Tspam.PrintTextBothSides("Gif", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
-            canvas = matrix.SwapOnVsync(canvas);
+            matrix.SwapOnVsync(canvas);
         }
         private void RequestHandeler(string getRequest)
         {

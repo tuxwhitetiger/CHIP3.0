@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="RGBLedMatrix">
-      <HintPath>RGBLedMatrix.dll</HintPath>
+    <Reference Include="RPiRgbLEDMatrix">
+      <HintPath>my-RGBLedMatrix.dll</HintPath>
     </Reference>
   </ItemGroup>
 
@@ -80,8 +80,8 @@
     <None Update="librgbmatrix.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="old files\3.1 i think\RGBLedMatrix.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Update="my-RGBLedMatrix.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="scrips\git-pull.sh">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

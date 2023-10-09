@@ -1,4 +1,4 @@
-﻿using rpi_rgb_led_matrix_sharp;
+﻿using RPiRgbLEDMatrix;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -14,7 +14,7 @@ namespace CHIP
         internal void start(RGBLedCanvas canvas, RGBLedMatrix matrix) {
             timer.Restart();
             canvas.Clear();
-            canvas = matrix.SwapOnVsync(canvas);
+            matrix.SwapOnVsync(canvas);
         }
 
         internal void Tick(string text, int count, int time, RGBLedCanvas canvas, RGBLedMatrix matrix, RGBLedFont font)
@@ -29,7 +29,7 @@ namespace CHIP
                 if (counter < count) {
                     canvas.DrawText(font, rand.Next(0,128), rand.Next(0,32), new Color(rand.Next(0,255), rand.Next(0, 255), rand.Next(0, 255)), text);
                 }
-                canvas = matrix.SwapOnVsync(canvas);
+                matrix.SwapOnVsync(canvas);
                 timer.Restart();
             }
         }
@@ -37,7 +37,7 @@ namespace CHIP
         internal void PrintTextBothSides(string text, int posX,int posY, Color col,RGBLedCanvas canvas, RGBLedMatrix matrix, RGBLedFont font) {
             canvas.DrawText(font, posX, posY, col, text);
             canvas.DrawText(font, 64+posX, posY, col, text);
-            canvas = matrix.SwapOnVsync(canvas);
+            matrix.SwapOnVsync(canvas);
         }
     }
 }
