@@ -248,7 +248,7 @@ namespace CHIP
                 canvas.SetPixel(6, 6, new Color(255, 0, 0));
                 canvas.SetPixel(6, 7, new Color(0, 255, 0));
                 canvas.SetPixel(6, 8, new Color(0, 0, 255));
-                canvas.SetPixel(7, 9, new Color(255, 0, 0));
+                canvas.SetPixel(7, 9, new Color(255, 0, 0)); 
                 canvas.SetPixel(7, 10, new Color(0, 255, 0));
                 canvas.SetPixel(7, 11, new Color(0, 0, 255));
                 matrix.SwapOnVsync(canvas);

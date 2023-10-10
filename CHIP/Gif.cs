@@ -59,7 +59,8 @@ namespace CHIP
                     }
                     data.y = rows.Length;
                 }
-                newgif.frames[newgif.frames.Count - 1].fixrows();
+                //don't need this anymore its handeled at a lower level fixing the CD flip
+                //newgif.frames[newgif.frames.Count - 1].fixrows();
 
 
             }
