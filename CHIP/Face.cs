@@ -324,6 +324,7 @@ namespace CHIP
                 dae.width = 35;
                 dae.height = 16;
                 faceAnimationDelay = 10;
+                dae.setup= true;
             }
         }
         private void DvDTick() {
