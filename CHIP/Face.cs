@@ -22,7 +22,7 @@ namespace CHIP
         magic8Ball eightball = new magic8Ball();
 
         textSpam Tspam = new textSpam();
-
+        DynamicAnimationEngine dae = new DynamicAnimationEngine();
         RGBLedFont font;
 
         RGBLedMatrixOptions options = new RGBLedMatrixOptions();
@@ -205,7 +205,7 @@ namespace CHIP
                             case "HALLOWEEN FACE": snakegame.running = false; runningface = faces.Halloween; break;
                             case "LOVE FACE": snakegame.running = false; runningface = faces.Love; break;
                             case "textTest face": snakegame.running = false; runningface = faces.textTest; break;
-                            case "DvD face": snakegame.running = false; runningface = faces.DvDBounce; break;
+                            case "DvD face": snakegame.running = false; runningface = faces.DvDBounce; setupDvD(); break;
                         }
                     }
                     //canvas.Clear();
@@ -312,9 +312,19 @@ namespace CHIP
                 allGifs["happy"].printmirroredFrame(matrix, canvas,1);
             }
         }
+        private void setupDvD() {
+            dae.mode = daemode.rainbowBounce;
+            dae.deltaX = 1;
+            dae.deltaY = -1;
+            dae.color = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
+            dae.width = 35;
+            dae.height = 16;
 
+        }
         private void DvDTick() {
-            allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, new Color(255, 0, 255), 5, 5);
+            allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, dae.color, dae.x, dae.y);
+            dae.tick();
+            //16x35
         }
 
         private void snakeTick()
