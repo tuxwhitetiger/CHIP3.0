@@ -50,7 +50,7 @@ namespace CHIP
         }
 
         internal deaColitionDirection colitionDetection() {
-
+            generatebounds();
             if (bounds.IntersectsWith(boundTop)) { return deaColitionDirection.top; }
             if (bounds.IntersectsWith(boundBottom)) { return deaColitionDirection.bottom; }
             if (bounds.IntersectsWith(boundLeft)) { return deaColitionDirection.left; }
