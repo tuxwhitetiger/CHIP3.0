@@ -102,9 +102,6 @@ namespace CHIP
                 return deaColitionDirection.right;
             }
 
-
-
-
             return deaColitionDirection.none;
         }
         internal void updateColor() {
@@ -128,24 +125,18 @@ namespace CHIP
                 case deaColitionDirection.bottomleft: deltaX = deltaX * -1; deltaY = deltaY * -1; updateColor(); break;
                 case deaColitionDirection.bottomright: deltaX = deltaX * -1; deltaY = deltaY * -1; updateColor(); break;
             }
-            
             //increment
             x += deltaX;
             y += deltaY;
         }
+
         internal void ColorTick()
         {
             if (mode == daemode.rainbowBounce)
             {
-                int r = 0;
-                int g = 0;
-                int b = 0;
-
                 RGB rgb = HSVS.HSVToRGB(hue);
-                hue.H += 0.00001;
-                
+                hue.H += 0.0001;
                 color = new Color(rgb.R, rgb.G, rgb.B);
-                if (hue.H > 360) { hue.H = 0; }
             }
         }
        
