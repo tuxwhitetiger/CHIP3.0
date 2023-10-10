@@ -323,7 +323,7 @@ namespace CHIP
                 dae.color = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
                 dae.width = 35;
                 dae.height = 16;
-                faceAnimationDelay = 10;
+                faceAnimationDelay = 20;
                 dae.setup= true;
             }
         }
