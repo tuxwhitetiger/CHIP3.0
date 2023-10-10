@@ -317,7 +317,7 @@ namespace CHIP
             dae.x = rand.Next(1, 5);
             dae.y = rand.Next(1, 5);
             dae.deltaX = 1;
-            dae.deltaY = -1;
+            dae.deltaY = 1;
             dae.color = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
             dae.width = 35;
             dae.height = 16;

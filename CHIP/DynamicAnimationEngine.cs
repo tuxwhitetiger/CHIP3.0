@@ -38,10 +38,10 @@ namespace CHIP
         //colition bounds
         public Rectangle bounds;
 
-        public Rectangle boundTop = new Rectangle(0,-1,128,1);
-        public Rectangle boundLeft = new Rectangle(-1,0,1,32);
-        public Rectangle boundRight= new Rectangle(128,0,1,32);
-        public Rectangle boundBottom = new Rectangle(0,32,128,1);
+        public Rectangle boundTop = new Rectangle(-1,-1,130,1);
+        public Rectangle boundLeft = new Rectangle(-1,-1,1,34);
+        public Rectangle boundRight= new Rectangle(129,-1,1,34);
+        public Rectangle boundBottom = new Rectangle(-1,33,130,1);
 
         private int hue = 0;
 
@@ -90,6 +90,7 @@ namespace CHIP
                 HsvToRgb(hue, out r, out g, out b);
                 hue += 1;
                 color = new Color(r, g, b);
+                if (hue > 360) { hue = 0; }
             }
         }
         void HsvToRgb(double h, out int r, out int g, out int b)
