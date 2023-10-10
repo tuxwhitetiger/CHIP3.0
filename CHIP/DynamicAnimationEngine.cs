@@ -142,7 +142,7 @@ namespace CHIP
                 int b = 0;
 
                 RGB rgb = HSVS.HSVToRGB(hue);
-                hue.H += 0.0001;
+                hue.H += 0.0000001;
                 
                 color = new Color(rgb.R, rgb.G, rgb.B);
                 if (hue.H > 360) { hue.H = 0; }
