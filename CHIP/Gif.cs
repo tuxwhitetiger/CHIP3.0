@@ -178,6 +178,7 @@ namespace CHIP
         }
         internal void printColorGrayscaleFrame(RGBLedMatrix matrix, RGBLedCanvas canvas, int myFrame,Color color,int x, int y)
         {
+            canvas.Clear();
             int maxy = data.y;
             if (canvas.Height < maxy)
             {
