@@ -22,6 +22,7 @@ namespace CHIP
         eightball,
         Halloween,
         Love,
-        textTest
+        textTest,
+        DvDBounce
     }
 }

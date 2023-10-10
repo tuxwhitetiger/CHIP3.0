@@ -205,6 +205,7 @@ namespace CHIP
                             case "HALLOWEEN FACE": snakegame.running = false; runningface = faces.Halloween; break;
                             case "LOVE FACE": snakegame.running = false; runningface = faces.Love; break;
                             case "textTest face": snakegame.running = false; runningface = faces.textTest; break;
+                            case "DvD face": snakegame.running = false; runningface = faces.DvDBounce; break;
                         }
                     }
                     //canvas.Clear();
@@ -228,6 +229,7 @@ namespace CHIP
                     case faces.Halloween: HalloweenTick(); break;
                     case faces.Love: loveTick();break;
                     case faces.textTest: textTest();break;
+                    case faces.DvDBounce: DvDTick(); break;
                 }
 
 
@@ -253,6 +255,7 @@ namespace CHIP
                 canvas.SetPixel(7, 11, new Color(0, 0, 255));
                 matrix.SwapOnVsync(canvas);
                 */
+
             }
         }
 
@@ -308,6 +311,10 @@ namespace CHIP
             else {
                 allGifs["happy"].printmirroredFrame(matrix, canvas,1);
             }
+        }
+
+        private void DvDTick() {
+            allGifs["DvD"].printColorGrayscaleFrame(matrix, canvas, 1, new Color(255, 255, 0), 10, 10);
         }
 
         private void snakeTick()
