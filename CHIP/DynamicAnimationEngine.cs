@@ -59,7 +59,10 @@ namespace CHIP
             return deaColitionDirection.none;
         }
         internal void updateColor() {
-                    color = new Color(rand.Next(0,255),rand.Next(0,255),rand.Next(0,255));
+            if (mode == daemode.bounce)
+            {
+                color = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
+            }
         }
         internal void tick()
         {
@@ -70,25 +73,25 @@ namespace CHIP
                 case deaColitionDirection.bottom: deltaY = deltaY * -1; updateColor(); break;
                 case deaColitionDirection.left: deltaX = deltaX * -1; updateColor(); break;
                 case deaColitionDirection.right: deltaX = deltaX * -1; updateColor(); break;
-
             }
-            //redo color if rainbow mode
-            if (mode == daemode.rainbowBounce) {
-                int r = 0;
-                int g = 0;
-                int b = 0;
-
-                HsvToRgb(hue, out r,out g,out b);
-                hue += 1;
-                color = new Color(r, g, b);
-            }
-
-
+            
             //increment
             x += deltaX;
             y += deltaY;
         }
+        internal void ColorTick()
+        {
+            if (mode == daemode.rainbowBounce)
+            {
+                int r = 0;
+                int g = 0;
+                int b = 0;
 
+                HsvToRgb(hue, out r, out g, out b);
+                hue += 1;
+                color = new Color(r, g, b);
+            }
+        }
         void HsvToRgb(double h, out int r, out int g, out int b)
         {
             double S = 100;
