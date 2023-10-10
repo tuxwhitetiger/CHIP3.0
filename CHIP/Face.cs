@@ -313,15 +313,18 @@ namespace CHIP
             }
         }
         private void setupDvD() {
-            dae.mode = daemode.rainbowBounce;
-            dae.x = rand.Next(1, 5);
-            dae.y = rand.Next(1, 5);
-            dae.deltaX = 0;
-            dae.deltaY = 0;
-            dae.color = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
-            dae.width = 35;
-            dae.height = 16;
-            faceAnimationDelay = 10;
+            if (!dae.setup)
+            {
+                dae.mode = daemode.rainbowBounce;
+                dae.x = rand.Next(1, 5);
+                dae.y = rand.Next(1, 5);
+                dae.deltaX = 1;
+                dae.deltaY = 1;
+                dae.color = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
+                dae.width = 35;
+                dae.height = 16;
+                faceAnimationDelay = 10;
+            }
         }
         private void DvDTick() {
             allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, dae.color, dae.x, dae.y);

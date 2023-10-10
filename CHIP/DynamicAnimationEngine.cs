@@ -20,6 +20,8 @@ namespace CHIP
     {
         Random rand = new Random();
 
+        public bool setup = false;
+
         public daemode mode;
         //pos
         public int x;
