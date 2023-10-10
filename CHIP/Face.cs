@@ -314,7 +314,7 @@ namespace CHIP
         }
 
         private void DvDTick() {
-            allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 1, new Color(255, 255, 0), 10, 10);
+            allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, new Color(255, 255, 0), 10, 10);
         }
 
         private void snakeTick()
