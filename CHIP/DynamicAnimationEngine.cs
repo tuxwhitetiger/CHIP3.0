@@ -14,7 +14,9 @@ namespace CHIP
         rainbowBounce
     }
     public enum deaColitionDirection { 
-        top,bottom,left,right,none
+        top,bottom,left,right,none,
+            topleft, topright,
+            bottomleft, bottomright
     }
     public class DynamicAnimationEngine
     {
@@ -56,10 +58,52 @@ namespace CHIP
 
         internal deaColitionDirection colitionDetection() {
             generatebounds();
-            if (bounds.IntersectsWith(boundTop)) { return deaColitionDirection.top; }
-            if (bounds.IntersectsWith(boundBottom)) { return deaColitionDirection.bottom; }
-            if (bounds.IntersectsWith(boundLeft)) { return deaColitionDirection.left; }
-            if (bounds.IntersectsWith(boundRight)) { return deaColitionDirection.right; }
+
+            bool top = false;
+            bool bottom = false;
+            bool left = false;
+            bool right = false;
+            
+            if (bounds.IntersectsWith(boundTop)) { top=true; }
+            if (bounds.IntersectsWith(boundBottom)) { bottom = true ; }
+            if (bounds.IntersectsWith(boundLeft)) { left = true; }
+            if (bounds.IntersectsWith(boundRight)) { right = true; }
+
+            if (top && right)
+            {
+                return deaColitionDirection.topright;
+            }
+            if (top && left)
+            {
+                return deaColitionDirection.topleft;
+            }
+            if (bottom && left)
+            {
+                return deaColitionDirection.bottomleft;
+            }
+            if (bottom && right)
+            {
+                return deaColitionDirection.bottomright;
+            }
+            if (top)
+            {
+                return deaColitionDirection.top;
+            }
+            if (bottom)
+            {
+                return deaColitionDirection.bottom;
+            }
+            if (left)
+            {
+                return deaColitionDirection.left;
+            }
+            if (right)
+            {
+                return deaColitionDirection.right;
+            }
+
+
+
 
             return deaColitionDirection.none;
         }
@@ -78,6 +122,11 @@ namespace CHIP
                 case deaColitionDirection.bottom: deltaY = deltaY * -1; updateColor(); break;
                 case deaColitionDirection.left: deltaX = deltaX * -1; updateColor(); break;
                 case deaColitionDirection.right: deltaX = deltaX * -1; updateColor(); break;
+
+                case deaColitionDirection.topleft: deltaX = deltaX * -1; deltaY = deltaY * -1; updateColor(); break;
+                case deaColitionDirection.topright: deltaX = deltaX * -1; deltaY = deltaY * -1; updateColor(); break;
+                case deaColitionDirection.bottomleft: deltaX = deltaX * -1; deltaY = deltaY * -1; updateColor(); break;
+                case deaColitionDirection.bottomright: deltaX = deltaX * -1; deltaY = deltaY * -1; updateColor(); break;
             }
             
             //increment
