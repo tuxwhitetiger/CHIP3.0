@@ -312,10 +312,11 @@ namespace CHIP
                 allGifs["happy"].printmirroredFrame(matrix, canvas,1);
             }
         }
+
         private void setupDvD() {
             if (!dae.setup)
             {
-                dae.mode = daemode.rainbowBounce;
+                dae.mode = daemode.bounce;
                 dae.x = rand.Next(1, 5);
                 dae.y = rand.Next(1, 5);
                 dae.deltaX = 1;
@@ -327,6 +328,7 @@ namespace CHIP
                 dae.setup= true;
             }
         }
+
         private void DvDTick() {
             allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, dae.color, dae.x, dae.y);
             if (faceAnimationTimer.Elapsed.TotalMilliseconds >= faceAnimationDelay)
@@ -335,7 +337,6 @@ namespace CHIP
                 faceAnimationTimer.Restart();
             }
             dae.ColorTick();
-
             //16x35
         }
 
