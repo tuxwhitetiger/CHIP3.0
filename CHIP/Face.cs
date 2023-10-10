@@ -314,6 +314,8 @@ namespace CHIP
         }
         private void setupDvD() {
             dae.mode = daemode.rainbowBounce;
+            dae.x = rand.Next(1, 5);
+            dae.y = rand.Next(1, 5);
             dae.deltaX = 1;
             dae.deltaY = -1;
             dae.color = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
