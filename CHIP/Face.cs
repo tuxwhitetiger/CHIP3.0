@@ -319,11 +319,16 @@ namespace CHIP
             dae.color = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
             dae.width = 35;
             dae.height = 16;
-
+            faceAnimationDelay = 50;
         }
         private void DvDTick() {
             allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, dae.color, dae.x, dae.y);
-            dae.tick();
+            if (faceAnimationTimer.Elapsed.TotalMilliseconds >= faceAnimationDelay)
+            {
+                dae.tick();
+                faceAnimationTimer.Restart();
+            }
+
             //16x35
         }
 
