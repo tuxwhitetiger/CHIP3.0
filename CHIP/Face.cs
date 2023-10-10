@@ -34,9 +34,9 @@ namespace CHIP
         int faceAnimationDelay = 0;
         Random rand = new Random();
 
-        faces runningface = faces.textTest;
-        string nextFace = "textTest face";
-        string lastFace = "textTest face";
+        faces runningface = faces.happy;
+        string nextFace = "happy face";
+        string lastFace = "happy face";
 
         //setup gif faces
         IDictionary<string, Gif> allGifs = new Dictionary<string, Gif>();
