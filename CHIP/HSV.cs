@@ -111,17 +111,22 @@ namespace CHIP
 
         private double scaler(double degrees, bool decend)
         {
+            Double d;
             if (decend) {
-                Double d = 60-(degrees % 60);
-                return ((( d / 100.0) * 60.0) / 100);
+                d = 60-(degrees % 60);
             }
-            else
-            {
-                return ((((degrees % 60) / 100.0) * 60.0) / 100);
+            else{
+                d = (degrees % 60);
             }
+
+            return (d / 60.0);
         }
+
+
+
         public RGB GetRGB()
         {
+            
 
             //H360 r255 G0   B208
             //H0   r255 g22  B0
