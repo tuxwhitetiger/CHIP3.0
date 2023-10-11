@@ -115,8 +115,8 @@ namespace CHIP
             double kb = ((1 + (hue.H * 6)) % 6);
 
             double r = 1 - Math.MaxMagnitude(Math.MinMagnitude(kr, Math.MinMagnitude(4 - kr, 1)), 0);
-            double g = 1 - Math.MaxMagnitude(Math.MinMagnitude(kr, Math.MinMagnitude(4 - kg, 1)), 0);
-            double b = 1 - Math.MaxMagnitude(Math.MinMagnitude(kr, Math.MinMagnitude(4 - kb, 1)), 0);
+            double g = 1 - Math.MaxMagnitude(Math.MinMagnitude(kg, Math.MinMagnitude(4 - kg, 1)), 0);
+            double b = 1 - Math.MaxMagnitude(Math.MinMagnitude(kb, Math.MinMagnitude(4 - kb, 1)), 0);
 
             return new RGB((byte)(r*255), (byte)(g*255), (byte)(b*255));
         }
