@@ -90,12 +90,13 @@ namespace CHIP
         public HSVSystem() {
             timer.Start();
         }
+
         public void SetSpeed(double speed) { 
             this.speed = speed;
             //360 to loop
             //1000 ms 
             //(360 / speed) / 1000 = increment per ms
-            tickIncrement = ((360.0 / speed) / 1000.0);
+            tickIncrement = ((speed / 360.0) / 1000.0);
         }
 
         public double GetSpeed()
@@ -104,9 +105,10 @@ namespace CHIP
         }
 
         public void Tick() {
-            hue.H += (Double)(timer.ElapsedMilliseconds* tickIncrement);
+            hue.H += (Double)(timer.ElapsedMilliseconds * tickIncrement);
             timer.Restart();
         }
+
         public RGB GetRGB()
         {
             
@@ -196,5 +198,6 @@ namespace CHIP
             RGB rgb = GetRGB();
             return new Color(rgb.R, rgb.G, rgb.B);
         }
+
     }
 }
