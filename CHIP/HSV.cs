@@ -108,7 +108,7 @@ namespace CHIP
         public void Tick() {
             hue.H += (Double)(timer.ElapsedMilliseconds * tickIncrement);
             if (hue.H < 0) { hue.H = 0.0; }
-            if (hue.H > 1) { hue.H = 0.0; }
+            if (hue.H > 360) { hue.H = 0.0; }
             timer.Restart();
         }
 
