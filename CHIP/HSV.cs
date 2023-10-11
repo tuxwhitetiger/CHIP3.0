@@ -109,10 +109,17 @@ namespace CHIP
             if (hue.H > 360) { hue.H = 0.0; }
         }
 
-        private double scaler(double degrees) {
-            return ((((degrees % 60) / 100.0) * 60.0)/100);
+        private double scaler(double degrees, bool decend)
+        {
+            if (decend) {
+                Double d = 60-(degrees % 60);
+                return ((( d / 100.0) * 60.0) / 100);
+            }
+            else
+            {
+                return ((((degrees % 60) / 100.0) * 60.0) / 100);
+            }
         }
-
         public RGB GetRGB()
         {
 
@@ -127,7 +134,7 @@ namespace CHIP
                 //g=var
                 //b=0
                 r = 1;
-                g = scaler(hue.H);
+                g = scaler(hue.H,false);//assend
                 b = 0;
             }
             else if (hue.H >= 60 && hue.H < 120)
@@ -135,7 +142,7 @@ namespace CHIP
                 //r=var
                 //g=1
                 //b=0
-                r = scaler(hue.H);
+                r = scaler(hue.H, true);//desend
                 g = 1;
                 b = 0;
             }
@@ -146,7 +153,7 @@ namespace CHIP
                 //b=var
                 r = 0;
                 g = 1;
-                b = scaler(hue.H);
+                b = scaler(hue.H, false);//assend
             }
             else if (hue.H >= 180 && hue.H < 240)
             {
@@ -154,7 +161,7 @@ namespace CHIP
                 //g=var
                 //b=1
                 r = 0;
-                g = scaler(hue.H);
+                g = scaler(hue.H, true);//desend
                 b = 1;
             }
             else if (hue.H >= 240 && hue.H < 300)
@@ -162,7 +169,7 @@ namespace CHIP
                 //r=var
                 //g=0
                 //b=1
-                r = scaler(hue.H);
+                r = scaler(hue.H, false);//assend
                 g = 1;
                 b = 0;
             }
@@ -173,7 +180,7 @@ namespace CHIP
                 //b=var
                 r = 1;
                 g = 0;
-                b = scaler(hue.H);
+                b = scaler(hue.H,true); //desends
             }
 
             return new RGB((byte)(r*255), (byte)(g*255), (byte)(b*255));
