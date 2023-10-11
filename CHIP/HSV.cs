@@ -122,7 +122,7 @@ namespace CHIP
             double r = 0;
             double g = 0;
             double b = 0;
-            if (hue.H > 0 || hue.H < 60)
+            if (hue.H > 0 && hue.H < 60)
             {
                 //r=1
                 //g=var
@@ -131,7 +131,7 @@ namespace CHIP
                 g = scaler(hue.H);
                 b = 0;
             }
-            else if (hue.H > 60 || hue.H < 120)
+            else if (hue.H > 60 && hue.H < 120)
             {
                 //r=var
                 //g=1
@@ -140,7 +140,7 @@ namespace CHIP
                 g = 1;
                 b = 0;
             }
-            else if (hue.H > 120 || hue.H < 180)
+            else if (hue.H > 120 && hue.H < 180)
             {
                 //r=0
                 //g=1
@@ -149,7 +149,7 @@ namespace CHIP
                 g = 1;
                 b = scaler(hue.H);
             }
-            else if (hue.H > 180 || hue.H < 240)
+            else if (hue.H > 180 && hue.H < 240)
             {
                 //r=0
                 //g=var
@@ -158,7 +158,7 @@ namespace CHIP
                 g = scaler(hue.H);
                 b = 1;
             }
-            else if (hue.H > 240 || hue.H < 300)
+            else if (hue.H > 240 && hue.H < 300)
             {
                 //r=var
                 //g=0
@@ -167,7 +167,7 @@ namespace CHIP
                 g = 1;
                 b = 0;
             }
-            else if (hue.H > 300 || hue.H < 360)
+            else if (hue.H > 300 && hue.H < 360)
             {
                 //r=1
                 //g=0
