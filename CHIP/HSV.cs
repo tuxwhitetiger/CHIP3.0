@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPiRgbLEDMatrix;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
@@ -178,5 +179,10 @@ namespace CHIP
             return new RGB((byte)(r * 255), (byte)(g * 255), (byte)(b * 255));
         }
 
+        internal Color GetColor()
+        {
+            RGB rgb = GetRGB();
+            return new Color(rgb.R, rgb.G, rgb.B);
+        }
     }
 }

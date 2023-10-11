@@ -328,19 +328,17 @@ namespace CHIP
                 dae.width = 35;
                 dae.height = 16;
                 faceAnimationDelay = 33;
-                dae.HSVS = HSVS;
                 dae.setup= true;
             }
         }
 
         private void DvDTick() {
-            allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, dae.color, dae.x, dae.y);
+            allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, HSVS.GetColor(), dae.x, dae.y);
             if (faceAnimationTimer.Elapsed.TotalMilliseconds >= faceAnimationDelay)
             {
                 dae.tick();
                 faceAnimationTimer.Restart();
             }
-            dae.ColorTick();
             //16x35
         }
 

@@ -46,7 +46,7 @@ namespace CHIP
         public Rectangle boundLeft = new Rectangle(-1,-1,1,34);
         public Rectangle boundRight= new Rectangle(129,-1,1,34);
         public Rectangle boundBottom = new Rectangle(-1,33,130,1);
-        internal HSVSystem HSVS;
+        
 
         internal void generatebounds() {
             bounds = new Rectangle(x,y,width,height);
@@ -100,12 +100,14 @@ namespace CHIP
 
             return deaColitionDirection.none;
         }
+
         internal void updateColor() {
             if (mode == daemode.bounce)
             {
                 color = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
             }
         }
+
         internal void tick()
         {
             //check if coliding
@@ -126,14 +128,6 @@ namespace CHIP
             y += deltaY;
         }
 
-        internal void ColorTick()
-        {
-            if (mode == daemode.rainbowBounce)
-            {
-                RGB rgb = HSVS.GetRGB();
-                color = new Color(rgb.R, rgb.G, rgb.B);
-            }
-        }
        
     }
 }
