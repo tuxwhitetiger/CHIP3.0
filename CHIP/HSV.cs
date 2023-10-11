@@ -177,7 +177,7 @@ namespace CHIP
                 b = scaler(hue.H);
             }
 
-            return new RGB((byte)r, (byte)g, (byte)b);
+            return new RGB((byte)(r*255), (byte)(g*255), (byte)(b*255));
         }
 
         public RGB GetRGB2()
