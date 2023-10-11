@@ -107,6 +107,19 @@ namespace CHIP
             hue.H += (Double)(timer.ElapsedMilliseconds* tickIncrement);
             timer.Restart();
         }
+        public RGB GetRGB2()
+        {
+            HSV hsv = hue;
+            double kr = ((5 + (hue.H * 6)) % 6);
+            double kg = ((3 + (hue.H * 6)) % 6);
+            double kb = ((1 + (hue.H * 6)) % 6);
+
+            double r = 1 - Math.MaxMagnitude(Math.MinMagnitude(kr, Math.MinMagnitude(4 - kr, 1)), 0);
+            double g = 1 - Math.MaxMagnitude(Math.MinMagnitude(kr, Math.MinMagnitude(4 - kg, 1)), 0);
+            double b = 1 - Math.MaxMagnitude(Math.MinMagnitude(kr, Math.MinMagnitude(4 - kb, 1)), 0);
+
+            return new RGB((byte)r, (byte)g, (byte)b);
+        }
 
         public RGB GetRGB()
         {
