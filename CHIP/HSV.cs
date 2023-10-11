@@ -110,7 +110,7 @@ namespace CHIP
         }
 
         private double scaler(double degrees) {
-            return (((degrees % 60) / 100.0) * 60.0);
+            return ((((degrees % 60) / 100.0) * 60.0)/100);
         }
 
         public RGB GetRGB()
