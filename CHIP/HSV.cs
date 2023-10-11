@@ -95,9 +95,10 @@ namespace CHIP
             this.speed = speed;
             //360 to loop
             //1000 ms 
-            //(360 / speed) / 1000 = increment per ms
-            tickIncrement = (speed/ 1.0);
+            //(speed/360) / 1000 = increment per ms
+            tickIncrement = ((speed/360.0)/ 1000.0);
         }
+        
 
         public double GetSpeed()
         {
