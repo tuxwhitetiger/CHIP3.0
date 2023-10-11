@@ -86,9 +86,7 @@ namespace CHIP
         
         private double speed = 1.0;//numbers of seconds to loop 
         private double tickIncrement = 33.3;//tick per ms
-        Stopwatch timer = new Stopwatch();
         public HSVSystem() {
-            timer.Start();
         }
 
         public void SetSpeed(double speed) { 
@@ -106,10 +104,9 @@ namespace CHIP
         }
 
         public void Tick() {
-            hue.H += (Double)(timer.ElapsedMilliseconds * tickIncrement);
+            hue.H += tickIncrement;
             if (hue.H < 0) { hue.H = 0.0; }
             if (hue.H > 360) { hue.H = 0.0; }
-            timer.Restart();
         }
 
         private double scaler(double degrees,bool down) {
