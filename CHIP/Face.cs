@@ -238,7 +238,7 @@ namespace CHIP
 
                 Color c = HSVS.GetColor();
 
-                Console.WriteLine("R:"+c.R+"G:"+ c.G+"B:"+c.B);
+                Console.WriteLine("Hue:"+ HSVS.hue+ "R:" +c.R+"G:"+ c.G+"B:"+c.B);
                 
                 /*
                 canvas.Clear();
