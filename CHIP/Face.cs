@@ -330,9 +330,9 @@ namespace CHIP
                 dae.color = HSVS.GetColor();
                 dae.width = 35;
                 dae.height = 16;
-                faceAnimationDelay = 1000;
+                faceAnimationDelay = 33;
 
-                HSVS.SetSpeed(50);
+                HSVS.SetSpeed(5);
 
                 dae.setup= true;
             }
