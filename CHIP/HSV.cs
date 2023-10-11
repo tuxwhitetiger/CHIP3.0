@@ -96,7 +96,7 @@ namespace CHIP
             //360 to loop
             //1000 ms 
             //(speed/360) / 1000 = increment per ms
-            tickIncrement = ((speed/360.0)/ 1000.0);
+            tickIncrement = ((speed/1000.0)/ 360.0);
         }
         
 
