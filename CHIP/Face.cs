@@ -238,7 +238,7 @@ namespace CHIP
 
                 Color c = HSVS.GetColor();
 
-                Console.WriteLine("H:" + HSVS.hue.H + "S:" + HSVS.hue.S + "V:" + HSVS.hue.V + "    " + "R:" +c.R+"G:"+ c.G+"B:"+c.B);
+                //Console.WriteLine("H:" + HSVS.hue.H + "S:" + HSVS.hue.S + "V:" + HSVS.hue.V + "    " + "R:" +c.R+"G:"+ c.G+"B:"+c.B);
                 
                 /*
                 canvas.Clear();
@@ -330,9 +330,9 @@ namespace CHIP
                 dae.color = HSVS.GetColor();
                 dae.width = 35;
                 dae.height = 16;
-                faceAnimationDelay = 33;
+                faceAnimationDelay = 1000;
 
-                HSVS.SetSpeed(10);
+                HSVS.SetSpeed(50);
 
                 dae.setup= true;
             }
