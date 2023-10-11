@@ -118,7 +118,7 @@ namespace CHIP
             double g = 1 - Math.MaxMagnitude(Math.MinMagnitude(kr, Math.MinMagnitude(4 - kg, 1)), 0);
             double b = 1 - Math.MaxMagnitude(Math.MinMagnitude(kr, Math.MinMagnitude(4 - kb, 1)), 0);
 
-            return new RGB((byte)r, (byte)g, (byte)b);
+            return new RGB((byte)(r*255), (byte)(g*255), (byte)(b*255));
         }
 
         public RGB GetRGB3()
