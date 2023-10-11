@@ -112,7 +112,75 @@ namespace CHIP
             timer.Restart();
         }
 
+        private double scaler(double degrees) {
+
+            return ((degrees / 100.0) * 60.0);
+        }
+
         public RGB GetRGB()
+        {
+            double r = 0;
+            double g = 0;
+            double b = 0;
+            if (hue.H > 0 || hue.H < 60)
+            {
+                //r=1
+                //g=var
+                //b=0
+                r = 1;
+                g = scaler(hue.H);
+                b = 0;
+            }
+            else if (hue.H > 60 || hue.H < 120)
+            {
+                //r=var
+                //g=1
+                //b=0
+                r = scaler(hue.H);
+                g = 1;
+                b = 0;
+            }
+            else if (hue.H > 120 || hue.H < 180)
+            {
+                //r=0
+                //g=1
+                //b=var
+                r = 0;
+                g = 1;
+                b = scaler(hue.H);
+            }
+            else if (hue.H > 180 || hue.H < 240)
+            {
+                //r=0
+                //g=var
+                //b=1
+                r = 0;
+                g = scaler(hue.H);
+                b = 1;
+            }
+            else if (hue.H > 240 || hue.H < 300)
+            {
+                //r=var
+                //g=0
+                //b=1
+                r = scaler(hue.H);
+                g = 1;
+                b = 0;
+            }
+            else if (hue.H > 300 || hue.H < 360)
+            {
+                //r=1
+                //g=0
+                //b=var
+                r = 1;
+                g = 0;
+                b = scaler(hue.H);
+            }
+
+            return new RGB((byte)r, (byte)g, (byte)b);
+        }
+
+        public RGB GetRGB2()
         {
             double kr = ((5 + (hue.H * 6)) % 6);
             double kg = ((3 + (hue.H * 6)) % 6);
