@@ -332,7 +332,7 @@ namespace CHIP
                 dae.height = 16;
                 faceAnimationDelay = 33;
 
-                HSVS.SetSpeed(4);
+                HSVS.SetSpeed(10);
 
                 dae.setup= true;
             }
