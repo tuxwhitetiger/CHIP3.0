@@ -46,11 +46,7 @@ namespace CHIP
         public Rectangle boundLeft = new Rectangle(-1,-1,1,34);
         public Rectangle boundRight= new Rectangle(129,-1,1,34);
         public Rectangle boundBottom = new Rectangle(-1,33,130,1);
-
-        private HSV hue = new HSV(0,100,100);
-
-        private HSVSystem HSVS = new HSVSystem();
-
+        internal HSVSystem HSVS;
 
         internal void generatebounds() {
             bounds = new Rectangle(x,y,width,height);
@@ -134,8 +130,7 @@ namespace CHIP
         {
             if (mode == daemode.rainbowBounce)
             {
-                RGB rgb = HSVS.HSVToRGB(hue);
-                hue.H += 0.0001;
+                RGB rgb = HSVS.GetRGB();
                 color = new Color(rgb.R, rgb.G, rgb.B);
             }
         }

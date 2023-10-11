@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace CHIP
@@ -80,9 +81,34 @@ namespace CHIP
 
     public class HSVSystem
     {
-
-        public RGB HSVToRGB(HSV hsv)
+        public HSV hue = new HSV(0, 100, 100);
+        
+        private double speed = 1.0;//numbers of seconds to loop 
+        private double tickIncrement = 33.3;//tick per ms
+        Stopwatch timer = new Stopwatch();
+        public HSVSystem() {
+            timer.Start();
+        }
+        public void SetSpeed(double speed) { 
+            this.speed = speed;
+            //360 to loop
+            //1000 ms 
+            //(360 / speed) / 1000 = increment per ms
+            tickIncrement = (360.0 / speed) / 1000.0;
+        }
+        public double GetSpeed()
         {
+            return this.speed;
+        }
+
+        public void Tick() {
+            hue.H += (Double)(timer.ElapsedMilliseconds* tickIncrement);
+            timer.Restart();
+        }
+
+        public RGB GetRGB()
+        {
+            HSV hsv = hue;
             double r = 0, g = 0, b = 0;
 
             if (hsv.S == 0)

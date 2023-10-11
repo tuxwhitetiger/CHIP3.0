@@ -23,6 +23,8 @@ namespace CHIP
 
         textSpam Tspam = new textSpam();
         DynamicAnimationEngine dae = new DynamicAnimationEngine();
+        private HSVSystem HSVS = new HSVSystem();
+
         RGBLedFont font;
 
         RGBLedMatrixOptions options = new RGBLedMatrixOptions();
@@ -177,7 +179,8 @@ namespace CHIP
             canvas.Clear();
             while (true)
             {
-               
+                HSVS.Tick();
+
                 if (timer.ElapsedMilliseconds > 1000)
                 {
                     timer.Restart();
@@ -316,7 +319,7 @@ namespace CHIP
         private void setupDvD() {
             if (!dae.setup)
             {
-                dae.mode = daemode.bounce;
+                dae.mode = daemode.rainbowBounce;
                 dae.x = rand.Next(1, 5);
                 dae.y = rand.Next(1, 5);
                 dae.deltaX = 1;
@@ -325,6 +328,7 @@ namespace CHIP
                 dae.width = 35;
                 dae.height = 16;
                 faceAnimationDelay = 33;
+                dae.HSVS = HSVS;
                 dae.setup= true;
             }
         }
