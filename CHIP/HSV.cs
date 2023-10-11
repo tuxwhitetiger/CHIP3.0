@@ -107,7 +107,7 @@ namespace CHIP
             hue.H += (Double)(timer.ElapsedMilliseconds* tickIncrement);
             timer.Restart();
         }
-        public RGB GetRGB2()
+        public RGB GetRGB()
         {
             HSV hsv = hue;
             double kr = ((5 + (hue.H * 6)) % 6);
@@ -121,7 +121,7 @@ namespace CHIP
             return new RGB((byte)r, (byte)g, (byte)b);
         }
 
-        public RGB GetRGB()
+        public RGB GetRGB3()
         {
             HSV hsv = hue;
             double r = 0, g = 0, b = 0;
