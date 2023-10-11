@@ -96,7 +96,7 @@ namespace CHIP
             //360 to loop
             //1000 ms 
             //(360 / speed) / 1000 = increment per ms
-            tickIncrement = ((speed / 360.0) / 1000.0);
+            tickIncrement = ((speed / 100.0) / 1000.0);
         }
 
         public double GetSpeed()
@@ -107,12 +107,12 @@ namespace CHIP
         public void Tick() {
             hue.H += (Double)(timer.ElapsedMilliseconds * tickIncrement);
             if (hue.H < 0) { hue.H = 0.0; }
+            if (hue.H > 1) { hue.H = 0.0; }
             timer.Restart();
         }
 
         public RGB GetRGB()
         {
-            
             double kr = ((5 + (hue.H * 6)) % 6);
             double kg = ((3 + (hue.H * 6)) % 6);
             double kb = ((1 + (hue.H * 6)) % 6);
