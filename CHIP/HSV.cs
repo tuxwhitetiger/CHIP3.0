@@ -175,8 +175,8 @@ namespace CHIP
                 //g=0
                 //b=1
                 r = scaler(hue.H, false);//assend
-                g = 1;
-                b = 0;
+                g = 0;
+                b = 1;
             }
             else if (hue.H >= 300 && hue.H < 360)
             {
