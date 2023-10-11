@@ -109,7 +109,7 @@ namespace CHIP
         }
         public RGB GetRGB()
         {
-            HSV hsv = hue;
+            
             double kr = ((5 + (hue.H * 6)) % 6);
             double kg = ((3 + (hue.H * 6)) % 6);
             double kb = ((1 + (hue.H * 6)) % 6);
