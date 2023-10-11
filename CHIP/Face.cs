@@ -43,7 +43,6 @@ namespace CHIP
         //setup gif faces
         IDictionary<string, Gif> allGifs = new Dictionary<string, Gif>();
 
-
         public void load(Logger mynewlogger)
         {
             mylogger = mynewlogger;
@@ -165,6 +164,7 @@ namespace CHIP
             timer = new Stopwatch();
             mylogger.Log("completed loader");
         }
+        
         public void update() {
             mylogger.Log("dictonery count:" + allGifs.Count.ToString());
             Console.WriteLine("dictonery count:" + allGifs.Count.ToString());
@@ -175,6 +175,7 @@ namespace CHIP
                 mylogger.Log(s);
                 Console.WriteLine(s);
             }
+
             timer.Start();
             canvas.Clear();
             while (true)
@@ -235,7 +236,9 @@ namespace CHIP
                     case faces.DvDBounce: DvDTick(); break;
                 }
 
+                Color c = HSVS.GetColor();
 
+                Console.WriteLine("R:"+c.R+"G:"+ c.G+"B:"+c.B);
                 
                 /*
                 canvas.Clear();
@@ -324,7 +327,7 @@ namespace CHIP
                 dae.y = rand.Next(1, 5);
                 dae.deltaX = 1;
                 dae.deltaY = 1;
-                dae.color = new Color(rand.Next(0, 255), rand.Next(0, 255), rand.Next(0, 255));
+                dae.color = HSVS.GetColor();
                 dae.width = 35;
                 dae.height = 16;
                 faceAnimationDelay = 33;

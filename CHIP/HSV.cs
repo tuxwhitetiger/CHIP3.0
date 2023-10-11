@@ -95,8 +95,9 @@ namespace CHIP
             //360 to loop
             //1000 ms 
             //(360 / speed) / 1000 = increment per ms
-            tickIncrement = (360.0 / speed) / 1000.0;
+            tickIncrement = ((360.0 / speed) / 1000.0);
         }
+
         public double GetSpeed()
         {
             return this.speed;
@@ -173,9 +174,7 @@ namespace CHIP
                         b = q;
                         break;
                 }
-
             }
-
             return new RGB((byte)(r * 255), (byte)(g * 255), (byte)(b * 255));
         }
 
