@@ -138,13 +138,20 @@ namespace CHIP
                 mylogger.Log("loading :" + fi.Name);
                 Console.WriteLine("loading :" + fi.Name);
                 Gif g = new Gif(fi.Name.Split('.')[0]);
-                g.loadData(net.GetGifData(fi.Name), 40);
+                Console.WriteLine("data fetch");
+                String data = net.GetGifData(fi.Name);
+                Console.WriteLine("data fetch complete");
+                Console.WriteLine("data load");
+                g.loadData(data, 40);
+                Console.WriteLine("data load Complete"); 
+                Console.WriteLine("Build Serializer");
                 //now its loaded need to serialize and save for next time
                 BinaryFormatter formatter = new BinaryFormatter();
                 String destination = "./serial/";
                 destination += fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4);
                 destination += ".serial";
                 Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
+                Console.WriteLine("Build Serializer complete");
                 mylogger.Log("writing :" + fi.Name);
                 Console.WriteLine("writing :" + fi.Name);
                 formatter.Serialize(writer, g.data);
