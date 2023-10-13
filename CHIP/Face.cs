@@ -146,10 +146,15 @@ namespace CHIP
                 mylogger.Log("data load Complete");
                 mylogger.Log("Build Serializer");
                 //now its loaded need to serialize and save for next time
+                mylogger.Log("Build Serializer : starting formatter");
                 BinaryFormatter formatter = new BinaryFormatter();
+                mylogger.Log("Build Serializer : starting destination");
                 String destination = "./serial/";
+                mylogger.Log("Build Serializer : starting destination1");
                 destination += fi.Name.Trim().Substring(0, fi.Name.Trim().Length - 4);
+                mylogger.Log("Build Serializer : starting destination2");
                 destination += ".serial";
+                mylogger.Log("Build Serializer : starting stream");
                 Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
                 mylogger.Log("Build Serializer complete");
                 mylogger.Log("writing :" + fi.Name);
