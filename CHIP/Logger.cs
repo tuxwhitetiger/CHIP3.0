@@ -9,14 +9,14 @@ namespace CHIP
     {
         string folder = "/home/tux/logs/";
        // string folder = "./logs/";
-        string fileName = "log.log";
+        string fileName = "log";
         static StreamWriter openLog = null;
         //FileStream logfile = null;
         StringBuilder sb = new StringBuilder();
         public Logger() {
 
             string text = "logger started";
-            fileName = DateTime.Now.ToString("dd-MM-yyy-HH:mm:ss");
+            //fileName = DateTime.Now.ToString("dd-MM-yyy-HH:mm:ss");
             fileName += ".log";
             string fullPath = folder + fileName;
             
@@ -40,9 +40,10 @@ namespace CHIP
                 //panic
             }
             else
-            {                
+            {
+                sb.Clear();
                 sb.Append(DateTime.Now.ToString("dd-MM-yyy-HH:mm:ss"));
-                sb.Append(" ");
+                sb.Append(" : ");
                 sb.Append("Message: ");
                 sb.Append(message);
                 sb.Append("\n");

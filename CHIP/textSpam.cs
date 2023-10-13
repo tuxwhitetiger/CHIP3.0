@@ -37,7 +37,6 @@ namespace CHIP
         internal void PrintTextBothSides(string text, int posX,int posY, Color col,RGBLedCanvas canvas, RGBLedMatrix matrix, RGBLedFont font) {
             canvas.DrawText(font, posX, posY, col, text);
             canvas.DrawText(font, 64+posX, posY, col, text);
-            matrix.SwapOnVsync(canvas);
         }
     }
 }
