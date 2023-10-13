@@ -155,11 +155,28 @@ namespace CHIP
                 mylogger.Log("Build Serializer : starting destination2");
                 destination += ".serial";
                 mylogger.Log("Build Serializer : starting stream");
-                Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
-                mylogger.Log("Build Serializer complete");
-                mylogger.Log("writing :" + fi.Name);
-                formatter.Serialize(writer, g.data);
-                writer.Close();
+                
+                try
+                {
+                    Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
+                    mylogger.Log("Build Serializer complete");
+                    mylogger.Log("writing :" + fi.Name);
+                    formatter.Serialize(writer, g.data);
+                    writer.Close();
+                }catch( Exception ex)
+                {
+                    if (ex is FileNotFoundException)
+                    {
+                        mylogger.Log("File Not Found Exception");
+                        mylogger.Log("message: " + ex.Message);
+                        mylogger.Log("StackTrace: " + ex.StackTrace);
+                    }
+                    else { 
+                        
+                        mylogger.Log("well shit"); 
+                    }
+                }
+                
                 allGifs.Add(g.data.name, g);
             }
             mylogger.Log("manual fixes to gif data");
