@@ -172,8 +172,9 @@ namespace CHIP
                         mylogger.Log("StackTrace: " + ex.StackTrace);
                     }
                     else { 
-                        
-                        mylogger.Log("well shit"); 
+                        mylogger.Log("well shit some thing gone wrong");
+                        mylogger.Log("message: " + ex.Message);
+                        mylogger.Log("StackTrace: " + ex.StackTrace);
                     }
                 }
                 
