@@ -2,6 +2,7 @@
 using Iot.Device.Mcp23xxx;
 using Iot.Device.Ssd1351;
 using Iot.Device.Ssd13xx;
+using System.Device;
 using System.Device.Gpio;
 using System.Device.I2c;
 
@@ -18,6 +19,11 @@ namespace CHIP
             mylogger.Log("i2cDevice create");
             i2cDevice = I2cDevice.Create(new I2cConnectionSettings(1, 0x20));
             mylogger.Log("i2cDevice done");
+            mylogger.Log("QueryComponentInformation");
+            ComponentInformation CI = i2cDevice.QueryComponentInformation();
+            mylogger.Log("QueryComponentInformation done");
+            mylogger.Log("Name:"+CI.Name);
+            mylogger.Log("Description:" + CI.Description);
             mylogger.Log("serialDriver create");
             serialDriver = new Ssd1306(i2cDevice);
             mylogger.Log("serialDriver done");
