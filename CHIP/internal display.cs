@@ -15,24 +15,27 @@ namespace CHIP
         public internal_display(Logger mylogger)
         {
             mylogger.Log("lcd test");
-            using (UxSSD1306 _1306 = new UxSSD1306())
-            {
-                Console.WriteLine("Initilize Oled");
-                _1306.Initialize();
-                Graphics display = _1306.GetGraphics();
-                display.DrawRectangle(Pens.Black, 0, 0, _1306.DisplayWidth - 1, _1306.DisplayHeight - 1);
-                display.DrawEllipse(Pens.Black, 10, 10, _1306.DisplayWidth - 20, _1306.DisplayHeight - 20);
-                Console.WriteLine("Draw Oled");
-                _1306.Update(display);
-                Console.WriteLine("Wait 10 sec");
-                Thread.Sleep(10000);
-                display = _1306.GetGraphics();
-                _1306.Update(display);
-                Console.WriteLine("Clear display");
-                Console.WriteLine("Wait 1 sec");
-                Thread.Sleep(1000);
+            Console.WriteLine("create Oled");
+            UxSSD1306 _1306 = new UxSSD1306();
+            Console.WriteLine("create complete");
 
-            }
+            
+            Console.WriteLine("Initilize Oled");
+            _1306.Initialize();
+            Graphics display = _1306.GetGraphics();
+            display.DrawRectangle(Pens.Black, 0, 0, _1306.DisplayWidth - 1, _1306.DisplayHeight - 1);
+            display.DrawEllipse(Pens.Black, 10, 10, _1306.DisplayWidth - 20, _1306.DisplayHeight - 20);
+            Console.WriteLine("Draw Oled");
+            _1306.Update(display);
+            Console.WriteLine("Wait 10 sec");
+            Thread.Sleep(10000);
+            display = _1306.GetGraphics();
+            _1306.Update(display);
+            Console.WriteLine("Clear display");
+            Console.WriteLine("Wait 1 sec");
+            Thread.Sleep(1000);
+
+            
             mylogger.Log("lcd done");
         }
 
