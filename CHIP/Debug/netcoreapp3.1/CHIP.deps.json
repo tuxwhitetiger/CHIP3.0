@@ -12,6 +12,8 @@
           "SharpDX.Direct2D1": "4.2.0",
           "System.Device.Gpio": "3.0.0",
           "System.Drawing.Common": "6.0.0",
+          "Mono.Posix": "7.1.0.0",
+          "Mono.Unix": "7.1.0.0",
           "RPi.I2C.Net": "1.0.0.0",
           "RPiRgbLEDMatrix": "1.0.0.0"
         },
@@ -1018,6 +1020,22 @@
           }
         }
       },
+      "Mono.Posix/7.1.0.0": {
+        "runtime": {
+          "Mono.Posix.dll": {
+            "assemblyVersion": "7.1.0.0",
+            "fileVersion": "7.100.21.45801"
+          }
+        }
+      },
+      "Mono.Unix/7.1.0.0": {
+        "runtime": {
+          "Mono.Unix.dll": {
+            "assemblyVersion": "7.1.0.0",
+            "fileVersion": "7.100.21.45801"
+          }
+        }
+      },
       "RPi.I2C.Net/1.0.0.0": {
         "runtime": {
           "RPi.I2C.Net.dll": {
@@ -1741,6 +1759,16 @@
       "sha512": "sha512-LnhJ56+zBPrauImZj9zQO/orqW5SbtrLSZ/u3VZqaVd5LE76iZpqdhUnMI1mQ2PyduKeUHOLFSQQA7LP7Vhx3g==",
       "path": "unitsnet/5.1.0",
       "hashPath": "unitsnet.5.1.0.nupkg.sha512"
+    },
+    "Mono.Posix/7.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Mono.Unix/7.1.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     },
     "RPi.I2C.Net/1.0.0.0": {
       "type": "reference",

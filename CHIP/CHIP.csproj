@@ -19,6 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Mono.Posix">
+      <HintPath>Mono.Posix.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Unix">
+      <HintPath>Mono.Unix.dll</HintPath>
+    </Reference>
     <Reference Include="RPi.I2C.Net">
       <HintPath>RPi.I2C.Net.dll</HintPath>
     </Reference>
