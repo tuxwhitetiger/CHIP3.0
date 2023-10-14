@@ -15,9 +15,7 @@ namespace CHIP
         Lcd1602 lcd;
         public internal_display(Logger mylogger)
         {
-            scani2c(0, mylogger);
-            scani2c(1, mylogger);
-            scani2c(2, mylogger);
+            scanner(mylogger);
             mylogger.Log("internal display boot");
             mylogger.Log("i2cDevice create");
             i2cDevice = I2cDevice.Create(new I2cConnectionSettings(1, 0x10));
@@ -52,6 +50,11 @@ namespace CHIP
                     mylogger.Log("Description:" + CI.Description);
                 }
             }
+        }
+        private void scanner(Logger mylogger) {
+            //scani2c(0, mylogger);
+            scani2c(1, mylogger);
+            scani2c(2, mylogger);
         }
         private void testText() {
             lcd.Clear();
