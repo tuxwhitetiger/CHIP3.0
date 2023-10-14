@@ -1,16 +1,10 @@
-﻿using SixLabors.Fonts;
-using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Processing;
-using SixLabors.ImageSharp.Processing.Drawing;
-using SixLabors.ImageSharp.Processing.Overlays;
-using SixLabors.ImageSharp.Processing.Text;
-using SixLabors.Primitives;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Threading;
-using Ssd130;
-using Iot.Device.Max7219;
+using System.Threading.Tasks;
 
 
 namespace CHIP
@@ -21,10 +15,29 @@ namespace CHIP
         public internal_display(Logger mylogger)
         {
             mylogger.Log("lcd test");
-            start(mylogger);
+            using (UxSSD1306 _1306 = new UxSSD1306())
+            {
+                Console.WriteLine("Initilize Oled");
+                _1306.Initialize();
+                Graphics display = _1306.GetGraphics();
+                display.DrawRectangle(Pens.Black, 0, 0, _1306.DisplayWidth - 1, _1306.DisplayHeight - 1);
+                display.DrawEllipse(Pens.Black, 10, 10, _1306.DisplayWidth - 20, _1306.DisplayHeight - 20);
+                Console.WriteLine("Draw Oled");
+                _1306.Update(display);
+                Console.WriteLine("Wait 10 sec");
+                Thread.Sleep(10000);
+                display = _1306.GetGraphics();
+                _1306.Update(display);
+                Console.WriteLine("Clear display");
+                Console.WriteLine("Wait 1 sec");
+                Thread.Sleep(1000);
+
+            }
             mylogger.Log("lcd done");
         }
 
+
+        /*
         private void start(Logger mylogger) {
             using (var image = new Image<Rgba32>(128, 32))
 
@@ -56,5 +69,7 @@ namespace CHIP
                 }
             }
         }
+    
+        */
     }
 }
