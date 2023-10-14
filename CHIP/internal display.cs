@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Iot.Device.CharacterLcd;
+using Iot.Device.Mcp23xxx;
 using System.Device.Gpio;
 using System.Device.I2c;
-using System.Text;
-using Iot.Device.CharacterLcd;
-using Iot.Device.Mcp23xxx;
-using static System.Device.I2c.I2cDevice;
-using static Iot.Device.Mcp23xxx.Mcp23008;
-
 
 namespace CHIP
 {
