@@ -37,7 +37,10 @@ namespace CHIP
 
             mylogger.Log("Initilize Oled");
             _1306.Initialize();
+            mylogger.Log("Initilize complete");
+            mylogger.Log("GetGraphics");
             Graphics display = _1306.GetGraphics();
+            mylogger.Log("done");
             display.DrawRectangle(Pens.Black, 0, 0, _1306.DisplayWidth - 1, _1306.DisplayHeight - 1);
             display.DrawEllipse(Pens.Black, 10, 10, _1306.DisplayWidth - 20, _1306.DisplayHeight - 20);
             mylogger.Log("Draw Oled");
