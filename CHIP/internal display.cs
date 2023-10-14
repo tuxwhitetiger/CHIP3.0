@@ -1,10 +1,12 @@
 ﻿using Iot.Device.CharacterLcd;
+using Iot.Device.GoPiGo3;
 using Iot.Device.Mcp23xxx;
 using Iot.Device.Ssd1351;
 using Iot.Device.Ssd13xx;
 using System.Device;
 using System.Device.Gpio;
 using System.Device.I2c;
+using System.Threading;
 
 namespace CHIP
 {
@@ -15,6 +17,8 @@ namespace CHIP
         Lcd1602 lcd;
         public internal_display(Logger mylogger)
         {
+            gpiotest();
+
             scanner(mylogger);
             mylogger.Log("internal display boot");
             mylogger.Log("i2cDevice create");
@@ -39,6 +43,20 @@ namespace CHIP
             testText();
             mylogger.Log("lcd test done");
         }
+        private void gpiotest() {
+            int pin = 5;
+            using var controller = new GpioController();
+            controller.OpenPin(pin, PinMode.Output);
+            bool ledOn = true;
+            while (true)
+            {
+                controller.Write(pin, ((ledOn) ? PinValue.High : PinValue.Low));
+                Thread.Sleep(1000);
+                ledOn = !ledOn;
+            }
+        }
+
+
         private void scani2c(int x,Logger mylogger) {
             for (int i=0x00; i<0xff;i++) {
                 mylogger.Log("testing interface:"+ x +":"+ i);
