@@ -65,7 +65,7 @@ namespace CHIP
         private void testi2c() {
             using (var bus = RPi.I2C.Net.I2CBus.Open("/dev/i2c-1"))
             {
-                bus.WriteByte(42, 77);
+                bus.WriteByte(60, 77);
             }
         }
 
