@@ -73,8 +73,10 @@ namespace CHIP
 
         public UxSSD1306()
         {
+            Console.WriteLine("create Oled");
             _DeviceHandle = -1;
             _DisplayImage = new Bitmap(DISPLAY_WIDTH, DISPLAY_HEIGHT);
+            Console.WriteLine("create complete");
         }
 
 
