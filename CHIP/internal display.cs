@@ -31,7 +31,7 @@ namespace CHIP
             using (SSD130 Ssd130 = new SSD130())
             {
                 mylogger.Log("Ssd130 Begin");
-                Ssd130.Begin();
+                Ssd130.Begin(1);
                 mylogger.Log("Ssd130 Clear");
                 Ssd130.Clear();
                 mylogger.Log("Ssd130 Display");
