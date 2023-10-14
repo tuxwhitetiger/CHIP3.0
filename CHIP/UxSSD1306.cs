@@ -71,12 +71,13 @@ namespace CHIP
         private Bitmap _DisplayImage;
 
 
-        public UxSSD1306()
+        public UxSSD1306(Logger mylogger)
         {
-            
+            mylogger.Log("create 1");
             _DeviceHandle = -1;
+            mylogger.Log("create 2");
             _DisplayImage = new Bitmap(DISPLAY_WIDTH, DISPLAY_HEIGHT);
-            
+            mylogger.Log("create 3");
         }
 
 

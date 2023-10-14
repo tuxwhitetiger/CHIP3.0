@@ -16,7 +16,7 @@ namespace CHIP
         {
             mylogger.Log("lcd test");
             mylogger.Log("create Oled");
-            UxSSD1306 _1306 = new UxSSD1306();
+            UxSSD1306 _1306 = new UxSSD1306(mylogger);
             mylogger.Log("create complete");
 
 
