@@ -35,6 +35,9 @@
     <None Update="faces\CWOODSDEAN-full.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="faces\DVD_logo.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="faces\flag.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
