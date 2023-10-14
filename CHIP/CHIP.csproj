@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="RPi.I2C.Net">
+      <HintPath>RPi.I2C.Net.dll</HintPath>
+    </Reference>
     <Reference Include="RPiRgbLEDMatrix">
       <HintPath>RPiRgbLEDMatrix.dll</HintPath>
     </Reference>
@@ -81,6 +84,9 @@
     </None>
     <None Update="fonts\7x14.bdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="libnativei2c.so">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="librgbmatrix.a">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

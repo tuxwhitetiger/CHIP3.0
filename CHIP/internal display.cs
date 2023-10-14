@@ -17,6 +17,9 @@ namespace CHIP
         Lcd1602 lcd;
         public internal_display(Logger mylogger)
         {
+            mylogger.Log("test i2c");
+            testi2c();
+            mylogger.Log("test i2c complete");
             //gpiotest(mylogger);
 
             //scanner(mylogger);
@@ -34,6 +37,8 @@ namespace CHIP
             mylogger.Log("serialDriver done");
             mylogger.Log("lcd create");
             lcd = new Lcd1602(i2cDevice, true);
+
+
             /*  
             lcd = new Lcd1602(dataPins: new int[] { 0, 1, 2, 3 },
                         registerSelectPin: 4,
@@ -41,11 +46,20 @@ namespace CHIP
                         enablePin: 6,
                         controller: new GpioController(PinNumberingScheme.Logical));
             */
+
             mylogger.Log("lcd done");
             mylogger.Log("lcd test");
             testText();
             mylogger.Log("lcd test done");
         }
+
+        private void testi2c() {
+            using (var bus = RPi.I2C.Net.I2CBus.Open("/dev/i2c-1"))
+            {
+                bus.WriteByte(42, 77);
+            }
+        }
+
         private void gpiotest(Logger mylogger) {
             mylogger.Log("start test loop");
             int pin = 2;
