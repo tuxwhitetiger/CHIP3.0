@@ -20,6 +20,7 @@ namespace CHIP
             mylogger.Log("Creating test bitmap ...");
             try
             {
+
                 new Bitmap(128, 128).Save("test.bmp");
             }
             catch (Exception ex)
