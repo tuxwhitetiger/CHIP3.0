@@ -17,6 +17,8 @@
     <PackageReference Include="SharpDX" Version="4.2.0" />
     <PackageReference Include="SharpDX.Direct2D1" Version="4.2.0" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0004" />
+	<PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta0004" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,6 +40,9 @@
     <Reference Include="ssd130-dotnet">
       <HintPath>ssd130-dotnet.dll</HintPath>
     </Reference>
+	  <Reference Include="i2c-dotnet">
+		  <HintPath>include\i2c-dotnet.dll</HintPath>
+	  </Reference>
   </ItemGroup>
 
   <ItemGroup>

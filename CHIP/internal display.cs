@@ -1,6 +1,13 @@
-﻿using System;
+﻿using SixLabors.Fonts;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Processing.Drawing;
+using SixLabors.ImageSharp.Processing.Text;
+using SixLabors.Primitives;
+using Ssd130;
+using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,7 +18,7 @@ namespace CHIP
 {
     internal class internal_display
     {
-        
+        /*
         public internal_display(Logger mylogger)
         {
             mylogger.Log("lcd test");
@@ -57,9 +64,9 @@ namespace CHIP
             mylogger.Log("lcd done");
         }
 
-
-        /*
-        private void start(Logger mylogger) {
+        */
+        
+        public internal_display(Logger mylogger) {
             using (var image = new Image<Rgba32>(128, 32))
 
             using (SSD130 Ssd130 = new SSD130())
@@ -91,6 +98,6 @@ namespace CHIP
             }
         }
     
-        */
+        
     }
 }

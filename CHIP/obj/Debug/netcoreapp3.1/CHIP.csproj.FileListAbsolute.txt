@@ -133,3 +133,9 @@ C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtime
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\win-x86\lib\netstandard2.0\Mono.Posix.NETStandard.dll
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\win-x86\native\MonoPosixHelper.dll
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\win-x86\native\libMonoPosixHelper.dll
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\SixLabors.Core.dll
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\SixLabors.Fonts.dll
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\SixLabors.ImageSharp.dll
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\SixLabors.ImageSharp.Drawing.dll
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\SixLabors.Shapes.dll
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\SixLabors.Shapes.Text.dll
