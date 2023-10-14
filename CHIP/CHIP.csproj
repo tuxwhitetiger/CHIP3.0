@@ -16,9 +16,14 @@
     <PackageReference Include="SharpDX.Direct2D1" Version="4.2.0" />
     <PackageReference Include="System.Device.Gpio" Version="3.0.0" />
     <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+	<PackageReference Include="SixLabors.ImageSharp" Version="1.0.0-beta0004" />
+	<PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta0004" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="i2c-dotnet">
+      <HintPath>i2c-dotnet.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Posix">
       <HintPath>Mono.Posix.dll</HintPath>
     </Reference>
@@ -30,6 +35,9 @@
     </Reference>
     <Reference Include="RPiRgbLEDMatrix">
       <HintPath>RPiRgbLEDMatrix.dll</HintPath>
+    </Reference>
+    <Reference Include="ssd130-dotnet">
+      <HintPath>ssd130-dotnet.dll</HintPath>
     </Reference>
   </ItemGroup>
 
