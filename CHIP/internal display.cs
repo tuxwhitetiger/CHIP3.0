@@ -45,7 +45,7 @@ namespace CHIP
         }
         private void gpiotest(Logger mylogger) {
             mylogger.Log("start test loop");
-            int pin = 5;
+            int pin = 2;
             using var controller = new GpioController();
             controller.OpenPin(pin, PinMode.Output);
             bool ledOn = true;
