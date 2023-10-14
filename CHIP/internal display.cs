@@ -17,7 +17,7 @@ namespace CHIP
         Lcd1602 lcd;
         public internal_display(Logger mylogger)
         {
-            gpiotest();
+            gpiotest(mylogger);
 
             scanner(mylogger);
             mylogger.Log("internal display boot");
@@ -43,15 +43,18 @@ namespace CHIP
             testText();
             mylogger.Log("lcd test done");
         }
-        private void gpiotest() {
+        private void gpiotest(Logger mylogger) {
+            mylogger.Log("start test loop");
             int pin = 5;
             using var controller = new GpioController();
             controller.OpenPin(pin, PinMode.Output);
             bool ledOn = true;
+            mylogger.Log("loop start");
             while (true)
             {
                 controller.Write(pin, ((ledOn) ? PinValue.High : PinValue.Low));
                 Thread.Sleep(1000);
+                mylogger.Log("led :"+ ledOn);
                 ledOn = !ledOn;
             }
         }
