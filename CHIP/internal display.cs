@@ -17,7 +17,7 @@ namespace CHIP
         Lcd1602 lcd;
         public internal_display(Logger mylogger)
         {
-            gpiotest(mylogger);
+            //gpiotest(mylogger);
 
             scanner(mylogger);
             mylogger.Log("internal display boot");
@@ -33,11 +33,14 @@ namespace CHIP
             serialDriver = new Ssd1306(i2cDevice);
             mylogger.Log("serialDriver done");
             mylogger.Log("lcd create");
+            lcd = new Lcd1602(i2cDevice, true);
+            /*  
             lcd = new Lcd1602(dataPins: new int[] { 0, 1, 2, 3 },
                         registerSelectPin: 4,
                         readWritePin: 5,
                         enablePin: 6,
                         controller: new GpioController(PinNumberingScheme.Logical));
+            */
             mylogger.Log("lcd done");
             mylogger.Log("lcd test");
             testText();
