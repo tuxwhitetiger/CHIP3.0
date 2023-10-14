@@ -19,7 +19,7 @@ namespace CHIP
         {
             //gpiotest(mylogger);
 
-            scanner(mylogger);
+            //scanner(mylogger);
             mylogger.Log("internal display boot");
             mylogger.Log("i2cDevice create");
             i2cDevice = I2cDevice.Create(new I2cConnectionSettings(1, 0x10));
