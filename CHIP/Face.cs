@@ -193,7 +193,6 @@ namespace CHIP
             timer = new Stopwatch();
             mylogger.Log("completed loader");
         }
-        
         public void update() {
             mylogger.Log("dictonery count:" + allGifs.Count.ToString());
             Console.WriteLine("dictonery count:" + allGifs.Count.ToString());
@@ -293,19 +292,16 @@ namespace CHIP
 
             }
         }
-
         private void textTest()
         {
             canvas.Clear();
             Tspam.PrintTextBothSides("TEST", 7, 10, new Color(255, 255, 255), canvas, matrix, font);
             Tspam.PrintTextBothSides("TEXT", 7, 23, new Color(255, 255, 255), canvas, matrix, font);
         }
-
         private void loveTick()
         {
             allGifs["Love-Face"].playGif(matrix, canvas);
         }
-
         private void sadTick() {
             allGifs["Sad-Face"].playGif(matrix, canvas);
         }
@@ -335,7 +331,6 @@ namespace CHIP
         public void WhatTick() {
             Tspam.Tick("?",50,10,canvas, matrix,font);
         }
-
         private void happyTick() {
             if (faceAnimationTimer.Elapsed.TotalSeconds >= faceAnimationDelay)
             {
@@ -347,7 +342,6 @@ namespace CHIP
                 allGifs["happy"].printmirroredFrame(matrix, canvas,1);
             }
         }
-
         private void setupDvD() {
             if (!dae.setup)
             {
@@ -366,7 +360,6 @@ namespace CHIP
                 dae.setup= true;
             }
         }
-
         private void DvDTick() {
             allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, HSVS.GetColor(), dae.x, dae.y);
             if (faceAnimationTimer.Elapsed.TotalMilliseconds >= faceAnimationDelay)
@@ -376,7 +369,6 @@ namespace CHIP
             }
             //16x35
         }
-
         private void snakeTick()
         {
             /*

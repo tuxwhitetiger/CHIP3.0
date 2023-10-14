@@ -45,9 +45,17 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Iot.Device.Bindings": {
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "SharpDX.Direct2D1": {
               "target": "Package",
               "version": "[4.2.0, )"
+            },
+            "System.Device.Gpio": {
+              "target": "Package",
+              "version": "[3.0.0, )"
             },
             "System.Drawing.Common": {
               "target": "Package",
