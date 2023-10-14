@@ -13,7 +13,7 @@ namespace CHIP
         public static void Main(string[] args)
         {
             Logger mylogger = new Logger();
-            //internal_display internal_Display = new internal_display(mylogger);
+            internal_display internal_Display = new internal_display(mylogger);
             Face face = new Face();
             face.load(mylogger);
             mylogger.Log("start update loop");

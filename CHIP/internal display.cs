@@ -18,6 +18,7 @@ namespace CHIP
         Lcd1602 lcd;
         public internal_display(Logger mylogger)
         {
+            /*
             mylogger.Log("test i2c");
             try
             {
@@ -30,11 +31,11 @@ namespace CHIP
             }
             mylogger.Log("test i2c complete");
             //gpiotest(mylogger);
-
+            */
             //scanner(mylogger);
             mylogger.Log("internal display boot");
             mylogger.Log("i2cDevice create");
-            i2cDevice = I2cDevice.Create(new I2cConnectionSettings(1, 0x20));
+            i2cDevice = I2cDevice.Create(new I2cConnectionSettings(1, 0x3c));
             mylogger.Log("i2cDevice done");
             mylogger.Log("QueryComponentInformation");
             ComponentInformation CI = i2cDevice.QueryComponentInformation();
@@ -63,8 +64,10 @@ namespace CHIP
         }
 
         private void testi2c() {
+            
             using (var bus = RPi.I2C.Net.I2CBus.Open("/dev/i2c-1"))
             {
+                
                 bus.WriteByte(60, 77);
             }
         }
