@@ -15,9 +15,10 @@ namespace CHIP
         Lcd1602 lcd;
         public internal_display(Logger mylogger)
         {
+            scani2c(mylogger);
             mylogger.Log("internal display boot");
             mylogger.Log("i2cDevice create");
-            i2cDevice = I2cDevice.Create(new I2cConnectionSettings(1, 0x20));
+            i2cDevice = I2cDevice.Create(new I2cConnectionSettings(1, 0x10));
             mylogger.Log("i2cDevice done");
             mylogger.Log("QueryComponentInformation");
             ComponentInformation CI = i2cDevice.QueryComponentInformation();
@@ -38,7 +39,15 @@ namespace CHIP
             testText();
             mylogger.Log("lcd test done");
         }
-
+        private void scani2c(Logger mylogger) {
+            for (int i=0x00; i<0xff;i++) {
+                mylogger.Log("testing interface:" + i);
+                i2cDevice = I2cDevice.Create(new I2cConnectionSettings(1, i));
+                ComponentInformation CI = i2cDevice.QueryComponentInformation();
+                mylogger.Log("Name:" + CI.Name);
+                mylogger.Log("Description:" + CI.Description);
+            }
+        }
         private void testText() {
             lcd.Clear();
             lcd.SetCursorPosition(0, 0);
