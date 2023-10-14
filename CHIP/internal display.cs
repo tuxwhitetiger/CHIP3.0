@@ -18,9 +18,18 @@ namespace CHIP
             mylogger.Log("create Oled");
 
             mylogger.Log("Creating test bitmap ...");
-            new Bitmap(128, 128).Save("test.bmp");
-            mylogger.Log("... done!");
+            try
+            {
+                new Bitmap(128, 128).Save("test.bmp");
+            }
+            catch (Exception ex)
+            {
+                mylogger.Log(ex.Message);
+                mylogger.Log(ex.StackTrace);
+                mylogger.Log(ex.InnerException.ToString());
 
+            }
+            mylogger.Log("... done!");
             UxSSD1306 _1306 = new UxSSD1306(mylogger);
             mylogger.Log("create complete");
 
