@@ -3,6 +3,7 @@ using Iot.Device.GoPiGo3;
 using Iot.Device.Mcp23xxx;
 using Iot.Device.Ssd1351;
 using Iot.Device.Ssd13xx;
+using System;
 using System.Device;
 using System.Device.Gpio;
 using System.Device.I2c;
@@ -18,7 +19,15 @@ namespace CHIP
         public internal_display(Logger mylogger)
         {
             mylogger.Log("test i2c");
-            testi2c();
+            try
+            {
+                testi2c();
+            }
+            catch (Exception ex) {
+                mylogger.Log("test i2c error");
+                mylogger.Log("error message:"+ ex.Message);
+                mylogger.Log("trace:"+ex.StackTrace);
+            }
             mylogger.Log("test i2c complete");
             //gpiotest(mylogger);
 
