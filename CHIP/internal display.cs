@@ -22,7 +22,7 @@ namespace CHIP
             //scanner(mylogger);
             mylogger.Log("internal display boot");
             mylogger.Log("i2cDevice create");
-            i2cDevice = I2cDevice.Create(new I2cConnectionSettings(1, 0x10));
+            i2cDevice = I2cDevice.Create(new I2cConnectionSettings(1, 0x20));
             mylogger.Log("i2cDevice done");
             mylogger.Log("QueryComponentInformation");
             ComponentInformation CI = i2cDevice.QueryComponentInformation();
