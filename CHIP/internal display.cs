@@ -53,7 +53,7 @@ namespace CHIP
             while (true)
             {
                 controller.Write(pin, ((ledOn) ? PinValue.High : PinValue.Low));
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
                 mylogger.Log("led :"+ ledOn);
                 ledOn = !ledOn;
             }
