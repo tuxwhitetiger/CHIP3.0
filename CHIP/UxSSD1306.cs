@@ -76,7 +76,17 @@ namespace CHIP
             mylogger.Log("create 1");
             _DeviceHandle = -1;
             mylogger.Log("create 2");
-            _DisplayImage = new Bitmap(DISPLAY_WIDTH, DISPLAY_HEIGHT);
+            try
+            {
+                _DisplayImage = new Bitmap(DISPLAY_WIDTH, DISPLAY_HEIGHT);
+            }catch(Exception ex)
+            {
+
+                mylogger.Log(ex.Message);
+                mylogger.Log(ex.StackTrace);
+            }
+            
+            
             mylogger.Log("create 3");
         }
 
