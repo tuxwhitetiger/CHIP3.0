@@ -104,6 +104,9 @@
     <None Update="i2c-dotnet.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="i2c-dotnet.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="libnativei2c.so">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

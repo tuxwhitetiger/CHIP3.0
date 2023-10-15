@@ -138,3 +138,4 @@ C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\SixLabo
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\SixLabors.ImageSharp.Drawing.dll
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\SixLabors.Shapes.dll
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\SixLabors.Shapes.Text.dll
+C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\i2c-dotnet.so
