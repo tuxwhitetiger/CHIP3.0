@@ -30,6 +30,7 @@ namespace CHIP
                     if (counter > count)
                     {
                         start(canvas, matrix);
+                        canvas.Clear();
                         counter = 0;
                     }
                     if (counter < count)
