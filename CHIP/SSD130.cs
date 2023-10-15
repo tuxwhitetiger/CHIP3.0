@@ -67,15 +67,10 @@ namespace CHIP
         public void Begin(Logger mylogger,Int16 vccstate = SSD1306_SWITCHCAPVCC)
         {
             this.mylogger = mylogger;
-            mylogger.Log("1");
             this._vccstate = SSD1306_SWITCHCAPVCC;
-            mylogger.Log("2");
             Reset();
-            mylogger.Log("3");
             _initialize(mylogger);
-            mylogger.Log("4");
             Command(SSD1306_DISPLAYON);
-            mylogger.Log("5");
         }
 
         public void Close()
@@ -135,13 +130,7 @@ namespace CHIP
 
         public void Command(Int16 command)
         {
-            mylogger.Log("command 1");
             Int16 control = 0x00;
-            mylogger.Log("command 2");
-            mylogger.Log("fd:" + fd);
-            mylogger.Log("addr:" + String.Format("{0:X}",addr));
-            mylogger.Log("control:" + control);
-            mylogger.Log("command:" + command);
             try
             {
                 RegWriteByte(fd, addr, control, command);
@@ -151,7 +140,6 @@ namespace CHIP
                 mylogger.Log(e.Source);
                 mylogger.Log(e.StackTrace);
             }
-            mylogger.Log("command 3");
         }
 
         public void Data(Int16 command)
