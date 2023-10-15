@@ -16,7 +16,7 @@ namespace CHIP
             {
                 mylogger.Log("Process created");
                 shell.StartInfo.FileName = "cmatrix";
-                shell.StartInfo.UseShellExecute = true;
+                shell.StartInfo.UseShellExecute = false;
                 shell.StartInfo.RedirectStandardOutput = true;
                 mylogger.Log("Process start");
                 shell.Start();
