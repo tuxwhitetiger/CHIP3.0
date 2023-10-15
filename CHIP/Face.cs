@@ -292,6 +292,7 @@ namespace CHIP
             }
         }
         private void DvDTick() {
+            setupDvD();
             allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, HSVS.GetColor(), dae.x, dae.y);
             if (faceAnimationTimer.Elapsed.TotalMilliseconds >= faceAnimationDelay)
             {
