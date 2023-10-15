@@ -42,6 +42,7 @@ namespace CHIP
                 canvas.DrawText(font, part.x, part.y, part.col, text);
             }
             timer.Reset();
+            timer.Start();
             while (timer.ElapsedMilliseconds < time) { 
             
             }
