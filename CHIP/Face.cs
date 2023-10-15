@@ -37,8 +37,7 @@ namespace CHIP
         Random rand = new Random();
 
         faces runningface = faces.happy;
-        string nextFace = "happy face";
-        string lastFace = "happy face";
+        
 
         //setup gif faces
         IDictionary<string, Gif> allGifs = new Dictionary<string, Gif>();
@@ -191,11 +190,11 @@ namespace CHIP
             }
 
             timer = new Stopwatch();
-
+            timer.Start();
+            canvas.Clear();
             cmatrix = new cmatrix(mylogger);
             mylogger.Log("completed loader");
-        }
-        public void update() {
+            this.runningface = runningface;
             mylogger.Log("dictonery count:" + allGifs.Count.ToString());
             Console.WriteLine("dictonery count:" + allGifs.Count.ToString());
             mylogger.Log("dictionary:");
@@ -205,95 +204,29 @@ namespace CHIP
                 mylogger.Log(s);
                 Console.WriteLine(s);
             }
-
-            timer.Start();
-            canvas.Clear();
-            while (true)
-            {
-                HSVS.Tick();
-                //this whole branch needs to be fucked off to another thread
-                if (timer.ElapsedMilliseconds > 1000)
-                {
-                    timer.Restart();
-                    
-                    lastFace = nextFace;
-                    nextFace = net.getFace();
-                    if(lastFace.Equals(nextFace)) {
-                        switch (nextFace) // need to make this async
-                        {
-                            case "Sad face": snakegame.running = false; runningface = faces.sad; break;
-                            case "Happy face": snakegame.running = false; runningface = faces.happy; faceAnimationTimer.Restart(); faceAnimationDelay = rand.Next(0, 5); break;
-                            case "Angry face": snakegame.running = false; runningface = faces.Angry; break;
-                            case "What face": snakegame.running = false; runningface = faces.What; Tspam.start(canvas, matrix); break;
-                            case "Flag face": snakegame.running = false; runningface = faces.Flag; break;
-                            case "Gif face": snakegame.running = false; runningface = faces.Gif; break;
-                            case "Shock face": snakegame.running = false; runningface = faces.Oh; break;
-                            case "Snake face": runningface = faces.snake; break;
-                            case "Overheat face": snakegame.running = false; runningface = faces.Overheat; break;
-                            case "Cwood face": snakegame.running = false; runningface = faces.cwood; break;
-                            case "Lowbatt face": snakegame.running = false; runningface = faces.lowbatt; break;
-                            case "Pacman face": snakegame.running = false; runningface = faces.pacman; break;
-                            case "Matrix face": snakegame.running = false; runningface = faces.matrix; break;
-                            case "8 Ball Face": snakegame.running = false; runningface = faces.eightball; break;
-                            case "SHAKE BALL": snakegame.running = false; runningface = faces.eightball; eightball.shake = true; break;
-                            case "HALLOWEEN FACE": snakegame.running = false; runningface = faces.Halloween; break;
-                            case "LOVE FACE": snakegame.running = false; runningface = faces.Love; break;
-                            case "textTest face": snakegame.running = false; runningface = faces.textTest; break;
-                            case "DvD face": snakegame.running = false; runningface = faces.DvDBounce; setupDvD(); break;
-                            case "matrix rain": snakegame.running = false; runningface = faces.matrixRain; matrixRain(); break;
-                        }
-                    }
-                    //canvas.Clear();
-                }
-                
-                switch (runningface) {
-                    case faces.Angry: AngryTick(); break;
-                    case faces.cwood: cwoodTick(); break;
-                    case faces.Flag: FlagTick(); break;
-                    case faces.Gif: randomGiff(); break;
-                    case faces.happy: happyTick(); break;
-                    case faces.lowbatt: lowbattTick(); break;
-                    case faces.matrix: matrixTick(); break;
-                    case faces.Oh: OhTick(); break;
-                    case faces.Overheat: overheatTick(); break;
-                    case faces.pacman: pacmanTick(); break;
-                    case faces.sad: sadTick(); break;
-                    case faces.snake: snakeTick(); break;
-                    case faces.What: WhatTick(); break;
-                    case faces.eightball: eightballTick(); break;
-                    case faces.Halloween: HalloweenTick(); break;
-                    case faces.Love: loveTick();break;
-                    case faces.textTest: textTest();break;
-                    case faces.DvDBounce: DvDTick(); break;
-                    case faces.matrixRain: matrixRain();break;
-                }
-
-                //Color c = HSVS.GetColor();
-
-                //Console.WriteLine("H:" + HSVS.hue.H + "S:" + HSVS.hue.S + "V:" + HSVS.hue.V + "    " + "R:" +c.R+"G:"+ c.G+"B:"+c.B);
-                
-                /*
-                canvas.Clear();
-                canvas.DrawText(font, 10, 10, new Color(255,255,255), "TEST "+ DateTime.Now.ToShortTimeString());
-
-                canvas.DrawLine(0, 0, 50, 50, new Color(255, 255, 255));
-                Console.WriteLine("TEST " + DateTime.Now.ToShortTimeString());
-                
-                canvas.SetPixel(4, 0, new Color(255, 0, 0));
-                canvas.SetPixel(4, 1, new Color(0, 255, 0));
-                canvas.SetPixel(4, 2, new Color(0, 0, 255));
-                canvas.SetPixel(5, 3, new Color(255, 0, 0));
-                canvas.SetPixel(5, 4, new Color(0, 255, 0));
-                canvas.SetPixel(5, 5, new Color(0, 0, 255));
-                canvas.SetPixel(6, 6, new Color(255, 0, 0));
-                canvas.SetPixel(6, 7, new Color(0, 255, 0));
-                canvas.SetPixel(6, 8, new Color(0, 0, 255));
-                canvas.SetPixel(7, 9, new Color(255, 0, 0)); 
-                canvas.SetPixel(7, 10, new Color(0, 255, 0));
-                canvas.SetPixel(7, 11, new Color(0, 0, 255));
-                matrix.SwapOnVsync(canvas);
-                */
-
+        }
+        public void update(faces runningface) {
+            HSVS.Tick();
+            switch (runningface) {
+                case faces.Angry: AngryTick(); break;
+                case faces.cwood: cwoodTick(); break;
+                case faces.Flag: FlagTick(); break;
+                case faces.Gif: randomGiff(); break;
+                case faces.happy: happyTick(); break;
+                case faces.lowbatt: lowbattTick(); break;
+                case faces.matrix: matrixTick(); break;
+                case faces.Oh: OhTick(); break;
+                case faces.Overheat: overheatTick(); break;
+                case faces.pacman: pacmanTick(); break;
+                case faces.sad: sadTick(); break;
+                case faces.snake: snakeTick(); break;
+                case faces.What: WhatTick(); break;
+                case faces.eightball: eightballTick(); break;
+                case faces.Halloween: HalloweenTick(); break;
+                case faces.Love: loveTick();break;
+                case faces.textTest: textTest();break;
+                case faces.DvDBounce: DvDTick(); break;
+                case faces.matrixRain: matrixRain();break;
             }
         }
         private void matrixRain() {

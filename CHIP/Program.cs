@@ -20,8 +20,10 @@ namespace CHIP
 
             cmatrix cmatrix= new cmatrix(mylogger);
 
+            face_controller faceController = new face_controller();
+
             while (true) {
-                face.update();
+                //just gonna leave this thread here
             }
 
         }
