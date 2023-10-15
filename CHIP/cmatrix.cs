@@ -52,20 +52,20 @@ namespace CHIP
         private void shiftDown(RGBLedCanvas canvas) {
             Color[,] newcolor = new Color[width, hight];
             mylogger.Log("newcolor created");
-            for (int y=hight-1 ; y==1; y--) {
+            for (int y=hight-1 ; y>=1; y--) {
                 mylogger.Log("Y loop");
                 for (int x=0; x<width ; x++)
                 {
                     mylogger.Log("X loop");
-                    newcolor[x,y-1] = color[x,y];
-                    if (newcolor[x, y-1].R > 0)
+                    newcolor[x,y] = color[x,y-1];
+                    if (newcolor[x, y].R > 0)
                     {
-                        newcolor[x, y-1] = new Color(0, 255, 0);
+                        newcolor[x, y] = new Color(0, 255, 0);
                     }else
                     {
-                        newcolor[x, y-1].G = (byte)(newcolor[x, y-1].G / 2);
+                        newcolor[x, y].G = (byte)(newcolor[x, y].G / 2);
                     }
-                    if (newcolor[x, y-1].G < 8) {
+                    if (newcolor[x, y].G < 8) {
                             freecol[x] = true;
                     }
                     canvas.SetPixel(x,y, newcolor[x, y]);
