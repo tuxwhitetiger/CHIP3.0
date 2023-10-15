@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection;
 using System.Text;
 
 namespace CHIP
@@ -39,6 +40,10 @@ namespace CHIP
             foreach (tpart part in tparts)
             {
                 canvas.DrawText(font, part.x, part.y, part.col, text);
+            }
+            timer.Reset();
+            while (timer.ElapsedMilliseconds < time) { 
+            
             }
             matrix.SwapOnVsync(canvas);
         }
