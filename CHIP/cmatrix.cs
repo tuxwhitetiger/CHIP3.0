@@ -11,7 +11,7 @@ namespace CHIP
     internal class cmatrix
     {
         // properties
-        
+        Stopwatch timer = new Stopwatch();
         static Random rand = new Random();
         Logger mylogger;
         bool play = true;
@@ -30,12 +30,19 @@ namespace CHIP
             for(int i =0;i<freecol.Length;i++) {
                 freecol[i] = true;
             }
+            timer.Start();
         }
+
         public void Frame(RGBLedCanvas canvas, RGBLedMatrix matrix)
         {
             mylogger.Log("Frame");
+            
             shiftDown(canvas);
+            while(!(timer.ElapsedMilliseconds > 33)) { 
+                
+            }
             matrix.SwapOnVsync(canvas);
+            timer.Restart();
         }
         private void createNewRow()
         {
@@ -81,6 +88,7 @@ namespace CHIP
             for (int i =0; i< width; i++)
             {
                 canvas.SetPixel(i, 0, toprow[i]);
+                toprow[i] = new Color(0, 0, 0);
             }
         }
     }
