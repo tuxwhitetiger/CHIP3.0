@@ -57,17 +57,17 @@ namespace CHIP
                 for (int x=0; x<width ; x++)
                 {
                     //shift down
-                    mylogger.Log(x + "," + (y - 1) + " moved to " + x + "," + y);
+                    //mylogger.Log(x + "," + (y - 1) + " moved to " + x + "," + y);
                     newcolor[x,y] = color[x,y-1];
                     //update colour
                     if (newcolor[x, y].R > 0)
                     {
-                        newcolor[x, y] = new Color(0, 255, 0);
+                        newcolor[x, y-1] = new Color(0, 255, 0);
                     }else
                     {
-                        newcolor[x, y].G = (byte)(newcolor[x, y].G / 2);
+                        newcolor[x, y-1].G = (byte)(newcolor[x, y].G / 2);
                     }
-                    if (newcolor[x, y].G < 8) {
+                    if (newcolor[x, y-1].G < 8) {
                             freecol[x] = true;
                     }
                     //draw new color to screen
