@@ -17,6 +17,9 @@ namespace CHIP
             Face face = new Face();
             face.load(mylogger);
             mylogger.Log("start update loop");
+
+            cmatrix cmatrix= new cmatrix(mylogger);
+
             while (true) {
                 face.update();
             }
