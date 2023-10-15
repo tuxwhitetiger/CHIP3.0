@@ -21,7 +21,7 @@ namespace CHIP
         internal void Tick(string text, int count, int time, RGBLedCanvas canvas, RGBLedMatrix matrix, RGBLedFont font)
         {
             if (startted) {
-                if ((timer.ElapsedMilliseconds > 2000)||(counter>50)) {
+                if (timer.ElapsedMilliseconds > 2000) {
                     start(canvas, matrix);
                 }
                 counter++;
