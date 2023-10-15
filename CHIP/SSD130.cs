@@ -138,6 +138,11 @@ namespace CHIP
             mylogger.Log("command 1");
             Int16 control = 0x00;
             mylogger.Log("command 2");
+            mylogger.Log("fd:" + fd);
+            mylogger.Log("addr:" + addr);
+            mylogger.Log("control:" + control);
+            mylogger.Log("command:" + command);
+
             RegWriteByte(fd, addr, control, command);
             mylogger.Log("command 3");
         }
