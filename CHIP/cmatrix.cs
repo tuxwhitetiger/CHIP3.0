@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
 
 namespace CHIP
@@ -21,10 +22,14 @@ namespace CHIP
                 mylogger.Log("Process start");
                 shell.Start();
                 mylogger.Log("Process started");
+                mylogger.Log("build StreamReader");
+                StreamReader reader = shell.StandardOutput;
+                mylogger.Log("StreamReader built");
                 while (play)
                 {
                     mylogger.Log("StandardOutput");
-                    mylogger.Log(shell.StandardOutput.ReadToEnd());
+                    string output = reader.ReadToEnd();
+                    mylogger.Log(output);
                     mylogger.Log("StandardOutput");
                 }
             }
