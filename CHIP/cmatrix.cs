@@ -35,7 +35,7 @@ namespace CHIP
 
         public void Frame(RGBLedCanvas canvas, RGBLedMatrix matrix)
         {
-            mylogger.Log("Frame");
+            //mylogger.Log("Frame");
             
             shiftDown(canvas);
             while(!(timer.ElapsedMilliseconds > 33)) { 
