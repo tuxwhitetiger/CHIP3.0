@@ -259,7 +259,9 @@ namespace CHIP
         {
 
         }
+       
         public void WhatTick() {
+
             Tspam.Tick("?",50,10,canvas, matrix,font);
         }
         private void happyTick() {
