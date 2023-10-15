@@ -15,11 +15,22 @@ namespace CHIP
         string nextFace = "happy face";
         string lastFace = "happy face";
 
-        public face_controller() {
+        public face_controller(Logger mylogger) {
+            
+            mylogger.Log("starting mynetwork");
+            net = new mynetwork(mylogger);
+            //mylogger.Log("starting controller_network");
+            //cnet = new controller_network(mylogger);
+            //controllerstokill = new List<Controller>();
+            mylogger.Log("starting CalanderClock");
+            //clock = new CalanderClock(net);
+            mylogger.Log("net.connect");
+            net.connect();
             face = new Face();
+            face.load(mylogger,net);
+
             Task task = Task.Factory.StartNew(() => { while (true) { Update(); } });
             Task task2 = Task.Factory.StartNew(() => { while (true) { featch(); } });
-
 
         }
 

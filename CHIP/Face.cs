@@ -12,7 +12,6 @@ namespace CHIP
     class Face
     {
         Logger mylogger;
-        mynetwork net;
         //controller_network cnet;
         List<Controller> controllerstokill;
 
@@ -42,19 +41,11 @@ namespace CHIP
         //setup gif faces
         IDictionary<string, Gif> allGifs = new Dictionary<string, Gif>();
 
-        public void load(Logger mynewlogger)
+        public void load(Logger mynewlogger, mynetwork net)
         {
             mylogger = mynewlogger;
             mylogger.Log("starting loader");
-            mylogger.Log("starting mynetwork");
-            net = new mynetwork(mylogger);
-            //mylogger.Log("starting controller_network");
-            //cnet = new controller_network(mylogger);
-            controllerstokill = new List<Controller>();
-            mylogger.Log("starting CalanderClock");
-            clock = new CalanderClock(net);
-            mylogger.Log("net.connect");
-            net.connect();
+            
 
             options.Rows = 32;
             options.Cols = 64;
@@ -74,7 +65,7 @@ namespace CHIP
             canvas = matrix.CreateOffscreenCanvas();
             mylogger.Log("net test");
            // Console.WriteLine(net.getFace());
-            mylogger.Log("net test result" + net.getFace());
+            //mylogger.Log("net test result" + net.getFace());
             mylogger.Log("load snake");
             snakegame = new snake();
             mylogger.Log("load font");
@@ -381,7 +372,7 @@ namespace CHIP
         {
             switch (getRequest)
             {
-                case "GET TIME": net.speak("time is " + DateTime.Now.Hour.ToString() + " " + DateTime.Now.Minute.ToString()); break;
+                //case "GET TIME": net.speak("time is " + DateTime.Now.Hour.ToString() + " " + DateTime.Now.Minute.ToString()); break;
 
             }
         }

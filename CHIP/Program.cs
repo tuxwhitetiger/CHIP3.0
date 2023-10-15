@@ -14,13 +14,13 @@ namespace CHIP
         {
             Logger mylogger = new Logger();
             internal_display internal_Display = new internal_display(mylogger);
-            Face face = new Face();
-            face.load(mylogger);
+            //Face face = new Face();
+            //face.load(mylogger);
             mylogger.Log("start update loop");
 
             cmatrix cmatrix= new cmatrix(mylogger);
 
-            face_controller faceController = new face_controller();
+            face_controller faceController = new face_controller(mylogger);
 
             while (true) {
                 //just gonna leave this thread here
