@@ -24,7 +24,7 @@ namespace CHIP
         internal void Tick(string text, int count, int time, RGBLedCanvas canvas, RGBLedMatrix matrix, RGBLedFont font)
         { 
             //check if this new command
-            if(!(tpartscount==count))
+            if(tpartscount!=count)
             {
                 tpartscount = count;
                 tparts = new tpart[tpartscount];
@@ -41,6 +41,7 @@ namespace CHIP
             {
                 canvas.DrawText(font, part.x, part.y, part.col, text);
             }
+            matrix.SwapOnVsync(canvas);
         }
 
         private tpart generatetpart() {
