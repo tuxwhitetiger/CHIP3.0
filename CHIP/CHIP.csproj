@@ -37,12 +37,10 @@
     <Reference Include="RPiRgbLEDMatrix">
       <HintPath>RPiRgbLEDMatrix.dll</HintPath>
     </Reference>
-    <Reference Include="ssd130-dotnet">
-      <HintPath>ssd130-dotnet.dll</HintPath>
+    
+	<Reference Include="i2c-dotnet">
+	    <HintPath>include\i2c-dotnet.dll</HintPath>
     </Reference>
-	  <Reference Include="i2c-dotnet">
-		  <HintPath>include\i2c-dotnet.dll</HintPath>
-	  </Reference>
   </ItemGroup>
 
   <ItemGroup>
@@ -134,9 +132,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="serial\to force folder creation.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="ssd130-dotnet.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

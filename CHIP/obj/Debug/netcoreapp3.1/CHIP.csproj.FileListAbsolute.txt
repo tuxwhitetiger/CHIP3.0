@@ -114,7 +114,6 @@ C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\faces\D
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\libnativei2c.so
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\RPi.I2C.Net.dll
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\i2c-dotnet.dll
-C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\ssd130-dotnet.dll
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\linux-arm\lib\netstandard2.0\Mono.Posix.NETStandard.dll
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\linux-arm\native\libMonoPosixHelper.so
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\linux-arm64\lib\netstandard2.0\Mono.Posix.NETStandard.dll

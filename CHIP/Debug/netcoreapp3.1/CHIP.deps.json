@@ -16,8 +16,7 @@
           "System.Drawing.Common": "6.0.0",
           "i2c-dotnet": "1.0.0.0",
           "RPi.I2C.Net": "1.0.0.0",
-          "RPiRgbLEDMatrix": "1.0.0.0",
-          "ssd130-dotnet": "1.0.0.0"
+          "RPiRgbLEDMatrix": "1.0.0.0"
         },
         "runtime": {
           "CHIP.dll": {}
@@ -958,14 +957,6 @@
             "fileVersion": "1.0.0.0"
           }
         }
-      },
-      "ssd130-dotnet/1.0.0.0": {
-        "runtime": {
-          "ssd130-dotnet.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        }
       }
     }
   },
@@ -1602,11 +1593,6 @@
       "sha512": ""
     },
     "RPiRgbLEDMatrix/1.0.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "ssd130-dotnet/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
