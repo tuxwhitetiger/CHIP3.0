@@ -52,12 +52,9 @@ namespace CHIP
         }
         private void shiftDown(RGBLedCanvas canvas) {
             Color[,] newcolor = new Color[width, hight];
-            mylogger.Log("newcolor created");
             for (int y=hight-1 ; y>=1; y--) {
-                mylogger.Log("Y loop");
                 for (int x=0; x<width ; x++)
                 {
-                    mylogger.Log("X loop");
                     newcolor[x,y] = color[x,y-1];
                     if (newcolor[x, y].R > 0)
                     {
@@ -72,19 +69,14 @@ namespace CHIP
                     canvas.SetPixel(x,y, newcolor[x, y]);
                 }
             }
-            mylogger.Log("shift complete");
             color = newcolor;
-            mylogger.Log("old = new");
-            mylogger.Log("try createNewRow");
             createNewRow();
-            mylogger.Log("createNewRow done");
             //drop top row into canvas
             
             for (int i =0; i< width; i++)
             {
                 canvas.SetPixel(i, 0, toprow[i]);
             }
-            mylogger.Log("canvas complete");
         }
     }
 }
