@@ -55,7 +55,7 @@ namespace CHIP
         Int16 _pages = 4;
         List<Int16> _buffer;
         Int16 contrast = 0;
-
+        Logger mylogger;
 
         public SSD130()
         {
@@ -66,6 +66,7 @@ namespace CHIP
 
         public void Begin(Logger mylogger,Int16 vccstate = SSD1306_SWITCHCAPVCC)
         {
+            this.mylogger = mylogger;
             mylogger.Log("1");
             this._vccstate = SSD1306_SWITCHCAPVCC;
             mylogger.Log("2");
@@ -134,8 +135,11 @@ namespace CHIP
 
         public void Command(Int16 command)
         {
+            mylogger.Log("command 1");
             Int16 control = 0x00;
+            mylogger.Log("command 2");
             RegWriteByte(fd, addr, control, command);
+            mylogger.Log("command 3");
         }
 
         public void Data(Int16 command)
