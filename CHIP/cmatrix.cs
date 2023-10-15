@@ -32,7 +32,9 @@ namespace CHIP
         }
         public void Frame(RGBLedCanvas canvas, RGBLedMatrix matrix)
         {
+            mylogger.Log("Frame");
             shiftDown(canvas);
+            mylogger.Log("shiftDown complete");
             matrix.SwapOnVsync(canvas);
         }
         private void createNewRow()
