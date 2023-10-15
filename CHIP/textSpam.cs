@@ -29,15 +29,14 @@ namespace CHIP
                 tpartscount = count;
                 tparts = new tpart[tpartscount];
                 poition = 0;
-                canvas.Clear();
             }
             if (poition == tpartscount-1) {
                 poition = 0;
             }
             tparts[poition] = generatetpart();
             poition++;
-
-            foreach(tpart part in tparts)
+            canvas.Clear();
+            foreach (tpart part in tparts)
             {
                 canvas.DrawText(font, part.x, part.y, part.col, text);
             }
