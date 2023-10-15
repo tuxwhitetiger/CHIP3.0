@@ -211,7 +211,7 @@ namespace CHIP
             while (true)
             {
                 HSVS.Tick();
-
+                //this whole branch needs to be fucked off to another thread
                 if (timer.ElapsedMilliseconds > 1000)
                 {
                     timer.Restart();
@@ -268,9 +268,9 @@ namespace CHIP
                     case faces.matrixRain: matrixRain();break;
                 }
 
-                Color c = HSVS.GetColor();
+                //Color c = HSVS.GetColor();
 
-                Console.WriteLine("H:" + HSVS.hue.H + "S:" + HSVS.hue.S + "V:" + HSVS.hue.V + "    " + "R:" +c.R+"G:"+ c.G+"B:"+c.B);
+                //Console.WriteLine("H:" + HSVS.hue.H + "S:" + HSVS.hue.S + "V:" + HSVS.hue.V + "    " + "R:" +c.R+"G:"+ c.G+"B:"+c.B);
                 
                 /*
                 canvas.Clear();
