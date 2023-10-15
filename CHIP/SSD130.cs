@@ -71,7 +71,7 @@ namespace CHIP
             mylogger.Log("2");
             Reset();
             mylogger.Log("3");
-            _initialize();
+            _initialize(mylogger);
             mylogger.Log("4");
             Command(SSD1306_DISPLAYON);
             mylogger.Log("5");
@@ -83,18 +83,23 @@ namespace CHIP
                 Close(fd);
         }
 
-        void _initialize()
+        void _initialize(Logger mylogger)
         {
+            mylogger.Log("3.1");
             Command(SSD1306_DISPLAYOFF);
+            mylogger.Log("3.2");
             Command(SSD1306_SETDISPLAYCLOCKDIV);
+            mylogger.Log("3.3");
             Command(0x80);
+            mylogger.Log("3.4");
             Command(SSD1306_SETMULTIPLEX);
+            mylogger.Log("3.5");
             Command(0x1F);
             Command(SSD1306_SETDISPLAYOFFSET);
             Command(0x0);
             Command(SSD1306_SETSTARTLINE);
             Command(SSD1306_CHARGEPUMP);
-
+            mylogger.Log("3.6");
             if (_vccstate == SSD1306_EXTERNALVCC)
             {
                 Command(0x10);
@@ -103,23 +108,28 @@ namespace CHIP
             {
                 Command(0x14);
             }
+            mylogger.Log("3.7");
             Command(SSD1306_MEMORYMODE);
             Command(0x00);
             Command(SSD1306_SEGREMAP | 0x1);
             Command(SSD1306_COMSCANDEC);
+            mylogger.Log("3.8");
             Command(SSD1306_SETCOMPINS);
             Command(0x02);
             Command(SSD1306_SETCONTRAST);
             Command(0x8F);
+            mylogger.Log("3.9");
             Command(SSD1306_SETPRECHARGE);
             if (_vccstate == SSD1306_EXTERNALVCC)
                 Command(0x22);
             else
                 Command(0xF1);
+            mylogger.Log("3.10");
             Command(SSD1306_SETVCOMDETECT);
             Command(0x40);
             Command(SSD1306_DISPLAYALLON_RESUME);
             Command(SSD1306_NORMALDISPLAY);
+            mylogger.Log("3.11");
         }
 
         public void Command(Int16 command)
