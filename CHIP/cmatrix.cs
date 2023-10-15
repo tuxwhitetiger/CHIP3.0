@@ -25,6 +25,7 @@ namespace CHIP
             this.mylogger = mylogger;
             mylogger.Log("start cmatrix");
             color = new Color[width, hight];
+            toprow = new Color[width];
             freecol = new bool[width];
             for(int i =0;i<freecol.Length;i++) {
                 freecol[i] = true;
