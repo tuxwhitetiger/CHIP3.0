@@ -51,7 +51,8 @@ namespace CHIP
         }
         private void shiftDown(RGBLedCanvas canvas) {
             Color[,] newcolor = new Color[width, hight];
-            for(int y=hight ; y>=1; y--) {
+            mylogger.Log("newcolor created");
+            for (int y=hight-1 ; y>1; y--) {
 
                 for(int x=0; x<width ; x++)
                 {
