@@ -35,7 +35,6 @@ namespace CHIP
         {
             mylogger.Log("Frame");
             shiftDown(canvas);
-            mylogger.Log("shiftDown complete");
             matrix.SwapOnVsync(canvas);
         }
         private void createNewRow()
@@ -55,7 +54,10 @@ namespace CHIP
             for (int y=hight-1 ; y>=1; y--) {
                 for (int x=0; x<width ; x++)
                 {
+                    //shift down
+                    mylogger.Log(x + "," + (y - 1) + " moved to " + x + "," + y);
                     newcolor[x,y] = color[x,y-1];
+                    //update colour
                     if (newcolor[x, y].R > 0)
                     {
                         newcolor[x, y] = new Color(0, 255, 0);
@@ -66,6 +68,7 @@ namespace CHIP
                     if (newcolor[x, y].G < 8) {
                             freecol[x] = true;
                     }
+                    //draw new color to screen
                     canvas.SetPixel(x,y, newcolor[x, y]);
                 }
             }
