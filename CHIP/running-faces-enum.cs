@@ -23,6 +23,7 @@ namespace CHIP
         Halloween,
         Love,
         textTest,
-        DvDBounce
+        DvDBounce,
+        matrixRain
     }
 }

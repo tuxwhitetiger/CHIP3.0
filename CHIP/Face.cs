@@ -20,7 +20,7 @@ namespace CHIP
 
         snake snakegame;
         magic8Ball eightball = new magic8Ball();
-
+        cmatrix cmatrix ;
         textSpam Tspam = new textSpam();
         DynamicAnimationEngine dae = new DynamicAnimationEngine();
         private HSVSystem HSVS = new HSVSystem();
@@ -191,6 +191,8 @@ namespace CHIP
             }
 
             timer = new Stopwatch();
+
+            cmatrix = new cmatrix(mylogger);
             mylogger.Log("completed loader");
         }
         public void update() {
@@ -238,6 +240,7 @@ namespace CHIP
                             case "LOVE FACE": snakegame.running = false; runningface = faces.Love; break;
                             case "textTest face": snakegame.running = false; runningface = faces.textTest; break;
                             case "DvD face": snakegame.running = false; runningface = faces.DvDBounce; setupDvD(); break;
+                            case "matrix rain": snakegame.running = false; runningface = faces.matrixRain; matrixRain(); break;
                         }
                     }
                     //canvas.Clear();
@@ -262,6 +265,7 @@ namespace CHIP
                     case faces.Love: loveTick();break;
                     case faces.textTest: textTest();break;
                     case faces.DvDBounce: DvDTick(); break;
+                    case faces.matrixRain: matrixRain();break;
                 }
 
                 Color c = HSVS.GetColor();
@@ -291,6 +295,9 @@ namespace CHIP
                 */
 
             }
+        }
+        private void matrixRain() {
+            cmatrix.Frame(canvas, matrix);
         }
         private void textTest()
         {
