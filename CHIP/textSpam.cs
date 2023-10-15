@@ -24,11 +24,10 @@ namespace CHIP
                 if (timer.ElapsedMilliseconds > 2000) {
                     start(canvas, matrix);
                 }
-                counter++;
-
                 if (timer.ElapsedMilliseconds > (time - Math.Pow(2, counter)))
                 {
-                    if (counter == count)
+                    counter++;
+                    if (counter > count)
                     {
                         start(canvas, matrix);
                         counter = 0;
