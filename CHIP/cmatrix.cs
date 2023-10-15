@@ -45,6 +45,7 @@ namespace CHIP
                 {
                     if (rand.Next(0, 3) == 0) {
                         toprow[i] = new Color(255, 255, 255);
+                        freecol[i] = false;
                     }
                 }
             }
