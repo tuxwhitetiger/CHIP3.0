@@ -53,6 +53,7 @@ namespace CHIP
 
         internal void update(string face)
         {
+            mylogger.Log("update"+face);
             printText(face);
         }
     }
