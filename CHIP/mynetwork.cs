@@ -50,7 +50,17 @@ namespace CHIP
             }
             return sb.ToString();
         }
-
+        internal void setFace(string face)
+        {
+            Byte[] requestBytes = Encoding.ASCII.GetBytes("Set Face:"+ face);
+            Byte[] bytesReceived = new Byte[256];
+            socket.Send(requestBytes, requestBytes.Length, 0);
+            int bytes = 0;
+            StringBuilder sb = new StringBuilder();
+            bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
+            sb.Append(Encoding.ASCII.GetString(bytesReceived, 0, bytes));
+            sb.ToString();
+        }
         public String getFace()
         {
             Byte[] requestBytes = Encoding.ASCII.GetBytes("Get Face");
@@ -102,5 +112,6 @@ namespace CHIP
             bytes = socket.Receive(bytesReceived, bytesReceived.Length, 0);
         }
 
+        
     }
 }

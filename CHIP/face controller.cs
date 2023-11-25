@@ -58,11 +58,11 @@ namespace CHIP
                 face=nextFace;
             }
 
-
-            nextFace = webserver.getface();
-            if (lastFace.Equals(nextFace))
+            if (webserver.getnewface())
             {
-                face = nextFace;
+                mylogger.Log("webserver has a newface");
+                face=webserver.getface();
+                net.setFace(face);
             }
 
             processFace(face);
@@ -91,7 +91,7 @@ namespace CHIP
                 case "textTest face": currentface = faces.textTest; break;
                 case "DvD face": currentface = faces.DvDBounce; break;
                 case "matrix rain": currentface = faces.matrixRain; break;
-                default: currentface = faces.happy; break;
+                default:currentface = faces.happy; break;
             }
         }
 
