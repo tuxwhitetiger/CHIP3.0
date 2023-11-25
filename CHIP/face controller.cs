@@ -49,18 +49,22 @@ namespace CHIP
 
         public void featch() {
 
+            String face = "";
+
             lastFace = nextFace;
             nextFace = net.getFace();
             if (lastFace.Equals(nextFace))
             {
-                processFace(nextFace);
+                face=nextFace;
             }
 
             if (webserver.getnewface())
             {
                 mylogger.Log("webserver has a newface");
-                processFace(webserver.getface());
+                face=webserver.getface();
             }
+
+            processFace(face);
         }
 
         public void processFace(String face) {
