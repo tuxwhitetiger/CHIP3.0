@@ -110,10 +110,11 @@ namespace CHIP
                 string pageData = "ERROR COULD NOT LOAD HTML";
                 if ((req.HttpMethod == "GET") && (req.Url.AbsolutePath == "/chip-style.css"))
                 {
+                    byte[] data = { };
                     try
                     {
                         mylogger.Log("try and load css");
-                        pageData = String.Concat(File.ReadAllLines("./chip-style.css"));
+                        data = File.ReadAllBytes("./chip-style.css");
 
                         mylogger.Log("css loaded");
                     }
@@ -121,10 +122,9 @@ namespace CHIP
                     {
                         mylogger.Log(ex.Message);
                     }
-                    byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews));
                     resp.ContentType = "text/css";
                     resp.ContentEncoding = Encoding.UTF8;
-                    resp.ContentLength64 = data.LongLength;
+                    resp.ContentLength64 = data.Length;
                     await resp.OutputStream.WriteAsync(data, 0, data.Length);
                 }
                 else
