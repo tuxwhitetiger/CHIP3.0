@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,13 +21,14 @@ namespace CHIP
             "  <head>" +
             "    <title>HttpListener Example</title>" +
             "  </head>" +
-            "  <body>" +
+        "  <body>" +
             "    <p>Page Views: {0}</p>" +
             "    <form method=\"post\" action=\"shutdown\">" +
             "      <input type=\"submit\" value=\"Shutdown\" {1}>" +
             "    </form>" +
             "  </body>" +
             "</html>";
+
         internal faces face = faces.happy;
         internal bool newface = false;
         private Logger mylogger;
@@ -66,13 +70,6 @@ namespace CHIP
                 HttpListenerRequest req = ctx.Request;
                 HttpListenerResponse resp = ctx.Response;
 
-                // Print out some info about the request
-                Console.WriteLine("Request #: {0}", ++requestCount);
-                Console.WriteLine(req.Url.ToString());
-                Console.WriteLine(req.HttpMethod);
-                Console.WriteLine(req.UserHostName);
-                Console.WriteLine(req.UserAgent);
-                Console.WriteLine();
 
                 // If `shutdown` url requested w/ POST, then shutdown the server after serving the page
                 if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/shutdown"))
@@ -87,6 +84,7 @@ namespace CHIP
 
                 // Write the response info
                 string disableSubmit = !runServer ? "disabled" : "";
+                string pageData = String.Concat(File.ReadAllLines("chip.html"));
                 byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews, disableSubmit));
                 resp.ContentType = "text/html";
                 resp.ContentEncoding = Encoding.UTF8;
