@@ -15,6 +15,7 @@ namespace CHIP
         public static string url = "http://+:8000/";
         public static int pageViews = 0;
         public static int requestCount = 0;
+        /*
         public static string pageData =
             "<!DOCTYPE>" +
             "<html>" +
@@ -28,7 +29,7 @@ namespace CHIP
             "    </form>" +
             "  </body>" +
             "</html>";
-
+        */
         internal faces face = faces.happy;
         internal bool newface = false;
         private Logger mylogger;
@@ -84,9 +85,10 @@ namespace CHIP
 
                 // Write the response info
                 string disableSubmit = !runServer ? "disabled" : "";
+                string pageData = "ERROR COULD NOT LOAD HTML";
                 try
                 {
-                    string pageData = String.Concat(File.ReadAllLines("./chip.html"));
+                    pageData = String.Concat(File.ReadAllLines("./chip.html"));
                 }catch (Exception ex)
                 {
                     mylogger.Log(ex.Message);
