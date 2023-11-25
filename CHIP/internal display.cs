@@ -50,6 +50,10 @@ namespace CHIP
             Ssd130.Image(image);
             Ssd130.Display();
         }
-        
+
+        internal void update(string face)
+        {
+            printText(face);
+        }
     }
 }
