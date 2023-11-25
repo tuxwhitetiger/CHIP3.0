@@ -81,9 +81,12 @@ namespace CHIP
                 //if a face was posted
                 if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/Set Face"))
                 {
+                    mylogger.Log("web server gopt a post req");
                     Stream body = req.InputStream;
                     Encoding encoding = req.ContentEncoding;
+                    mylogger.Log("stream and encoding built");
                     StreamReader reader = new System.IO.StreamReader(body, encoding);
+                    mylogger.Log("reader built go reader go");
                     string s = reader.ReadToEnd();
                     mylogger.Log("recived this : " + s);
                     runServer = false;
