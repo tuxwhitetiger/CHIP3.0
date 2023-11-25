@@ -9,8 +9,7 @@ namespace CHIP
     internal class WebServer
     {
         public static HttpListener listener;
-        public static string url = "http://chip/";
-        public static string url2 = "http://10.1.1.1/";
+        public static string url = "http://*:80";
         public static int pageViews = 0;
         public static int requestCount = 0;
         public static string pageData =
@@ -34,7 +33,6 @@ namespace CHIP
             // Create a Http server and start listening for incoming connections
             listener = new HttpListener();
             listener.Prefixes.Add(url);
-            listener.Prefixes.Add(url2);
             listener.Start();
             Console.WriteLine("Listening for connections on {0}", url);
 
