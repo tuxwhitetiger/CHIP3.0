@@ -138,7 +138,7 @@ namespace CHIP
                     {
                         mylogger.Log(ex.Message);
                     }
-                    byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews));
+                    byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, face));
                     resp.ContentType = "text/html";
                     resp.ContentEncoding = Encoding.UTF8;
                     resp.ContentLength64 = data.LongLength;
