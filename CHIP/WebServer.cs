@@ -47,7 +47,7 @@ namespace CHIP
             listener.Prefixes.Add(url);
             mylogger.Log("added web url");
             listener.Start();
-            mylogger.Log("Listening for connections on"+ url);
+            mylogger.Log("Listening for connections on "+ url);
 
             // Handle requests
             Task listenTask = HandleIncomingConnections(mylogger);
@@ -79,9 +79,9 @@ namespace CHIP
                     runServer = false;
                 }
                 //if a face was posted
-                if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/Set Face"))
+                if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/SetFace"))
                 {
-                    mylogger.Log("web server gopt a post req");
+                    mylogger.Log("web server got a post req");
                     Stream body = req.InputStream;
                     Encoding encoding = req.ContentEncoding;
                     mylogger.Log("stream and encoding built");
