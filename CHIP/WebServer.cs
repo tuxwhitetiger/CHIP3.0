@@ -9,7 +9,7 @@ namespace CHIP
     internal class WebServer
     {
         public static HttpListener listener;
-        public static string url = "http://*:80";
+        public static string url = "http://*:8080";
         public static int pageViews = 0;
         public static int requestCount = 0;
         public static string pageData =
@@ -27,14 +27,22 @@ namespace CHIP
             "</html>";
         internal faces face = faces.happy;
         internal bool newface = false;
+        private Logger mylogger;
+
+        public WebServer(Logger mylogger)
+        {
+            this.mylogger = mylogger;
+        }
 
         public void run()
         {
             // Create a Http server and start listening for incoming connections
             listener = new HttpListener();
+            mylogger.Log("created web listener");
             listener.Prefixes.Add(url);
+            mylogger.Log("added web url");
             listener.Start();
-            Console.WriteLine("Listening for connections on {0}", url);
+            mylogger.Log("Listening for connections on"+ url);
 
             // Handle requests
             Task listenTask = HandleIncomingConnections();

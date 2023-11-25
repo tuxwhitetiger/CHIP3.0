@@ -20,7 +20,7 @@ namespace CHIP
             mylogger.Log("starting mynetwork");
             net = new mynetwork(mylogger);
             mylogger.Log("starting webserver");
-            webserver = new WebServer();
+            webserver = new WebServer(mylogger);
             //mylogger.Log("starting controller_network");
             //cnet = new controller_network(mylogger);
             //controllerstokill = new List<Controller>();
