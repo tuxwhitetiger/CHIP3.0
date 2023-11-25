@@ -30,8 +30,8 @@ namespace CHIP
             "  </body>" +
             "</html>";
         */
-        internal String face = "Happy face";
-        internal bool newface = false;
+        public static String face = "Happy face";
+        public static bool newface = false;
         private Logger mylogger;
 
         public WebServer(Logger mylogger)
@@ -50,14 +50,14 @@ namespace CHIP
             mylogger.Log("Listening for connections on "+ url);
 
             // Handle requests
-            Task listenTask = HandleIncomingConnections(mylogger,newface,face);
+            Task listenTask = HandleIncomingConnections(mylogger);
             listenTask.GetAwaiter().GetResult();
 
             // Close the listener
             listener.Close();
         }
 
-        public static async Task HandleIncomingConnections(Logger mylogger,bool newface,String face)
+        public static async Task HandleIncomingConnections(Logger mylogger)
         {
             bool runServer = true;
 
@@ -129,6 +129,11 @@ namespace CHIP
         {
             newface = false;
             return face;
+        }
+
+        internal bool getnewface()
+        {
+            return newface;
         }
     }
 }
