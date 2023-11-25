@@ -11,7 +11,7 @@ namespace CHIP
         Face face;
         mynetwork net;
         faces currentface;
-
+        WebServer webserver;
         string nextFace = "happy face";
         string lastFace = "happy face";
 
@@ -19,6 +19,8 @@ namespace CHIP
             
             mylogger.Log("starting mynetwork");
             net = new mynetwork(mylogger);
+            mylogger.Log("starting webserver");
+            webserver = new WebServer();
             //mylogger.Log("starting controller_network");
             //cnet = new controller_network(mylogger);
             //controllerstokill = new List<Controller>();
@@ -29,15 +31,20 @@ namespace CHIP
             face = new Face();
             face.load(mylogger,net);
 
+
+
             Task task = Task.Factory.StartNew(() => { while (true) { Update(); } });
             Task task2 = Task.Factory.StartNew(() => { while (true) { featch(); } });
+            Task task3 = Task.Factory.StartNew(() => { while (true) { webserver.run(); } });
 
         }
 
         public void Update()
         {
+            if (webserver.newface) {
+                currentface = webserver.face;
+            }
             face.update(currentface);
-
         }
 
         public void featch() {

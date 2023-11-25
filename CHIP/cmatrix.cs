@@ -50,7 +50,7 @@ namespace CHIP
             {
                 if (freecol[i])
                 {
-                    if (rand.Next(0, 3) == 0) {
+                    if (rand.Next(0, 4) == 0) {
                         toprow[i] = new Color(255, 255, 255);
                         color[i, 0] = toprow[i];
                         freecol[i] = false;
@@ -74,7 +74,7 @@ namespace CHIP
                     {
                         newcolor[x, y-1].G = (byte)(newcolor[x, y].G / 2);
                     }
-                    if (newcolor[x, y-1].G < 8) {
+                    if (newcolor[x, y-1].G < 4) {
                             freecol[x] = true;
                     }
                     //draw new color to screen

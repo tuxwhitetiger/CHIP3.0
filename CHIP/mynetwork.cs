@@ -16,7 +16,6 @@ namespace CHIP
         public mynetwork(Logger mylogger)
         {
             this.mylogger = mylogger;
-
         }
 
         public void connect() {

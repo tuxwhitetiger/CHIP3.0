@@ -349,6 +349,7 @@ namespace CHIP
         }
         private void cwoodTick() {
             allGifs["CWOODSDEAN-full"].playGif(matrix, canvas);
+            //need to fix moves to fast
         }
         private void lowbattTick() {
             allGifs["lowbatt"].playGif(matrix, canvas);
@@ -362,6 +363,7 @@ namespace CHIP
         private void eightballTick() {
             eightball.updateTick();
             eightball.drawFace(matrix, canvas);
+            //broken
         }
         private void missingfile()
         {
