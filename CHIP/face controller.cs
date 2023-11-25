@@ -90,6 +90,7 @@ namespace CHIP
                 case "textTest face": currentface = faces.textTest; break;
                 case "DvD face": currentface = faces.DvDBounce; break;
                 case "matrix rain": currentface = faces.matrixRain; break;
+                default: currentface = faces.happy; break;
             }
         }
 
