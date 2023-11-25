@@ -50,7 +50,7 @@ namespace CHIP
             {
                 if (freecol[i])
                 {
-                    if (rand.Next(0, 4) == 0) {
+                    if (rand.Next(0, 8) == 0) {
                         toprow[i] = new Color(255, 255, 255);
                         color[i, 0] = toprow[i];
                         freecol[i] = false;
