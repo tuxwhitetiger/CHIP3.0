@@ -44,6 +44,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="chip-style.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="chip.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
