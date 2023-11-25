@@ -58,10 +58,11 @@ namespace CHIP
                 face=nextFace;
             }
 
-            if (webserver.getnewface())
+
+            nextFace = webserver.getface();
+            if (lastFace.Equals(nextFace))
             {
-                mylogger.Log("webserver has a newface");
-                face=webserver.getface();
+                face = nextFace;
             }
 
             processFace(face);
