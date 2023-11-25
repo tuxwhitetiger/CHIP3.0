@@ -44,6 +44,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="chip.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="faces\Angy-Face-Eye-Twitch.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
