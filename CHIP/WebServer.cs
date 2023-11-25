@@ -78,6 +78,16 @@ namespace CHIP
                     Console.WriteLine("Shutdown requested");
                     runServer = false;
                 }
+                //if a face was posted
+                if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/Set Face"))
+                {
+                    Stream body = req.InputStream;
+                    Encoding encoding = req.ContentEncoding;
+                    StreamReader reader = new System.IO.StreamReader(body, encoding);
+                    string s = reader.ReadToEnd();
+                    mylogger.Log("recived this : " + s);
+                    runServer = false;
+                }
 
                 // Make sure we don't increment the page views counter if `favicon.ico` is requested
                 if (req.Url.AbsolutePath != "/favicon.ico")
