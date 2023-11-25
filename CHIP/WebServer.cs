@@ -49,14 +49,14 @@ namespace CHIP
             mylogger.Log("Listening for connections on"+ url);
 
             // Handle requests
-            Task listenTask = HandleIncomingConnections();
+            Task listenTask = HandleIncomingConnections(mylogger);
             listenTask.GetAwaiter().GetResult();
 
             // Close the listener
             listener.Close();
         }
 
-        public static async Task HandleIncomingConnections()
+        public static async Task HandleIncomingConnections(Logger mylogger)
         {
             bool runServer = true;
 
@@ -84,7 +84,13 @@ namespace CHIP
 
                 // Write the response info
                 string disableSubmit = !runServer ? "disabled" : "";
-                string pageData = String.Concat(File.ReadAllLines("./chip.html"));
+                try
+                {
+                    string pageData = String.Concat(File.ReadAllLines("./chip.html"));
+                }catch (Exception ex)
+                {
+                    mylogger.Log(ex.Message);
+                }
                 byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews, disableSubmit));
                 resp.ContentType = "text/html";
                 resp.ContentEncoding = Encoding.UTF8;
