@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharpDX.DXGI;
+using System;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
 using System.Text;
@@ -8,6 +9,7 @@ namespace CHIP
 {
     internal class face_controller
     {
+        Logger mylogger;
         Face face;
         mynetwork net;
         faces currentface;
@@ -16,7 +18,7 @@ namespace CHIP
         string lastFace = "happy face";
 
         public face_controller(Logger mylogger) {
-            
+            this.mylogger = mylogger;
             mylogger.Log("starting mynetwork");
             net = new mynetwork(mylogger);
             mylogger.Log("starting webserver");
@@ -53,8 +55,10 @@ namespace CHIP
             {
                 processFace(nextFace);
             }
+
             if (webserver.newface)
             {
+                mylogger.Log("webserver has a newface");
                 processFace(webserver.getface());
             }
         }
