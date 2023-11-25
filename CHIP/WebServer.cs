@@ -129,16 +129,16 @@ namespace CHIP
                 }
                 else
                 {
+                    byte[] data = { };
                     try
                     {
                         mylogger.Log("try and load html");
-                        pageData = String.Concat(File.ReadAllLines("./chip.html"));
+                        data = File.ReadAllBytes("./chip.html");
                     }
                     catch (Exception ex)
                     {
                         mylogger.Log(ex.Message);
                     }
-                    byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, face));
                     resp.ContentType = "text/html";
                     resp.ContentEncoding = Encoding.UTF8;
                     resp.ContentLength64 = data.LongLength;
