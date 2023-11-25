@@ -84,7 +84,7 @@ namespace CHIP
 
                 // Write the response info
                 string disableSubmit = !runServer ? "disabled" : "";
-                string pageData = String.Concat(File.ReadAllLines("chip.html"));
+                string pageData = String.Concat(File.ReadAllLines("./chip.html"));
                 byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews, disableSubmit));
                 resp.ContentType = "text/html";
                 resp.ContentEncoding = Encoding.UTF8;
