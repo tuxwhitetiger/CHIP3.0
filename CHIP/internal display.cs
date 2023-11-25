@@ -47,6 +47,7 @@ namespace CHIP
 
         public void printText(String text) {
             var time = DateTime.Now;
+            image.Mutate(ctx => ctx.Fill(Rgba32.Black).DrawText($"{time.Hour.ToString("D2")}:{time.Minute.ToString("D2")}:{time.Second.ToString("D2")}", font, Rgba32.White, new PointF(0, 16)));
             image.Mutate(ctx => ctx.DrawText(text, font, Rgba32.White, new PointF(0, 0)));
             Ssd130.Image(image);
             Ssd130.Display();
@@ -54,7 +55,6 @@ namespace CHIP
 
         internal void update(string face)
         {
-            PrintTime();
             printText(face);
         }
     }
