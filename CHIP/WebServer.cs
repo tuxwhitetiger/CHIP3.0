@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.FileIO;
+using SharpDX.DXGI;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -111,29 +112,37 @@ namespace CHIP
                 {
                     try
                     {
+                        mylogger.Log("try and load css");
                         pageData = String.Concat(File.ReadAllLines("./chip-style.css"));
                     }
                     catch (Exception ex)
                     {
                         mylogger.Log(ex.Message);
                     }
+                    byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews));
+                    resp.ContentType = "text/css";
+                    resp.ContentEncoding = Encoding.UTF8;
+                    resp.ContentLength64 = data.LongLength;
+                    await resp.OutputStream.WriteAsync(data, 0, data.Length);
                 }
                 else
                 {
                     try
                     {
+                        mylogger.Log("try and load html");
                         pageData = String.Concat(File.ReadAllLines("./chip.html"));
                     }
                     catch (Exception ex)
                     {
                         mylogger.Log(ex.Message);
                     }
+                    byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews));
+                    resp.ContentType = "text/html";
+                    resp.ContentEncoding = Encoding.UTF8;
+                    resp.ContentLength64 = data.LongLength;
+                    await resp.OutputStream.WriteAsync(data, 0, data.Length);
                 }
-                byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews));
-                resp.ContentType = "text/html";
-                resp.ContentEncoding = Encoding.UTF8;
-                resp.ContentLength64 = data.LongLength;
-                await resp.OutputStream.WriteAsync(data, 0, data.Length);
+                
                 // Write out to the response stream (asynchronously), then close it
 
                 resp.Close();
