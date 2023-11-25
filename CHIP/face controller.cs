@@ -76,6 +76,7 @@ namespace CHIP
         }
 
         public void processFace(String face) {
+            mylogger.Log("processFace");
             internal_Display.update(face);
             switch (face) // need to make this async
             {
