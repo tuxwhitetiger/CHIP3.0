@@ -94,6 +94,7 @@ namespace CHIP
                     //expecting Faces=Pacman+face
                     //needs to be Pacman face
                     string output = s.Split('=')[1].Replace('+',' ');
+                    mylogger.Log("reader output converted to this :"+ output);
                     face = output;
                     newface = true;
                 }
