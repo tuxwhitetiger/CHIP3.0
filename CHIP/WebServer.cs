@@ -104,23 +104,38 @@ namespace CHIP
                 if (req.Url.AbsolutePath != "/favicon.ico")
                     pageViews += 1;
 
+
                 // Write the response info
-                
                 string pageData = "ERROR COULD NOT LOAD HTML";
-                try
+                if ((req.HttpMethod == "GET") && (req.Url.AbsolutePath == "/chip-style.css"))
                 {
-                    pageData = String.Concat(File.ReadAllLines("./chip.html"));
-                }catch (Exception ex)
+                    try
+                    {
+                        pageData = String.Concat(File.ReadAllLines("./chip-style.css"));
+                    }
+                    catch (Exception ex)
+                    {
+                        mylogger.Log(ex.Message);
+                    }
+                }
+                else
                 {
-                    mylogger.Log(ex.Message);
+                    try
+                    {
+                        pageData = String.Concat(File.ReadAllLines("./chip.html"));
+                    }
+                    catch (Exception ex)
+                    {
+                        mylogger.Log(ex.Message);
+                    }
                 }
                 byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews));
                 resp.ContentType = "text/html";
                 resp.ContentEncoding = Encoding.UTF8;
                 resp.ContentLength64 = data.LongLength;
-
-                // Write out to the response stream (asynchronously), then close it
                 await resp.OutputStream.WriteAsync(data, 0, data.Length);
+                // Write out to the response stream (asynchronously), then close it
+
                 resp.Close();
             }
         }

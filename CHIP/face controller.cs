@@ -60,9 +60,9 @@ namespace CHIP
 
             if (webserver.getnewface())
             {
-                mylogger.Log("webserver has a newface");
                 face=webserver.getface();
                 net.setFace(face);
+                mylogger.Log("webserver has a newface");
             }
 
             processFace(face);
