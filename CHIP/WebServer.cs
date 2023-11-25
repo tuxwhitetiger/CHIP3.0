@@ -114,6 +114,8 @@ namespace CHIP
                     {
                         mylogger.Log("try and load css");
                         pageData = String.Concat(File.ReadAllLines("./chip-style.css"));
+
+                        mylogger.Log("css loaded");
                     }
                     catch (Exception ex)
                     {
@@ -121,7 +123,7 @@ namespace CHIP
                     }
                     byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews));
                     resp.ContentType = "text/css";
-                    resp.ContentEncoding = Encoding.UTF8;
+                    //resp.ContentEncoding = Encoding.UTF8;
                     resp.ContentLength64 = data.LongLength;
                     await resp.OutputStream.WriteAsync(data, 0, data.Length);
                 }
