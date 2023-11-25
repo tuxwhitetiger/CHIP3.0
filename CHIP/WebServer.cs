@@ -30,7 +30,7 @@ namespace CHIP
             "  </body>" +
             "</html>";
         */
-        internal faces face = faces.happy;
+        internal String face = "Happy face";
         internal bool newface = false;
         private Logger mylogger;
 
@@ -50,14 +50,14 @@ namespace CHIP
             mylogger.Log("Listening for connections on "+ url);
 
             // Handle requests
-            Task listenTask = HandleIncomingConnections(mylogger);
+            Task listenTask = HandleIncomingConnections(mylogger,newface,face);
             listenTask.GetAwaiter().GetResult();
 
             // Close the listener
             listener.Close();
         }
 
-        public static async Task HandleIncomingConnections(Logger mylogger)
+        public static async Task HandleIncomingConnections(Logger mylogger,bool newface,String face)
         {
             bool runServer = true;
 
@@ -89,7 +89,13 @@ namespace CHIP
                     mylogger.Log("reader built go reader go");
                     string s = reader.ReadToEnd();
                     mylogger.Log("recived this : " + s);
-                    runServer = false;
+
+                    //dosomething with the data here
+                    //expecting Faces=Pacman+face
+                    //needs to be Pacman face
+                    string output = s.Split('=')[1].Replace('+',' ');
+                    face = output;
+                    newface = true;
                 }
 
                 // Make sure we don't increment the page views counter if `favicon.ico` is requested
@@ -97,7 +103,7 @@ namespace CHIP
                     pageViews += 1;
 
                 // Write the response info
-                string disableSubmit = !runServer ? "disabled" : "";
+                
                 string pageData = "ERROR COULD NOT LOAD HTML";
                 try
                 {
@@ -106,7 +112,7 @@ namespace CHIP
                 {
                     mylogger.Log(ex.Message);
                 }
-                byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews, disableSubmit));
+                byte[] data = Encoding.UTF8.GetBytes(String.Format(pageData, pageViews));
                 resp.ContentType = "text/html";
                 resp.ContentEncoding = Encoding.UTF8;
                 resp.ContentLength64 = data.LongLength;
@@ -117,5 +123,11 @@ namespace CHIP
             }
         }
 
+        internal String getface()
+        {
+            
+            newface = false;
+            return face;
+        }
     }
 }
