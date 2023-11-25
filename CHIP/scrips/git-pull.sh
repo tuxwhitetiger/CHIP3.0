@@ -10,3 +10,17 @@ cd /home/tux/CHIP3/CHIP
 sudo mcs -out:bob.exe *.cs /r:RGBLedMatrix.dll
 
 
+
+
+
+
+
+
+
+
+
+current
+
+git -C /home/tux/CHIP3/CHIP3.0 pull https://github.com/tuxwhitetiger/CHIP3.0.git
+
+sudo systemctl restart Chip-Face.service

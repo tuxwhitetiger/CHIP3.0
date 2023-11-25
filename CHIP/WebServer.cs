@@ -34,6 +34,7 @@ namespace CHIP
             // Create a Http server and start listening for incoming connections
             listener = new HttpListener();
             listener.Prefixes.Add(url);
+            listener.Prefixes.Add(url2);
             listener.Start();
             Console.WriteLine("Listening for connections on {0}", url);
 
