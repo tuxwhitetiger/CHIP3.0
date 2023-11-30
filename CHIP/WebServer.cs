@@ -35,6 +35,13 @@ namespace CHIP
         public static bool newface = false;
         private Logger mylogger;
 
+        public static double temperature = 0;
+        public static double voltagetotal = 0;
+        public static double voltagecell1 = 0;
+        public static double voltagecell2 = 0;
+        public static double AmpTotal = 0;
+
+
         public WebServer(Logger mylogger)
         {
             this.mylogger = mylogger;
@@ -126,6 +133,24 @@ namespace CHIP
                     resp.ContentEncoding = Encoding.UTF8;
                     resp.ContentLength64 = data.Length;
                     await resp.OutputStream.WriteAsync(data, 0, data.Length);
+                }
+                else if ((req.HttpMethod == "GET") && (req.Url.AbsolutePath.Contains("update-battery"))) {
+
+                    String[] strings = req.Url.AbsolutePath.Split("?")[1].Split("&");
+                    //Expecting temperature=" + x + "&voltagetotal=" + x + "&voltagecell1=" + x + "&voltagecell2=" + x + "&AmpTotal=" + x;
+                    temperature = double.Parse(strings[0].Split("=")[1]);
+                    voltagetotal = double.Parse(strings[1].Split("=")[1]);
+                    voltagecell1 = double.Parse(strings[2].Split("=")[1]);
+                    voltagecell2 = double.Parse(strings[3].Split("=")[1]);
+                    AmpTotal = double.Parse(strings[4].Split("=")[1]);
+
+                    byte[] data = { };
+                    data = System.Text.Encoding.UTF8.GetBytes("done");
+                    resp.ContentType = "text/html";
+                    resp.ContentEncoding = Encoding.UTF8;
+                    resp.ContentLength64 = data.Length;
+                    await resp.OutputStream.WriteAsync(data, 0, data.Length);
+
                 }
                 else
                 {
