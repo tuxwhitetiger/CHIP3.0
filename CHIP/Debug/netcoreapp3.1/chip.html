@@ -3,6 +3,7 @@
 <head>
     <title>CHIP</title>
     <link rel="stylesheet" href="chip-style.css">
+    <meta http-equiv="refresh" content="10" />
 </head>
 <body>
 
@@ -43,5 +44,9 @@
             selectElement = document.querySelector('#chip-faces');
             selectElement.form.submit();
         };
+
+        setTimeout(function () {
+            window.location.reload(1);
+        }, 5000);
 
     </script>
