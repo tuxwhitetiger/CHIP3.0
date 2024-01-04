@@ -82,13 +82,14 @@ namespace CHIP
             // While a user hasn't visited the `shutdown` url, keep on handling requests
             while (runServer)
             {
+                mylogger.Log("waiting for webrequest");
                 // Will wait here until we hear from a connection
                 HttpListenerContext ctx = await listener.GetContextAsync();
-
+                mylogger.Log("webrequest resived");
                 // Peel out the requests and response objects
                 HttpListenerRequest req = ctx.Request;
                 HttpListenerResponse resp = ctx.Response;
-
+                mylogger.Log("HttpListenerRequest and HttpListenerResponse setup");
 
                 // If `shutdown` url requested w/ POST, then shutdown the server after serving the page
                 if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/shutdown"))
