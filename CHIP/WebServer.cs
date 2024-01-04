@@ -13,7 +13,8 @@ namespace CHIP
     internal class WebServer
     {
         public static HttpListener listener;
-        public static string[] urls = { "http://+:8000/", "http://10.1.1.1:8000/", "http://10.0.0.14:8000/" };
+        //public static string[] urls = { "http://+:8000/", "http://10.1.1.1:8000/", "http://10.0.0.14:8000/" };
+        public static string[] urls = { "http://10.1.1.1:8000/"};
         public static int pageViews = 0;
         public static int requestCount = 0;
         /*
