@@ -61,7 +61,7 @@ namespace CHIP
             try
             {
                 listener.Start();
-                mylogger.Log("Listening for connections on " + urls);
+                mylogger.Log("Listening for connections on urls");
             }catch(Exception ex)
             {
                 mylogger.Log(ex.ToString());
@@ -70,6 +70,7 @@ namespace CHIP
             Task listenTask = HandleIncomingConnections(mylogger);
             listenTask.GetAwaiter().GetResult();
 
+            mylogger.Log("close");
             // Close the listener
             listener.Close();
         }
