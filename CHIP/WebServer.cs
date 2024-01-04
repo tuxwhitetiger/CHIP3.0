@@ -147,7 +147,7 @@ namespace CHIP
                     await resp.OutputStream.WriteAsync(data, 0, data.Length);
                 }
                 else if ((req.HttpMethod == "GET") && (req.Url.AbsolutePath.Contains("update-battery"))) {
-                    mylogger.Log("battery trying to update with :"+ req.Url.AbsolutePath);
+                    mylogger.Log("battery trying to update with :"+ req.Url.OriginalString);
                     String[] strings = req.Url.AbsolutePath.Split("?")[1].Split("&");
                     //Expecting temperature=" + x + "&voltagetotal=" + x + "&voltagecell1=" + x + "&voltagecell2=" + x + "&AmpTotal=" + x;
                     temperature = double.Parse(strings[0].Split("=")[1]);
