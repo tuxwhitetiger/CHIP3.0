@@ -3,6 +3,7 @@ using SharpDX.DXGI;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Reflection.Emit;
 using System.Text;
@@ -168,8 +169,20 @@ namespace CHIP
                     byte[] data = { };
                     try
                     {
+                        List<byte[]> bytes = new List<byte[]>();
+
                         mylogger.Log("try and load html");
-                        data = File.ReadAllBytes("./chip.html");
+                        bytes.Add(File.ReadAllBytes("./chip.html"));
+                        bytes.Add(Encoding.ASCII.GetBytes("<div class=temp><p>Temperature :" + temperature + "</p></div>"));
+                        bytes.Add(Encoding.ASCII.GetBytes("<div class=volt><p>Voltage :" + voltagetotal + "</p></div>"));
+                        bytes.Add(Encoding.ASCII.GetBytes("<div class=amp><p>Amp :" + AmpTotal + "</p></div>"));
+                        byte[] temp = { };
+                        foreach (byte[] b in bytes)
+                        {
+                            temp = temp.Union(b).ToArray();
+                        }
+
+                        data = temp.ToArray();
                     }
                     catch (Exception ex)
                     {
