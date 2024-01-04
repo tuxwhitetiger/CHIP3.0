@@ -176,11 +176,27 @@ namespace CHIP
                         bytes.Add(Encoding.ASCII.GetBytes("<div class=temp><p>Temperature :" + temperature + "</p></div>"));
                         bytes.Add(Encoding.ASCII.GetBytes("<div class=volt><p>Voltage :" + voltagetotal + "</p></div>"));
                         bytes.Add(Encoding.ASCII.GetBytes("<div class=amp><p>Amp :" + AmpTotal + "</p></div>"));
-                        byte[] temp = { };
+                        int Totallengeth = 0;
+                        int lengthsofar = 0;
+                        byte[][] mybytes = bytes.ToArray();
                         foreach (byte[] b in bytes)
                         {
-                            temp = temp.Union(b).ToArray();
+                            Totallengeth += b.Length;
                         }
+                        byte[] temp = new byte[Totallengeth];
+
+                        for (int i = 0;i < bytes.Count; i++) {
+                            if (i == 0)
+                            {
+                                Array.Copy(mybytes[i], temp, mybytes[i].Length);
+                            }
+                            else {
+                                Array.Copy(mybytes[i], 0, temp, lengthsofar, mybytes[i].Length);
+
+                            }
+                            lengthsofar += mybytes[i].Length;
+                        }
+
 
                         data = temp.ToArray();
                     }
