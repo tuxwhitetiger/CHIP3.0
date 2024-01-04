@@ -13,7 +13,7 @@ namespace CHIP
     internal class WebServer
     {
         public static HttpListener listener;
-        public static string url = "http://+:8000/";
+        public static string[] urls = { "http://+:8000/", "http://10.1.1.1:8000/", "http://10.0.0.14:8000/" };
         public static int pageViews = 0;
         public static int requestCount = 0;
         /*
@@ -52,10 +52,13 @@ namespace CHIP
             // Create a Http server and start listening for incoming connections
             listener = new HttpListener();
             mylogger.Log("created web listener");
-            listener.Prefixes.Add(url);
-            mylogger.Log("added web url");
+            foreach (string url in urls)
+            {
+                listener.Prefixes.Add(url);
+                mylogger.Log("added web url:"+url);
+            }
             listener.Start();
-            mylogger.Log("Listening for connections on "+ url);
+            mylogger.Log("Listening for connections on "+ urls);
 
             // Handle requests
             Task listenTask = HandleIncomingConnections(mylogger);
