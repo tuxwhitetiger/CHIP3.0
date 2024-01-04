@@ -57,9 +57,14 @@ namespace CHIP
                 listener.Prefixes.Add(url);
                 mylogger.Log("added web url:"+url);
             }
-            listener.Start();
-            mylogger.Log("Listening for connections on "+ urls);
-
+            try
+            {
+                listener.Start();
+                mylogger.Log("Listening for connections on " + urls);
+            }catch(Exception ex)
+            {
+                mylogger.Log(ex.ToString());
+            }
             // Handle requests
             Task listenTask = HandleIncomingConnections(mylogger);
             listenTask.GetAwaiter().GetResult();
