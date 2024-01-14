@@ -63,7 +63,13 @@ namespace CHIP
             {
                 listener.Start();
                 mylogger.Log("Listening for connections on urls");
-            }catch(Exception ex)
+                shell_Wrapper bash = new shell_Wrapper();
+                
+                mylogger.Log("open up firewall");
+                bash.Run("sudo ufw reload");
+                mylogger.Log("frewall result:" + bash.result);
+            }
+            catch(Exception ex)
             {
                 mylogger.Log(ex.ToString());
             }
