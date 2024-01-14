@@ -66,8 +66,12 @@ namespace CHIP
                 shell_Wrapper bash = new shell_Wrapper();
                 
                 mylogger.Log("open up firewall");
-                bash.Run("sudo su & ufw reload");
-                mylogger.Log("frewall result:" + bash.result);
+                bash.run("sudo su & ufw reload");
+                while (bash.EndTime == null) { 
+                
+                }
+                mylogger.Log("frewall result:" + bash.Output);
+                mylogger.Log("frewall error:" + bash.Errors);
             }
             catch(Exception ex)
             {
