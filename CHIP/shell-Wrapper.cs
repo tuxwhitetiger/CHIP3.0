@@ -22,8 +22,8 @@ namespace CHIP
             };
 
             process.Start();
-            result = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
+            result = process.StandardOutput.ReadToEnd();
         }
     }
 }
