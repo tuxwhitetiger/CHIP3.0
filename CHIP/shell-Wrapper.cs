@@ -22,7 +22,7 @@ namespace CHIP
             };
 
             process.Start();
-            string result = process.StandardOutput.ReadToEnd();
+            result = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
         }
     }
