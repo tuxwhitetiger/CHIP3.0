@@ -14,7 +14,7 @@ namespace CHIP
         /// 
         Logger mylogger;
         Socket socket;
-        public List<Controller> controllers = new List<Controller>();
+        public List<GameController> controllers = new List<GameController>();
         int controllercount = 1;
 
         public controller_network(Logger mylogger) {
@@ -38,7 +38,7 @@ namespace CHIP
             Console.WriteLine("started listning");
             socket.Listen(10);
             Socket client = socket.Accept();
-            Controller c = new Controller(controllercount);
+            GameController c = new GameController(controllercount);
             mylogger.Log("controller created");
             Console.WriteLine("controller created");
             c.socket = client;

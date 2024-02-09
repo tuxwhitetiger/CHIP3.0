@@ -115,7 +115,7 @@ namespace CHIP
             matrix.SwapOnVsync(canvas);
         }
 
-        internal void update(Controller controller)
+        internal void update(GameController controller)
         {
             //Console.WriteLine("snake part count:"+ Snake.Count);
             //Console.WriteLine("snake controller start:" + controller.start);

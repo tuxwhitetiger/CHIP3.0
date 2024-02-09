@@ -65,6 +65,10 @@
               "target": "Package",
               "version": "[1.0.0-beta0004, )"
             },
+            "System.Device.Gpio": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
             "System.Drawing.Common": {
               "target": "Package",
               "version": "[6.0.0, )"

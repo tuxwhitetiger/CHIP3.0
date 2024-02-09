@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CHIP
 {
-    class Controller
+    class GameController
     {
         public Socket socket;
         public int player = 0;
@@ -25,7 +25,7 @@ namespace CHIP
 
         bool waitingupdate = false;
 
-        public Controller(int playernumber) {
+        public GameController(int playernumber) {
             player = playernumber;
         }
         public bool isalive() {

@@ -13,7 +13,7 @@ namespace CHIP
     {
         Logger mylogger;
         //controller_network cnet;
-        List<Controller> controllerstokill;
+        List<GameController> controllerstokill;
 
         CalanderClock clock;
 
