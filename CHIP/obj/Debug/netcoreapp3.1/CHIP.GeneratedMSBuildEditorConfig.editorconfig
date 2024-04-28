@@ -1,3 +1,5 @@
 is_global = true
 build_property.RootNamespace = CHIP
-build_property.ProjectDir = C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\
+build_property.ProjectDir = C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
