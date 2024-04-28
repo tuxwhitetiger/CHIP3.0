@@ -28,7 +28,7 @@ namespace CHIP
             //controllerstokill = new List<Controller>();
             mylogger.Log("starting CalanderClock");
             //clock = new CalanderClock(net);
-            mylogger.Log("net.connect");
+            mylogger.Log("internal_Display");
             try
             {
                 internal_Display = new internal_display(mylogger);
@@ -37,6 +37,7 @@ namespace CHIP
             {
                 mylogger.Log("fail:"+ex.Message);
             }
+            mylogger.Log("net.connect");
             net.connect();
             mylogger.Log("new Face");
             face = new Face();
