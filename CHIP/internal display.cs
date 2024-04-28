@@ -24,15 +24,22 @@ namespace CHIP
         Logger mylogger;
 
         public internal_display(Logger mylogger) {
-            this.mylogger = mylogger;
-            mylogger.Log("Ssd130 Begin");
-            Ssd130.Begin(mylogger,1);
-            mylogger.Log("Ssd130 Clear");
-            Ssd130.Clear();
-            mylogger.Log("Ssd130 Display");
-            Ssd130.Display();
-            mylogger.Log("List");
-            PrintTime();
+            try
+            {
+                this.mylogger = mylogger;
+                mylogger.Log("Ssd130 Begin");
+                Ssd130.Begin(mylogger, 1);
+                mylogger.Log("Ssd130 Clear");
+                Ssd130.Clear();
+                mylogger.Log("Ssd130 Display");
+                Ssd130.Display();
+                mylogger.Log("List");
+                PrintTime();
+            }catch (Exception ex)
+            {
+                mylogger.Log(ex.Message);
+                throw ex;
+            }
         }
 
         public void PrintTime() {
