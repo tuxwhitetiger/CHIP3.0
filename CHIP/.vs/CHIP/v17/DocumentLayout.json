@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\chip.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:chip.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
@@ -44,10 +48,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\chip.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:chip.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\scrips\\git-pull.sh||{3B902123-F8A7-4915-9F01-361F908088D0}",
@@ -103,7 +103,7 @@
         },
         {
           "DockedWidth": 617,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -115,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\.gitignore",
               "RelativeDocumentMoniker": "..\\.gitignore",
@@ -132,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Paws.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\Paws.cs",
               "RelativeDocumentMoniker": "Paws.cs",
@@ -145,7 +145,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "snake.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\snake.cs",
               "RelativeDocumentMoniker": "snake.cs",
@@ -157,7 +157,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "controller-network.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\controller-network.cs",
               "RelativeDocumentMoniker": "controller-network.cs",
@@ -169,7 +169,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "SSD130.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\SSD130.cs",
               "RelativeDocumentMoniker": "SSD130.cs",
@@ -181,7 +181,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "shell-Wrapper.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\shell-Wrapper.cs",
               "RelativeDocumentMoniker": "shell-Wrapper.cs",
@@ -193,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "WebServer.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\WebServer.cs",
               "RelativeDocumentMoniker": "WebServer.cs",
@@ -217,7 +217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "GameController.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\GameController.cs",
               "RelativeDocumentMoniker": "GameController.cs",
@@ -229,19 +229,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 0,
               "Title": "chip.html",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\chip.html",
               "RelativeDocumentMoniker": "chip.html",
               "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\chip.html",
               "RelativeToolTip": "chip.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2023-11-25T20:11:35.406Z"
+              "WhenOpened": "2023-11-25T20:11:35.406Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -253,7 +254,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Face.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\Face.cs",
               "RelativeDocumentMoniker": "Face.cs",
@@ -349,7 +350,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "internal display.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\internal display.cs",
               "RelativeDocumentMoniker": "internal display.cs",

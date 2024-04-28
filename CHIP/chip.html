@@ -3,7 +3,6 @@
 <head>
     <title>CHIP</title>
     <link rel="stylesheet" href="chip-style.css">
-    <meta http-equiv="refresh" content="10" />
 </head>
 <body>
 
@@ -32,21 +31,22 @@
             <option value="DvD face">DvD face</option>
             <option value="matrix rain">matrix rain</option>
         </select>
-    <!--<input type="submit" value="SetFace">-->
-</form>
+        <!--<input type="submit" value="SetFace">-->
+    </form>
+    <form method="post" action="SetTextFace">
+        <label for="Faces">write text to Face:</label><br>
+        <input type="text" id="ftext" name="ftext"><br>
+        <input type="submit" value="SetTextFace">
+    </form>
+</body>
 
-    </body>
+</html>
+<script>
+    function onSelectChange(event) {
 
-    </html>
-    <script>
-        function onSelectChange(event) {
+        selectElement = document.querySelector('#chip-faces');
+        selectElement.form.submit();
+    };
 
-            selectElement = document.querySelector('#chip-faces');
-            selectElement.form.submit();
-        };
 
-        //setTimeout(function () {
-        //    window.location.reload(1);
-        //}, 5000);
-
-    </script>
+</script>
