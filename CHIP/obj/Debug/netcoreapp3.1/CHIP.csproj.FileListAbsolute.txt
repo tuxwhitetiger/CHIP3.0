@@ -97,7 +97,6 @@ C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHI
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.AssemblyInfoInputs.cache
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.AssemblyInfo.cs
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.csproj.CoreCompileInputs.cache
-C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.csproj.CopyComplete
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.dll
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.pdb
 C:\Users\TUX\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.genruntimeconfig.cache
@@ -226,3 +225,13 @@ C:\Users\chris.lloyd\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreap
 C:\Users\chris.lloyd\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.csproj.CopyComplete
 C:\Users\chris.lloyd\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.dll
 C:\Users\chris.lloyd\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.pdb
+C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\Microsoft.Win32.Registry.dll
+C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\System.Device.Gpio.dll
+C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\System.Security.AccessControl.dll
+C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\System.Security.Principal.Windows.dll
+C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll
+C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
+C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.sourcelink.json
+C:\Users\tux\source\repos\tuxwhitetiger\CHIP3.0\CHIP\obj\Debug\netcoreapp3.1\CHIP.csproj.Up2Date

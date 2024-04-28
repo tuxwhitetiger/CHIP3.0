@@ -3,7 +3,6 @@
 <head>
     <title>CHIP</title>
     <link rel="stylesheet" href="chip-style.css">
-    <meta http-equiv="refresh" content="10" />
 </head>
 <body>
 
@@ -16,16 +15,16 @@
             <option value="Angry face">Angry face</option>
             <option value="What face">What face</option>
             <option value="Flag face">Flag face</option>
-            <option value="Gif face">Gif face</option>
+            <!-- <option value="Gif face">Gif face</option> -->
             <option value="Shock face">Shock face</option>
-            <option value="Snake face">Snake face</option>
+            <!-- <option value="Snake face">Snake face</option> -->
             <option value="Overheat face">Overheat face</option>
-            <option value="Cwood face">Cwood face</option>
+            <!-- <option value="Cwood face">Cwood face</option> -->
             <option value="Lowbatt face">Lowbatt face</option>
             <option value="Pacman face">Pacman face</option>
             <option value="Matrix face">Matrix face</option>
-            <option value="8 Ball Face">8 Ball Face</option>
-            <option value="SHAKE BALL">SHAKE BALL</option>
+            <!-- <option value="8 Ball Face">8 Ball Face</option> -->
+            <!-- <option value="SHAKE BALL">SHAKE BALL</option> -->
             <option value="HALLOWEEN FACE">HALLOWEEN FACE</option>
             <option value="LOVE FACE">LOVE FACE</option>
             <option value="textTest face">textTest face</option>
@@ -33,20 +32,21 @@
             <option value="matrix rain">matrix rain</option>
         </select>
         <!--<input type="submit" value="SetFace">-->
-        </form>
+    </form> 
+    <form method="post" action="SetTextFace">
+        <label for="Faces">write text to Face:</label><br>
+        <input type="text" id="ftext" name="ftext"><br>
+        <input type="submit" value="SetTextFace">
+    </form>
+</body>
 
-    </body>
+</html>
+<script>
+    function onSelectChange(event) {
 
-    </html>
-    <script>
-        function onSelectChange(event) {
+        selectElement = document.querySelector('#chip-faces');
+        selectElement.form.submit();
+    };
 
-            selectElement = document.querySelector('#chip-faces');
-            selectElement.form.submit();
-        };
 
-        //setTimeout(function () {
-        //    window.location.reload(1);
-        //}, 5000);
-
-    </script>
+</script>
