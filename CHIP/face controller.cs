@@ -38,15 +38,16 @@ namespace CHIP
 
             }
             net.connect();
+            mylogger.Log("new Face");
             face = new Face();
             face.load(mylogger,net);
 
 
-
+            mylogger.Log("build tasks");
             Task task = Task.Factory.StartNew(() => { while (true) { Update(); } });
             Task task2 = Task.Factory.StartNew(() => { while (true) { featch(); } });
             Task task3 = Task.Factory.StartNew(() => { while (true) { webserver.run(); } });
-
+            mylogger.Log("face controller startted");
         }
 
         public void Update()

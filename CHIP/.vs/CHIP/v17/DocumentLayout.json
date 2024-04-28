@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\face controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:face controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\internal display.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:internal display.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\cmatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:cmatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\ssd130.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:ssd130.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\chip.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:chip.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -38,20 +58,8 @@
       "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\ssd130.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:ssd130.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\internal display.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:internal display.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\shell-wrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:shell-wrapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\mynetwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -60,14 +68,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\face controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:face controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\cmatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:cmatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\gifdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -103,7 +103,7 @@
         },
         {
           "DockedWidth": 617,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -115,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 7,
               "Title": ".gitignore",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\.gitignore",
               "RelativeDocumentMoniker": "..\\.gitignore",
@@ -132,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "Paws.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\Paws.cs",
               "RelativeDocumentMoniker": "Paws.cs",
@@ -145,55 +145,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "snake.cs",
-              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\snake.cs",
-              "RelativeDocumentMoniker": "snake.cs",
-              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\snake.cs",
-              "RelativeToolTip": "snake.cs",
-              "ViewState": "AQIAAFwAAAAAAAAAAAAqwHUAAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-04T13:31:07.009Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "controller-network.cs",
-              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\controller-network.cs",
-              "RelativeDocumentMoniker": "controller-network.cs",
-              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\controller-network.cs",
-              "RelativeToolTip": "controller-network.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAiwCgAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-04T13:30:59.393Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 4,
               "Title": "SSD130.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\SSD130.cs",
               "RelativeDocumentMoniker": "SSD130.cs",
               "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\SSD130.cs",
               "RelativeToolTip": "SSD130.cs",
-              "ViewState": "AQIAALsAAAAAAAAAAAAIwN4AAAAJAAAA",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAQwIcAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-04T12:12:33.414Z"
+              "WhenOpened": "2024-02-04T12:12:33.414Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "shell-Wrapper.cs",
-              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\shell-Wrapper.cs",
-              "RelativeDocumentMoniker": "shell-Wrapper.cs",
-              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\shell-Wrapper.cs",
-              "RelativeToolTip": "shell-Wrapper.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAswBMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-01-14T12:49:58.24Z"
+              "DocumentIndex": 5,
+              "Title": "chip.html",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\chip.html",
+              "RelativeDocumentMoniker": "chip.html",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\chip.html",
+              "RelativeToolTip": "chip.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2023-11-25T20:11:35.406Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "WebServer.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\WebServer.cs",
               "RelativeDocumentMoniker": "WebServer.cs",
@@ -201,11 +179,12 @@
               "RelativeToolTip": "WebServer.cs",
               "ViewState": "AQIAAGgAAAAAAAAAAAAqwH8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-25T16:39:48.328Z"
+              "WhenOpened": "2023-11-25T16:39:48.328Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "git-pull.sh",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\scrips\\git-pull.sh",
               "RelativeDocumentMoniker": "scrips\\git-pull.sh",
@@ -218,7 +197,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
               "Title": "GameController.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\GameController.cs",
               "RelativeDocumentMoniker": "GameController.cs",
@@ -226,36 +205,25 @@
               "RelativeToolTip": "GameController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-25T20:19:48.269Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "chip.html",
-              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\chip.html",
-              "RelativeDocumentMoniker": "chip.html",
-              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\chip.html",
-              "RelativeToolTip": "chip.html",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2023-11-25T20:11:35.406Z",
+              "WhenOpened": "2023-11-25T20:19:48.269Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAIBJwA4AAAArAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-15T18:07:22.645Z"
+              "WhenOpened": "2023-10-15T18:07:22.645Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Face.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\Face.cs",
               "RelativeDocumentMoniker": "Face.cs",
@@ -263,7 +231,8 @@
               "RelativeToolTip": "Face.cs",
               "ViewState": "AQIAAGUBAAAAAAAAAAAUwHoBAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-01-27T20:55:28.25Z"
+              "WhenOpened": "2023-01-27T20:55:28.25Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -275,7 +244,8 @@
               "RelativeToolTip": "GifData.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-25T17:17:17.601Z"
+              "WhenOpened": "2023-11-25T17:17:17.601Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -287,7 +257,8 @@
               "RelativeToolTip": "Gif.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-15T18:06:57.533Z"
+              "WhenOpened": "2023-10-15T18:06:57.533Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -299,11 +270,12 @@
               "RelativeToolTip": "gifstruct.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-25T17:17:18.461Z"
+              "WhenOpened": "2023-11-25T17:17:18.461Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "Logger.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\Logger.cs",
               "RelativeDocumentMoniker": "Logger.cs",
@@ -311,23 +283,90 @@
               "RelativeToolTip": "Logger.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-25T16:52:04.225Z"
+              "WhenOpened": "2023-11-25T16:52:04.225Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 3,
               "Title": "cmatrix.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\cmatrix.cs",
               "RelativeDocumentMoniker": "cmatrix.cs",
               "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\cmatrix.cs",
               "RelativeToolTip": "cmatrix.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAQwDEAAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEEAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-11-25T20:19:49.256Z"
+              "WhenOpened": "2023-11-25T20:19:49.256Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 0,
+              "Title": "face controller.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\face controller.cs",
+              "RelativeDocumentMoniker": "face controller.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\face controller.cs",
+              "RelativeToolTip": "face controller.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwCoAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-15T18:10:24.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "internal display.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\internal display.cs",
+              "RelativeDocumentMoniker": "internal display.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\internal display.cs",
+              "RelativeToolTip": "internal display.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-10-15T18:07:08.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "shell-Wrapper.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\shell-Wrapper.cs",
+              "RelativeDocumentMoniker": "shell-Wrapper.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\shell-Wrapper.cs",
+              "RelativeToolTip": "shell-Wrapper.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAswBMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-01-14T12:49:58.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "controller-network.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\controller-network.cs",
+              "RelativeDocumentMoniker": "controller-network.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\controller-network.cs",
+              "RelativeToolTip": "controller-network.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAiwCgAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-04T13:30:59.393Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "snake.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\snake.cs",
+              "RelativeDocumentMoniker": "snake.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\snake.cs",
+              "RelativeToolTip": "snake.cs",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAqwHUAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-04T13:31:07.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "mynetwork.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\mynetwork.cs",
               "RelativeDocumentMoniker": "mynetwork.cs",
@@ -335,31 +374,8 @@
               "RelativeToolTip": "mynetwork.cs",
               "ViewState": "AQIAAAIAAAAAAAAAAAAqwDQAAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-15T18:03:01.87Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "face controller.cs",
-              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\face controller.cs",
-              "RelativeDocumentMoniker": "face controller.cs",
-              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\face controller.cs",
-              "RelativeToolTip": "face controller.cs",
-              "ViewState": "AQIAADQAAAAAAAAAAADwv08AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-15T18:10:24.67Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "internal display.cs",
-              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\internal display.cs",
-              "RelativeDocumentMoniker": "internal display.cs",
-              "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\internal display.cs",
-              "RelativeToolTip": "internal display.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAIBJwBwAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-10-15T18:07:08.514Z"
+              "WhenOpened": "2023-10-15T18:03:01.87Z",
+              "EditorCaption": ""
             }
           ]
         }
