@@ -35,7 +35,7 @@ namespace CHIP
             }
             catch (Exception ex)
             {
-
+                mylogger.Log("fail:"+ex.Message);
             }
             net.connect();
             mylogger.Log("new Face");
