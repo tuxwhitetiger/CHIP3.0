@@ -135,7 +135,7 @@ public static string pageData =
                     //expecting Faces=Pacman+face
                     //needs to be Pacman face
                     string output = s.Split('=')[1].Replace('+', ' ');
-                    if (loggingEnabled)
+                    //if (loggingEnabled)
                     {
                         mylogger.Log("reader output converted to this :" + output);
                     }
@@ -169,7 +169,7 @@ public static string pageData =
                     //expecting Faces=Pacman+face
                     //needs to be Pacman face
                     string output = s.Split('=')[1].Replace('+', ' ');
-                    if (loggingEnabled)
+                    //if (loggingEnabled)
                     {
                         mylogger.Log("reader output converted to this :" + output);
                     }

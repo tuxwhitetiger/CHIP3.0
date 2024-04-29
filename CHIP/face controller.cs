@@ -69,11 +69,12 @@ namespace CHIP
 
             if (webserver.getnewface())
             {
-                face=webserver.getface();
-                net.setFace(face);
                 mylogger.Log("webserver has a newface");
+                face =webserver.getface();
+                mylogger.Log("update network");
+                net.setFace(face);
             }
-
+            mylogger.Log("processFace:"+ face);
             processFace(face);
         }
 
