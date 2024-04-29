@@ -18,7 +18,7 @@ namespace CHIP
         int x=0;
         int x2=0;
         int y;
-        Color col;
+        Color col = new Color(255,255,255);
         int speed = 33;//ms delay per pixel shift
         public TextFace(Logger mylogger,string text)
         {
