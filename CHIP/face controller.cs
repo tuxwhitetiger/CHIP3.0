@@ -78,11 +78,11 @@ namespace CHIP
             processFace(face);
         }
 
-        public void processFace(String face) {
+        public void processFace(String facename) {
             
 
-            internal_Display.update(face);
-            switch (face) // need to make this async
+            internal_Display.update(facename);
+            switch (facename) // need to make this async
             {
                 case "Sad face": currentface = faces.sad; break;
                 case "Happy face": currentface = faces.happy; break;
@@ -104,7 +104,7 @@ namespace CHIP
                 case "textTest face": currentface = faces.textTest; break;
                 case "DvD face": currentface = faces.DvDBounce; break;
                 case "matrix rain": currentface = faces.matrixRain; break;
-                case "textFace": currentface = faces.textFace; this.face.setText(webserver.GetText()); break;
+                case "textFace": currentface = faces.textFace; face.setText(webserver.GetText()); break;
                 default:currentface = faces.happy; break;
             }
         }
