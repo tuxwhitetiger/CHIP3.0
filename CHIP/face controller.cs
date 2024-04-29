@@ -75,9 +75,9 @@ namespace CHIP
                 face =webserver.getface();
                 mylogger.Log("update network");
                 //net.setFace(face);
+                mylogger.Log("processFace:" + face);
+                processFace(face);
             }
-            mylogger.Log("processFace:"+ face);
-            processFace(face);
         }
 
         public void processFace(String facename) {
