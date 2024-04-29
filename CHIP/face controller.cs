@@ -49,6 +49,7 @@ namespace CHIP
             Task task2 = Task.Factory.StartNew(() => { while (true) { featch(); } });
             Task task3 = Task.Factory.StartNew(() => { while (true) { webserver.run(); } });
             mylogger.Log("face controller startted");
+
         }
 
         public void Update()
@@ -57,7 +58,7 @@ namespace CHIP
         }
 
         public void featch() {
-
+            mylogger.Log("featch");
             String face = "";
 
             lastFace = nextFace;
