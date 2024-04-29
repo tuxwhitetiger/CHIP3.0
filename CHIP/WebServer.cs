@@ -18,7 +18,8 @@ namespace CHIP
         public static string[] urls = { "http://10.1.1.1:8000/"};
         public static int pageViews = 0;
         public static int requestCount = 0;
-        
+
+        public static bool loggingEnabled = false;
 
         /*
 public static string pageData =
@@ -89,14 +90,22 @@ public static string pageData =
             // While a user hasn't visited the `shutdown` url, keep on handling requests
             while (runServer)
             {
-                mylogger.Log("waiting for webrequest");
+                if (loggingEnabled) { 
+                    mylogger.Log("waiting for webrequest"); 
+                }
                 // Will wait here until we hear from a connection
                 HttpListenerContext ctx = await listener.GetContextAsync();
-                mylogger.Log("webrequest resived");
+                if (loggingEnabled)
+                {
+                    mylogger.Log("webrequest resived");
+                }
                 // Peel out the requests and response objects
                 HttpListenerRequest req = ctx.Request;
                 HttpListenerResponse resp = ctx.Response;
-                mylogger.Log("HttpListenerRequest and HttpListenerResponse setup");
+                if (loggingEnabled)
+                {
+                    mylogger.Log("HttpListenerRequest and HttpListenerResponse setup");
+                }
 
                 // If `shutdown` url requested w/ POST, then shutdown the server after serving the page
                 if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/shutdown"))
@@ -107,39 +116,69 @@ public static string pageData =
                 //if a face was posted
                 if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/SetFace"))
                 {
-                    mylogger.Log("web server got a post req");
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("web server got a post req");
+                    }
                     Stream body = req.InputStream;
                     Encoding encoding = req.ContentEncoding;
-                    mylogger.Log("stream and encoding built");
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("stream and encoding built");
+                    }
                     StreamReader reader = new System.IO.StreamReader(body, encoding);
-                    mylogger.Log("reader built go reader go");
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("reader built go reader go");
+                    }
                     string s = reader.ReadToEnd();
-                    mylogger.Log("recived this : " + s);
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("recived this : " + s);
+                    }
 
                     //dosomething with the data here
                     //expecting Faces=Pacman+face
                     //needs to be Pacman face
                     string output = s.Split('=')[1].Replace('+', ' ');
-                    mylogger.Log("reader output converted to this :" + output);
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("reader output converted to this :" + output);
+                    }
 
                     face = output;
                     newface = true;
                 }else if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/SetTextFace"))
                 {
-                    mylogger.Log("web server got a post req");
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("web server got a post req");
+                    }
                     Stream body = req.InputStream;
                     Encoding encoding = req.ContentEncoding;
-                    mylogger.Log("stream and encoding built");
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("stream and encoding built");
+                    }
                     StreamReader reader = new System.IO.StreamReader(body, encoding);
-                    mylogger.Log("reader built go reader go");
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("reader built go reader go");
+                    }
                     string s = reader.ReadToEnd();
-                    mylogger.Log("recived this : " + s);
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("recived this : " + s);
+                    }
 
                     //dosomething with the data here
                     //expecting Faces=Pacman+face
                     //needs to be Pacman face
                     string output = s.Split('=')[1].Replace('+', ' ');
-                    mylogger.Log("reader output converted to this :" + output);
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("reader output converted to this :" + output);
+                    }
                     textFacetext = output;
                     face = "textFace";
                     newface = true;
@@ -157,10 +196,16 @@ public static string pageData =
                     byte[] data = { };
                     try
                     {
-                        mylogger.Log("try and load css");
+                        if (loggingEnabled)
+                        {
+                            mylogger.Log("try and load css");
+                        }
                         data = File.ReadAllBytes("./chip-style.css");
 
-                        mylogger.Log("css loaded");
+                        if (loggingEnabled)
+                        {
+                            mylogger.Log("css loaded");
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -172,7 +217,10 @@ public static string pageData =
                     await resp.OutputStream.WriteAsync(data, 0, data.Length);
                 }
                 else if ((req.HttpMethod == "GET") && (req.Url.AbsolutePath.Contains("update-battery"))) {
-                    mylogger.Log("battery trying to update with :"+ req.Url.OriginalString);
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("battery trying to update with :" + req.Url.OriginalString);
+                    }
                     String[] strings = req.Url.OriginalString.Split("?")[1].Split("&");
                     //Expecting temperature=" + x + "&voltagetotal=" + x + "&voltagecell1=" + x + "&voltagecell2=" + x + "&AmpTotal=" + x;
                     temperature = double.Parse(strings[0].Split("=")[1]);
@@ -196,7 +244,10 @@ public static string pageData =
                     {
                         List<byte[]> bytes = new List<byte[]>();
 
-                        mylogger.Log("try and load html");
+                        if (loggingEnabled)
+                        {
+                            mylogger.Log("try and load html");
+                        }
                         bytes.Add(File.ReadAllBytes("./chip.html"));
                         bytes.Add(Encoding.ASCII.GetBytes("<div class=temp><p>Temperature :" + temperature + "</p></div>"));
                         bytes.Add(Encoding.ASCII.GetBytes("<div class=volt><p>Voltage :" + voltagetotal + "</p></div>"));
