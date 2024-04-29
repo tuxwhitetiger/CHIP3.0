@@ -58,22 +58,23 @@ namespace CHIP
         }
 
         public void featch() {
-            mylogger.Log("featch");
+            //mylogger.Log("featch"); //only got run once
+            
             String face = "";
-
+            /*
             lastFace = nextFace;
             nextFace = net.getFace();
             if (lastFace.Equals(nextFace))
             {
                 face=nextFace;
             }
-
+            */
             if (webserver.getnewface())
             {
                 mylogger.Log("webserver has a newface");
                 face =webserver.getface();
                 mylogger.Log("update network");
-                net.setFace(face);
+                //net.setFace(face);
             }
             mylogger.Log("processFace:"+ face);
             processFace(face);
