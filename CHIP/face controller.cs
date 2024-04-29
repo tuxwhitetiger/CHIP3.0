@@ -81,9 +81,13 @@ namespace CHIP
         }
 
         public void processFace(String facename) {
-            
-
-            internal_Display.update(facename);
+            try
+            {
+                internal_Display.update(facename);
+            }catch(Exception ex)
+            {
+                mylogger.Log("internal_Display error:"+ex.Message);
+            }
             switch (facename) // need to make this async
             {
                 case "Sad face": currentface = faces.sad; mylogger.Log("face set"); break;
