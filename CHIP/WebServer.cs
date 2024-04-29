@@ -18,24 +18,28 @@ namespace CHIP
         public static string[] urls = { "http://10.1.1.1:8000/"};
         public static int pageViews = 0;
         public static int requestCount = 0;
+        
+
         /*
-        public static string pageData =
-            "<!DOCTYPE>" +
-            "<html>" +
-            "  <head>" +
-            "    <title>HttpListener Example</title>" +
-            "  </head>" +
-        "  <body>" +
-            "    <p>Page Views: {0}</p>" +
-            "    <form method=\"post\" action=\"shutdown\">" +
-            "      <input type=\"submit\" value=\"Shutdown\" {1}>" +
-            "    </form>" +
-            "  </body>" +
-            "</html>";
-        */
+public static string pageData =
+"<!DOCTYPE>" +
+"<html>" +
+"  <head>" +
+"    <title>HttpListener Example</title>" +
+"  </head>" +
+"  <body>" +
+"    <p>Page Views: {0}</p>" +
+"    <form method=\"post\" action=\"shutdown\">" +
+"      <input type=\"submit\" value=\"Shutdown\" {1}>" +
+"    </form>" +
+"  </body>" +
+"</html>";
+*/
         public static String face = "Happy face";
         public static bool newface = false;
         private Logger mylogger;
+
+        private static string textFacetext = " test ";
 
         public static double temperature = 0;
         public static double voltagetotal = 0;
@@ -48,6 +52,7 @@ namespace CHIP
         {
             this.mylogger = mylogger;
         }
+     
 
         public void run()
         {
@@ -114,10 +119,29 @@ namespace CHIP
                     //dosomething with the data here
                     //expecting Faces=Pacman+face
                     //needs to be Pacman face
-                    string output = s.Split('=')[1].Replace('+',' ');
-                    mylogger.Log("reader output converted to this :"+ output);
+                    string output = s.Split('=')[1].Replace('+', ' ');
+                    mylogger.Log("reader output converted to this :" + output);
 
                     face = output;
+                    newface = true;
+                }else if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/SetTextFace"))
+                {
+                    mylogger.Log("web server got a post req");
+                    Stream body = req.InputStream;
+                    Encoding encoding = req.ContentEncoding;
+                    mylogger.Log("stream and encoding built");
+                    StreamReader reader = new System.IO.StreamReader(body, encoding);
+                    mylogger.Log("reader built go reader go");
+                    string s = reader.ReadToEnd();
+                    mylogger.Log("recived this : " + s);
+
+                    //dosomething with the data here
+                    //expecting Faces=Pacman+face
+                    //needs to be Pacman face
+                    string output = s.Split('=')[1].Replace('+', ' ');
+                    mylogger.Log("reader output converted to this :" + output);
+                    textFacetext = output;
+                    face = "textFace";
                     newface = true;
                 }
 
@@ -226,6 +250,11 @@ namespace CHIP
         internal bool getnewface()
         {
             return newface;
+        }
+
+        internal String GetText()
+        {
+            return textFacetext;
         }
     }
 }
