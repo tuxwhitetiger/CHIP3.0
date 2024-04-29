@@ -107,12 +107,6 @@ public static string pageData =
                     mylogger.Log("HttpListenerRequest and HttpListenerResponse setup");
                 }
 
-                // If `shutdown` url requested w/ POST, then shutdown the server after serving the page
-                if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/shutdown"))
-                {
-                    Console.WriteLine("Shutdown requested");
-                    runServer = false;
-                }
                 //if a face was posted
                 if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/SetFace"))
                 {
@@ -132,9 +126,9 @@ public static string pageData =
                         mylogger.Log("reader built go reader go");
                     }
                     string s = reader.ReadToEnd();
-                    if (loggingEnabled)
+                    //if (loggingEnabled)
                     {
-                        mylogger.Log("recived this : " + s);
+                        mylogger.Log("SetFace recived this : " + s);
                     }
 
                     //dosomething with the data here
@@ -166,9 +160,9 @@ public static string pageData =
                         mylogger.Log("reader built go reader go");
                     }
                     string s = reader.ReadToEnd();
-                    if (loggingEnabled)
+                    //if (loggingEnabled)
                     {
-                        mylogger.Log("recived this : " + s);
+                        mylogger.Log("SetTextFace recived this : " + s);
                     }
 
                     //dosomething with the data here
@@ -249,9 +243,9 @@ public static string pageData =
                             mylogger.Log("try and load html");
                         }
                         bytes.Add(File.ReadAllBytes("./chip.html"));
-                        bytes.Add(Encoding.ASCII.GetBytes("<div class=temp><p>Temperature :" + temperature + "</p></div>"));
-                        bytes.Add(Encoding.ASCII.GetBytes("<div class=volt><p>Voltage :" + voltagetotal + "</p></div>"));
-                        bytes.Add(Encoding.ASCII.GetBytes("<div class=amp><p>Amp :" + AmpTotal + "</p></div>"));
+                        //bytes.Add(Encoding.ASCII.GetBytes("<div class=temp><p>Temperature :" + temperature + "</p></div>"));
+                        //bytes.Add(Encoding.ASCII.GetBytes("<div class=volt><p>Voltage :" + voltagetotal + "</p></div>"));
+                        //bytes.Add(Encoding.ASCII.GetBytes("<div class=amp><p>Amp :" + AmpTotal + "</p></div>"));
                         int Totallengeth = 0;
                         int lengthsofar = 0;
                         byte[][] mybytes = bytes.ToArray();
