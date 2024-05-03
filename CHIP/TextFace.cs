@@ -6,7 +6,7 @@ namespace CHIP
 {
     class TextFace
     {
-        private string text;
+        string text;
         int textsize = 0;
         Stopwatch timer = new Stopwatch();
         static Random rand = new Random();

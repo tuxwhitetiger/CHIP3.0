@@ -166,9 +166,8 @@ public static string pageData =
                     }
 
                     //dosomething with the data here
-                    //expecting Faces=Pacman+face
-                    //needs to be Pacman face
-                    string output = s.Split('=')[1].Replace('+', ' ');
+                    //expecting text=text
+                    string output = s.Split('=')[1];
                     //if (loggingEnabled)
                     {
                         mylogger.Log("reader output converted to this :" + output);
