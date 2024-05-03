@@ -400,5 +400,15 @@ namespace CHIP
         {
             tface.SetText(text);
         }
+
+        internal void SetTextFacespeed(string speed)
+        {
+            tface.SetTextFacespeed(speed);
+        }
+
+        internal void SetTextFaceColour(string colour)
+        {
+            tface.SetTextFaceColour(colour);
+        }
     }
 }

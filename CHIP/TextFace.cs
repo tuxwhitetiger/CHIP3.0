@@ -75,5 +75,15 @@ namespace CHIP
                 }
             }
         }
+
+        internal void SetTextFacespeed(string speed)
+        {
+            this.speed = int.Parse(speed);
+        }
+
+        internal void SetTextFaceColour(string colour)
+        {
+            col = new Color(Convert.ToInt32(colour.Substring(0, 2), 16), Convert.ToInt32(colour.Substring(2, 2), 16), Convert.ToInt32(colour.Substring(4, 2), 16));
+        }
     }
 }

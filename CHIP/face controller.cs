@@ -110,7 +110,7 @@ namespace CHIP
                 case "textTest face": currentface = faces.textTest; mylogger.Log("face set"); break;
                 case "DvD face": currentface = faces.DvDBounce; mylogger.Log("face set"); break;
                 case "matrix rain": currentface = faces.matrixRain; mylogger.Log("face set"); break;
-                case "textFace": currentface = faces.textFace; face.setText(webserver.GetText()); mylogger.Log("face set"); break;
+                case "textFace": currentface = faces.textFace; face.setText(webserver.GetText()); face.SetTextFacespeed(webserver.GetTextFacespeed()); face.SetTextFaceColour(webserver.GetTextFaceColour()); mylogger.Log("face set"); break;
                 default:currentface = faces.happy; mylogger.Log("default face set"); break;
             }
         }
