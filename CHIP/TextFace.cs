@@ -36,6 +36,7 @@ namespace CHIP
             matrix.SwapOnVsync(canvas);
             Move();
         }
+
         public void Move() {
             bool tick = false;
             if(timer.IsRunning == true)
@@ -63,9 +64,16 @@ namespace CHIP
                     {
                         x = 0 - textsize;
                     }
+                }else
+                {
+                    x++;
+                    x2 = 0 - textsize;
+                    if (x == width)
+                    {
+                        x = 0 - textsize;
+                    }
                 }
             }
-
         }
     }
 }

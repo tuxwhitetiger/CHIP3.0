@@ -167,7 +167,7 @@ public static string pageData =
 
                     //dosomething with the data here
                     //expecting text=text
-                    string output = s.Split('=')[1];
+                    string output = s.Split('=')[1].Replace('+', ' ');
                     //if (loggingEnabled)
                     {
                         mylogger.Log("reader output converted to this :" + output);
