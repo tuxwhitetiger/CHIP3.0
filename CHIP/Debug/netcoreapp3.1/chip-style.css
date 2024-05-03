@@ -1,23 +1,4 @@
-﻿body {
-    background-color: lightblue;
-    font-size: 40px;
-}
-
-h1 {
-    color: navy;
-    margin-left: 20px;
-}
-
-select {
-    width: 80%;
-    height: 20%;
-    padding: 16px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #f1f1f1;
-    font-size: 40px;
-}
-
+﻿
 body {
     margin: 0;
     padding: 0;
