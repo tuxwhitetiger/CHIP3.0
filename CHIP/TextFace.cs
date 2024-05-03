@@ -19,17 +19,15 @@ namespace CHIP
         int x2=0;
         int y=16;
         Color col = new Color(255,255,255);
-        int speed = 33;//ms delay per pixel shift
+        int speed = 200;//ms delay per pixel shift
         public TextFace(Logger mylogger,string text)
         {
             this.text = text;
         }
-
         internal void SetText(string text)
         {
             this.text = text;
         }
-
         internal void update(RGBLedCanvas canvas, RGBLedMatrix matrix, RGBLedFont font)
         {
             canvas.Clear();
@@ -38,7 +36,6 @@ namespace CHIP
             matrix.SwapOnVsync(canvas);
             Move();
         }
-        
         public void Move() {
             bool tick = false;
             if(timer.IsRunning == true)
@@ -54,17 +51,21 @@ namespace CHIP
 
             if(tick)
             {
-                x++;
-                x2++;
-                if (x == (width-textsize)) {
-                    x2 = 0 - textsize;
-                }
-                if(x2 == (width - textsize)) {
-                    x = 0 - textsize;
+                if (textsize < width)
+                {
+                    x++;
+                    x2++;
+                    if (x == (width - textsize))
+                    {
+                        x2 = 0 - textsize;
+                    }
+                    if (x2 == (width - textsize))
+                    {
+                        x = 0 - textsize;
+                    }
                 }
             }
 
         }
     }
 }
-
