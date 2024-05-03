@@ -27,6 +27,8 @@ namespace CHIP
         }
         internal void SetText(string text)
         {
+            x = 0;
+            x2 = 0;
             this.text = text;
         }
         internal void update(RGBLedCanvas canvas, RGBLedMatrix matrix, RGBLedFont font)
