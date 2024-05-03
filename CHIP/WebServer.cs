@@ -43,6 +43,7 @@ public static string pageData =
         private static string textFacetext = " test ";
         private static string textFacespeed= "50";
         private static string textFacecolur = "ffffff";
+        private static bool textFaceScroll = false;
 
         public static double temperature = 0;
         public static double voltagetotal = 0;
@@ -168,12 +169,18 @@ public static string pageData =
                     }
 
                     //dosomething with the data here
-                    //expecting ftext=hello+world+&speed=267&color=%23ffffff
+                    //expecting ftext=hello+world+&speed=267&color=%23ffffff&leftToRight=ltr
+
                     string[] items = s.Split('&');
 
                     string output = items[0].Split('=')[1].Replace('+', ' ');
                     string speed = items[1].Split('=')[1];
                     string coluor = items[2].Split('=')[1].Replace("%23", "");
+                    bool scroll = false;
+                    if (items.Length > 3) {
+                        scroll = items[3].Split('=')[1].Equals("ltr");
+                    }
+
                     //if (loggingEnabled)
                     {
                         mylogger.Log("reader output converted to this :" + output);
@@ -181,6 +188,7 @@ public static string pageData =
                     textFacetext = output;
                     textFacespeed = speed;
                     textFacecolur = coluor;
+                    textFaceScroll = scroll;
                     face = "textFace";
                     newface = true;
                 }
@@ -315,6 +323,10 @@ public static string pageData =
         internal String GetTextFaceColour()
         {
             return textFacecolur;
+        }
+        internal bool GetTextFaceScroll()
+        {
+            return textFaceScroll;
         }
     }
 }

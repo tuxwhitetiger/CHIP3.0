@@ -14,6 +14,7 @@ namespace CHIP
         bool play = true;
         int hight = 32;
         int width = 128;
+        bool scrollLtR = false;
 
         int x=0;
         int x2=0;
@@ -53,25 +54,52 @@ namespace CHIP
 
             if(tick)
             {
-                if (textsize < width)
-                {
-                    x++;
-                    x2++;
-                    if (x == (width - textsize))
+                if (scrollLtR) {
+                    if (textsize < width)
                     {
+                    
+                        x++;
+                        x2++;
+                        if (x == (width - textsize))
+                        {
+                            x2 = 0 - textsize;
+                        }
+                        if (x2 == (width - textsize))
+                        {
+                            x = 0 - textsize;
+                        }
+                    }else
+                    {
+                        x++;
                         x2 = 0 - textsize;
+                        if (x == width)
+                        {
+                            x = 0 - textsize;
+                        }
                     }
-                    if (x2 == (width - textsize))
+                }
+                else {
+                    if (textsize < width)
                     {
-                        x = 0 - textsize;
+                        x--;
+                        x2--;
+                        if (x == (0 - textsize))
+                        {
+                            x2 = width;
+                        }
+                        if (x2 == (0 - textsize))
+                        {
+                            x = width;
+                        }
                     }
-                }else
-                {
-                    x++;
-                    x2 = 0 - textsize;
-                    if (x == width)
+                    else
                     {
-                        x = 0 - textsize;
+                        x--;
+                        x2 = 0 - textsize;
+                        if (x == 0- textsize)
+                        {
+                            x = width;
+                        }
                     }
                 }
             }
@@ -85,6 +113,11 @@ namespace CHIP
         internal void SetTextFaceColour(string colour)
         {
             col = new Color(Convert.ToInt32(colour.Substring(0, 2), 16), Convert.ToInt32(colour.Substring(2, 2), 16), Convert.ToInt32(colour.Substring(4, 2), 16));
+        }
+
+        internal void SetTextFaceScroll(bool scroll)
+        {
+            scrollLtR = scroll;
         }
     }
 }

@@ -410,5 +410,10 @@ namespace CHIP
         {
             tface.SetTextFaceColour(colour);
         }
+        internal void SetTextFaceScroll(bool scroll)
+        {
+            tface.SetTextFaceScroll(scroll);
+        }
+        
     }
 }
