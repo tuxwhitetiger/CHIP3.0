@@ -42,7 +42,8 @@ namespace CHIP
             if(timer.IsRunning == true)
             {
                 if (timer.ElapsedMilliseconds >= speed) { 
-                    tick = true;   
+                    tick = true;
+                    timer.Restart();
                 }
             }else
             {
