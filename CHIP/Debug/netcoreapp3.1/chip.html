@@ -34,8 +34,12 @@
         <!--<input type="submit" value="SetFace">-->
     </form> 
     <form method="post" action="SetTextFace">
-        <label for="Faces">write text to Face:</label><br>
+        <label for="Faces">write text to Face:</label>
         <input type="text" id="ftext" name="ftext"><br>
+        <label for="Faces">speed:</label>
+        <input type="range" id="speed" name="speed" min="33" max="500"><br>
+        <label for="Faces">colour:</label>
+        <input type="color" id="color" name="color" value="#ffffff"><br>
         <input type="submit" value="SetTextFace">
     </form>
 </body>
