@@ -217,7 +217,7 @@ public static string pageData =
                     
                     //if (loggingEnabled)
                     {
-                       // mylogger.Log("rawrdata recived this : " + s);
+                        mylogger.Log("rawrdata recived this : " + s);
                     }
 
                     //dosomething with the data here
@@ -232,6 +232,7 @@ public static string pageData =
                     foreach (string s1 in colours)
                     {
                         mylogger.Log("row : " + row + " col:"+col + " count:"+count);
+                        mylogger.Log("colour : " + s1);
                         Color c = new Color(Convert.ToInt32(s1.Substring(0,2), 16), Convert.ToInt32(s1.Substring(2, 2), 16), Convert.ToInt32(s1.Substring(4,2), 16));
                         //mylogger.Log("c : " + c.ToString());
                         colorData[row,col] = c;
