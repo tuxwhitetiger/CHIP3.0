@@ -56,8 +56,8 @@
             <button id="push">Push</button>
         </div>
         <div class="drawing-board">
-            <canvas id="canvas" width="320" height="160"></canvas>
-            <canvas id="dest" width="64" height="32"></canvas>
+            <canvas id="canvas" width="320" height="160" style="border:1px solid grey"></canvas>
+            <canvas id="dest" width="64" height="32" style="border:1px solid grey"></canvas>
         </div>
     </section>
    
@@ -187,8 +187,8 @@
     }
 
     function resize() {
-        ctx.canvas.width = window.innerWidth;
-        ctx.canvas.height = window.innerHeight;
+        //ctx.canvas.width = window.innerWidth;
+        //ctx.canvas.height = window.innerHeight;
     }
 
     function draw(e) {
