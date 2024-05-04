@@ -237,7 +237,7 @@ public static string pageData =
                         //mylogger.Log("c : " + c.ToString());
                         colorData[row,col] = c;
                         row++;
-                        if(row == 63) {
+                        if(row == 64) {
                             row = 0;
                             col++;
                         }
