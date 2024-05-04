@@ -71,9 +71,6 @@
         selectElement = document.querySelector('#chip-faces');
         selectElement.form.submit();
     };
-    function copy() {
-        const imgData = ctx.getImageData(10, 10, 50, 50);
-    }
 
     document.addEventListener('click', e => {
         if (e.target.id === 'push') {
@@ -90,6 +87,8 @@
     function prep() {
         var unscaledprepimgdata = ctx.getImageData(0, 0, 640, 320);
         var canvas = document.createElement('canvas');
+        canvas.width = 640;
+        canvas.height = 320;
         var destCtx = canvas.getContext("2d");
         destCtx.putImageData(unscaledprepimgdata, 0, 0);
         destCtx.scale(0.1, 0.1);
