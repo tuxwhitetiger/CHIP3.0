@@ -77,7 +77,28 @@
     function pushData() {
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "rawrdata", true);
-        xhttp.send(JSON.stringify(ctx.getImageData(0, 0, 5, 5)));
+        xhttp.send(prep());
+    }
+
+    function prep() {
+        let imgdata = ctx.getImageData(0, 0, 5, 5)
+        let str = '';
+
+        for (let i = 0; i < 128; i+=4) {
+            red = imgData.data[i];
+            green = imgData.data[i+1];
+            blue = imgData.data[i+2];
+            alpha = imgData.data[i+3];
+
+            str = str + rgbToHex(red,green,blue)+',';
+        }
+    }
+    function componentToHex(c) {
+        var hex = c.toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
+    }
+    function rgbToHex(r, g, b) {
+        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
 
     //var canvas = document.createElement('canvas');
