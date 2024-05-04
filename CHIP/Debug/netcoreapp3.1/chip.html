@@ -72,13 +72,12 @@
     };
     function copy() {
         const imgData = ctx.getImageData(10, 10, 50, 50);
-        ctx.putImageData(imgData, 10, 70);
     }
 
     function pushData() {
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "rawrdata", true);
-        xhttp.send(document.getElementById("canvas").getImageData);
+        xhttp.send(ctx.getImageData(0, 0, ctx.width, ctx.height));
     }
 
     //var canvas = document.createElement('canvas');
