@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.FileIO;
+using RPiRgbLEDMatrix;
 using SharpDX.DXGI;
 using System;
 using System.Collections.Generic;
@@ -216,14 +217,30 @@ public static string pageData =
                     
                     //if (loggingEnabled)
                     {
-                        mylogger.Log("rawrdata recived this : " + s);
+                       // mylogger.Log("rawrdata recived this : " + s);
                     }
-                    /*
+
+                    
                     //dosomething with the data here
                     //expecting ftext=hello+world+&speed=267&color=%23ffffff&leftToRight=ltr
 
-                    string[] items = s.Split('&');
+                    string[] colours = s.Split(',');
+                    int row = 0;
+                    int col = 0;
+                    Color[,] colorData = new Color[64,32];
 
+                    foreach (string s1 in colours)
+                    {
+                        Color c = new Color(Convert.ToInt32(s1.Substring(0,2), 16), Convert.ToInt32(s1.Substring(2, 2), 16), Convert.ToInt32(s1.Substring(4,2), 16));
+                        colorData[row,col] = c;
+                        row++;
+                        if(row == 63) {
+                            row = 0;
+                            col++;
+                        }
+                    }
+                    mylogger.Log("colorData size : " + colorData.Length);//2048
+                    /*
                     string output = items[0].Split('=')[1].Replace('+', ' ');
                     string speed = items[1].Split('=')[1];
                     string coluor = items[2].Split('=')[1].Replace("%23", "");

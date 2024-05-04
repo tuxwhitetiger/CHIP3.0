@@ -81,10 +81,10 @@
     }
 
     function prep() {
-        var prepimgdata = ctx.getImageData(0, 0, 50, 50)
+        var prepimgdata = ctx.getImageData(0, 0, 32, 64)
         let str = '';
 
-        for (let i = 0; i < 250; i+=4) {
+        for (let i = 0; i < 8192; i+=4) {
             let red = prepimgdata.data[i];
             let green = prepimgdata.data[i+1];
             let blue = prepimgdata.data[i+2];
