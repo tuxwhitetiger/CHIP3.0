@@ -96,11 +96,7 @@
         var destCtx = document.getElementById("dest").getContext("2d");
         destCtx.canvas.style.display = "none";
 
-        var newCanvas = ("<canvas>")
-            .attr("width", unscaledprepimgdata.width)
-            .attr("height", unscaledprepimgdata.height)[0];
-
-        newCanvas.getContext("2d").putImageData(unscaledprepimgdata, 0, 0);
+        destCtx.canvas.putImageData(unscaledprepimgdata, 0, 0);
 
         destCtx.scale(0.2, 0.2);
 
