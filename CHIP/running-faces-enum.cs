@@ -25,6 +25,7 @@ namespace CHIP
         textTest,
         DvDBounce,
         matrixRain,
-        textFace
+        textFace,
+        DrawFace
     }
 }

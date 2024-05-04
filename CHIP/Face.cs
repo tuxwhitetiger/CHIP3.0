@@ -18,6 +18,7 @@ namespace CHIP
         CalanderClock clock;
 
         TextFace tface;
+        DrawFace dface;
 
         snake snakegame;
         magic8Ball eightball = new magic8Ball();
@@ -190,6 +191,7 @@ namespace CHIP
 
             mylogger.Log("load textface");
             tface = new TextFace(mylogger, " TEST ");
+            dface = new DrawFace(mylogger);
 
             mylogger.Log("completed loader");
             this.runningface = runningface;
@@ -226,7 +228,13 @@ namespace CHIP
                 case faces.DvDBounce: DvDTick(); break;
                 case faces.matrixRain: matrixRain();break;
                 case faces.textFace: textFace();break;
+                case faces.DrawFace: drawface();break;
             }
+        }
+
+        private void drawface()
+        {
+            dface.update(canvas, matrix);
         }
 
         private void textFace()
@@ -414,6 +422,10 @@ namespace CHIP
         {
             tface.SetTextFaceScroll(scroll);
         }
-        
+
+        internal void setDrawFaceData(Color[,] colors)
+        {
+            dface.DrawFaceData = colors; 
+        }
     }
 }

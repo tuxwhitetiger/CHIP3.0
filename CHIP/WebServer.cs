@@ -47,6 +47,8 @@ public static string pageData =
         private static string textFacecolur = "ffffff";
         private static bool textFaceScroll = false;
 
+        private static Color[,] DrawFaceData = new Color[32, 64];
+
         public static double temperature = 0;
         public static double voltagetotal = 0;
         public static double voltagecell1 = 0;
@@ -217,13 +219,13 @@ public static string pageData =
                     
                     //if (loggingEnabled)
                     {
-                        mylogger.Log("rawrdata recived this : " + s);
+                        //mylogger.Log("rawrdata recived this : " + s);
                     }
 
                     //dosomething with the data here
-                    mylogger.Log("rawrdata recived this size : " + s.Length);
+                    //mylogger.Log("rawrdata recived this size : " + s.Length);
                     string[] colours = s.Split('#');
-                    mylogger.Log("colours size : " + colours.Length);
+                    //mylogger.Log("colours size : " + colours.Length);
                     int row = 0;
                     int col = 0;
                     Color[,] colorData = new Color[64,32];
@@ -233,8 +235,8 @@ public static string pageData =
                     {
                         if (s1.Length == 6)
                         {
-                            mylogger.Log("row : " + row + " col:" + col + " count:" + count);
-                            mylogger.Log("colour : " + s1);
+                            //mylogger.Log("row : " + row + " col:" + col + " count:" + count);
+                            //mylogger.Log("colour : " + s1);
                             Color c = new Color(Convert.ToInt32(s1.Substring(0, 2), 16), Convert.ToInt32(s1.Substring(2, 2), 16), Convert.ToInt32(s1.Substring(4, 2), 16));
                             //mylogger.Log("c : " + c.ToString());
                             colorData[row, col] = c;
@@ -247,10 +249,13 @@ public static string pageData =
                             }
                         }
                         else {
-                            mylogger.Log("pWTF is: " + s1);
+                            //mylogger.Log("pWTF is: " + s1);
                         }
                     }
-                    mylogger.Log("pixelData size : " + colorData.Length);//2048
+                    //mylogger.Log("pixelData size : " + colorData.Length);//2048
+                    DrawFaceData = colorData;
+                    face = "DrawFace";
+                    newface = true;
                     /*
                     string output = items[0].Split('=')[1].Replace('+', ' ');
                     string speed = items[1].Split('=')[1];
@@ -408,6 +413,11 @@ public static string pageData =
         internal bool GetTextFaceScroll()
         {
             return textFaceScroll;
+        }
+
+        internal Color[,] GetDrawFaceData()
+        {
+            return DrawFaceData;
         }
     }
 }
