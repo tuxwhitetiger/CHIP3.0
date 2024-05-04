@@ -55,12 +55,12 @@
             <button id="clear">Clear</button>
             <button id="push">Push</button>
         </div>
-
-
-
+        <div class="drawing-board">
+            <canvas id="canvas" width="320" height="160"></canvas>
+            <canvas id="dest" width="64" height="32"></canvas>
+        </div>
     </section>
-    <canvas id="canvas" width="320" height="160"></canvas>
-    <canvas id="dest" width="64" height="32"></canvas>
+   
 
 
 </body>
@@ -102,7 +102,8 @@
 
         destCtx.putImageData(unscaledprepimgdata, 0, 0);
         destCtx.scale(0.2, 0.2);
-        destCtx.drawImage(destCtx.canvas,0,0);
+        var newCanvas
+        destCtx.drawImage(newCanvas,0,0);
 
         var prepimgdata = destCtx.getImageData(0, 0, 64, 32)
 
