@@ -56,7 +56,7 @@
             <button id="push">Push</button>
         </div>
         <div class="drawing-board">
-            <canvas id="canvas"></canvas>
+            <canvas id="canvas" hight="320" width="160")"></canvas>
             <canvas id="dest"></canvas>
         </div>
     </section>
@@ -98,13 +98,13 @@
 
 
         var destCtx = document.getElementById("dest").getContext("2d");
-        destCtx.canvas.style.display = "none";
+        //destCtx.canvas.style.display = "none";
 
         destCtx.putImageData(unscaledprepimgdata, 0, 0);
         destCtx.scale(0.2, 0.2);
         destCtx.drawImage(destCtx.canvas,0,0);
 
-        var prepimgdata = destCtx.getImageData(0, 0, 320, 160)
+        var prepimgdata = destCtx.getImageData(0, 0, 64, 32)
 
 
         let str = '';
