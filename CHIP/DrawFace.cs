@@ -21,7 +21,8 @@ namespace CHIP
             {
                 for (int myx = 0; myx < 64; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
-                    canvas.SetPixel(64 - myx, myy, DrawFaceData[myx, myy]);
+                    canvas.SetPixel(myx, myy, DrawFaceData[myx, myy]);
+                    canvas.SetPixel(64 + myx, myy, DrawFaceData[myx, myy]);
                 }
             }
             matrix.SwapOnVsync(canvas);
