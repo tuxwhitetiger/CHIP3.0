@@ -16,6 +16,16 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
+select {
+    width: 80%;
+    height: 20%;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    font-size: 40px;
+}
+
 .container {
     height: 100%;
     display: flex;
@@ -47,4 +57,25 @@ h1 {
         border-radius: 4px;
         color: white;
         padding: 2px;
+    }
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
     }

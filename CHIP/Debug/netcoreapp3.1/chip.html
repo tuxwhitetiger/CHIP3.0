@@ -5,62 +5,70 @@
     <link rel="stylesheet" href="chip-style.css">
 </head>
 <body>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Gif')">Gif</button>
+        <button class="tablinks" onclick="openTab(event, 'Text')">Text</button>
+        <button class="tablinks" onclick="openTab(event, 'Draw')">Draw</button>
+    </div>
 
-    <form method="post" action="SetFace">
-        <label for="Faces">Choose a Face:</label>
-        <select name="Faces" id="chip-faces" onchange="onSelectChange()">
-            <option value="Happy face"></option>
-            <option value="Happy face">Happy face</option>
-            <option value="Sad face">Sad face</option>
-            <option value="Angry face">Angry face</option>
-            <option value="What face">What face</option>
-            <option value="Flag face">Flag face</option>
-            <!-- <option value="Gif face">Gif face</option> -->
-            <option value="Shock face">Shock face</option>
-            <!-- <option value="Snake face">Snake face</option> -->
-            <option value="Overheat face">Overheat face</option>
-            <!-- <option value="Cwood face">Cwood face</option> -->
-            <option value="Lowbatt face">Lowbatt face</option>
-            <option value="Pacman face">Pacman face</option>
-            <option value="Matrix face">Matrix face</option>
-            <!-- <option value="8 Ball Face">8 Ball Face</option> -->
-            <!-- <option value="SHAKE BALL">SHAKE BALL</option> -->
-            <option value="HALLOWEEN FACE">HALLOWEEN FACE</option>
-            <option value="LOVE FACE">LOVE FACE</option>
-            <option value="textTest face">textTest face</option>
-            <option value="DvD face">DvD face</option>
-            <option value="matrix rain">matrix rain</option>
-        </select>
-        <!--<input type="submit" value="SetFace">-->
-    </form>
-    <form method="post" action="SetTextFace">
-        <label for="Faces">write text to Face:</label>
-        <input type="text" id="ftext" name="ftext"><br>
-        <label for="Faces">delay:</label>
-        <input type="range" id="speed" name="speed" min="1" max="50"><br>
-        <label for="Faces">colour:</label>
-        <input type="color" id="color" name="color" value="#ffffff"><br>
-        <input type="checkbox" id="leftToRight" name="leftToRight" value="ltr">
-        <label for="Faces"> scroll right</label><br>
-        <input type="submit" value="SetTextFace">
-    </form>
-
-    <section class="container">
-        <div id="toolbar">
-            <h1>Draw.</h1>
-            <label for="stroke">Stroke</label>
-            <input id="stroke" name='stroke' type="color" default="white">
-            <label for="lineWidth">Line Width</label>
-            <input id="lineWidth" name='lineWidth' type="number" value="5">
-            <button id="clear">Clear</button>
-            <button id="push">Push</button>
-        </div>
-        <div class="drawing-board">
-            <canvas id="canvas" width="640" height="320" style="border:1px solid grey"></canvas>
-        </div>
-    </section>
-   
-
+    <div id="Gif" class="tabcontent" id="defaultOpen">
+        <form method="post" action="SetFace">
+            <label for="Faces">Choose a Face:</label>
+            <select name="Faces" id="chip-faces" onchange="onSelectChange()">
+                <option value="Happy face"></option>
+                <option value="Happy face">Happy face</option>
+                <option value="Sad face">Sad face</option>
+                <option value="Angry face">Angry face</option>
+                <option value="What face">What face</option>
+                <option value="Flag face">Flag face</option>
+                <!-- <option value="Gif face">Gif face</option> -->
+                <option value="Shock face">Shock face</option>
+                <!-- <option value="Snake face">Snake face</option> -->
+                <option value="Overheat face">Overheat face</option>
+                <!-- <option value="Cwood face">Cwood face</option> -->
+                <option value="Lowbatt face">Lowbatt face</option>
+                <option value="Pacman face">Pacman face</option>
+                <option value="Matrix face">Matrix face</option>
+                <!-- <option value="8 Ball Face">8 Ball Face</option> -->
+                <!-- <option value="SHAKE BALL">SHAKE BALL</option> -->
+                <option value="HALLOWEEN FACE">HALLOWEEN FACE</option>
+                <option value="LOVE FACE">LOVE FACE</option>
+                <option value="textTest face">textTest face</option>
+                <option value="DvD face">DvD face</option>
+                <option value="matrix rain">matrix rain</option>
+            </select>
+            <!--<input type="submit" value="SetFace">-->
+        </form>
+    </div>
+    <div id="Text" class="tabcontent">
+        <form method="post" action="SetTextFace">
+            <label for="Faces">write text to Face:</label>
+            <input type="text" id="ftext" name="ftext"><br>
+            <label for="Faces">delay:</label>
+            <input type="range" id="speed" name="speed" min="1" max="50"><br>
+            <label for="Faces">colour:</label>
+            <input type="color" id="color" name="color" value="#ffffff"><br>
+            <input type="checkbox" id="leftToRight" name="leftToRight" value="ltr">
+            <label for="Faces"> scroll right</label><br>
+            <input type="submit" value="SetTextFace">
+        </form>
+    </div>
+    <div id="Draw" class="tabcontent">
+        <section class="container">
+            <div id="toolbar">
+                <h1>Draw.</h1>
+                <label for="stroke">Stroke</label>
+                <input id="stroke" name='stroke' type="color" default="white">
+                <label for="lineWidth">Line Width</label>
+                <input id="lineWidth" name='lineWidth' type="number" value="5">
+                <button id="clear">Clear</button>
+                <button id="push">Push</button>
+            </div>
+            <div class="drawing-board">
+                <canvas id="canvas" width="640" height="320" style="border:1px solid grey"></canvas>
+            </div>
+        </section>
+    </div>
 
 </body>
 
@@ -198,6 +206,39 @@
         ctx.stroke();
         pushData();
     }
+
+
+
+
+    document.getElementById("defaultOpen").click();
+
+    function openTab(evt, TabName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(TabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+
+
+
+
+
+
 
 
 
