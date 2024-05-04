@@ -81,14 +81,14 @@
     }
 
     function prep() {
-        var prepimgdata = ctx.getImageData(0, 0, 5, 5)
+        var prepimgdata = ctx.getImageData(0, 0, 50, 50)
         let str = '';
 
-        for (let i = 0; i < 128; i+=4) {
-            int red = prepimgdata.data[i];
-            int green = prepimgdata.data[i+1];
-            int blue = prepimgdata.data[i+2];
-            int alpha = prepimgdata.data[i+3];
+        for (let i = 0; i < 250; i+=4) {
+            let red = prepimgdata.data[i];
+            let green = prepimgdata.data[i+1];
+            let blue = prepimgdata.data[i+2];
+            let alpha = prepimgdata.data[i+3];
 
             str = str + rgbToHex(red,green,blue)+',';
         }
@@ -101,6 +101,7 @@
     function rgbToHex(r, g, b) {
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
+
 
     //var canvas = document.createElement('canvas');
     //canvas.id = "canvas";
