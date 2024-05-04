@@ -223,13 +223,13 @@ public static string pageData =
 
                     //dosomething with the data here
                     //expecting ftext=hello+world+&speed=267&color=%23ffffff&leftToRight=ltr
-                    mylogger.Log("rawrdata recived this size : " + s.Length);
+                    //mylogger.Log("rawrdata recived this size : " + s.Length);
                     string[] colours = s.Split(',');
-                    mylogger.Log("colours size : " + s.Length);
+                    //mylogger.Log("colours size : " + s.Length);
                     int row = 0;
                     int col = 0;
                     Color[,] colorData = new Color[64,32];
-                    mylogger.Log("s1 length : " + colours[0].Length + " " + colours[0]);
+                    //mylogger.Log("s1 length : " + colours[0].Length + " " + colours[0]);
                     foreach (string s1 in colours)
                     {
                         mylogger.Log("row : " + row + " col:"+col);
