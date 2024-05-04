@@ -49,7 +49,7 @@
         <div id="toolbar">
             <h1>Draw.</h1>
             <label for="stroke">Stroke</label>
-            <input id="stroke" name='stroke' type="color">
+            <input id="stroke" name='stroke' type="color" default="white">
             <label for="lineWidth">Line Width</label>
             <input id="lineWidth" name='lineWidth' type="number" value="5">
             <button id="clear">Clear</button>
@@ -75,6 +75,13 @@
     document.addEventListener('click', e => {
         if (e.target.id === 'push') {
             pushData();
+        }
+    });
+    document.addEventListener('click', e => {
+        if (e.target.id === 'clear') {
+            ctx.fillStyle = "black";
+            ctx.rect(0, 0, 640, 320); // Add a rectangle to the current path
+            ctx.fill();
         }
     });
 
