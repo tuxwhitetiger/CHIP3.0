@@ -220,11 +220,9 @@ public static string pageData =
                        // mylogger.Log("rawrdata recived this : " + s);
                     }
 
-
                     //dosomething with the data here
-                    //expecting ftext=hello+world+&speed=267&color=%23ffffff&leftToRight=ltr
-                    //mylogger.Log("rawrdata recived this size : " + s.Length);
-                    string[] colours = s.Split(',');
+                    mylogger.Log("rawrdata recived this size : " + s.Length);
+                    string[] colours = s.Split('#');
                     mylogger.Log("colours size : " + s.Length);
                     int row = 0;
                     int col = 0;
@@ -234,7 +232,7 @@ public static string pageData =
                     foreach (string s1 in colours)
                     {
                         mylogger.Log("row : " + row + " col:"+col + " count:"+count);
-                        Color c = new Color(Convert.ToInt32(s1.Substring(1,2), 16), Convert.ToInt32(s1.Substring(3, 2), 16), Convert.ToInt32(s1.Substring(5,2), 16));
+                        Color c = new Color(Convert.ToInt32(s1.Substring(0,2), 16), Convert.ToInt32(s1.Substring(2, 2), 16), Convert.ToInt32(s1.Substring(4,2), 16));
                         //mylogger.Log("c : " + c.ToString());
                         colorData[row,col] = c;
                         row++;
