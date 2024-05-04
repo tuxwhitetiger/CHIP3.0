@@ -55,7 +55,7 @@
             <button id="clear">Clear</button>
         </div>
         <div class="drawing-board">
-            <canvas id="canvas"></canvas>
+            <canvas id="drawing-board"></canvas>
         </div>
     </section>
    
@@ -71,7 +71,22 @@
         selectElement.form.submit();
     };
 
+    toolbar.addEventListener('click', e => {
+        if (e.target.id === 'clear') {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+    });
 
+    toolbar.addEventListener('change', e => {
+        if (e.target.id === 'stroke') {
+            ctx.strokeStyle = e.target.value;
+        }
+
+        if (e.target.id === 'lineWidth') {
+            lineWidth = e.target.value;
+        }
+
+    });
 
 
 
@@ -92,8 +107,8 @@
     var buttonDown = false;
 
     const cvs = document.getElementById("canvas");
-    cvs.addEventListener('mousedown');
-    cvs.addEventListener('touchstart');
+    cvs.addEventListener('mousedown', getRandomInt);
+    cvs.addEventListener('touchstart', getRandomInt);
 
     window.addEventListener('resize', resize);
 
@@ -133,14 +148,10 @@
 
     function draw(e) {
         if (!buttonDown) return;
-
-        var color = stroke;
-
         ctx.beginPath();
 
         ctx.lineWidth = 3;
         ctx.lineCap = 'round';
-        ctx.strokeStyle = color;
 
         ctx.moveTo(pos.x, pos.y);
         setPosition(e);
