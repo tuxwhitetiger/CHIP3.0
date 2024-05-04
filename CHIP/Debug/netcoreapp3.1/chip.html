@@ -96,6 +96,7 @@
 
         var unscaledprepimgdata = ctx.getImageData(0, 0, 320, 160)
 
+        var canvas = document.createElement('canvas');
 
         var destCtx = document.getElementById("dest").getContext("2d");
         //destCtx.canvas.style.display = "none";
@@ -104,7 +105,7 @@
         
         destCtx.putImageData(unscaledprepimgdata, 0, 0);
         
-        destCtx.drawImage(destCtx.canvas, 0, 0);
+        destCtx.drawImage(canvas, 0, 0);
         destCtx.scale(0.2, 0.2);
         
 
