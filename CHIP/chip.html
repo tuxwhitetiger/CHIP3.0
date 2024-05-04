@@ -57,6 +57,7 @@
         </div>
         <div class="drawing-board">
             <canvas id="canvas"></canvas>
+            <canvas id="dest"></canvas>
         </div>
     </section>
    
@@ -93,6 +94,7 @@
 
 
         var destCtx = $("#dest")[0].getContext("2d");
+        destCtx.canvas.style.display = "none";
 
         var newCanvas = $("<canvas>")
             .attr("width", unscaledprepimgdata.width)
@@ -132,6 +134,8 @@
 
     document.body.style.margin = 0;
     canvas.style.position = 'relative';
+
+  
 
     var ctx = canvas.getContext('2d');
     resize();
