@@ -93,10 +93,10 @@
         var unscaledprepimgdata = ctx.getImageData(0, 0, 320, 160)
 
 
-        var destCtx = $("#dest")[0].getContext("2d");
+        var destCtx = ("#dest")[0].getContext("2d");
         destCtx.canvas.style.display = "none";
 
-        var newCanvas = $("<canvas>")
+        var newCanvas = ("<canvas>")
             .attr("width", unscaledprepimgdata.width)
             .attr("height", unscaledprepimgdata.height)[0];
 
