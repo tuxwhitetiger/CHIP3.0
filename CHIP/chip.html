@@ -182,8 +182,8 @@
             pos.x = e.touches[0].clientX - document.getElementById("drawing-board").offsetLeft; 
             pos.y = e.touches[0].clientY - document.getElementById("drawing-board").offsetTop;
         } else {
-            pos.x = e.clientX - offsetLeft;
-            pos.y = e.clientY - offsetTop;
+            pos.x = e.clientX - document.getElementById("drawing-board").offsetLeft;
+            pos.y = e.clientY - document.getElementById("drawing-board").offsetTop;
         }
     }
 
