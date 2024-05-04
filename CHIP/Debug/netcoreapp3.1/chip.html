@@ -100,10 +100,9 @@
         var destCtx = document.getElementById("dest").getContext("2d");
         //destCtx.canvas.style.display = "none";
 
-        destCtx.putImageData(unscaledprepimgdata, 0, 0);
         destCtx.scale(0.2, 0.2);
-        var newCanvas = destCtx.getContext("2d");
-        destCtx.drawImage(newCanvas,0,0);
+        destCtx.putImageData(unscaledprepimgdata, 0, 0);
+        destCtx.drawImage(destCtx.canvas, 0, 0);
 
         var prepimgdata = destCtx.getImageData(0, 0, 64, 32)
 
