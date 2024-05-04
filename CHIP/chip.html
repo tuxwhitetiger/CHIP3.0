@@ -107,7 +107,7 @@
 
     });
 
-    const isMobile = navigator.userAgentData.mobile;
+    const isMobile = (navigator.userAgent.match(/Mobi/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i));
 
     const draw = (e) => {
         if (!isPainting || isMobile) {
