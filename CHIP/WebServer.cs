@@ -145,7 +145,8 @@ public static string pageData =
 
                     face = output;
                     newface = true;
-                }else if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/SetTextFace"))
+                }
+                else if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/SetTextFace"))
                 {
                     if (loggingEnabled)
                     {
@@ -177,7 +178,8 @@ public static string pageData =
                     string speed = items[1].Split('=')[1];
                     string coluor = items[2].Split('=')[1].Replace("%23", "");
                     bool scroll = false;
-                    if (items.Length > 3) {
+                    if (items.Length > 3)
+                    {
                         scroll = items[3].Split('=')[1].Equals("ltr");
                     }
 
@@ -191,6 +193,55 @@ public static string pageData =
                     textFaceScroll = scroll;
                     face = "textFace";
                     newface = true;
+                }
+                else if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/rawrdata"))
+                {
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("web server got a post req");
+                    }
+                    Stream body = req.InputStream;
+                    Encoding encoding = req.ContentEncoding;
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("stream and encoding built");
+                    }
+                    StreamReader reader = new System.IO.StreamReader(body, encoding);
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("reader built go reader go");
+                    }
+                    string s = reader.ReadToEnd();
+                    //if (loggingEnabled)
+                    {
+                        mylogger.Log("rawrdata recived this : " + s);
+                    }
+                    /*
+                    //dosomething with the data here
+                    //expecting ftext=hello+world+&speed=267&color=%23ffffff&leftToRight=ltr
+
+                    string[] items = s.Split('&');
+
+                    string output = items[0].Split('=')[1].Replace('+', ' ');
+                    string speed = items[1].Split('=')[1];
+                    string coluor = items[2].Split('=')[1].Replace("%23", "");
+                    bool scroll = false;
+                    if (items.Length > 3)
+                    {
+                        scroll = items[3].Split('=')[1].Equals("ltr");
+                    }
+
+                    //if (loggingEnabled)
+                    {
+                        mylogger.Log("reader output converted to this :" + output);
+                    }
+                    textFacetext = output;
+                    textFacespeed = speed;
+                    textFacecolur = coluor;
+                    textFaceScroll = scroll;
+                    face = "textFace";
+                    newface = true;
+                    */
                 }
 
                 // Make sure we don't increment the page views counter if `favicon.ico` is requested

@@ -70,7 +70,16 @@
         selectElement = document.querySelector('#chip-faces');
         selectElement.form.submit();
     };
+    function copy() {
+        const imgData = ctx.getImageData(10, 10, 50, 50);
+        ctx.putImageData(imgData, 10, 70);
+    }
 
+    function pushData() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "rawrdata", true);
+        xhttp.send(document.getElementById("canvas").getImageData);
+    }
 
     //var canvas = document.createElement('canvas');
     //canvas.id = "canvas";
