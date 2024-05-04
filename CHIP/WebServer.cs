@@ -231,16 +231,23 @@ public static string pageData =
                     int count = 0;
                     foreach (string s1 in colours)
                     {
-                        mylogger.Log("row : " + row + " col:"+col + " count:"+count);
-                        mylogger.Log("colour : " + s1);
-                        Color c = new Color(Convert.ToInt32(s1.Substring(0,2), 16), Convert.ToInt32(s1.Substring(2, 2), 16), Convert.ToInt32(s1.Substring(4,2), 16));
-                        //mylogger.Log("c : " + c.ToString());
-                        colorData[row,col] = c;
-                        row++;
-                        count++;
-                        if(row == 64) {
-                            row = 0;
-                            col++;
+                        if (s1.Length == 6)
+                        {
+                            mylogger.Log("row : " + row + " col:" + col + " count:" + count);
+                            mylogger.Log("colour : " + s1);
+                            Color c = new Color(Convert.ToInt32(s1.Substring(0, 2), 16), Convert.ToInt32(s1.Substring(2, 2), 16), Convert.ToInt32(s1.Substring(4, 2), 16));
+                            //mylogger.Log("c : " + c.ToString());
+                            colorData[row, col] = c;
+                            row++;
+                            count++;
+                            if (row == 64)
+                            {
+                                row = 0;
+                                col++;
+                            }
+                        }
+                        else {
+                            mylogger.Log("pWTF is: " + s1);
                         }
                     }
                     mylogger.Log("pixelData size : " + colorData.Length);//2048
