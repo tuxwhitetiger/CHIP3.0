@@ -85,10 +85,10 @@
         let str = '';
 
         for (let i = 0; i < 128; i+=4) {
-            red = prepimgdata.data[i];
-            green = prepimgdata.data[i+1];
-            blue = prepimgdata.data[i+2];
-            alpha = prepimgdata.data[i+3];
+            int red = prepimgdata.data[i];
+            int green = prepimgdata.data[i+1];
+            int blue = prepimgdata.data[i+2];
+            int alpha = prepimgdata.data[i+3];
 
             str = str + rgbToHex(red,green,blue)+',';
         }
