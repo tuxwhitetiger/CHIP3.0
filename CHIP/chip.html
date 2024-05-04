@@ -110,7 +110,7 @@
     const isMobile = navigator.userAgentData.mobile;
 
     const draw = (e) => {
-        if (!isPainting && !isMobile) {
+        if (!isPainting || isMobile) {
             return;
         }
 
