@@ -226,7 +226,7 @@ public static string pageData =
                     //mylogger.Log("rawrdata recived this size : " + s.Length);
                     string[] colours = s.Split('#');
                     //mylogger.Log("colours size : " + colours.Length);
-                    int row = 63;
+                    int row = 0;
                     int col = 0;
                     Color[,] colorData = new Color[64,32];
                     //mylogger.Log("s1 length : " + colours[0].Length + " " + colours[0]);
@@ -240,11 +240,11 @@ public static string pageData =
                             Color c = new Color(Convert.ToInt32(s1.Substring(0, 2), 16), Convert.ToInt32(s1.Substring(2, 2), 16), Convert.ToInt32(s1.Substring(4, 2), 16));
                             //mylogger.Log("c : " + c.ToString());
                             colorData[row, col] = c;
-                            row--;
+                            row++;
                             count++;
-                            if (row == -1)
+                            if (row == 64)
                             {
-                                row = 63;
+                                row = 0;
                                 col++;
                             }
                         }

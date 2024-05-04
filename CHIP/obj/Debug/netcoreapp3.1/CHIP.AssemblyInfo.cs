@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CHIP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2dbff5a79e6a2ccd8f6ff33234dfc61d6ebbaf51")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bfe9dc02b3a4a3bc91d7398bdec564981bd5a288")]
 [assembly: System.Reflection.AssemblyProductAttribute("CHIP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CHIP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
