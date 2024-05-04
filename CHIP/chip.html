@@ -116,10 +116,10 @@
         }
         if (e.type == "touchstart" || e.type == "touchmove") {
             pos.x = e.touches[0].clientX;
-            pos.y = e.touches[0].clientY - cvs.offsetHeight;
+            pos.y = e.touches[0].clientY - cvs.canvas.offsetHeight;
         } else {
             pos.x = e.clientX;
-            pos.y = e.clientY - cvs.offsetHeight;
+            pos.y = e.clientY - cvs.canvas.offsetHeight;
         }
     }
 
