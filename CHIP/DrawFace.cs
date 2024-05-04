@@ -17,12 +17,10 @@ namespace CHIP
 
         internal void update(RGBLedCanvas canvas, RGBLedMatrix matrix)
         {
-            mylogger.Log("start draw ");
             for (int myy = 0; myy < 32; myy++)
             {
                 for (int myx = 0; myx < 64; myx++)
                 {//data x, y, framecount, color(0=r,1=g,2=b)
-                    mylogger.Log("myy:" + myy + " myx:" + myx);
                     canvas.SetPixel(64 - myx, myy, DrawFaceData[myx, myy]);
                 }
             }
