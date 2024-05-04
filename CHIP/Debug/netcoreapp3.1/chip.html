@@ -107,8 +107,10 @@
 
     });
 
+    const isMobile = navigator.userAgentData.mobile;
+
     const draw = (e) => {
-        if (!isPainting) {
+        if (!isPainting && !isMobile) {
             return;
         }
 
