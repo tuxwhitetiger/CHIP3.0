@@ -6,12 +6,12 @@
 </head>
 <body>
     <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'Gif')">Gif</button>
+        <button class="tablinks"  id="defaultOpen" onclick="openTab(event, 'Gif')">Gif</button>
         <button class="tablinks" onclick="openTab(event, 'Text')">Text</button>
         <button class="tablinks" onclick="openTab(event, 'Draw')">Draw</button>
     </div>
 
-    <div id="Gif" class="tabcontent" id="defaultOpen">
+    <div id="Gif" class="tabcontent">
         <form method="post" action="SetFace">
             <label for="Faces">Choose a Face:</label>
             <select name="Faces" id="chip-faces" onchange="onSelectChange()">
@@ -206,6 +206,9 @@
         ctx.stroke();
         pushData();
     }
+
+
+
 
 
 
