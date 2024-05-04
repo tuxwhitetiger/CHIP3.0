@@ -39,25 +39,28 @@ select {
     background-color: #202020;
 }
 
-    #toolbar * {
-        margin-bottom: 6px;
-    }
+#toolbar * {
+    margin-bottom: 6px;
+}
 
-    #toolbar label {
-        font-size: 12px;
-    }
+#toolbar label {
+    font-size: 12px;
+}
 
-    #toolbar input {
-        width: 100%;
-    }
+#toolbar input {
+    width: 100%;
+}
 
-    #toolbar button {
-        background-color: #1565c0;
-        border: none;
-        border-radius: 4px;
-        color: white;
-        padding: 2px;
-    }
+#toolbar button {
+    background-color: #1565c0;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 2px;
+}
+
+
+
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
@@ -70,12 +73,12 @@ select {
     transition: 0.3s;
 }
 
-    /* Change background color of buttons on hover */
-    .tab button:hover {
-        background-color: #ddd;
-    }
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
 
-    /* Create an active/current tablink class */
-    .tab button.active {
-        background-color: #ccc;
-    }
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
