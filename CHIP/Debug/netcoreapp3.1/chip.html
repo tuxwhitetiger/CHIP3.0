@@ -134,6 +134,7 @@
 
     canvas.addEventListener('touchstart', (e) => {
         isPainting = true;
+        window.alert("touchstart");
         startX = e.touches[0].clientX;
         startY = e.touches[0].clientY;
     });
