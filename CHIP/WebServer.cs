@@ -223,7 +223,7 @@ public static string pageData =
                     //dosomething with the data here
                     mylogger.Log("rawrdata recived this size : " + s.Length);
                     string[] colours = s.Split('#');
-                    mylogger.Log("colours size : " + s.Length);
+                    mylogger.Log("colours size : " + colours.Length);
                     int row = 0;
                     int col = 0;
                     Color[,] colorData = new Color[64,32];
