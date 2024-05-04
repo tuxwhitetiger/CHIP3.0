@@ -65,7 +65,7 @@
                 <button id="clear">Clear</button>
                 <button id="push">Push</button>
             </div>
-            <div class="drawing-board">
+            <div class="drawing-board" id="drawing-board">
                 <canvas id="canvas" width="640" height="320" style="border:1px solid grey"></canvas>
             </div>
         </section>
@@ -179,8 +179,8 @@
             buttonDown = true;
         }
         if (e.type == "touchstart" || e.type == "touchmove") {
-            pos.x = e.touches[0].clientX - offsetLeft;
-            pos.y = e.touches[0].clientY - offsetTop;
+            pos.x = e.touches[0].clientX - document.getElementById("drawing-board").offsetLeft; 
+            pos.y = e.touches[0].clientY - document.getElementById("drawing-board").offsetTop;
         } else {
             pos.x = e.clientX - offsetLeft;
             pos.y = e.clientY - offsetTop;
