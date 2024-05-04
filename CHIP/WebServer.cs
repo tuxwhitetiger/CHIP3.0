@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection.Emit;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CHIP
@@ -212,6 +213,7 @@ public static string pageData =
                         mylogger.Log("reader built go reader go");
                     }
                     string s = reader.ReadToEnd();
+                    
                     //if (loggingEnabled)
                     {
                         mylogger.Log("rawrdata recived this : " + s);
