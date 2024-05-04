@@ -134,8 +134,8 @@
 
     canvas.addEventListener('touchstart', (e) => {
         isPainting = true;
-        startX = e.clientX;
-        startY = e.clientY;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
     });
 
     canvas.addEventListener('touchend', e => {
