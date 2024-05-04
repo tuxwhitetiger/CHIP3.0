@@ -107,10 +107,9 @@
 
     });
 
-    const isMobile = (navigator.userAgent.match(/Mobi/i) || navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i));
-
+    
     const draw = (e) => {
-        if (!isPainting || isMobile) {
+        if (!isPainting) {
             return;
         }
 
@@ -133,7 +132,21 @@
         ctx.beginPath();
     });
 
+    canvas.addEventListener('touchstart', (e) => {
+        isPainting = true;
+        startX = e.clientX;
+        startY = e.clientY;
+    });
+
+    canvas.addEventListener('touchend', e => {
+        isPainting = false;
+        ctx.stroke();
+        ctx.beginPath();
+    });
+
     canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchmove', draw);
+
 
 
 </script>
