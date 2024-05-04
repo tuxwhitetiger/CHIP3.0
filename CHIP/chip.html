@@ -102,7 +102,7 @@
 
         destCtx.putImageData(unscaledprepimgdata, 0, 0);
         destCtx.scale(0.2, 0.2);
-        var newCanvas
+        var newCanvas = destCtx.getContext("2d");
         destCtx.drawImage(newCanvas,0,0);
 
         var prepimgdata = destCtx.getImageData(0, 0, 64, 32)
