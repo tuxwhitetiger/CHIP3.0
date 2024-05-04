@@ -220,11 +220,12 @@ public static string pageData =
                        // mylogger.Log("rawrdata recived this : " + s);
                     }
 
-                    
+
                     //dosomething with the data here
                     //expecting ftext=hello+world+&speed=267&color=%23ffffff&leftToRight=ltr
-
+                    mylogger.Log("rawrdata recived this size : " + s.Length);
                     string[] colours = s.Split(',');
+                    mylogger.Log("colours size : " + s.Length);
                     int row = 0;
                     int col = 0;
                     Color[,] colorData = new Color[64,32];
@@ -239,7 +240,7 @@ public static string pageData =
                             col++;
                         }
                     }
-                    mylogger.Log("colorData size : " + colorData.Length);//2048
+                    mylogger.Log("pixelData size : " + colorData.Length);//2048
                     /*
                     string output = items[0].Split('=')[1].Replace('+', ' ');
                     string speed = items[1].Split('=')[1];
