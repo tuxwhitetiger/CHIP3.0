@@ -45,6 +45,21 @@
         <input type="submit" value="SetTextFace">
     </form>
 
+    <section class="container">
+        <div id="toolbar">
+            <h1>Draw.</h1>
+            <label for="stroke">Stroke</label>
+            <input id="stroke" name='stroke' type="color">
+            <label for="lineWidth">Line Width</label>
+            <input id="lineWidth" name='lineWidth' type="number" value="5">
+            <button id="clear">Clear</button>
+        </div>
+        <div class="drawing-board">
+            <canvas id="canvas"></canvas>
+        </div>
+    </section>
+   
+
 
 </body>
 
@@ -60,9 +75,9 @@
 
 
 
-    var canvas = document.createElement('canvas');
-    canvas.id = "canvas";
-    document.body.appendChild(canvas);
+    //var canvas = document.createElement('canvas');
+    //canvas.id = "canvas";
+    //document.body.appendChild(canvas);
 
     document.body.style.margin = 0;
     canvas.style.position = 'relative';
@@ -77,8 +92,8 @@
     var buttonDown = false;
 
     const cvs = document.getElementById("canvas");
-    cvs.addEventListener('mousedown', getRandomInt);
-    cvs.addEventListener('touchstart', getRandomInt);
+    cvs.addEventListener('mousedown');
+    cvs.addEventListener('touchstart');
 
     window.addEventListener('resize', resize);
 
@@ -119,19 +134,7 @@
     function draw(e) {
         if (!buttonDown) return;
 
-        var color = '';
-
-        switch (window.randInt) {
-            case 1:
-                color = 'green';
-                break;
-            case 2:
-                color = 'red';
-                break;
-            case 0:
-                color = 'blue';
-                break;
-        }
+        var color = stroke;
 
         ctx.beginPath();
 
