@@ -89,7 +89,11 @@
     }
 
     function prep() {
-        
+        ctx.fillStyle = "green";
+        ctx.fillRect(60, 28, 5, 5);
+        ctx.fillStyle = "red";
+        ctx.fillRect(315, 155, 5, 5);
+
         var unscaledprepimgdata = ctx.getImageData(0, 0, 320, 160)
 
 
