@@ -229,7 +229,7 @@ public static string pageData =
                     int row = 0;
                     int col = 0;
                     Color[,] colorData = new Color[64,32];
-
+                    mylogger.Log("s1 length : " + colours[0].Length);
                     foreach (string s1 in colours)
                     {
                         Color c = new Color(Convert.ToInt32(s1.Substring(0,2), 16), Convert.ToInt32(s1.Substring(2, 2), 16), Convert.ToInt32(s1.Substring(4,2), 16));

@@ -53,6 +53,7 @@
             <label for="lineWidth">Line Width</label>
             <input id="lineWidth" name='lineWidth' type="number" value="5">
             <button id="clear">Clear</button>
+            <button id="push">Push</button>
         </div>
         <div class="drawing-board">
             <canvas id="canvas"></canvas>
@@ -73,6 +74,11 @@
     function copy() {
         const imgData = ctx.getImageData(10, 10, 50, 50);
     }
+    toolbar.addEventListener('click', e => {
+        if (e.target.id === 'push') {
+            pushData();
+        }
+    });
 
     function pushData() {
         var xhttp = new XMLHttpRequest();
@@ -172,7 +178,6 @@
         ctx.lineTo(pos.x, pos.y);
 
         ctx.stroke();
-        pushData();
     }
 
 
