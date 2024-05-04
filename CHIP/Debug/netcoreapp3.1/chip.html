@@ -88,9 +88,23 @@
     }
 
     function prep() {
-        ctx.scale(0.2, 0.2);
-        var prepimgdata = ctx.getImageData(0, 0, 64, 32)
-        ctx.scale(5, 5);
+        
+        var unscaledprepimgdata = ctx.getImageData(0, 0, 320, 160)
+
+
+        var destCtx = $("#dest")[0].getContext("2d");
+
+        var newCanvas = $("<canvas>")
+            .attr("width", unscaledprepimgdata.width)
+            .attr("height", unscaledprepimgdata.height)[0];
+
+        newCanvas.getContext("2d").putImageData(unscaledprepimgdata, 0, 0);
+
+        destCtx.scale(0.2, 0.2);
+
+        var prepimgdata = destCtx.getImageData(0, 0, 64, 32)
+
+
         let str = '';
 
         for (let i = 0; i < 8192; i+=4) {
