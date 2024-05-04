@@ -45,21 +45,6 @@
         <input type="submit" value="SetTextFace">
     </form>
 
-    <section class="container">
-        <div id="toolbar">
-            <h1>Draw.</h1>
-            <label for="stroke">Stroke</label>
-            <input id="stroke" name='stroke' type="color">
-            <label for="lineWidth">Line Width</label>
-            <input id="lineWidth" name='lineWidth' type="number" value="5">
-            <button id="clear">Clear</button>
-        </div>
-        <div class="drawing-board">
-            <canvas id="drawing-board"></canvas>
-        </div>
-    </section>
-   
-
 
 </body>
 
@@ -75,78 +60,91 @@
 
 
 
-    const canvas = document.getElementById('drawing-board');
-    const toolbar = document.getElementById('toolbar');
-    const ctx = canvas.getContext('2d');
+    var canvas = document.createElement('canvas');
+    canvas.id = "canvas";
+    document.body.appendChild(canvas);
 
-    const canvasOffsetX = canvas.offsetLeft;
-    const canvasOffsetY = canvas.offsetTop;
+    document.body.style.margin = 0;
+    canvas.style.position = 'relative';
 
-    canvas.width = window.innerWidth - canvasOffsetX;
-    canvas.height = window.innerHeight - canvasOffsetY;
+    var ctx = canvas.getContext('2d');
+    resize();
 
-    let isPainting = false;
-    let lineWidth = 5;
-    let startX;
-    let startY;
+    var pos = {
+        x: 0,
+        y: 0
+    };
+    var buttonDown = false;
 
-    toolbar.addEventListener('click', e => {
-        if (e.target.id === 'clear') {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }
-    });
+    const cvs = document.getElementById("canvas");
+    cvs.addEventListener('mousedown', getRandomInt);
+    cvs.addEventListener('touchstart', getRandomInt);
 
-    toolbar.addEventListener('change', e => {
-        if (e.target.id === 'stroke') {
-            ctx.strokeStyle = e.target.value;
-        }
+    window.addEventListener('resize', resize);
 
-        if (e.target.id === 'lineWidth') {
-            lineWidth = e.target.value;
-        }
+    document.addEventListener('mousemove', draw);
+    document.addEventListener('mousedown', setPosition);
+    document.addEventListener('mouseup', released);
 
-    });
+    document.addEventListener('touchstart', setPosition);
+    document.addEventListener('touchmove', draw);
+    document.addEventListener('touchend', released);
 
-    
-    const draw = (e) => {
-        if (!isPainting) {
-            return;
-        }
-
-        ctx.lineWidth = lineWidth;
-        ctx.lineCap = 'round';
-
-        ctx.lineTo(e.clientX - canvasOffsetX, e.clientY);
-        ctx.stroke();
+    function getRandomInt() {
+        window.randInt = Math.floor(Math.random() * Math.floor(3));
     }
 
-    canvas.addEventListener('mousedown', (e) => {
-        isPainting = true;
-        startX = e.clientX;
-        startY = e.clientY;
-    });
+    function released(e) {
+        buttonDown = false;
+    }
 
-    canvas.addEventListener('mouseup', e => {
-        isPainting = false;
-        ctx.stroke();
+    function setPosition(e) {
+        if (e.type == "touchstart" || e.type == "mousedown") {
+            buttonDown = true;
+        }
+        if (e.type == "touchstart" || e.type == "touchmove") {
+            pos.x = e.touches[0].clientX;
+            pos.y = e.touches[0].clientY;
+        } else {
+            pos.x = e.clientX;
+            pos.y = e.clientY;
+        }
+    }
+
+    function resize() {
+        ctx.canvas.width = window.innerWidth;
+        ctx.canvas.height = window.innerHeight;
+    }
+
+    function draw(e) {
+        if (!buttonDown) return;
+
+        var color = '';
+
+        switch (window.randInt) {
+            case 1:
+                color = 'green';
+                break;
+            case 2:
+                color = 'red';
+                break;
+            case 0:
+                color = 'blue';
+                break;
+        }
+
         ctx.beginPath();
-    });
 
-    canvas.addEventListener('touchstart', (e) => {
-        isPainting = true;
-        window.alert("touchstart");
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-    });
+        ctx.lineWidth = 3;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = color;
 
-    canvas.addEventListener('touchend', e => {
-        isPainting = false;
+        ctx.moveTo(pos.x, pos.y);
+        setPosition(e);
+        ctx.lineTo(pos.x, pos.y);
+
         ctx.stroke();
-        ctx.beginPath();
-    });
-
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('touchmove', draw);
+    }
 
 
 
