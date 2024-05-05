@@ -212,7 +212,7 @@
         if (!buttonDown || !(document.getElementById("DrawButton").className === "tablinks active")) return;
         ctx.beginPath();
 
-        ctx.lineWidth = 5;
+        ctx.lineWidth = document.getElementById("lineWidth").value;
         ctx.lineCap = 'round';
         ctx.strokeStyle = document.getElementById("stroke").value;
 
