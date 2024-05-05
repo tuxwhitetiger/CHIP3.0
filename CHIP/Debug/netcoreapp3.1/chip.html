@@ -70,6 +70,8 @@
                 <input id="lineWidth" name='lineWidth' type="number" value="5">
                 <button id="clear" class="clickonstart">Clear</button>
                 <button id="push">Push</button>
+                <input type="checkbox" id="RealTimeDraw">
+                <label for="Faces"> Real Time</label><br>
             </div>
             <div class="drawing-board" id="drawing-board">
                 <canvas id="canvas" width="640" height="320" style="border:1px solid grey"></canvas>
@@ -221,7 +223,10 @@
         ctx.lineTo(pos.x, pos.y);
 
         ctx.stroke();
-        pushData();
+
+        if (document.getElementById(RealTimeDraw).checked) {
+            pushData();
+        }
     }
 
     document.addEventListener('DOMContentLoaded', function () {
