@@ -76,10 +76,39 @@
 </html>
 <script>
     function onSelectChange(event) {
+        pushGifData();
+        //selectElement = document.querySelector('#chip-faces');
+        //selectElement.form.submit();
 
-        selectElement = document.querySelector('#chip-faces');
-        selectElement.form.submit();
     };
+
+    function pushGifData() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "SetFace", true);
+        xhttp.send(Gifprep());
+    }
+
+    function Gifprep() {
+        selectElement = document.querySelector('#chip-faces');
+        str = selectElement.form.serialize();
+        return str;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     document.addEventListener('click', e => {
         if (e.target.id === 'push') {
@@ -125,6 +154,7 @@
         }
         return str;
     }
+
     function componentToHex(c) {
         var hex = c.toString(16);
         return hex.length == 1 ? "0" + hex : hex;
