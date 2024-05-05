@@ -86,7 +86,6 @@
     }
 
 
-
     function pushTextData(){
         //write async method for text data
         var input1 = document.getElementById("ftext");
@@ -98,11 +97,8 @@
         var input4 = document.getElementById("leftToRight");
         var inputData4 = encodeURIComponent(input4.value);
 
-
         //expecting ftext = hello + world +& speed=267 & color=% 23ffffff & leftToRight=ltr
-
         var str = "ftext = " + inputData1 + "& speed=" + inputData2 + "& color=" + inputData3 + "& leftToRight=" + inputData4;
-
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "SetTextFace", true);
         xhttp.send(str);
@@ -114,6 +110,7 @@
             pushData();
         }
     });
+
     document.addEventListener('click', e => {
         if (e.target.id === 'clear') {
             ctx.fillStyle = "black";
@@ -137,12 +134,9 @@
         destCtx.putImageData(unscaledprepimgdata, 0, 0);
         destCtx.scale(0.1, 0.1);
         destCtx.drawImage(canvas, 0, 0);
-        
         var prepimgdata = destCtx.getImageData(0, 0, 64, 32);
 
-
         let str = '';
-
         for (let i = 0; i < 8192; i+=4) {
             let red = prepimgdata.data[i];
             let green = prepimgdata.data[i+1];
@@ -162,30 +156,21 @@
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
     }
 
-
-    //var canvas = document.createElement('canvas');
-    //canvas.id = "canvas";
-    //document.body.appendChild(canvas);
-
     document.body.style.margin = 0;
     canvas.style.position = 'relative';
-
-  
-
+     
     var ctx = canvas.getContext('2d');
-    resize();
 
     var pos = {
         x: 0,
         y: 0
     };
+
     var buttonDown = false;
 
     const cvs = document.getElementById("canvas");
     cvs.addEventListener('mousedown', getRandomInt);
     cvs.addEventListener('touchstart', getRandomInt);
-
-    window.addEventListener('resize', resize);
 
     document.addEventListener('mousemove', draw);
     document.addEventListener('mousedown', setPosition);
@@ -216,11 +201,7 @@
         }
     }
 
-    function resize() {
-        //ctx.canvas.width = window.innerWidth;
-        //ctx.canvas.height = window.innerHeight;
-    }
-
+    
     function draw(e) {
         if (!buttonDown || !(document.getElementById("DrawButton").className === "tablinks active")) return;
         ctx.beginPath();
@@ -244,6 +225,7 @@
 
 
     document.getElementById("defaultOpen").click();
+    document.getElementById("clear").click();
     
     function openTab(evt, TabName) {
         // Declare all variables

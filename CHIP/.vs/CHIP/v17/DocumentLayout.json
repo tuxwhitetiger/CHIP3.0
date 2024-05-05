@@ -95,7 +95,7 @@
           ]
         },
         {
-          "DockedWidth": 496,
+          "DockedWidth": 600,
           "SelectedChildIndex": 6,
           "Children": [
             {
@@ -157,7 +157,7 @@
               "RelativeDocumentMoniker": "WebServer.cs",
               "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\WebServer.cs",
               "RelativeToolTip": "WebServer.cs",
-              "ViewState": "AQIAAJQAAAAAAAAAAAAAALAAAAAUAAAA",
+              "ViewState": "AQIAAGwAAAAAAAAAAAAAAJgAAABgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-11-25T16:39:48.328Z",
               "EditorCaption": ""
@@ -282,7 +282,7 @@
           ]
         },
         {
-          "DockedWidth": 738,
+          "DockedWidth": 634,
           "SelectedChildIndex": 3,
           "Children": [
             {
@@ -332,7 +332,7 @@
               "RelativeDocumentMoniker": "chip.html",
               "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\chip.html",
               "RelativeToolTip": "chip.html",
-              "ViewState": "AQIAACAAAAAAAAAAAAAAADUAAABCAAAA",
+              "ViewState": "AQIAADwAAAAAAAAAAADwv00AAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2023-11-25T20:11:35.406Z",
               "EditorCaption": ""
