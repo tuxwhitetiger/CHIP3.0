@@ -101,7 +101,7 @@
         var input3 = document.getElementById("color");
         var inputData3 = encodeURIComponent(input3.value);
         var input4 = document.getElementById("leftToRight");
-        var inputData4 = encodeURIComponent(input4.value);
+        var inputData4 = encodeURIComponent(input4.checked);
 
         //expecting ftext = hello + world +& speed=267 & color=% 23ffffff & leftToRight=ltr
         var str = "ftext = " + inputData1 + "& speed=" + inputData2 + "& color=" + inputData3 + "& leftToRight=" + inputData4;
