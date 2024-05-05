@@ -6,8 +6,8 @@
 </head>
 <body>
     <div class="tab">
-        <button class="tablinks"  id="defaultOpen" onclick="openTab(event, 'Gif')">Gif</button>
-        <button class="tablinks" onclick="openTab(event, 'Text')">Text</button>
+        <button class="tablinks" id="GifButton" id="defaultOpen" onclick="openTab(event, 'Gif')">Gif</button>
+        <button class="tablinks" id="TextButton" onclick="openTab(event, 'Text')">Text</button>
         <button class="tablinks" id="DrawButton" onclick="openTab(event, 'Draw')">Draw</button>
     </div>
     <br>
@@ -51,7 +51,7 @@
             <input type="color" id="color" name="color" value="#ffffff"><br>
             <input type="checkbox" id="leftToRight" name="leftToRight" value="ltr">
             <label for="Faces"> scroll right</label><br>
-            <input type="submit" value="SetTextFace">
+            <input value="SetTextFace" onclick="pushTesxtData()">
         </form>
     </div>
     <div id="Draw" class="tabcontent">
@@ -87,19 +87,26 @@
 
 
 
+    fuction pushTesxtData(){
+        //write async method for text data
+        var input1 = document.getElementById("ftext");
+        var inputData1 = encodeURIComponent(input1.value);
+        var input2 = document.getElementById("speed");
+        var inputData2 = encodeURIComponent(input2.value);
+        var input3 = document.getElementById("color");
+        var inputData3 = encodeURIComponent(input3.value);
+        var input4 = document.getElementById("leftToRight");
+        var inputData4 = encodeURIComponent(input4.value);
 
 
+        //expecting ftext = hello + world +& speed=267 & color=% 23ffffff & leftToRight=ltr
 
+        var str = "ftext = " + inputData1 + "& speed=" + inputData2 + "& color=" + inputData3 + "& leftToRight=" + inputData4
 
-
-
-
-
-
-
-
-
-
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "SetTextFace", true);
+        xhttp.send(str);
+    }
 
 
     document.addEventListener('click', e => {
@@ -257,7 +264,20 @@
         // Show the current tab, and add an "active" class to the button that opened the tab
         document.getElementById(TabName).style.display = "block";
         evt.currentTarget.className += " active";
+
+        if (evt.currentTarget.id === "GifButton") {
+            pushGifData();
+        }
+        if (evt.currentTarget.id === "TextButton") {
+            pushTesxtData();
+        }
+        if (evt.currentTarget.id === "DrawButton") {
+            pushData();
+        }
+
+
     }
+    
 
 
 

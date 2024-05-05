@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:chip.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\webserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:webserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\face controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:face controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\chip-style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:chip-style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\webserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:webserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\tuxwhitetiger\\chip3.0\\chip\\drawface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -96,7 +96,7 @@
         },
         {
           "DockedWidth": 496,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -112,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "chip-style.css",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\chip-style.css",
               "RelativeDocumentMoniker": "chip-style.css",
@@ -138,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "face controller.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\face controller.cs",
               "RelativeDocumentMoniker": "face controller.cs",
@@ -151,13 +151,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "WebServer.cs",
               "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\WebServer.cs",
               "RelativeDocumentMoniker": "WebServer.cs",
               "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\WebServer.cs",
               "RelativeToolTip": "WebServer.cs",
-              "ViewState": "AQIAAHUBAAAAAAAAAAAAAIgBAAAYAAAA",
+              "ViewState": "AQIAAJQAAAAAAAAAAAAAALAAAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-11-25T16:39:48.328Z",
               "EditorCaption": ""
@@ -332,7 +332,7 @@
               "RelativeDocumentMoniker": "chip.html",
               "ToolTip": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\chip.html",
               "RelativeToolTip": "chip.html",
-              "ViewState": "AQIAAMAAAAAAAAAAAAAAANkAAABPAAAA",
+              "ViewState": "AQIAAP8AAAAAAAAAAAAAABcBAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2023-11-25T20:11:35.406Z",
               "EditorCaption": ""
