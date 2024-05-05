@@ -36,12 +36,13 @@ select {
 #Text {
     font-size: 20px;
     vertical-align: middle;
-    vertical-align: middle;
+    
 }
 
 
     #Text label {
         font-size: 20px;
+        vertical-align: middle;
     }
 
     #Text input {
