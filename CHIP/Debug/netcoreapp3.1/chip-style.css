@@ -35,14 +35,12 @@ select {
 
 #Text {
     font-size: 20px;
-    vertical-align: middle;
     
 }
 
 
     #Text label {
         font-size: 20px;
-        vertical-align: middle;
     }
 
     #Text input {
@@ -55,7 +53,12 @@ select {
     }
 
 
-
+.textformElement {
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+    border: 1px solid red;
+}
 
 
 
