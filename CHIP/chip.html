@@ -15,7 +15,7 @@
     <div id="Gif" class="tabcontent">
         <form method="post" action="SetFace" id="chip-faces">
             <label for="Faces">Choose a Face:</label>
-            <select name="Faces"  onchange="onSelectChange()">
+            <select name="Faces"  onchange="pushGifData()">
                 <option value="Happy face"></option>
                 <option value="Happy face">Happy face</option>
                 <option value="Sad face">Sad face</option>
@@ -75,24 +75,14 @@
 
 </html>
 <script>
-    function onSelectChange(event) {
-        pushGifData();
-        //selectElement = document.querySelector('#chip-faces');
-        //selectElement.form.submit();
-
-    };
+    
 
     function pushGifData() {
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "SetFace", true);
-        xhttp.send(Gifprep());
+        xhttp.send($(this).serialize());
     }
 
-    function Gifprep() {
-        selectElement = document.querySelector('#chip-faces');
-        str = selectElement.form.serialize();
-        return str;
-    }
 
 
 
