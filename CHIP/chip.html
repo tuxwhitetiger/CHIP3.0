@@ -8,7 +8,7 @@
     <div class="tab">
         <button class="tablinks"  id="defaultOpen" onclick="openTab(event, 'Gif')">Gif</button>
         <button class="tablinks" onclick="openTab(event, 'Text')">Text</button>
-        <button class="tablinks" onclick="openTab(event, 'Draw')">Draw</button>
+        <button class="tablinks" id="DrawButton" onclick="openTab(event, 'Draw')">Draw</button>
     </div>
     <br>
 
@@ -78,14 +78,8 @@
     
 
     function pushGifData() {
-
-        //var formData = new FormData(document.getElementById("chip-faces"));
-
-
         var input = document.getElementById("chip-faces-select");
         var inputData = encodeURIComponent(input.value);
-
-
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "SetFace", true);
         xhttp.send("Faces=" + inputData);
@@ -221,7 +215,7 @@
     }
 
     function draw(e) {
-        if (!buttonDown) return;
+        if (!buttonDown || !document.getElementById("DrawButton").className == " active") return;
         ctx.beginPath();
 
         ctx.lineWidth = 5;
@@ -243,7 +237,7 @@
 
 
     document.getElementById("defaultOpen").click();
-
+    
     function openTab(evt, TabName) {
         // Declare all variables
         var i, tabcontent, tablinks;

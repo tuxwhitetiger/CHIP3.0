@@ -60,7 +60,7 @@ namespace CHIP
         public void featch() {
             //mylogger.Log("featch"); //only got run once
             
-            String face = "";
+            String newface = "";
             /*
             lastFace = nextFace;
             nextFace = net.getFace();
@@ -72,11 +72,11 @@ namespace CHIP
             if (webserver.getnewface())
             {
                 mylogger.Log("webserver has a newface");
-                face =webserver.getface();
+                newface =webserver.getface();
                 mylogger.Log("update network");
                 //net.setFace(face);
-                mylogger.Log("processFace:" + face);
-                processFace(face);
+                mylogger.Log("processFace:" + newface);
+                processFace(newface);
             }
         }
 
@@ -112,6 +112,7 @@ namespace CHIP
                 case "matrix rain": currentface = faces.matrixRain; mylogger.Log("face set"); break;
                 case "textFace": currentface = faces.textFace; face.setText(webserver.GetText()); face.SetTextFacespeed(webserver.GetTextFacespeed()); face.SetTextFaceColour(webserver.GetTextFaceColour()); face.SetTextFaceScroll(webserver.GetTextFaceScroll()); mylogger.Log("face set"); break;
                 case "DrawFace": currentface = faces.DrawFace; face.setDrawFaceData(webserver.GetDrawFaceData());break;
+
                 default:currentface = faces.happy; mylogger.Log("default face set"); break;
             }
         }
