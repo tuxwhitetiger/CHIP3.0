@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="tab">
-        <button class="tablinks" id="GifButton" id="defaultOpenTeb" onclick="openTab(event, 'Gif')">Gif</button>
+        <button class="tablinks clickonstart" id="GifButton" onclick="openTab(event, 'Gif')">Gif</button>
         <button class="tablinks" id="TextButton" onclick="openTab(event, 'Text')">Text</button>
         <button class="tablinks" id="DrawButton" onclick="openTab(event, 'Draw')">Draw</button>
     </div>
@@ -62,7 +62,7 @@
                 <input id="stroke" name='stroke' type="color" default="white">
                 <label for="lineWidth">Line Width</label>
                 <input id="lineWidth" name='lineWidth' type="number" value="5">
-                <button id="clear">Clear</button>
+                <button id="clear" class="clickonstart">Clear</button>
                 <button id="push">Push</button>
             </div>
             <div class="drawing-board" id="drawing-board">
@@ -219,8 +219,10 @@
     }
 
     document.addEventListener('DOMContentLoaded', function () {
-        document.getElementById("defaultOpenTeb").click();
-        document.getElementById("clear").click();
+        buttons = document.getElementsByClassName("clickonstart");
+        for (i = 0; i < buttons.length; i++) {
+            buttons[i].click();
+        }
     }, false);
 
 
