@@ -78,9 +78,12 @@
     
 
     function pushGifData() {
+
+        var formData = new FormData(document.getElementById("chip-faces"));
+        
         var xhttp = new XMLHttpRequest();
         xhttp.open("POST", "SetFace", true);
-        xhttp.send($(this).serialize());
+        xhttp.send(formData);
     }
 
 
