@@ -53,6 +53,12 @@ select {
     }
 
 
+.textformrow {
+    display: table-row;
+    vertical-align: middle;
+    height: 50px;
+    border: 1px solid red;
+}
 .textformElement {
     display: table-row;
     vertical-align: middle;
