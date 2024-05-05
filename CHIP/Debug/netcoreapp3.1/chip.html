@@ -218,14 +218,13 @@
         pushData();
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById("defaultOpen").click();
+        document.getElementById("clear").click();
+    }, false);
 
 
-
-
-
-
-    document.getElementById("defaultOpen").click();
-    document.getElementById("clear").click();
+    
     
     function openTab(evt, TabName) {
         // Declare all variables
