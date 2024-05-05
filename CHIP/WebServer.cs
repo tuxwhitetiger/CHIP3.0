@@ -178,9 +178,9 @@ public static string pageData =
 
                     string[] items = s.Split('&');
 
-                    string output = items[0].Split('=')[1].Replace('+', ' ');
+                    string output = items[0].Split('=')[1].Replace('%20', ' ');
                     string speed = items[1].Split('=')[1];
-                    string coluor = items[2].Split('=')[1].Replace("%20", "");
+                    string coluor = items[2].Split('=')[1].Replace("%23", "");
                     bool scroll = false;
                     if (items.Length > 3)
                     {
