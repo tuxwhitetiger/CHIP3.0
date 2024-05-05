@@ -15,7 +15,7 @@
     <div id="Gif" class="tabcontent">
         <form id="chip-faces">
             <label for="Faces">Choose a Face:</label>
-            <select name="Faces"  onchange="pushGifData()" id="chip-faces-select" >
+            <select name="Faces" onchange="pushGifData()" id="chip-faces-select">
                 <option value="Happy face"></option>
                 <option value="Happy face">Happy face</option>
                 <option value="Sad face">Sad face</option>
@@ -42,7 +42,7 @@
         </form>
     </div>
 
-
+    
 
     <div id="Text" class="tabcontent">
         <form id="chip-faces-text">
@@ -84,6 +84,12 @@
 </html>
 <script>
     
+    function ignoreForm(e) {
+        if (e.preventDefault) e.preventDefault();
+        // You must return false to prevent the default form behavior
+        return false;
+    }
+    document.getElementById('chip-faces-text').addEventListener("submit", ignoreForm);
 
     function pushGifData() {
         var input = document.getElementById("chip-faces-select");
