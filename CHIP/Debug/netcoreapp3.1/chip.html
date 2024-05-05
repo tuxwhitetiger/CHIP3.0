@@ -46,14 +46,15 @@
 
     <div id="Text" class="tabcontent">
         <form id="chip-faces-text">
-            <label for="Faces">write text to Face:</label>
+            <label for="Faces">Write text to Face:</label>
             <input type="text" id="ftext" name="ftext"><br>
-            <label for="Faces">delay:</label>
+            <label for="Faces">Delay:</label>
             <input type="range" id="speed" name="speed" min="1" max="50"><br>
-            <label for="Faces">colour:</label>
+            <label for="Faces">Colour:</label>
             <input type="color" id="color" name="color" value="#ffffff"><br>
-            <input type="checkbox" id="leftToRight" name="leftToRight" value="ltr">
-            <label for="Faces"> scroll right</label><br>
+            <label for="Faces"> Reverse Scroll</label>
+            <input type="checkbox" id="leftToRight" name="leftToRight" value="ltr"><br>
+
         </form>
         <button onclick="pushTextData()">SetTextFace</button>
     </div>
