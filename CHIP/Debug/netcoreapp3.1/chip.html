@@ -13,7 +13,7 @@
     <br>
 
     <div id="Gif" class="tabcontent">
-        <form method="post" action="SetFace" id="chip-faces">
+        <form id="chip-faces">
             <label for="Faces">Choose a Face:</label>
             <select name="Faces"  onchange="pushGifData()" id="chip-faces-select" >
                 <option value="Happy face"></option>
@@ -42,7 +42,7 @@
         </form>
     </div>
     <div id="Text" class="tabcontent">
-        <form method="post" action="SetTextFace" id="chip-faces-text">
+        <form id="chip-faces-text">
             <label for="Faces">write text to Face:</label>
             <input type="text" id="ftext" name="ftext"><br>
             <label for="Faces">delay:</label>
@@ -51,8 +51,8 @@
             <input type="color" id="color" name="color" value="#ffffff"><br>
             <input type="checkbox" id="leftToRight" name="leftToRight" value="ltr">
             <label for="Faces"> scroll right</label><br>
-            <button onclick="pushTesxtData()">SetTextFace</button>
         </form>
+        <button onclick="pushTesxtData()">SetTextFace</button>
     </div>
     <div id="Draw" class="tabcontent">
         <section class="container">
