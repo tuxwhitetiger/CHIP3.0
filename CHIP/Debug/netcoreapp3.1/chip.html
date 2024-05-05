@@ -215,7 +215,7 @@
     }
 
     function draw(e) {
-        if (!buttonDown || !document.getElementById("DrawButton").className == " active") return;
+        if (!buttonDown || !(document.getElementById("DrawButton").className === "tablinks active")) return;
         ctx.beginPath();
 
         ctx.lineWidth = 5;
