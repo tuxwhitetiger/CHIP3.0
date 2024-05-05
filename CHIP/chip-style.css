@@ -54,11 +54,10 @@ select {
 
 
 .textformElement {
-    display: table-cell;
+    display: table-row;
     vertical-align: middle;
     height: 50px;
     border: 1px solid red;
-    position: absolute;
 }
 
 
