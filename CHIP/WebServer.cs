@@ -174,7 +174,7 @@ public static string pageData =
                     }
 
                     //dosomething with the data here
-                    //expecting ftext=hello+world+&speed=267&color=%23ffffff&leftToRight=ltr
+                    //expecting ftext=hello+world+&speed=267&color=%23ffffff&leftToRight=true
 
                     string[] items = s.Split('&');
 
@@ -184,7 +184,7 @@ public static string pageData =
                     bool scroll = false;
                     if (items.Length > 3)
                     {
-                        scroll = items[3].Split('=')[1].Equals("ltr");
+                        scroll = items[3].Split('=')[1].Equals("true");
                     }
 
                     //if (loggingEnabled)
