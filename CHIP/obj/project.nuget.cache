@@ -1,14 +1,8 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "EExAq6CvtMg=",
   "success": true,
   "projectFilePath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
-=======
-  "dgSpecHash": "q2/dkr9zgUSideXnxW4We5JSKi6x0jzKMvc5GN3ghfq9BiZk5Ed3qBLZmnhIV6ZwW5rd89nbRr4a2RSBo5wSSw==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\CHIP.csproj",
->>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
   "expectedPackageFiles": [
     "C:\\Users\\tux\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\tux\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
@@ -107,7 +101,15 @@
   ],
   "logs": [
     {
-<<<<<<< HEAD
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problem reading the cache file C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
+      "targetGraphs": []
+    },
+    {
       "code": "NU1903",
       "level": "Warning",
       "message": "Package 'SixLabors.ImageSharp' 1.0.0-beta0004 has a known high severity vulnerability, https://github.com/advisories/GHSA-2cmq-823j-5qj8",
@@ -126,12 +128,6 @@
       "projectPath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
-=======
-      "code": "NU1902",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'SixLabors.ImageSharp' 1.0.0-beta0004 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-5x7m-6737-26cr",
->>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -140,7 +136,6 @@
     {
       "code": "NU1903",
       "level": "Warning",
-<<<<<<< HEAD
       "message": "Package 'SixLabors.ImageSharp' 1.0.0-beta0004 has a known high severity vulnerability, https://github.com/advisories/GHSA-63p8-c4ww-9cg7",
       "projectPath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
       "warningLevel": 1,
@@ -157,10 +152,6 @@
       "projectPath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
-=======
-      "warningLevel": 1,
-      "message": "Package 'SixLabors.ImageSharp' 1.0.0-beta0004 has a known high severity vulnerability, https://github.com/advisories/GHSA-65x7-c272-7g7r",
->>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
@@ -169,7 +160,6 @@
     {
       "code": "NU1902",
       "level": "Warning",
-<<<<<<< HEAD
       "message": "Package 'SixLabors.ImageSharp' 1.0.0-beta0004 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g85r-6x2q-45w7",
       "projectPath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
       "warningLevel": 1,
@@ -198,10 +188,6 @@
       "projectPath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
-=======
-      "warningLevel": 1,
-      "message": "Package 'SixLabors.ImageSharp' 1.0.0-beta0004 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-g85r-6x2q-45w7",
->>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
