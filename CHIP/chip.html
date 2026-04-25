@@ -1,52 +1,316 @@
 ﻿<!DOCTYPE>
 <html>
+<meta meta name="viewport" content="minimal-ui,width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
 <head>
     <title>CHIP</title>
     <link rel="stylesheet" href="chip-style.css">
-    <meta http-equiv="refresh" content="10" />
 </head>
 <body>
+    <div class="tab">
+        <button class="tablinks clickonstart" id="GifButton" onclick="openTab(event, 'Gif')">Gif</button>
+        <button class="tablinks" id="TextButton" onclick="openTab(event, 'Text')">Text</button>
+        <button class="tablinks" id="DrawButton" onclick="openTab(event, 'Draw')">Draw</button>
+    </div>
+    <div id="Gif" class="tabcontent">
+        <form id="chip-faces">
+            <label for="Faces">Choose a Face:</label>
+            <select name="Faces" onchange="pushGifData()" id="chip-faces-select">
+                <option value="Happy face"></option>
+                <option value="Happy face">Happy face</option>
+                <option value="Sad face">Sad face</option>
+                <option value="Angry face">Angry face</option>
+                <option value="What face">What face</option>
+                <option value="Flag face">Flag face</option>
+                <!-- <option value="Gif face">Gif face</option> -->
+                <option value="Shock face">Shock face</option>
+                <!-- <option value="Snake face">Snake face</option> -->
+                <option value="Overheat face">Overheat face</option>
+                <!-- <option value="Cwood face">Cwood face</option> -->
+                <option value="Lowbatt face">Lowbatt face</option>
+                <option value="Pacman face">Pacman face</option>
+                <option value="Matrix face">Matrix face</option>
+                <!-- <option value="8 Ball Face">8 Ball Face</option> -->
+                <!-- <option value="SHAKE BALL">SHAKE BALL</option> -->
+                <option value="HALLOWEEN FACE">HALLOWEEN FACE</option>
+                <option value="LOVE FACE">LOVE FACE</option>
+                <option value="textTest face">textTest face</option>
+                <option value="DvD face">DvD face</option>
+                <option value="matrix rain">matrix rain</option>
+            </select>
+            <!--<input type="submit" value="SetFace">-->
+        </form>
+    </div>
 
-    <form method="post" action="SetFace">
-        <label for="Faces">Choose a Face:</label>
-        <select name="Faces" id="chip-faces" onchange="onSelectChange()">
-            <option value="Happy face"></option>
-            <option value="Happy face">Happy face</option>
-            <option value="Sad face">Sad face</option>
-            <option value="Angry face">Angry face</option>
-            <option value="What face">What face</option>
-            <option value="Flag face">Flag face</option>
-            <!-- <option value="Gif face">Gif face</option> -->
-            <option value="Shock face">Shock face</option>
-            <!-- <option value="Snake face">Snake face</option> -->
-            <option value="Overheat face">Overheat face</option>
-            <!-- <option value="Cwood face">Cwood face</option> -->
-            <option value="Lowbatt face">Lowbatt face</option>
-            <option value="Pacman face">Pacman face</option>
-            <option value="Matrix face">Matrix face</option>
-            <!-- <option value="8 Ball Face">8 Ball Face</option> -->
-            <!-- <option value="SHAKE BALL">SHAKE BALL</option> -->
-            <option value="HALLOWEEN FACE">HALLOWEEN FACE</option>
-            <option value="LOVE FACE">LOVE FACE</option>
-            <option value="textTest face">textTest face</option>
-            <option value="DvD face">DvD face</option>
-            <option value="matrix rain">matrix rain</option>
-        </select>
-    <!--<input type="submit" value="SetFace">-->
-</form>
+    
 
-    </body>
+    <div id="Text" class="tabcontent">
+        <form id="chip-faces-text">
+            <div class="textformrow">
+                <div class="textformElement">
+                    <label for="Faces">Text:</label>
+                </div>
+                <div class="textformElement">
+                    <input type="text" id="ftext" name="ftext">
+                </div>
+            </div>
+            <div class="textformrow">
+                <div class="textformElement">
+                    <label for="Faces">Delay:</label>
+                </div>
+                <div class="textformElement">
+                    <input type="range" id="speed" name="speed" min="1" max="50">
+                </div>
+            </div>
+            <div class="textformrow">
+                <div class="textformElement">
+                    <label for="Faces">Colour:</label>
+                </div>
+                <div class="textformElement">
+                    <input type="color" id="color" name="color" value="#ffffff">
+                </div>
+            </div>
+            <div class="textformrow">
+                <div class="textformElement">
+                    <label for="Faces">Reverse Scroll:</label>
+                </div>
+                <div class="textformElement">
+                    <input type="checkbox" id="leftToRight" name="leftToRight" value="ltr">
+                </div>
+            </div>
+        </form>
+        <div class="textformrow">
+            <button onclick="pushTextData()">SetTextFace</button>
+        </div>
+    </div>
 
-    </html>
-    <script>
-        function onSelectChange(event) {
 
-            selectElement = document.querySelector('#chip-faces');
-            selectElement.form.submit();
-        };
 
-        //setTimeout(function () {
-        //    window.location.reload(1);
-        //}, 5000);
+        <div id="Draw" class="tabcontent">
+            <section class="container">
+                <div id="toolbar">
+                    <h1>Draw.</h1>
+                    <label for="stroke">Stroke</label>
+                    <input id="stroke" name='stroke' type="color" default="white">
+                    <label for="lineWidth">Line Width</label>
+                    <input id="lineWidth" name='lineWidth' type="number" value="5">
+                    <button id="clear" class="clickonstart">Clear</button>
+                    <button id="push">Push</button>
+                    <input type="checkbox" id="RealTimeDraw">
+                    <label for="Faces"> Real Time</label><br>
+                </div>
+                <div class="drawing-board" id="drawing-board">
+                    <canvas id="canvas" width="640" height="320" style="border:1px solid grey"></canvas>
+                </div>
+            </section>
+        </div>
 
-    </script>
+</body>
+
+</html>
+<script>
+    
+    function ignoreForm(e) {
+        if (e.preventDefault) e.preventDefault();
+        // You must return false to prevent the default form behavior
+        return false;
+    }
+    document.getElementById('chip-faces-text').addEventListener("submit", ignoreForm);
+
+    function pushGifData() {
+        var input = document.getElementById("chip-faces-select");
+        var inputData = encodeURIComponent(input.value);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "SetFace", true);
+        xhttp.send("Faces=" + inputData);
+    }
+
+
+    function pushTextData(){
+        //write async method for text data
+        var input1 = document.getElementById("ftext");
+        var inputData1 = encodeURIComponent(input1.value);
+        var input2 = document.getElementById("speed");
+        var inputData2 = encodeURIComponent(input2.value);
+        var input3 = document.getElementById("color");
+        var inputData3 = encodeURIComponent(input3.value);
+        var input4 = document.getElementById("leftToRight");
+        var inputData4 = encodeURIComponent(input4.checked);
+
+        //expecting ftext = hello + world +& speed=267 & color=% 23ffffff & leftToRight=ltr
+        var str = "ftext = " + inputData1 + "& speed=" + inputData2 + "& color=" + inputData3 + "& leftToRight=" + inputData4;
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "SetTextFace", true);
+        xhttp.send(str);
+    }
+
+
+    document.addEventListener('click', e => {
+        if (e.target.id === 'push') {
+            pushData();
+        }
+    });
+
+    document.addEventListener('click', e => {
+        if (e.target.id === 'clear') {
+            ctx.fillStyle = "black";
+            ctx.rect(0, 0, 640, 320); // Add a rectangle to the current path
+            ctx.fill();
+        }
+    });
+
+    function pushData() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "rawrdata", true);
+        xhttp.send(prep());
+    }
+
+    function prep() {
+        var unscaledprepimgdata = ctx.getImageData(0, 0, 640, 320);
+        var canvas = document.createElement('canvas');
+        canvas.width = 640;
+        canvas.height = 320;
+        var destCtx = canvas.getContext("2d");
+        destCtx.putImageData(unscaledprepimgdata, 0, 0);
+        destCtx.scale(0.1, 0.1);
+        destCtx.drawImage(canvas, 0, 0);
+        var prepimgdata = destCtx.getImageData(0, 0, 64, 32);
+
+        let str = '';
+        for (let i = 0; i < 8192; i+=4) {
+            let red = prepimgdata.data[i];
+            let green = prepimgdata.data[i+1];
+            let blue = prepimgdata.data[i+2];
+            let alpha = prepimgdata.data[i+3];
+
+            str = str + rgbToHex(red,green,blue);
+        }
+        return str;
+    }
+
+    function componentToHex(c) {
+        var hex = c.toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
+    }
+    function rgbToHex(r, g, b) {
+        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
+
+    document.body.style.margin = 0;
+    canvas.style.position = 'relative';
+     
+    var ctx = canvas.getContext('2d');
+
+    var pos = {
+        x: 0,
+        y: 0
+    };
+
+    var buttonDown = false;
+
+    const cvs = document.getElementById("canvas");
+    cvs.addEventListener('mousedown', getRandomInt);
+    cvs.addEventListener('touchstart', getRandomInt);
+
+    document.addEventListener('mousemove', draw);
+    document.addEventListener('mousedown', setPosition);
+    document.addEventListener('mouseup', released);
+
+    document.addEventListener('touchstart', setPosition);
+    document.addEventListener('touchmove', draw);
+    document.addEventListener('touchend', released);
+
+    function getRandomInt() {
+        window.randInt = Math.floor(Math.random() * Math.floor(3));
+    }
+
+    function released(e) {
+        buttonDown = false;
+    }
+
+    function setPosition(e) {
+        if (e.type == "touchstart" || e.type == "mousedown") {
+            buttonDown = true;
+        }
+        if (e.type == "touchstart" || e.type == "touchmove") {
+            pos.x = e.touches[0].clientX - document.getElementById("drawing-board").offsetLeft; 
+            pos.y = e.touches[0].clientY - document.getElementById("drawing-board").offsetTop;
+        } else {
+            pos.x = e.clientX - document.getElementById("drawing-board").offsetLeft;
+            pos.y = e.clientY - document.getElementById("drawing-board").offsetTop;
+        }
+    }
+
+    
+    function draw(e) {
+        if (!buttonDown || !(document.getElementById("DrawButton").className === "tablinks active")) return;
+        ctx.beginPath();
+
+        ctx.lineWidth = document.getElementById("lineWidth").value;
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = document.getElementById("stroke").value;
+
+        ctx.moveTo(pos.x, pos.y);
+        setPosition(e);
+        ctx.lineTo(pos.x, pos.y);
+
+        ctx.stroke();
+
+        if (document.getElementById("RealTimeDraw").checked) {
+            pushData();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        buttons = document.getElementsByClassName("clickonstart");
+        for (i = 0; i < buttons.length; i++) {
+            buttons[i].click();
+        }
+    }, false);
+
+
+    
+    
+    function openTab(evt, TabName) {
+        // Declare all variables
+        var i, tabcontent, tablinks;
+
+        // Get all elements with class="tabcontent" and hide them
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+
+        // Get all elements with class="tablinks" and remove the class "active"
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab, and add an "active" class to the button that opened the tab
+        document.getElementById(TabName).style.display = "block";
+        evt.currentTarget.className += " active";
+
+        if (evt.currentTarget.id === "GifButton") {
+            //pushGifData();
+        }
+        if (evt.currentTarget.id === "TextButton") {
+            //pushTesxtData();
+        }
+        if (evt.currentTarget.id === "DrawButton") {
+           //pushData();
+        }
+
+
+    }
+    
+
+
+
+
+
+
+
+
+
+</script>

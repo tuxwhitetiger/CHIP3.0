@@ -1,4 +1,6 @@
 ﻿
+using Microsoft.VisualBasic.FileIO;
+using RPiRgbLEDMatrix;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +8,7 @@ using System.Linq;
 using System.Net;
 using System.Reflection.Emit;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace CHIP
@@ -17,24 +20,34 @@ namespace CHIP
         public static string[] urls = { "http://10.1.1.1:8000/"};
         public static int pageViews = 0;
         public static int requestCount = 0;
+
+        public static bool loggingEnabled = false;
+
         /*
-        public static string pageData =
-            "<!DOCTYPE>" +
-            "<html>" +
-            "  <head>" +
-            "    <title>HttpListener Example</title>" +
-            "  </head>" +
-        "  <body>" +
-            "    <p>Page Views: {0}</p>" +
-            "    <form method=\"post\" action=\"shutdown\">" +
-            "      <input type=\"submit\" value=\"Shutdown\" {1}>" +
-            "    </form>" +
-            "  </body>" +
-            "</html>";
-        */
+public static string pageData =
+"<!DOCTYPE>" +
+"<html>" +
+"  <head>" +
+"    <title>HttpListener Example</title>" +
+"  </head>" +
+"  <body>" +
+"    <p>Page Views: {0}</p>" +
+"    <form method=\"post\" action=\"shutdown\">" +
+"      <input type=\"submit\" value=\"Shutdown\" {1}>" +
+"    </form>" +
+"  </body>" +
+"</html>";
+*/
         public static String face = "Happy face";
         public static bool newface = false;
         private Logger mylogger;
+
+        private static string textFacetext = " test ";
+        private static string textFacespeed= "50";
+        private static string textFacecolur = "ffffff";
+        private static bool textFaceScroll = false;
+
+        private static Color[,] DrawFaceData = new Color[32, 64];
 
         public static double temperature = 0;
         public static double voltagetotal = 0;
@@ -47,6 +60,7 @@ namespace CHIP
         {
             this.mylogger = mylogger;
         }
+     
 
         public void run()
         {
@@ -83,41 +97,186 @@ namespace CHIP
             // While a user hasn't visited the `shutdown` url, keep on handling requests
             while (runServer)
             {
-                mylogger.Log("waiting for webrequest");
+                if (loggingEnabled) { 
+                    mylogger.Log("waiting for webrequest"); 
+                }
                 // Will wait here until we hear from a connection
                 HttpListenerContext ctx = await listener.GetContextAsync();
-                mylogger.Log("webrequest resived");
+                if (loggingEnabled)
+                {
+                    mylogger.Log("webrequest resived");
+                }
                 // Peel out the requests and response objects
                 HttpListenerRequest req = ctx.Request;
                 HttpListenerResponse resp = ctx.Response;
-                mylogger.Log("HttpListenerRequest and HttpListenerResponse setup");
-
-                // If `shutdown` url requested w/ POST, then shutdown the server after serving the page
-                if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/shutdown"))
+                if (loggingEnabled)
                 {
-                    Console.WriteLine("Shutdown requested");
-                    runServer = false;
+                    mylogger.Log("HttpListenerRequest and HttpListenerResponse setup");
                 }
+
                 //if a face was posted
                 if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/SetFace"))
                 {
-                    mylogger.Log("web server got a post req");
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("web server got a post req");
+                    }
                     Stream body = req.InputStream;
                     Encoding encoding = req.ContentEncoding;
-                    mylogger.Log("stream and encoding built");
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("stream and encoding built");
+                    }
                     StreamReader reader = new System.IO.StreamReader(body, encoding);
-                    mylogger.Log("reader built go reader go");
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("reader built go reader go");
+                    }
                     string s = reader.ReadToEnd();
-                    mylogger.Log("recived this : " + s);
+                    //if (loggingEnabled)
+                    {
+                        mylogger.Log("SetFace recived this : " + s);
+                    }
 
                     //dosomething with the data here
                     //expecting Faces=Pacman+face
                     //needs to be Pacman face
-                    string output = s.Split('=')[1].Replace('+',' ');
-                    mylogger.Log("reader output converted to this :"+ output);
+                    string output = s.Split('=')[1].Replace("%20", " ");
+                    //if (loggingEnabled)
+                    {
+                        mylogger.Log("reader output converted to this :" + output);
+                    }
 
                     face = output;
                     newface = true;
+                }
+                else if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/SetTextFace"))
+                {
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("web server got a post req");
+                    }
+                    Stream body = req.InputStream;
+                    Encoding encoding = req.ContentEncoding;
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("stream and encoding built");
+                    }
+                    StreamReader reader = new System.IO.StreamReader(body, encoding);
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("reader built go reader go");
+                    }
+                    string s = reader.ReadToEnd();
+                    //if (loggingEnabled)
+                    {
+                        mylogger.Log("SetTextFace recived this : " + s);
+                    }
+
+                    //dosomething with the data here
+                    //expecting ftext=hello+world+&speed=267&color=%23ffffff&leftToRight=true
+
+                    string[] items = s.Split('&');
+
+                    string output = items[0].Split('=')[1].Replace("%20", " ");
+                    string speed = items[1].Split('=')[1];
+                    string coluor = items[2].Split('=')[1].Replace("%23", "");
+                    bool scroll = false;
+                    if (items.Length > 3)
+                    {
+                        scroll = items[3].Split('=')[1].Equals("true");
+                    }
+
+                    //if (loggingEnabled)
+                    {
+                        mylogger.Log("reader output converted to this :" + output);
+                    }
+                    textFacetext = output;
+                    textFacespeed = speed;
+                    textFacecolur = coluor;
+                    textFaceScroll = scroll;
+                    face = "textFace";
+                    newface = true;
+                }
+                else if ((req.HttpMethod == "POST") && (req.Url.AbsolutePath == "/rawrdata"))
+                {
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("web server got a post req");
+                    }
+                    Stream body = req.InputStream;
+                    Encoding encoding = req.ContentEncoding;
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("stream and encoding built");
+                    }
+                    StreamReader reader = new System.IO.StreamReader(body, encoding);
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("reader built go reader go");
+                    }
+                    string s = reader.ReadToEnd();
+                    
+                    //if (loggingEnabled)
+                    {
+                        //mylogger.Log("rawrdata recived this : " + s);
+                    }
+
+                    //dosomething with the data here
+                    //mylogger.Log("rawrdata recived this size : " + s.Length);
+                    string[] colours = s.Split('#');
+                    //mylogger.Log("colours size : " + colours.Length);
+                    int row = 0;
+                    int col = 0;
+                    Color[,] colorData = new Color[64,32];
+                    //mylogger.Log("s1 length : " + colours[0].Length + " " + colours[0]);
+                    int count = 0;
+                    foreach (string s1 in colours)
+                    {
+                        if (s1.Length == 6)
+                        {
+                            //mylogger.Log("row : " + row + " col:" + col + " count:" + count);
+                            //mylogger.Log("colour : " + s1);
+                            Color c = new Color(Convert.ToInt32(s1.Substring(0, 2), 16), Convert.ToInt32(s1.Substring(2, 2), 16), Convert.ToInt32(s1.Substring(4, 2), 16));
+                            //mylogger.Log("c : " + c.ToString());
+                            colorData[row, col] = c;
+                            row++;
+                            count++;
+                            if (row == 64)
+                            {
+                                row = 0;
+                                col++;
+                            }
+                        }
+                        else {
+                            //mylogger.Log("pWTF is: " + s1);
+                        }
+                    }
+                    //mylogger.Log("pixelData size : " + colorData.Length);//2048
+                    DrawFaceData = colorData;
+                    face = "DrawFace";
+                    newface = true;
+                    /*
+                    string output = items[0].Split('=')[1].Replace('+', ' ');
+                    string speed = items[1].Split('=')[1];
+                    string coluor = items[2].Split('=')[1].Replace("%23", "");
+                    bool scroll = false;
+                    if (items.Length > 3)
+                    {
+                        scroll = items[3].Split('=')[1].Equals("ltr");
+                    }
+
+                    //if (loggingEnabled)
+                    {
+                        mylogger.Log("reader output converted to this :" + output);
+                    }
+                    textFacetext = output;
+                    textFacespeed = speed;
+                    textFacecolur = coluor;
+                    textFaceScroll = scroll;
+                    face = "textFace";
+                    newface = true;
+                    */
                 }
 
                 // Make sure we don't increment the page views counter if `favicon.ico` is requested
@@ -132,10 +291,16 @@ namespace CHIP
                     byte[] data = { };
                     try
                     {
-                        mylogger.Log("try and load css");
+                        if (loggingEnabled)
+                        {
+                            mylogger.Log("try and load css");
+                        }
                         data = File.ReadAllBytes("./chip-style.css");
 
-                        mylogger.Log("css loaded");
+                        if (loggingEnabled)
+                        {
+                            mylogger.Log("css loaded");
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -147,7 +312,10 @@ namespace CHIP
                     await resp.OutputStream.WriteAsync(data, 0, data.Length);
                 }
                 else if ((req.HttpMethod == "GET") && (req.Url.AbsolutePath.Contains("update-battery"))) {
-                    mylogger.Log("battery trying to update with :"+ req.Url.OriginalString);
+                    if (loggingEnabled)
+                    {
+                        mylogger.Log("battery trying to update with :" + req.Url.OriginalString);
+                    }
                     String[] strings = req.Url.OriginalString.Split("?")[1].Split("&");
                     //Expecting temperature=" + x + "&voltagetotal=" + x + "&voltagecell1=" + x + "&voltagecell2=" + x + "&AmpTotal=" + x;
                     temperature = double.Parse(strings[0].Split("=")[1]);
@@ -171,11 +339,14 @@ namespace CHIP
                     {
                         List<byte[]> bytes = new List<byte[]>();
 
-                        mylogger.Log("try and load html");
+                        if (loggingEnabled)
+                        {
+                            mylogger.Log("try and load html");
+                        }
                         bytes.Add(File.ReadAllBytes("./chip.html"));
-                        bytes.Add(Encoding.ASCII.GetBytes("<div class=temp><p>Temperature :" + temperature + "</p></div>"));
-                        bytes.Add(Encoding.ASCII.GetBytes("<div class=volt><p>Voltage :" + voltagetotal + "</p></div>"));
-                        bytes.Add(Encoding.ASCII.GetBytes("<div class=amp><p>Amp :" + AmpTotal + "</p></div>"));
+                        //bytes.Add(Encoding.ASCII.GetBytes("<div class=temp><p>Temperature :" + temperature + "</p></div>"));
+                        //bytes.Add(Encoding.ASCII.GetBytes("<div class=volt><p>Voltage :" + voltagetotal + "</p></div>"));
+                        //bytes.Add(Encoding.ASCII.GetBytes("<div class=amp><p>Amp :" + AmpTotal + "</p></div>"));
                         int Totallengeth = 0;
                         int lengthsofar = 0;
                         byte[][] mybytes = bytes.ToArray();
@@ -225,6 +396,28 @@ namespace CHIP
         internal bool getnewface()
         {
             return newface;
+        }
+
+        internal String GetText()
+        {
+            return textFacetext;
+        }
+        internal String GetTextFacespeed()
+        {
+            return textFacespeed;
+        }
+        internal String GetTextFaceColour()
+        {
+            return textFacecolur;
+        }
+        internal bool GetTextFaceScroll()
+        {
+            return textFaceScroll;
+        }
+
+        internal Color[,] GetDrawFaceData()
+        {
+            return DrawFaceData;
         }
     }
 }
