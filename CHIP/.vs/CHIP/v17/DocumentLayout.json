@@ -1,0 +1,165 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\chip3.0\\chip\\face controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:face controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\chip3.0\\chip\\face.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:face.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\chip3.0\\chip\\webserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:webserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\chip3.0\\chip\\internal display.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:internal display.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\chip3.0\\chip\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\chip3.0\\chip\\cmatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:cmatrix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|c:\\users\\tux\\source\\repos\\chip3.0\\chip\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{178E6199-817C-4B42-81B0-76389561C8C5}|CHIP.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 102,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 677,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T18:23:00.581Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Logger.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\Logger.cs",
+              "RelativeDocumentMoniker": "Logger.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\Logger.cs",
+              "RelativeToolTip": "Logger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-28T16:26:57.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "cmatrix.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\cmatrix.cs",
+              "RelativeDocumentMoniker": "cmatrix.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\cmatrix.cs",
+              "RelativeToolTip": "cmatrix.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T18:21:19.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "face controller.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\face controller.cs",
+              "RelativeDocumentMoniker": "face controller.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\face controller.cs",
+              "RelativeToolTip": "face controller.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAYwGAAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T18:16:04.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WebServer.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\WebServer.cs",
+              "RelativeDocumentMoniker": "WebServer.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\WebServer.cs",
+              "RelativeToolTip": "WebServer.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAQwEcAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T18:26:01.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "internal display.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\internal display.cs",
+              "RelativeDocumentMoniker": "internal display.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\internal display.cs",
+              "RelativeToolTip": "internal display.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T18:26:51.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Face.cs",
+              "DocumentMoniker": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\Face.cs",
+              "RelativeDocumentMoniker": "Face.cs",
+              "ToolTip": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\Face.cs",
+              "RelativeToolTip": "Face.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAAwMsAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-25T18:27:26.184Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
