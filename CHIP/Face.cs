@@ -17,9 +17,6 @@ namespace CHIP
 
         CalanderClock clock;
 
-        TextFace tface;
-        DrawFace dface;
-
         snake snakegame;
         magic8Ball eightball = new magic8Ball();
         cmatrix cmatrix ;
@@ -186,13 +183,7 @@ namespace CHIP
             timer = new Stopwatch();
             timer.Start();
             canvas.Clear();
-            mylogger.Log("load cmatrix");
             cmatrix = new cmatrix(mylogger);
-
-            mylogger.Log("load textface");
-            tface = new TextFace(mylogger, " TEST ");
-            dface = new DrawFace(mylogger);
-
             mylogger.Log("completed loader");
             this.runningface = runningface;
             mylogger.Log("dictonery count:" + allGifs.Count.ToString());
@@ -227,21 +218,8 @@ namespace CHIP
                 case faces.textTest: textTest();break;
                 case faces.DvDBounce: DvDTick(); break;
                 case faces.matrixRain: matrixRain();break;
-                case faces.textFace: textFace();break;
-                case faces.DrawFace: drawface();break;
             }
         }
-
-        private void drawface()
-        {
-            dface.update(canvas, matrix);
-        }
-
-        private void textFace()
-        {
-            tface.update(canvas, matrix, font);
-        }
-
         private void matrixRain() {
             cmatrix.Frame(canvas, matrix);
         }
@@ -402,30 +380,6 @@ namespace CHIP
                 //case "GET TIME": net.speak("time is " + DateTime.Now.Hour.ToString() + " " + DateTime.Now.Minute.ToString()); break;
 
             }
-        }
-
-        internal void setText(string text)
-        {
-            tface.SetText(text);
-        }
-
-        internal void SetTextFacespeed(string speed)
-        {
-            tface.SetTextFacespeed(speed);
-        }
-
-        internal void SetTextFaceColour(string colour)
-        {
-            tface.SetTextFaceColour(colour);
-        }
-        internal void SetTextFaceScroll(bool scroll)
-        {
-            tface.SetTextFaceScroll(scroll);
-        }
-
-        internal void setDrawFaceData(Color[,] colors)
-        {
-            dface.DrawFaceData = colors; 
         }
     }
 }

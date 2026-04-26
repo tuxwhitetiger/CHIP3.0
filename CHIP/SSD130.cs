@@ -81,9 +81,7 @@ namespace CHIP
 
         void _initialize(Logger mylogger)
         {
-            try
-            {
-                mylogger.Log("3.1");
+            mylogger.Log("3.1");
             Command(SSD1306_DISPLAYOFF);
             mylogger.Log("3.2");
             Command(SSD1306_SETDISPLAYCLOCKDIV);
@@ -128,14 +126,6 @@ namespace CHIP
             Command(SSD1306_DISPLAYALLON_RESUME);
             Command(SSD1306_NORMALDISPLAY);
             mylogger.Log("3.11");
-            }
-            catch (Exception e)
-            {
-                mylogger.Log(e.Message);
-                mylogger.Log(e.Source);
-                mylogger.Log(e.StackTrace);
-                throw e;
-            }
         }
 
         public void Command(Int16 command)
@@ -149,7 +139,6 @@ namespace CHIP
                 mylogger.Log(e.Message);
                 mylogger.Log(e.Source);
                 mylogger.Log(e.StackTrace);
-                throw new Exception("write bit to i2c failed");
             }
         }
 

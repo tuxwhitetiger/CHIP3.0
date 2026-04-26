@@ -1,134 +1,19 @@
-﻿
-body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden;
+﻿body {
     background-color: lightblue;
-    color: white;
+    font-size: 40px;
 }
 
 h1 {
-    background: #7F7FD5;
-    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
-    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: navy;
+    margin-left: 20px;
 }
 
 select {
     width: 80%;
-    height: 40px;
-    
+    height: 20%;
+    padding: 16px 20px;
     border: none;
     border-radius: 4px;
     background-color: #f1f1f1;
-    font-size: 30px;
-}
-
-.container {
-    height: 100%;
-    display: flex;
-}
-
-
-#Text {
-    font-size: 20px;
-    
-}
-
-
-    #Text label {
-        font-size: 20px;
-    }
-
-    #Text input {
-        width: 100%;
-        height: 100%;
-    }
-    #Text button {
-        width: 100%;
-        height: 40%;
-    }
-
-
-.textformrow {
-    display: table-row;
-    vertical-align: middle;
-    height: 50px;
-    width: 100%;
-}
-.textformElement {
-    display: table-cell;
-    vertical-align: middle;
-    height: 50px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-#toolbar {
-    display: flex;
-    flex-direction: column;
-    padding: 5px;
-    width: 70px;
-    background-color: #202020;
-}
-
-#toolbar * {
-    margin-bottom: 6px;
-}
-
-#toolbar label {
-    font-size: 12px;
-}
-
-#toolbar input {
-    width: 100%;
-}
-
-#toolbar button {
-    background-color: #1565c0;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    padding: 2px;
-}
-
-
-
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-}
-/* Style the buttons that are used to open the tab content */
-.tab button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-    background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-    background-color: #ccc;
+    font-size: 40px;
 }

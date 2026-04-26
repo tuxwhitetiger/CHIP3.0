@@ -29,16 +29,14 @@ namespace CHIP
             mylogger.Log("net.connect");
 
             net.connect();
-            mylogger.Log("new Face");
             face = new Face();
             face.load(mylogger,net);
 
 
-            mylogger.Log("build tasks");
+
             Task task = Task.Factory.StartNew(() => { while (true) { Update(); } });
             Task task2 = Task.Factory.StartNew(() => { while (true) { featch(); } });
             Task task3 = Task.Factory.StartNew(() => { while (true) { webserver.run(); } });
-            mylogger.Log("face controller startted");
 
         }
 
@@ -48,56 +46,53 @@ namespace CHIP
         }
 
         public void featch() {
-            //mylogger.Log("featch"); //only got run once
-            
-            String newface = "";
-            /*
+
+            String face = "";
+
             lastFace = nextFace;
             nextFace = net.getFace();
             if (lastFace.Equals(nextFace))
             {
                 face=nextFace;
             }
-            */
+
             if (webserver.getnewface())
             {
+                face=webserver.getface();
+                net.setFace(face);
                 mylogger.Log("webserver has a newface");
-                newface =webserver.getface();
-                mylogger.Log("update network");
-                //net.setFace(face);
-                mylogger.Log("processFace:" + newface);
-                processFace(newface);
             }
+
+            processFace(face);
         }
 
-        public void processFace(String facename) {
+        public void processFace(String face) {
             
-            switch (facename) // need to make this async
-            {
-                case "Sad face": currentface = faces.sad; mylogger.Log("face set"); break;
-                case "Happy face": currentface = faces.happy; mylogger.Log("face set"); break;
-                case "Angry face": currentface = faces.Angry; mylogger.Log("face set"); break;
-                case "What face": currentface = faces.What; mylogger.Log("face set"); break;
-                case "Flag face": currentface = faces.Flag; mylogger.Log("face set"); break;
-                case "Gif face": currentface = faces.Gif; mylogger.Log("face set"); break;
-                case "Shock face": currentface = faces.Oh; mylogger.Log("face set"); break;
-                case "Snake face": currentface = faces.snake; mylogger.Log("face set"); break;
-                case "Overheat face": currentface = faces.Overheat; mylogger.Log("face set"); break;
-                case "Cwood face": currentface = faces.cwood; mylogger.Log("face set"); break;
-                case "Lowbatt face": currentface = faces.lowbatt; mylogger.Log("face set"); break;
-                case "Pacman face": currentface = faces.pacman; mylogger.Log("face set"); break;
-                case "Matrix face": currentface = faces.matrix; mylogger.Log("face set"); break;
-                case "8 Ball Face": currentface = faces.eightball; mylogger.Log("face set"); break;
-                case "SHAKE BALL": currentface = faces.eightball; mylogger.Log("face set"); break;
-                case "HALLOWEEN FACE": currentface = faces.Halloween; mylogger.Log("face set"); break;
-                case "LOVE FACE": currentface = faces.Love; mylogger.Log("face set"); break;
-                case "textTest face": currentface = faces.textTest; mylogger.Log("face set"); break;
-                case "DvD face": currentface = faces.DvDBounce; mylogger.Log("face set"); break;
-                case "matrix rain": currentface = faces.matrixRain; mylogger.Log("face set"); break;
-                case "textFace": currentface = faces.textFace; face.setText(webserver.GetText()); face.SetTextFacespeed(webserver.GetTextFacespeed()); face.SetTextFaceColour(webserver.GetTextFaceColour()); face.SetTextFaceScroll(webserver.GetTextFaceScroll()); mylogger.Log("face set"); break;
-                case "DrawFace": currentface = faces.DrawFace; face.setDrawFaceData(webserver.GetDrawFaceData());break;
 
-                default:currentface = faces.happy; mylogger.Log("default face set"); break;
+
+            switch (face) // need to make this async
+            {
+                case "Sad face": currentface = faces.sad; break;
+                case "Happy face": currentface = faces.happy; break;
+                case "Angry face": currentface = faces.Angry; break;
+                case "What face": currentface = faces.What; break;
+                case "Flag face": currentface = faces.Flag; break;
+                case "Gif face": currentface = faces.Gif; break;
+                case "Shock face": currentface = faces.Oh; break;
+                case "Snake face": currentface = faces.snake; break;
+                case "Overheat face": currentface = faces.Overheat; break;
+                case "Cwood face": currentface = faces.cwood; break;
+                case "Lowbatt face": currentface = faces.lowbatt; break;
+                case "Pacman face": currentface = faces.pacman; break;
+                case "Matrix face": currentface = faces.matrix; break;
+                case "8 Ball Face": currentface = faces.eightball; break;
+                case "SHAKE BALL": currentface = faces.eightball; break;
+                case "HALLOWEEN FACE": currentface = faces.Halloween; break;
+                case "LOVE FACE": currentface = faces.Love; break;
+                case "textTest face": currentface = faces.textTest; break;
+                case "DvD face": currentface = faces.DvDBounce; break;
+                case "matrix rain": currentface = faces.matrixRain; break;
+                default:currentface = faces.happy; break;
             }
         }
 
