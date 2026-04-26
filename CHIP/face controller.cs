@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharpDX.DXGI;
+using System;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
 using System.Text;
@@ -15,6 +16,7 @@ namespace CHIP
         WebServer webserver;
         string nextFace = "happy face";
         string lastFace = "happy face";
+        public internal_display internal_Display;
         public face_controller(Logger mylogger) {
             this.mylogger = mylogger;
             mylogger.Log("starting mynetwork");
@@ -27,7 +29,14 @@ namespace CHIP
             mylogger.Log("starting CalanderClock");
             //clock = new CalanderClock(net);
             mylogger.Log("net.connect");
+            try
+            {
+                internal_Display = new internal_display(mylogger);
+            }
+            catch (Exception ex)
+            {
 
+            }
             net.connect();
             face = new Face();
             face.load(mylogger,net);
@@ -69,7 +78,7 @@ namespace CHIP
         public void processFace(String face) {
             
 
-
+            internal_Display.update(face);
             switch (face) // need to make this async
             {
                 case "Sad face": currentface = faces.sad; break;
