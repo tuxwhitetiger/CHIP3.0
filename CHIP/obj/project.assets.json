@@ -5672,24 +5672,36 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\tux\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+=======
+    "C:\\Users\\tux\\.nuget\\packages\\": {}
+>>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
       "projectName": "CHIP",
       "projectPath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\CHIP.csproj",
       "packagesPath": "C:\\Users\\tux\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\CHIP.csproj",
+      "projectName": "CHIP",
+      "projectPath": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\CHIP.csproj",
+      "packagesPath": "C:\\Users\\tux\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tux\\source\\repos\\tuxwhitetiger\\CHIP3.0\\CHIP\\obj\\",
+>>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\tux\\AppData\\Roaming\\NuGet\\NuGet.Config",
+<<<<<<< HEAD
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+=======
+>>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5715,8 +5727,12 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
+<<<<<<< HEAD
       },
       "SdkAnalysisLevel": "10.0.100"
+=======
+      }
+>>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
     },
     "frameworks": {
       "netcoreapp3.1": {
@@ -5767,18 +5783,17 @@
             "privateAssets": "all"
           }
         },
+<<<<<<< HEAD
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.107\\RuntimeIdentifierGraph.json"
+=======
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
+>>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
       }
     }
   },
   "logs": [
     {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\tux\\source\\repos\\CHIP3.0\\CHIP\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0."
-    },
-    {
+<<<<<<< HEAD
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
@@ -5789,6 +5804,8 @@
       ]
     },
     {
+=======
+>>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
       "code": "NU1902",
       "level": "Warning",
       "warningLevel": 1,
@@ -5802,6 +5819,7 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Package 'SixLabors.ImageSharp' 1.0.0-beta0004 has a known high severity vulnerability, https://github.com/advisories/GHSA-63p8-c4ww-9cg7",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
@@ -5812,6 +5830,8 @@
       "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
+=======
+>>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
       "message": "Package 'SixLabors.ImageSharp' 1.0.0-beta0004 has a known high severity vulnerability, https://github.com/advisories/GHSA-65x7-c272-7g7r",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
@@ -5827,6 +5847,7 @@
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]
+<<<<<<< HEAD
     },
     {
       "code": "NU1902",
@@ -5847,6 +5868,8 @@
       "targetGraphs": [
         ".NETCoreApp,Version=v3.1"
       ]
+=======
+>>>>>>> 331a3a0f794a1f746530a89075d3a65008597245
     }
   ]
 }
