@@ -24,6 +24,8 @@ namespace CHIP
         Love,
         textTest,
         DvDBounce,
-        matrixRain
+        matrixRain,
+        textFace,
+        DrawFace
     }
 }

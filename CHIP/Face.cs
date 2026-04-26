@@ -17,9 +17,12 @@ namespace CHIP
 
         CalanderClock clock;
 
+        TextFace tface;
+        DrawFace dface;
+
         snake snakegame;
         magic8Ball eightball = new magic8Ball();
-        cmatrix cmatrix ;
+        cmatrix cmatrix;
         textSpam Tspam = new textSpam();
         DynamicAnimationEngine dae = new DynamicAnimationEngine();
         private HSVSystem HSVS = new HSVSystem();
@@ -27,7 +30,7 @@ namespace CHIP
         RGBLedFont font;
 
         RGBLedMatrixOptions options = new RGBLedMatrixOptions();
-        
+
         RGBLedMatrix matrix;
         RGBLedCanvas canvas;
         Stopwatch timer;
@@ -36,7 +39,7 @@ namespace CHIP
         Random rand = new Random();
 
         faces runningface = faces.happy;
-        
+
 
         //setup gif faces
         IDictionary<string, Gif> allGifs = new Dictionary<string, Gif>();
@@ -45,7 +48,7 @@ namespace CHIP
         {
             mylogger = mynewlogger;
             mylogger.Log("starting loader");
-            
+
 
             options.Rows = 32;
             options.Cols = 64;
@@ -54,17 +57,17 @@ namespace CHIP
             options.GpioSlowdown = 4;
             options.HardwareMapping = "regular-CD-Flip"; //regular	adafruit-hat	adafruit-hat-pwm	regular-pi1	classic	classic-pi1	compute-module
             options.ScanMode = ScanModes.Progressive; //can be 0 or 1
-            options.RowAddressType= 0;//can be 0-4
-            options.Multiplexing= 0;//TEST LINE!!!
-            // Multiplexing can only be one of 0=normal; 1=Stripe; 2=Checkered; 3=Spiral; 4=ZStripe; 5=ZnMirrorZStripe; 6=coreman; 7=Kaler2Scan; 8=ZStripeUneven; 9=P10-128x4-Z; 10=QiangLiQ8; 11=InversedZStripe; 12=P10Outdoor1R1G1-1; 13=P10Outdoor1R1G1-2; 14=P10Outdoor1R1G1-3; 15=P10CoremanMapper; 16=P8Outdoor1R1G1; 17=FlippedStripe; 18=P10Outdoor32x16HalfScan
-            
+            options.RowAddressType = 0;//can be 0-4
+            options.Multiplexing = 0;//TEST LINE!!!
+                                     // Multiplexing can only be one of 0=normal; 1=Stripe; 2=Checkered; 3=Spiral; 4=ZStripe; 5=ZnMirrorZStripe; 6=coreman; 7=Kaler2Scan; 8=ZStripeUneven; 9=P10-128x4-Z; 10=QiangLiQ8; 11=InversedZStripe; 12=P10Outdoor1R1G1-1; 13=P10Outdoor1R1G1-2; 14=P10Outdoor1R1G1-3; 15=P10CoremanMapper; 16=P8Outdoor1R1G1; 17=FlippedStripe; 18=P10Outdoor32x16HalfScan
+
 
             mylogger.Log("matrix pop");
             matrix = new RGBLedMatrix(options);
             mylogger.Log("canvas pop");
             canvas = matrix.CreateOffscreenCanvas();
             mylogger.Log("net test");
-           // Console.WriteLine(net.getFace());
+            // Console.WriteLine(net.getFace());
             //mylogger.Log("net test result" + net.getFace());
             mylogger.Log("load snake");
             snakegame = new snake();
@@ -88,19 +91,23 @@ namespace CHIP
 
             mylogger.Log("remove from faces list if in serialized list");
             //remove from faces list if in serialized list
-            foreach (FileInfo fi in faces) {
+            foreach (FileInfo fi in faces)
+            {
                 mylogger.Log("file name : " + fi.Name);
                 Console.WriteLine(fi.Name);
                 bool removed = false;
-                foreach (FileInfo fi2 in serialfaces) {
+                foreach (FileInfo fi2 in serialfaces)
+                {
                     mylogger.Log("file2 name : " + fi2.Name);
                     Console.WriteLine(fi2.Name);
-                    if (fi.Name.Contains(fi2.Name.Trim().Substring(0, fi2.Name.Trim().Length - 7))){
+                    if (fi.Name.Contains(fi2.Name.Trim().Substring(0, fi2.Name.Trim().Length - 7)))
+                    {
                         //do nothing its a match
                         removed = true;
                     }
                 }
-                if (!removed) {
+                if (!removed)
+                {
                     toserialize.Add(fi);
                 }
             }
@@ -145,7 +152,7 @@ namespace CHIP
                 mylogger.Log("Build Serializer : starting destination2");
                 destination += ".serial";
                 mylogger.Log("Build Serializer : starting stream");
-                
+
                 try
                 {
                     Stream writer = new FileStream(destination, FileMode.Create, FileAccess.Write);
@@ -153,7 +160,8 @@ namespace CHIP
                     mylogger.Log("writing :" + fi.Name);
                     formatter.Serialize(writer, g.data);
                     writer.Close();
-                }catch( Exception ex)
+                }
+                catch (Exception ex)
                 {
                     if (ex is FileNotFoundException)
                     {
@@ -161,13 +169,14 @@ namespace CHIP
                         mylogger.Log("message: " + ex.Message);
                         mylogger.Log("StackTrace: " + ex.StackTrace);
                     }
-                    else { 
+                    else
+                    {
                         mylogger.Log("well shit some thing gone wrong");
                         mylogger.Log("message: " + ex.Message);
                         mylogger.Log("StackTrace: " + ex.StackTrace);
                     }
                 }
-                
+
                 allGifs.Add(g.data.name, g);
             }
             mylogger.Log("manual fixes to gif data");
@@ -183,7 +192,13 @@ namespace CHIP
             timer = new Stopwatch();
             timer.Start();
             canvas.Clear();
+            mylogger.Log("load cmatrix");
             cmatrix = new cmatrix(mylogger);
+
+            mylogger.Log("load textface");
+            tface = new TextFace(mylogger, " TEST ");
+            dface = new DrawFace(mylogger);
+
             mylogger.Log("completed loader");
             this.runningface = runningface;
             mylogger.Log("dictonery count:" + allGifs.Count.ToString());
@@ -196,9 +211,11 @@ namespace CHIP
                 Console.WriteLine(s);
             }
         }
-        public void update(faces runningface) {
+        public void update(faces runningface)
+        {
             HSVS.Tick();
-            switch (runningface) {
+            switch (runningface)
+            {
                 case faces.Angry: AngryTick(); break;
                 case faces.cwood: cwoodTick(); break;
                 case faces.Flag: FlagTick(); break;
@@ -214,13 +231,27 @@ namespace CHIP
                 case faces.What: WhatTick(); break;
                 case faces.eightball: eightballTick(); break;
                 case faces.Halloween: HalloweenTick(); break;
-                case faces.Love: loveTick();break;
-                case faces.textTest: textTest();break;
+                case faces.Love: loveTick(); break;
+                case faces.textTest: textTest(); break;
                 case faces.DvDBounce: DvDTick(); break;
-                case faces.matrixRain: matrixRain();break;
+                case faces.matrixRain: matrixRain(); break;
+                case faces.textFace: textFace(); break;
+                case faces.DrawFace: drawface(); break;
             }
         }
-        private void matrixRain() {
+
+        private void drawface()
+        {
+            dface.update(canvas, matrix);
+        }
+
+        private void textFace()
+        {
+            tface.update(canvas, matrix, font);
+        }
+
+        private void matrixRain()
+        {
             cmatrix.Frame(canvas, matrix);
         }
         private void textTest()
@@ -233,10 +264,12 @@ namespace CHIP
         {
             allGifs["Love-Face"].playGif(matrix, canvas);
         }
-        private void sadTick() {
+        private void sadTick()
+        {
             allGifs["Sad-Face"].playGif(matrix, canvas);
         }
-        private void OhTick() {
+        private void OhTick()
+        {
             allGifs["Shocked-Face"].playGif(matrix, canvas);
         }
         private void AngryTick()
@@ -252,30 +285,34 @@ namespace CHIP
 
         }
         public void amungussusKillFace() //imposter killing 
-        { 
+        {
 
         }
         public void amunguscrewmateFace() // you are the crewmate
         {
 
         }
-       
-        public void WhatTick() {
 
-            Tspam.Tick("?",50,25,canvas, matrix,font);
+        public void WhatTick()
+        {
+
+            Tspam.Tick("?", 50, 25, canvas, matrix, font);
         }
-        private void happyTick() {
+        private void happyTick()
+        {
             if (faceAnimationTimer.Elapsed.TotalSeconds >= faceAnimationDelay)
             {
                 allGifs["happy"].playGif(matrix, canvas);
                 faceAnimationTimer.Restart();
                 faceAnimationDelay = rand.Next(0, 5);
             }
-            else {
-                allGifs["happy"].printmirroredFrame(matrix, canvas,1);
+            else
+            {
+                allGifs["happy"].printmirroredFrame(matrix, canvas, 1);
             }
         }
-        private void setupDvD() {
+        private void setupDvD()
+        {
             if (!dae.setup)
             {
                 dae.mode = daemode.rainbowBounce;
@@ -290,10 +327,11 @@ namespace CHIP
 
                 HSVS.SetSpeed(1);
 
-                dae.setup= true;
+                dae.setup = true;
             }
         }
-        private void DvDTick() {
+        private void DvDTick()
+        {
             setupDvD();
             allGifs["DVD_logo"].printColorGrayscaleFrame(matrix, canvas, 0, HSVS.GetColor(), dae.x, dae.y);
             if (faceAnimationTimer.Elapsed.TotalMilliseconds >= faceAnimationDelay)
@@ -341,26 +379,33 @@ namespace CHIP
             int pick = rand.Next(0, allGifs.Values.Count);
             allGifs.Values.ElementAt(pick).playGif(matrix, canvas);
         }
-        private void FlagTick() {
+        private void FlagTick()
+        {
             allGifs["flag"].playGif(matrix, canvas);
         }
-        private void overheatTick() {
+        private void overheatTick()
+        {
             allGifs["overheat"].playGif(matrix, canvas);
         }
-        private void cwoodTick() {
+        private void cwoodTick()
+        {
             allGifs["CWOODSDEAN-full"].playGif(matrix, canvas);
             //need to fix moves to fast
         }
-        private void lowbattTick() {
+        private void lowbattTick()
+        {
             allGifs["lowbatt"].playGif(matrix, canvas);
         }
-        private void matrixTick() {
+        private void matrixTick()
+        {
             allGifs["matrix-spin"].playGif(matrix, canvas);
         }
-        private void pacmanTick() {
+        private void pacmanTick()
+        {
             allGifs["pacman"].playGif(matrix, canvas);
         }
-        private void eightballTick() {
+        private void eightballTick()
+        {
             eightball.updateTick();
             eightball.drawFace(matrix, canvas);
             //broken
@@ -380,6 +425,30 @@ namespace CHIP
                 //case "GET TIME": net.speak("time is " + DateTime.Now.Hour.ToString() + " " + DateTime.Now.Minute.ToString()); break;
 
             }
+        }
+
+        internal void setText(string text)
+        {
+            tface.SetText(text);
+        }
+
+        internal void SetTextFacespeed(string speed)
+        {
+            tface.SetTextFacespeed(speed);
+        }
+
+        internal void SetTextFaceColour(string colour)
+        {
+            tface.SetTextFaceColour(colour);
+        }
+        internal void SetTextFaceScroll(bool scroll)
+        {
+            tface.SetTextFaceScroll(scroll);
+        }
+
+        internal void setDrawFaceData(Color[,] colors)
+        {
+            dface.DrawFaceData = colors;
         }
     }
 }
